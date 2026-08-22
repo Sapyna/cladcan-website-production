@@ -27,3 +27,8 @@
   .contactFinalHero::after,.aboutV8Hero::after,.serviceV9Hero::after,.servicesHero::after,.systemsPageHero::after,.internalHero::after,.aluminumPageHero::after,.longboardHero::after,.applicationHero::after,.productDetailHero::after,.projectsV11Hero::after,.caseV11Hero::after,.insightsHero::after,.caseHero::after,.articleHero::after{background:linear-gradient(180deg,rgba(4,24,36,.22) 0%,rgba(4,24,36,.36) 30%,rgba(4,24,36,.84) 67%,rgba(4,24,36,.98) 100%)!important}
   .contactFinalHero h1,.aboutV8Hero h1,.serviceV9Hero h1,.servicesHero h1,.systemsPageHero h1,.internalHero h1,.aluminumPageHero h1,.longboardHero h1,.applicationHero h1,.productDetailHero h1,.projectsV11Hero h1,.caseV11Hero h1,.insightsHero h1,.caseHero h1,.articleHero h1{font-size:clamp(38px,11vw,54px)!important;line-height:1!important}
 }
+
+.projectsV11HeroGrid > div:last-child {
+  position: relative !important;
+  z-index: 2 !important;
+}
