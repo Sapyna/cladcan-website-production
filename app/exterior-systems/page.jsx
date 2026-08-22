@@ -31,7 +31,7 @@ export default function Page() {
         <div className="wrap systemsPageHeroInner">
           <span className="systemsPageEyebrow">EXTERIOR SYSTEMS</span>
           <h1>Exterior systems built for<br/><em>performance &amp; design.</em></h1>
-          <p>Explore exterior cladding, siding, soffit and building-envelope systems supplied, fabricated and professionally installed across Ontario.</p>
+          <p>Exterior systems should be selected around a project’s design intent, weather exposure, substrate, detailing and installation conditions—not around one material category alone.</p>
           <div className="systemsPageHeroActions">
             <Link href="/contact" className="btn systemsPagePrimary">Get a Quote <ArrowUpRight size={15}/></Link>
             <Link href="/contact" className="btn systemsPageSecondary">Request a Sample</Link>
@@ -46,8 +46,8 @@ export default function Page() {
             <h2>One exterior.<br/>Multiple systems.</h2>
           </div>
           <div className="systemsPageIntroCopy">
-            <p>Exterior envelope performance relies on the proper integration of materials, substructure, weather barriers, flashings, insulation and finish systems.</p>
-            <p>CladCan coordinates architectural exterior solutions across material supply, custom fabrication and professional installation for residential, mixed-use, commercial and industrial projects.</p>
+            <p>Different cladding, soffit and rainscreen systems suit different architectural objectives, building assemblies and site constraints. The right answer often depends on finish expectations, drainage strategy, thermal performance, substrate conditions and the way the exterior is built.</p>
+            <p>CladCan supports Ontario projects across material selection, custom fabrication and installation, helping project teams align the system with the actual conditions of the job rather than a generic product list.</p>
             <div className="systemsPageChecks">
               <span><Check size={15}/> Material Supply</span>
               <span><Check size={15}/> Custom Fabrication</span>

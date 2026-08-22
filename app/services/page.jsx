@@ -72,7 +72,7 @@ export default function ServicesPage(){
         <h2>Exterior services built around the way projects are actually delivered.</h2>
       </div>
       <div>
-        <p>Cladding projects rarely stop at one trade or one purchase order. Material selection affects detailing; detailing affects fabrication; fabrication affects installation. Our service model is designed to keep those decisions connected.</p>
+        <p>Exterior projects rarely stay within one scope of work. Material selection influences detailing, detailing influences fabrication, and fabrication influences installation quality. CladCan’s service model is built around keeping those decisions connected from the first review through final execution.</p>
         <div className="servicesMiniProof">
           <span><CheckCircle2 size={18}/> Residential</span>
           <span><CheckCircle2 size={18}/> Commercial</span>

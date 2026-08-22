@@ -44,11 +44,11 @@ export default function Footer(){
           </div>
         </div>
 
-        <div className="footerSocials">
-          <a href="#" aria-label="Facebook"><Facebook size={21}/></a>
-          <a href="#" aria-label="Twitter"><Twitter size={21}/></a>
-          <a href="#" aria-label="Instagram"><Instagram size={21}/></a>
-          <a href="#" aria-label="LinkedIn"><Linkedin size={21}/></a>
+        <div className="footerSocials" aria-label="CladCan social links">
+          <span aria-label="Facebook" style={{opacity:.7}}><Facebook size={21}/></span>
+          <span aria-label="Twitter" style={{opacity:.7}}><Twitter size={21}/></span>
+          <span aria-label="Instagram" style={{opacity:.7}}><Instagram size={21}/></span>
+          <span aria-label="LinkedIn" style={{opacity:.7}}><Linkedin size={21}/></span>
         </div>
       </div>
 
