@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Grid2X2, List } from "lucide-react";
+import Image from "next/image";
+import { getPrimaryVisual } from "@/data/visualCatalog";
 
 export default function SystemsCatalogue({ systems }) {
   const [view, setView] = useState("grid");
@@ -36,9 +38,7 @@ export default function SystemsCatalogue({ systems }) {
             {systems.map((system) => (
               <Link href={system.href} key={system.href} className="systemsVisualCard">
                 <div className="systemsVisualMedia">
-                  <div className="systemsMediaPlaceholder" aria-hidden="true">
-                    <span>{system.title}</span>
-                  </div>
+                  <Image className="systemsCatalogueImage" src={system.image || getPrimaryVisual(`${system.title} ${system.subtitle}`)} alt={`${system.title} exterior system`} fill sizes="(max-width: 760px) 100vw, 33vw" />
                   <span className="systemsCardNumber">{system.number}</span>
                   <span className="systemsCardArrow"><ArrowUpRight size={19} /></span>
                 </div>
@@ -59,7 +59,7 @@ export default function SystemsCatalogue({ systems }) {
             {systems.map((system) => (
               <Link href={system.href} key={system.href} className="systemsListRow">
                 <div className="systemsListIdentity">
-                  <div className="systemsListThumb">{system.number}</div>
+                  <div className="systemsListThumb"><Image src={system.image || getPrimaryVisual(`${system.title} ${system.subtitle}`)} alt="" fill sizes="80px" /></div>
                   <div>
                     <span className="systemsListNumber">{system.number}</span>
                     <h3>{system.title}</h3>
