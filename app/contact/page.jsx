@@ -11,7 +11,12 @@ const intents=[
   ["samples","Request Samples","Colours, profiles and finish selection."],
   ["repair","Repair / Maintenance","Existing exterior issue or replacement."],
 ];
-const cities=["Ajax","Aurora","Barrie","Bolton","Bowmanville","Bradford","Brampton","Brantford","Brooklin","Burlington","Caledon","Courtice","Etobicoke","Georgetown","Hamilton","Innisfil","King City","Kleinburg","Markham","Milton","Mississauga","Newmarket","North York","Oakville","Orangeville","Oshawa","Pickering","Richmond Hill","Scarborough","Stouffville","Toronto","Unionville","Uxbridge","Vaughan","Whitby","Woodbridge"];
+const serviceAreaGroups=[
+  {title:"Core GTA",cities:["North York","Toronto","Etobicoke","Scarborough","Vaughan","Markham","Richmond Hill","Mississauga"]},
+  {title:"North & York Region",cities:["Aurora","Bradford","Barrie","Innisfil","King City","Kleinburg","Newmarket","Stouffville","Unionville","Uxbridge","Woodbridge"]},
+  {title:"West GTA",cities:["Bolton","Brampton","Brantford","Burlington","Caledon","Georgetown","Hamilton","Milton","Oakville","Orangeville"]},
+  {title:"East GTA",cities:["Ajax","Bowmanville","Brooklin","Courtice","Oshawa","Pickering","Whitby"]},
+];
 const work=[
   {src:"/images/contact/cladcan-residential-exterior-project.jpg",alt:"Modern residential exterior project by CladCan",label:"Residential exterior"},
   {src:"/images/contact/cladcan-architectural-cladding-detail.jpg",alt:"Architectural exterior cladding detail on a CladCan residential project",label:"Architectural detailing"},
@@ -89,7 +94,39 @@ export default function Contact(){
 
   <section id="visit" className="contactFinalVisit"><div className="wrap contactFinalVisitGrid"><div className="contactFinalShowroom"><Image src="/images/contact/cladcan-north-york-showroom-material-samples.jpg" alt="CladCan North York showroom with exterior cladding and material samples" fill sizes="(max-width: 900px) 100vw, 52vw"/></div><div className="contactFinalVisitCopy"><span>VISIT CLADCAN</span><h2>See materials in person.</h2><p>Visit the North York showroom to discuss exterior systems, profiles and finishes with the CladCan team.</p><div className="contactFinalAddress"><Building2/><div><small>SHOWROOM / OFFICE</small><strong>5000 Dufferin St, Unit K<br/>North York, ON M3H 5T5</strong></div></div><div className="contactFinalAddress"><Clock3/><div><small>HOURS</small><strong>Monday–Friday · 9:00am–5:00pm</strong></div></div><div className="contactFinalVisitActions"><a className="btn" href="#project-inquiry">Book a Showroom Visit <ArrowUpRight size={14}/></a><a href="https://www.google.com/maps/search/?api=1&query=5000+Dufferin+St+Unit+K+North+York+ON+M3H+5T5" target="_blank" rel="noreferrer">Open in Google Maps <ArrowUpRight size={13}/></a></div></div></div></section>
 
-  <section className="contactFinalArea"><div className="wrap"><div className="contactFinalSectionHead"><div><span>ONTARIO SERVICE AREA</span><h2>North York based.<br/>Ontario focused.</h2></div><p>CladCan currently lists these communities among the areas it serves. For a project elsewhere in Ontario, contact the team to confirm coverage.</p></div><div className="contactFinalCities">{cities.map(x=><span key={x}>{x}</span>)}</div></div></section>
+  <section className="contactFinalArea"><div className="wrap">
+   <div className="contactFinalSectionHead"><div><span>ONTARIO SERVICE AREA</span><h2>North York based.<br/>Ontario focused.</h2></div><p>CladCan supports residential, commercial and institutional exterior projects across the GTA and surrounding Ontario communities. For work beyond the areas below, contact the team to confirm coverage.</p></div>
+   <div className="contactFinalAreaStage">
+    <div className="contactFinalAreaSummary">
+     <span className="contactFinalAreaLabel"><MapPin size={14}/> CLADCAN HOME BASE</span>
+     <h3>Built around the GTA.<br/><em>Ready to travel.</em></h3>
+     <p>Our North York location keeps material review, project coordination and field access close to the region’s major construction corridors.</p>
+     <a href="#project-inquiry">Check coverage for your project <ArrowUpRight size={14}/></a>
+    </div>
+    <div className="contactFinalMap" role="img" aria-label="Stylized service-area map showing CladCan in North York and key Greater Toronto Area communities">
+     <svg viewBox="0 0 760 390" aria-hidden="true">
+      <path className="contactFinalMapWater" d="M32 313C148 276 216 305 322 276S505 216 728 254L728 380H32Z"/>
+      <path className="contactFinalMapRoute routeA" d="M64 235C151 200 221 205 294 169S433 97 700 105"/>
+      <path className="contactFinalMapRoute routeB" d="M99 79C188 127 239 156 337 174S526 191 676 284"/>
+      <path className="contactFinalMapRoute routeC" d="M224 52C248 118 294 153 337 174S379 249 365 329"/>
+      <path className="contactFinalMapRoute routeD" d="M447 38C418 105 389 136 337 174S251 250 183 331"/>
+      <g className="contactFinalMapMinor">
+       <path d="M106 267C219 240 315 242 451 210S612 166 701 172"/>
+       <path d="M142 125C240 103 328 107 424 128S565 176 637 230"/>
+       <path d="M478 60C502 126 519 179 522 287"/>
+      </g>
+      <g className="contactFinalMapPoint secondary" transform="translate(255 242)"><circle r="6"/><text x="-14" y="24">Toronto</text></g>
+      <g className="contactFinalMapPoint secondary" transform="translate(204 191)"><circle r="6"/><text x="-56" y="-12">Vaughan</text></g>
+      <g className="contactFinalMapPoint secondary" transform="translate(350 132)"><circle r="6"/><text x="12" y="-9">Richmond Hill</text></g>
+      <g className="contactFinalMapPoint secondary" transform="translate(474 164)"><circle r="6"/><text x="12" y="-9">Markham</text></g>
+      <g className="contactFinalMapPoint secondary" transform="translate(118 282)"><circle r="6"/><text x="-29" y="25">Mississauga</text></g>
+      <g className="contactFinalMapPoint primary" transform="translate(315 185)"><circle className="pulse" r="22"/><circle r="9"/><path d="M0-23c-10 0-18 8-18 18 0 14 18 32 18 32S18 9 18-5c0-10-8-18-18-18Zm0 11a7 7 0 1 1 0 14 7 7 0 0 1 0-14Z"/><text x="27" y="-15">North York</text><text className="sub" x="27" y="3">CLADCAN · 5000 DUFFERIN ST</text></g>
+     </svg>
+     <span className="contactFinalMapNote">Stylized coverage map · confirm project-specific availability</span>
+    </div>
+   </div>
+   <div className="contactFinalAreaGroups">{serviceAreaGroups.map((group,index)=><article key={group.title}><div><span>0{index+1}</span><h3>{group.title}</h3></div><p>{group.cities.join(" · ")}</p></article>)}</div>
+  </div></section>
 
   <section className="contactFinalFaq"><div className="wrap contactFinalFaqGrid"><div><span>BEFORE YOU SEND</span><h2>Common first-contact questions.</h2></div><div>
    <details><summary>Do I need completed drawings before contacting CladCan?</summary><p>No. You can start with the information you have. Drawings and photos become especially useful when the team is reviewing scope, pricing or technical details.</p></details>
