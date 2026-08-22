@@ -29,11 +29,30 @@ function escapeHtml(value) {
 
 export async function POST(request) {
   try {
+    if (request.method !== "POST") {
+      return NextResponse.json({ ok: false, message: "Method not allowed." }, { status: 405 });
+    }
+
+    const contentType = request.headers.get("content-type") || "";
+    const isSupportedContentType =
+      contentType.includes("multipart/form-data") ||
+      contentType.includes("application/x-www-form-urlencoded");
+
+    if (!isSupportedContentType) {
+      return NextResponse.json(
+        { ok: false, message: "Unsupported request format." },
+        { status: 415 }
+      );
+    }
+
     const form = await request.formData();
 
     // Honeypot: bots frequently fill hidden fields.
-    if (clean(form.get("companyWebsite"))) {
-      return NextResponse.json({ ok: true });
+    if (clean(form.get("website"))) {
+      return NextResponse.json({
+        ok: true,
+        message: "Thanks — your project inquiry has been sent to CladCan.",
+      });
     }
 
     const firstName = clean(form.get("firstName"), 100);
@@ -49,6 +68,13 @@ export async function POST(request) {
     if (!firstName || !lastName || !email) {
       return NextResponse.json(
         { ok: false, message: "Please complete the required name and email fields." },
+        { status: 400 }
+      );
+    }
+
+    if (firstName.length > 100 || lastName.length > 100 || email.length > 200 || phone.length > 100 || inquiryType.length > 100 || location.length > 300 || projectType.length > 150 || stage.length > 200 || details.length > 6000) {
+      return NextResponse.json(
+        { ok: false, message: "One or more fields are too long. Please shorten your message and try again." },
         { status: 400 }
       );
     }

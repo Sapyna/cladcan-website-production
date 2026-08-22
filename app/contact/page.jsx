@@ -72,7 +72,7 @@ export default function Contact(){
    <div className="contactFinalFormGrid"><aside><span>02 — PROJECT DETAILS</span><h3>A few details help us respond with better direction.</h3><p>For pricing and technical questions, include the project location, stage and exterior scope where possible.</p><div className="contactFinalAsideLine"/><small>Prefer to talk through it?</small><a href="tel:+18449243030">Call the CladCan team <ArrowUpRight size={13}/></a></aside>
     <form className="contactFinalForm" onSubmit={submit} encType="multipart/form-data">
      <input type="hidden" name="inquiryType" value={intent}/>
-     <label className="contactHoneypot" aria-hidden="true">Website<input name="companyWebsite" tabIndex="-1" autoComplete="off"/></label>
+     <label className="contactHoneypot" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off"/></label>
      <div className="projectFormTwo"><label>First name *<input name="firstName" autoComplete="given-name" required/></label><label>Last name *<input name="lastName" autoComplete="family-name" required/></label></div>
      <div className="projectFormTwo"><label>Email *<input type="email" name="email" autoComplete="email" required/></label><label>Phone<input type="tel" name="phone" autoComplete="tel"/></label></div>
      <div className="projectFormTwo"><label>Project location<input name="location" placeholder="City / address"/></label><label>Project type<select name="projectType" defaultValue=""><option value="" disabled>Select</option><option>Residential</option><option>Commercial</option><option>Institutional</option><option>Industrial</option><option>Other</option></select></label></div>
