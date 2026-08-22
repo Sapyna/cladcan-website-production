@@ -2,9 +2,9 @@ import Link from "next/link";
 import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 const posts = [
-  {date:"MARCH 18, 2026", title:"ACM Panel Maintenance Playbook: Keep Facades Looking New", href:"/resources"},
-  {date:"MARCH 2, 2026", title:"Facade Budget Planning Checklist for 2026 Projects", href:"/resources"},
-  {date:"JANUARY 15, 2024", title:"The Complete Guide to Choosing Exterior Cladding Materials", href:"/resources"},
+  {date:"MARCH 18, 2026", title:"ACM Panel Maintenance Playbook: Keep Facades Looking New", href:"/blog/acm-panel-maintenance-playbook"},
+  {date:"MARCH 2, 2026", title:"Façade Budget Planning Checklist for 2026 Projects", href:"/blog/facade-budget-planning-checklist"},
+  {date:"JANUARY 15, 2024", title:"The Complete Guide to Choosing Exterior Cladding Materials", href:"/blog/guide-to-cladding-materials"},
 ];
 
 export default function Footer(){
@@ -21,11 +21,10 @@ export default function Footer(){
         </Link>
 
         <p>
-          Our team takes over everything, from an idea and concept development to realization.
-          We believe in traditions and incorporate them within our innovations.
+          CladCan coordinates exterior material supply, fabrication, installation and design support for residential, commercial and institutional projects across Ontario.
         </p>
 
-        <em>Client is the soul of the project.</em>
+        <em>Clear project direction. Coordinated exterior delivery.</em>
       </div>
 
       <div className="footerContactCol">

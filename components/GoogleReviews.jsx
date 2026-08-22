@@ -37,7 +37,7 @@ export default function GoogleReviews(){
         <div className="reviewStars smallStars">{[1,2,3,4,5].map(j=><Star key={j} size={13} fill="currentColor"/>)}</div>
         <blockquote>“{r.text}”</blockquote>
         <div className="reviewPerson">
-          {r.profile_photo_url?<img src={r.profile_photo_url} alt=""/>:<span>{initials(r.author_name)}</span>}
+          {r.profile_photo_url?<img src={r.profile_photo_url} alt={`${r.author_name} Google review profile`} />:<span>{initials(r.author_name)}</span>}
           <div><b>{r.author_name}</b><small>{r.relative_time_description || "Google review"}</small></div>
         </div>
       </article>)}
