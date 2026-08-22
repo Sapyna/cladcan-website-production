@@ -1,0 +1,6 @@
+import CurrentSitePage from "@/components/CurrentSitePage";
+export const metadata={title:'PVC'+" | CladCan",description:'uPVC vinyl siding combines cost-effectiveness, durability and low maintenance with a range of profiles for exterior and architectural applications.'};
+export default function Page(){return <CurrentSitePage title={'PVC'} intro={'uPVC vinyl siding combines cost-effectiveness, durability and low maintenance with a range of profiles for exterior and architectural applications.'} overview={'uPVC vinyl siding combines cost-effectiveness, durability and low maintenance with a range of profiles for exterior and architectural applications.'} items={[{title:'uPVC Vinyl Cladding',href:'/exterior-systems/pvc/vinyl-cladding',text:'Weather-resistant cladding designed for long service with minimal upkeep.'},
+{title:'Wall Cladding Panels',href:'/exterior-systems/pvc/wall-cladding-panels',text:'Architectural panel options can support contemporary wall and feature applications.'},
+{title:'Soffit Panels',href:'/exterior-systems/pvc/soffit-panels',text:'PVC soffit options coordinate roofline appearance with practical low-maintenance performance.'},
+{title:'Profiles & Finishes',href:'/exterior-systems/pvc/profiles-finishes',text:'Multiple profile widths and finish styles support different architectural concepts.'}]} />;}

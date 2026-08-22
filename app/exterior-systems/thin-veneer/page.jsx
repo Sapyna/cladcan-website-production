@@ -1,0 +1,5 @@
+import CurrentSitePage from "@/components/CurrentSitePage";
+export const metadata={title:'Thin Veneer Siding & Soffit'+" | CladCan",description:'Thin veneer systems provide the authentic appearance of natural stone or brick in a lighter-format cladding solution for interior and exterior applications.'};
+export default function Page(){return <CurrentSitePage title={'Thin Veneer Siding & Soffit'} intro={'Thin veneer systems provide the authentic appearance of natural stone or brick in a lighter-format cladding solution for interior and exterior applications.'} overview={'Thin veneer systems provide the authentic appearance of natural stone or brick in a lighter-format cladding solution for interior and exterior applications.'} items={[{title:'Wall Applications',text:'Architectural veneer for feature walls and exterior elevations.'},
+{title:'Soffit & Detail Applications',text:'Selected veneer systems can be integrated into coordinated architectural details.'},
+{title:'Reduced Structural Load',text:'Thin-format materials can reduce weight compared with full-depth masonry while retaining a premium appearance.'}]} />;}

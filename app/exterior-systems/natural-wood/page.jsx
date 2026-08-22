@@ -1,0 +1,5 @@
+import CurrentSitePage from "@/components/CurrentSitePage";
+export const metadata={title:'Natural Wood'+" | CladCan",description:'Natural wood siding and soffit bring timeless warmth, authentic texture, and organic character to residential and commercial exteriors.'};
+export default function Page(){return <CurrentSitePage title={'Natural Wood'} intro={'Natural wood siding and soffit bring timeless warmth, authentic texture, and organic character to residential and commercial exteriors.'} overview={'Natural wood siding and soffit bring timeless warmth, authentic texture, and organic character to residential and commercial exteriors.'} items={[{title:'Natural Wood Siding',href:'/exterior-systems/natural-wood/siding',text:'Premium wood exterior applications for modern and traditional architecture.'},
+{title:'Natural Wood Soffit',href:'/exterior-systems/natural-wood/soffit',text:'Warm natural material expression for protected soffit and ceiling applications.'},
+{title:'Architectural Accents',href:'/exterior-systems/natural-wood/architectural-accents',text:'Wood can be coordinated with metal, fibre cement and other façade materials for contrast and depth.'}]} />;}

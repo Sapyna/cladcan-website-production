@@ -1,0 +1,123 @@
+import HeroSlider from "../components/HeroSlider";
+import ManufacturerTicker from "../components/ManufacturerTicker";
+import Link from "next/link";
+import { ArrowUpRight, PenTool, HardHat, PackageCheck, Factory, CheckCircle2, MapPin, Layers3, Building2 } from "lucide-react";
+import { Visual, SectionTitle } from "@/components/SiteBlocks";
+import GoogleReviews from "@/components/GoogleReviews";
+import BeforeAfter from "@/components/BeforeAfter";
+
+const capabilities=[
+  {n:"01",icon:PackageCheck,title:"Material Supply",copy:"Exterior materials, systems and components sourced and coordinated around project requirements, quantities and schedule.",href:"/services/material-supply"},
+  {n:"02",icon:Factory,title:"Custom Fabrication",copy:"ACM panels, flashing, Z-bar, hat channel, trim and specialty components fabricated to project-specific requirements.",href:"/services/custom-fabrication"},
+  {n:"03",icon:HardHat,title:"Installation",copy:"Field installation across wall and soffit systems, glazing, roofing and aluminum exterior scopes.",href:"/services/installation"},
+  {n:"04",icon:PenTool,title:"Design & Permit Support",copy:"Façade design support, constructability coordination, material selection and permit-assistance workflows.",href:"/services/design-permit-support"},
+];
+
+const systems=[
+  {name:"Aluminum Siding & Soffit",copy:"Solid, woodgrain and architectural aluminum profiles for walls, soffits and linear exterior features.",href:"/exterior-systems/aluminum",variant:"graphite"},
+  {name:"Steel Siding & Soffit",copy:"Exposed- and hidden-fastener steel profiles for residential, commercial and industrial exterior applications.",href:"/exterior-systems/steel",variant:"silver"},
+  {name:"ACM / ACP",copy:"Architectural aluminum composite panel systems with crisp geometry, finish flexibility and project-specific fabrication.",href:"/exterior-systems/acm-acp",variant:"metal"},
+  {name:"Natural Wood",copy:"Natural and charred wood options for warm, textural façades, soffits and architectural accents.",href:"/exterior-systems/natural-wood",variant:"charred"},
+  {name:"IMP",copy:"Insulated metal panel solutions for projects that require an integrated exterior wall or roof assembly.",href:"/exterior-systems/imp",variant:"stone"},
+  {name:"WPC & Composite",copy:"Wood-look composite exterior systems for lower-maintenance cladding, soffit and feature applications.",href:"/exterior-systems/wpc",variant:"wood"},
+];
+
+const featuredProjects=[
+  {type:"Residential",title:"17th Sideroad",location:"Schomberg, ON",copy:"A verified before-and-after exterior transformation documented in the CladCan project library.",image:"/images/before-after/sideroad-17-schomberg-after.jpg",href:"/projects/sideroad-17-schomberg"},
+  {type:"Commercial",title:"Pharmacy Avenue",location:"Scarborough, ON",copy:"Commercial exterior renovation with a documented completed façade and before-and-after comparison.",image:"/images/before-after/pharmacy-scarborough-after.jpg",href:"/projects/pharmacy-scarborough"},
+  {type:"Residential",title:"Gray Lane",location:"Barrie, ON",copy:"Residential exterior transformation presented as a full before-and-after case study.",image:"/images/before-after/gray-lane-barrie-after.jpg",href:"/projects/gray-lane-barrie"},
+];
+
+const insights=[
+ {kicker:"MAINTENANCE · 2026",title:"ACM Panel Maintenance Playbook",copy:"Cleaning, inspection and repair considerations for preserving ACM façade appearance and performance.",href:"/blog/acm-panel-maintenance-playbook"},
+ {kicker:"PLANNING · 2026",title:"Façade Budget Planning Checklist",copy:"A practical checklist for scope boundaries, envelope-critical allowances and procurement assumptions.",href:"/blog/facade-budget-planning-checklist"},
+ {kicker:"MATERIALS · 2024",title:"Choosing Exterior Cladding Materials",copy:"A framework for comparing cladding by performance, aesthetics, lifecycle cost and maintenance.",href:"/blog/guide-to-cladding-materials"},
+];
+
+export default function Home(){
+ return <>
+   <HeroSlider/>
+   <ManufacturerTicker/>
+
+   <section className="section homeIntroSection">
+    <div className="wrap homeIntroGrid">
+      <div><span className="eyebrow">CLADCAN / BUILDING ENVELOPE & FAÇADE</span><h2>One exterior team.<br/>More connected decisions.</h2></div>
+      <div><p>CladCan coordinates exterior material supply, custom fabrication, installation and design support across residential, commercial and institutional work. The goal is straightforward: make the material, detail and field decisions work together.</p><div className="homeIntroLinks"><Link href="/about">About CladCan <ArrowUpRight size={13}/></Link><Link href="/projects">See project work <ArrowUpRight size={13}/></Link></div></div>
+    </div>
+   </section>
+
+   <section className="section paper">
+    <div className="wrap">
+      <SectionTitle kicker="OUR SERVICES" title="Support across the exterior scope." copy="Engage CladCan for one part of the work—or coordinate material, fabrication and field execution through a more connected delivery path." link={{label:"View all services",href:"/services"}}/>
+      <div className="capabilityGrid">
+        {capabilities.map(({n,icon:Icon,title,copy,href})=><Link className="capabilityCard" href={href} key={title}>
+          <div className="capTop"><span>{n}</span><Icon size={19}/></div><div><h3>{title}</h3><p>{copy}</p></div><span className="cardLink">Explore service <ArrowUpRight size={13}/></span>
+        </Link>)}
+      </div>
+    </div>
+   </section>
+
+   <section className="section">
+    <div className="wrap">
+      <SectionTitle kicker="EXTERIOR SYSTEMS" title="Material choices connected to the work." copy="Explore the core wall and soffit families in the CladCan library. Each system can lead into subcategories, applications and product-level information." link={{label:"Browse all exterior systems",href:"/exterior-systems"}}/>
+      <div className="systemEditorialGrid">
+        {systems.map((s,i)=><Link href={s.href} className={`systemEditorialCard systemCard${i+1}`} key={s.name}><Visual label={s.name.toUpperCase()} variant={s.variant} ratio="system"/><div className="systemEditorialText"><span className="eyebrow">SYSTEM {String(i+1).padStart(2,"0")}</span><h3>{s.name}</h3><p>{s.copy}</p><span>Explore system <ArrowUpRight size={12}/></span></div></Link>)}
+      </div>
+    </div>
+   </section>
+
+   <section className="homeTrustBand">
+    <div className="wrap homeTrustGrid">
+      <div><Layers3 size={20}/><strong>Connected scope</strong><span>Supply · Fabrication · Installation · Design support</span></div>
+      <div><Building2 size={20}/><strong>Multiple project types</strong><span>Residential · Commercial · Institutional</span></div>
+      <div><MapPin size={20}/><strong>Ontario project reach</strong><span>North York base · GTA and broader Ontario service area</span></div>
+    </div>
+   </section>
+
+   <section className="section darkSection">
+    <div className="wrap">
+      <SectionTitle kicker="HOW WE WORK" title="From project question to field execution." copy="The exact scope changes by project, but the coordination logic stays consistent: define what is needed, select the right system, resolve interfaces, then execute the work."/>
+      <div className="processLine">{[["01","Review & Scope","Drawings, elevations, existing conditions and project requirements."],["02","Material Strategy","System, finish, procurement, budget and schedule priorities."],["03","Detail & Coordinate","Dimensions, trims, transitions, interfaces and constructability."],["04","Fabricate & Supply","Project-specific components and coordinated material packages."],["05","Install & Close Out","Field execution, deficiencies, repair support and closeout coordination."]].map(([n,t,c])=><div key={n}><span>{n}</span><h3>{t}</h3><p>{c}</p></div>)}</div>
+    </div>
+   </section>
+
+   <section className="section homeFeaturedProjects">
+    <div className="wrap">
+      <SectionTitle kicker="FEATURED PROJECTS" title="The work is the proof." copy="A selection of real CladCan project transformations. Open a case study or browse the full project library." link={{label:"View all projects",href:"/projects"}}/>
+      <div className="homeProjectGrid">{featuredProjects.map((p,i)=><Link href={p.href} className={i===0?"homeProjectCard homeProjectLead":"homeProjectCard"} key={p.title}><div className="homeProjectImage"><img src={p.image} alt={`${p.title}, ${p.location}`}/><span>{p.type}</span></div><div className="homeProjectCopy"><small>{p.location}</small><h3>{p.title}</h3><p>{p.copy}</p><strong>View case study <ArrowUpRight size={13}/></strong></div></Link>)}</div>
+    </div>
+   </section>
+
+   <BeforeAfter/>
+
+   <section className="section paper">
+    <div className="wrap">
+      <SectionTitle kicker="CLIENT FEEDBACK" title="Google reviews, without invented testimonials." copy="This module displays verified review data available to the site. When live Google credentials are connected, it can refresh from the business profile."/>
+      <GoogleReviews/>
+    </div>
+   </section>
+
+   <section className="section">
+    <div className="wrap">
+      <SectionTitle kicker="WHY CLADCAN" title="Built around coordination, not handoffs."/>
+      <div className="proofGrid">
+        <div><CheckCircle2/><h3>One connected exterior scope</h3><p>Material, fabrication and field decisions can be coordinated instead of treated as isolated packages.</p></div>
+        <div><CheckCircle2/><h3>Project-specific review</h3><p>Recommendations are framed around the actual application, drawings, interfaces and constraints.</p></div>
+        <div><CheckCircle2/><h3>Broad material library</h3><p>Multiple cladding, soffit and envelope-system families make comparison easier before specification.</p></div>
+        <div><CheckCircle2/><h3>Useful before construction starts</h3><p>CladCan can support material selection, constructability and procurement conversations before installation.</p></div>
+      </div>
+    </div>
+   </section>
+
+   <section className="section paper">
+    <div className="wrap">
+      <SectionTitle kicker="CLADCAN INSIGHTS" title="Useful information before the next decision." copy="Material guidance, maintenance notes and planning content connected directly to systems, services and project work." link={{label:"View all insights",href:"/blog"}}/>
+      <div className="insightGrid">{insights.map(x=><article key={x.title}><span className="eyebrow">{x.kicker}</span><h3>{x.title}</h3><p>{x.copy}</p><Link href={x.href}>Read article <ArrowUpRight size={12}/></Link></article>)}</div>
+    </div>
+   </section>
+
+   <section className="section homeProjectStart">
+    <div className="wrap homeProjectStartInner"><div><span className="eyebrow">START A PROJECT</span><h2>Have drawings, photos or simply a project question?</h2><p>Tell us what you are working on and what kind of support you need. The Project Start page is designed to route quote, supply, installation, design-support, sample and repair inquiries.</p></div><div className="homeProjectStartActions"><Link className="btn heroPrimaryCTA" href="/contact">Start your project <ArrowUpRight size={15}/></Link><a href="tel:+18449243030">Or call +1 (844) 924-3030</a></div></div>
+   </section>
+ </>;
+}
