@@ -5344,3 +5344,57 @@ body:not(.home) .siteHeader + main,
   .systemVisualGalleryGrid .systemVisualGalleryLead{grid-column:1 / -1;grid-row:auto}
 }
 @media(max-width:430px){.systemVisualGalleryGrid{grid-template-columns:1fr;grid-template-rows:320px 200px 200px}.systemVisualGalleryGrid .systemVisualGalleryLead{grid-column:auto}}
+
+
+/* Contact service-area editorial map */
+.contactFinalArea{overflow:hidden}
+.contactFinalAreaStage{display:grid;grid-template-columns:.72fr 1.28fr;gap:34px;align-items:stretch;margin-top:4px}
+.contactFinalAreaSummary{background:#0b2533;color:#fff;padding:42px 40px;display:flex;flex-direction:column;justify-content:center;min-height:390px}
+.contactFinalAreaLabel{display:flex;align-items:center;gap:8px;color:#d5a15f;font-size:9px;font-weight:900;letter-spacing:.15em}
+.contactFinalAreaSummary h3{font-family:Georgia,serif;font-size:clamp(33px,3.1vw,49px);line-height:1.02;letter-spacing:-.045em;margin:22px 0 20px}
+.contactFinalAreaSummary h3 em{font-style:italic;color:#d5a15f}
+.contactFinalAreaSummary p{max-width:430px;color:#bdc9ce;font-size:12px;line-height:1.75;margin:0}
+.contactFinalAreaSummary a{display:inline-flex;align-items:center;gap:8px;width:max-content;margin-top:30px;color:#fff;font-size:11px;font-weight:850;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:7px}
+.contactFinalMap{position:relative;min-height:390px;background:#ecebe6;border:1px solid #d6dddc;overflow:hidden}
+.contactFinalMap:before{content:"GTA / SOUTHERN ONTARIO";position:absolute;z-index:2;top:25px;left:28px;font-size:8px;font-weight:900;letter-spacing:.18em;color:#71838b}
+.contactFinalMap svg{display:block;width:100%;height:100%;min-height:390px}
+.contactFinalMapWater{fill:#dfe8e8;opacity:.9}
+.contactFinalMapRoute{fill:none;stroke:#8e9da2;stroke-width:2;stroke-linecap:round;opacity:.7}
+.contactFinalMapRoute.routeB,.contactFinalMapRoute.routeD{stroke-width:1.4;opacity:.45}
+.contactFinalMapMinor{fill:none;stroke:#aab6b9;stroke-width:1;stroke-dasharray:4 6;opacity:.6}
+.contactFinalMapPoint circle{fill:#0b2533}
+.contactFinalMapPoint text{font:700 12px Arial,sans-serif;fill:#344b56}
+.contactFinalMapPoint.primary>circle:not(.pulse){fill:#f22b2c}
+.contactFinalMapPoint.primary .pulse{fill:#f22b2c;opacity:.12}
+.contactFinalMapPoint.primary path{fill:#f22b2c}
+.contactFinalMapPoint.primary text{font:900 14px Arial,sans-serif;fill:#0b2533}
+.contactFinalMapPoint.primary text.sub{font:800 7px Arial,sans-serif;letter-spacing:.11em;fill:#6e7e85}
+.contactFinalMapNote{position:absolute;right:22px;bottom:17px;color:#77878e;font-size:7px;letter-spacing:.06em}
+.contactFinalAreaGroups{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid #d6dddc;border-top:1px solid #d6dddc;margin-top:18px}
+.contactFinalAreaGroups article{padding:21px 20px 23px;border-right:1px solid #d6dddc;border-bottom:1px solid #d6dddc;background:rgba(255,255,255,.42)}
+.contactFinalAreaGroups article>div{display:flex;align-items:baseline;gap:9px;margin-bottom:12px}
+.contactFinalAreaGroups article>div>span{font-size:8px;font-weight:900;letter-spacing:.12em;color:#d5a15f}
+.contactFinalAreaGroups h3{margin:0;color:#0b2533;font-size:13px}
+.contactFinalAreaGroups p{margin:0;color:#6a7b83;font-size:9px;line-height:1.75}
+
+@media(max-width:900px){
+ .contactFinalAreaStage{grid-template-columns:1fr}
+ .contactFinalAreaSummary{min-height:auto;padding:34px}
+ .contactFinalMap{min-height:340px}
+ .contactFinalMap svg{min-height:340px}
+ .contactFinalAreaGroups{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+ .contactFinalAreaStage{gap:14px}
+ .contactFinalAreaSummary{padding:29px 24px}
+ .contactFinalAreaSummary p{font-size:14px}
+ .contactFinalAreaSummary a{font-size:13px}
+ .contactFinalMap{min-height:300px}
+ .contactFinalMap svg{min-height:300px;transform:scale(1.08);transform-origin:center}
+ .contactFinalMap:before{top:18px;left:18px}
+ .contactFinalMapNote{right:14px;bottom:11px;font-size:6px}
+ .contactFinalAreaGroups{grid-template-columns:1fr;margin-top:14px}
+ .contactFinalAreaGroups article{padding:18px}
+ .contactFinalAreaGroups h3{font-size:15px}
+ .contactFinalAreaGroups p{font-size:12px}
+}
