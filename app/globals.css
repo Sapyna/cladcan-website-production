@@ -5375,7 +5375,7 @@ body:not(.home) .siteHeader + main,
 .contactFinalAreaGroups article>div{display:flex;align-items:baseline;gap:9px;margin-bottom:12px}
 .contactFinalAreaGroups article>div>span{font-size:8px;font-weight:900;letter-spacing:.12em;color:#d5a15f}
 .contactFinalAreaGroups h3{margin:0;color:#0b2533;font-size:13px}
-.contactFinalAreaGroups p{margin:0;color:#6a7b83;font-size:9px;line-height:1.75}
+.contactFinalAreaGroups p{margin:0;color:#60737c;font-size:12px;line-height:1.7}
 
 @media(max-width:900px){
  .contactFinalAreaStage{grid-template-columns:1fr}
@@ -5396,5 +5396,5 @@ body:not(.home) .siteHeader + main,
  .contactFinalAreaGroups{grid-template-columns:1fr;margin-top:14px}
  .contactFinalAreaGroups article{padding:18px}
  .contactFinalAreaGroups h3{font-size:15px}
- .contactFinalAreaGroups p{font-size:12px}
+ .contactFinalAreaGroups p{font-size:13px;line-height:1.65}
 }
