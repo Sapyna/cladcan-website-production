@@ -4975,3 +4975,345 @@ body:not(.home) .siteHeader + main,
         rgba(4,24,36,.96) 100%)!important;
   }
 }
+
+
+/* ===== v44 — SITE-WIDE TYPOGRAPHY & READABILITY PASS ===== */
+/*
+   Readability targets:
+   - primary reading copy: 16–18px
+   - compact/support copy: 14–15px
+   - labels/metadata: 12–14px
+   Hero geometry, header/navigation layout, SEO and form behaviour are unchanged.
+*/
+:root{
+  --type-body:clamp(1rem,.965rem + .16vw,1.125rem);
+  --type-lead:clamp(1.0625rem,1rem + .24vw,1.25rem);
+  --type-small:.9375rem;
+  --type-label:.8125rem;
+  --type-control:1rem;
+  --type-card-title:1.25rem;
+  --type-reading-line:1.7;
+}
+
+/* Shared controls and editorial copy */
+.btn{font-size:.9375rem;line-height:1.2}
+.textLink,.cardLink{font-size:.875rem}
+.sectionTitle p,
+.splitFeatureCopy p,
+.reverse p,
+.quoteBand p,
+.caseNarrative p,
+.resourceGrid p,
+.audienceGrid p,
+.benefitGrid p,
+.storySteps p,
+.capabilityCard p,
+.systemEditorialText p,
+.processLine p{
+  font-size:var(--type-body);
+  line-height:var(--type-reading-line);
+}
+.eyebrow,
+.visualLabel,
+.visualCaption,
+.capTop span,
+.processLine span,
+.benefitGrid span,
+.storySteps span,
+.resourceState{
+  font-size:var(--type-label);
+}
+.capabilityCard h3,
+.audienceGrid h3,
+.benefitGrid h3,
+.storySteps h3{font-size:var(--type-card-title)}
+.capabilityBar strong{font-size:.9375rem}
+.capabilityBar span,
+.manufacturerIntro,
+.manufacturerRail span,
+.projectMeta p,
+.caseFacts span,
+.caseFacts b,
+.resourceGrid h3{font-size:var(--type-label)}
+
+/* Home: readable project and conversion copy */
+.homeIntroGrid>div:last-child>p,
+.homeProjectCopy p,
+.homeProjectStart p,
+.homeQuoteGrid>div>p,
+.proofGrid p,
+.insightGrid p{
+  font-size:var(--type-body);
+  line-height:var(--type-reading-line);
+}
+.homeIntroLinks a,
+.homeProjectCopy strong,
+.homeProjectStartActions>a:last-child,
+.insightGrid a{font-size:.875rem}
+.homeTrustGrid span,
+.homeProjectCopy small,
+.homeProjectImage>span,
+.proofGrid h3{font-size:var(--type-label)}
+.homeProjectCopy h3{font-size:clamp(1.625rem,2vw,2rem)}
+.homeProjectLead .homeProjectCopy h3{font-size:clamp(1.875rem,2.35vw,2.375rem)}
+
+/* Services landing */
+.servicesProcessGrid p,
+.servicesWhyGrid p{font-size:var(--type-small);line-height:1.7}
+.servicesProcessNum,
+.servicesWhyGrid strong,
+.servicesKicker{font-size:var(--type-label)}
+
+/* Exterior systems catalogue */
+.systemsPageIntroCopy p,
+.systemsCatalogueHeadRight p,
+.systemsVisualBody p,
+.systemsListRow>p,
+.systemsPageCapabilityGrid p,
+.systemsPageCTA p{
+  font-size:var(--type-body);
+  line-height:var(--type-reading-line);
+}
+.systemsPageChecks span,
+.systemsViewSwitcher button,
+.systemsMediaPlaceholder span,
+.systemsCardSubtitle,
+.systemsExploreLink,
+.systemsListHeader,
+.systemsListNumber,
+.systemsListSubtitle,
+.systemsPageCapabilityGrid article>span,
+.systemsPageCapabilityGrid a,
+.systemsPageEyebrow{
+  font-size:var(--type-label);
+}
+.systemsListIdentity h3{font-size:1.5rem}
+.systemsVisualBody h3{font-size:clamp(1.75rem,2.2vw,2.25rem)}
+
+/* Aluminum and Longboard system families */
+.aluminumOverviewCopy p,
+.aluminumSectionHeader>p,
+.aluminumSystemBody p,
+.aluminumBenefitsGrid p,
+.aluminumApplications p,
+.aluminumFinishes p,
+.aluminumCTA p,
+.longboardIntroCopy p,
+.longboardSectionHeader>p,
+.longboardSystemBody>p,
+.longboardProductCard p,
+.longboardFinishes p,
+.longboardCTA p{
+  font-size:var(--type-body);
+  line-height:var(--type-reading-line);
+}
+.aluminumBreadcrumb,
+.aluminumEyebrow,
+.aluminumMiniBenefits span,
+.aluminumSystemBody>span,
+.aluminumSystemBody strong,
+.aluminumBenefitNumber,
+.aluminumApplicationsList span,
+.aluminumTextLink,
+.longboardBreadcrumb,
+.longboardEyebrow,
+.longboardChecks span,
+.longboardProductTags span,
+.longboardSystemBody strong,
+.longboardProductNumber,
+.longboardProductType,
+.longboardProductLink,
+.longboardTextLink{
+  font-size:var(--type-label);
+}
+.aluminumApplicationsList strong{font-size:1rem}
+
+/* Application and product detail families */
+.applicationIntroGrid p,
+.applicationSectionHeader>p,
+.applicationProductBody p,
+.applicationBenefitsGrid p,
+.applicationCTA p,
+.productOverviewCopy>p,
+.productDetailSectionHeader>p,
+.productBenefitGrid p,
+.productComponentsGrid p,
+.productFinishes p,
+.productRelatedCard p,
+.productDetailCTA p{
+  font-size:var(--type-body);
+  line-height:var(--type-reading-line);
+}
+.applicationBreadcrumb,
+.applicationEyebrow,
+.applicationProductBody>span,
+.applicationProductBody strong,
+.applicationBenefitsGrid article>span,
+.applicationUseCasesList div,
+.productDetailBreadcrumb,
+.productDetailEyebrow,
+.productManufacturer>span,
+.productSpecTable span,
+.productSpecTable strong,
+.productBenefitNumber,
+.productApplicationList div,
+.productComponentsGrid article>span,
+.productComponentsGrid small,
+.productFinishLink,
+.productFinishList div,
+.productResourceGrid span,
+.productRelatedCard>span,
+.productRelatedCard strong{
+  font-size:var(--type-label);
+}
+.applicationProductBody h3{font-size:clamp(1.75rem,2.2vw,2.125rem)}
+.productComponentsGrid h3,
+.productResourceGrid h3{font-size:1.0625rem}
+
+/* Service detail and coordination pages */
+.serviceV9Head>p,
+.serviceV9ProcessIntro>p,
+.serviceV9Deliverables p,
+.serviceV9Steps p,
+.serviceV9RelatedGrid p,
+.serviceV9CTA p,
+.serviceV10Stages p,
+.serviceV10CoordGrid>div>p,
+.serviceV10Coord li,
+.serviceV10Faq details p{
+  font-size:var(--type-body);
+  line-height:var(--type-reading-line);
+}
+.serviceV9Hero span,
+.serviceV9Statement span,
+.serviceV9Head span,
+.serviceV9ProcessIntro>span,
+.serviceV9For>.wrap>span,
+.serviceV9CTA span,
+.serviceV9Deliverables small,
+.serviceV9Deliverables article>div span,
+.serviceV9Steps b,
+.serviceV9For small,
+.serviceV9RelatedGrid small,
+.serviceV9RelatedGrid strong,
+.serviceV10Label,
+.serviceV10Stages small,
+.serviceV10Faq summary>span{
+  font-size:var(--type-label);
+}
+.serviceV9Deliverables h3,
+.serviceV9Steps h3,
+.serviceV9For h3,
+.serviceV10Stages h3{font-size:1.0625rem}
+.serviceV10Links a,
+.serviceV10Faq summary{font-size:1rem}
+.serviceV10Disclaimer{font-size:.875rem!important;line-height:1.65}
+
+/* Projects, case studies and long-form articles */
+.projectV11Card p,
+.projectV11Row p,
+.projectsV11Statement p,
+.caseV11Hero p,
+.caseV11Narrative p,
+.articleWrap>p:not(.articleLead){
+  font-size:var(--type-body);
+  line-height:1.78;
+}
+.articleLead{font-size:var(--type-lead);line-height:1.75}
+.articleWrap h2{font-size:clamp(2rem,3.2vw,2.625rem);line-height:1.12}
+.articleWrap>a{font-size:.9375rem}
+.projectV11Meta,
+.projectV11Tags span,
+.projectV11Row span,
+.caseV11Facts span{font-size:var(--type-label)}
+.caseV11Facts b{font-size:1rem}
+
+/* Contact: labels, fields and supporting information */
+.contactFinalHero p,
+.contactFinalSectionHead>p,
+.contactFinalFormGrid aside p,
+.contactFinalVisitCopy>p,
+.contactFinalFaq details p{
+  font-size:var(--type-body);
+  line-height:var(--type-reading-line);
+}
+.contactFinalKicker,
+.contactFinalSectionHead span,
+.contactFinalFormGrid aside>span,
+.contactFinalVisitCopy>span,
+.contactFinalFaqGrid>div:first-child>span,
+.contactFinalQuickGrid span,
+.contactFinalIntentGrid small,
+.contactFinalWorkGrid figcaption,
+.contactFinalAddress small,
+.contactFinalCities span{
+  font-size:var(--type-label);
+}
+.contactFinalHeroActions>a:last-child,
+.contactFinalQuickGrid strong,
+.contactFinalIntentGrid b,
+.contactFinalAddress strong,
+.contactFinalFaq summary{font-size:1rem}
+.contactFinalForm label{font-size:.875rem;line-height:1.35}
+.contactFinalForm input,
+.contactFinalForm select,
+.contactFinalForm textarea{
+  font-size:var(--type-control);
+  line-height:1.45;
+  min-height:48px;
+}
+.contactFinalForm textarea{min-height:160px}
+.contactFinalForm input::placeholder,
+.contactFinalForm textarea::placeholder{font-size:.9375rem}
+.contactFinalUpload small,
+.contactFinalPrivacy,
+.contactFinalStatus{font-size:var(--type-label);line-height:1.55}
+
+/* Footer and review metadata */
+.footerGrid h4,
+.footerGrid a,
+.footerGrid p,
+.footerBottom,
+.footerWordmark small,
+.footerPost small{font-size:var(--type-label)}
+.footerGrid a,.footerGrid p{line-height:1.65}
+.footerPost span{font-size:.9375rem}
+.reviewSummary span,
+.reviewSummary p,
+.reviewPerson b,
+.reviewPerson small{font-size:var(--type-label)}
+
+/* Form consistency beyond Contact */
+.quoteForm label,
+.miniQuoteForm label{font-size:.875rem}
+.quoteForm input,
+.quoteForm select,
+.quoteForm textarea,
+.miniQuoteForm input,
+.miniQuoteForm select,
+.miniQuoteForm textarea{font-size:var(--type-control);min-height:48px}
+.quoteForm small,
+.miniQuoteForm small,
+.fileMock span{font-size:var(--type-label)}
+
+/* Mobile reading rhythm: prevent browser zoom and cramped copy */
+@media(max-width:760px){
+  :root{
+    --type-body:1rem;
+    --type-lead:1.125rem;
+    --type-small:.9375rem;
+    --type-label:.8125rem;
+  }
+  .btn{font-size:.9375rem;min-height:46px}
+  .contactFinalForm input,
+  .contactFinalForm select,
+  .contactFinalForm textarea,
+  .quoteForm input,
+  .quoteForm select,
+  .quoteForm textarea,
+  .miniQuoteForm input,
+  .miniQuoteForm select,
+  .miniQuoteForm textarea{font-size:1rem}
+  .articleWrap h2{font-size:2rem}
+  .footerBrandCol>p{font-size:1rem}
+}
