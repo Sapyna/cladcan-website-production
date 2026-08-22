@@ -5398,3 +5398,69 @@ body:not(.home) .siteHeader + main,
  .contactFinalAreaGroups h3{font-size:15px}
  .contactFinalAreaGroups p{font-size:12px}
 }
+
+
+/* Contact service-area reference layout v2 */
+.contactFinalArea{padding:88px 0;background:#f5f4f0}
+.contactFinalAreaCard{overflow:hidden;border:1px solid #e1e2de;border-radius:64px;background:radial-gradient(circle at 62% 25%,#fff 0,#faf9f5 48%,#f3f1ec 100%);box-shadow:0 25px 70px rgba(11,37,51,.07)}
+.contactFinalAreaHero{display:grid;grid-template-columns:.93fr 1.07fr;min-height:410px;padding:58px 58px 22px;gap:34px;align-items:center}
+.contactFinalAreaCopy>span{font-size:10px;font-weight:900;letter-spacing:.2em;color:#d5a15f}
+.contactFinalAreaCopy h2{font-family:Georgia,serif;font-size:clamp(48px,5.25vw,78px);line-height:.94;letter-spacing:-.055em;margin:18px 0 26px;color:#0b2533}
+.contactFinalAreaCopy p{max-width:570px;color:#657780;font-size:14px;line-height:1.65;margin:0}
+.contactFinalAreaMap{position:relative;min-height:350px}
+.contactFinalAreaMap svg{display:block;width:100%;height:350px;overflow:visible}
+.contactFinalAreaWater{fill:#f2f5f3}
+.contactFinalAreaRoads{fill:none;stroke:#c5d5d8;stroke-width:1.35;stroke-linecap:round;opacity:.78}
+.contactFinalAreaRoads path:nth-child(2n){stroke-width:.8;opacity:.65}
+.contactFinalAreaShore{fill:none;stroke:#b8ced3;stroke-width:1.15;opacity:.82}
+.contactFinalAreaPoint>circle:not(.ring){fill:#0b2533}
+.contactFinalAreaPoint .ring{fill:none;stroke:#6f8993;stroke-width:1.5}
+.contactFinalAreaPoint text{font:700 13px Arial,sans-serif;fill:#263f4b}
+.contactFinalAreaPin path{fill:#ee3a3b}
+.contactFinalAreaPin text{font:700 14px Arial,sans-serif;fill:#ee3a3b}
+.contactFinalCoverage{border-top:1px solid #d6dddc;padding:20px 58px 30px}
+.contactFinalCore{display:flex;align-items:center;gap:28px}
+.contactFinalCore>span{flex:0 0 auto;font-size:9px;font-weight:900;letter-spacing:.15em;color:#d5a15f}
+.contactFinalCore>div{display:flex;flex-wrap:wrap;gap:10px}
+.contactFinalCore>div>span{padding:10px 20px;border:1px solid #ccd6d7;border-radius:5px;color:#213743;background:rgba(255,255,255,.44);font-size:11px;font-weight:700}
+.contactFinalAreaPreview{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:start;margin-top:17px}
+.contactFinalAreaPreview>p{margin:0;color:#526872;font-size:10px;line-height:1.7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.contactFinalAreaPreview details{position:relative}
+.contactFinalAreaPreview summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;white-space:nowrap;color:#e42d2f;font-size:11px;font-weight:850}
+.contactFinalAreaPreview summary::-webkit-details-marker{display:none}
+.contactFinalAreaPreview summary span{transition:transform .25s ease}
+.contactFinalAreaPreview details[open] summary span{transform:rotate(180deg)}
+.contactFinalAreaAll{grid-column:1/-1;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-top:21px;padding-top:20px;border-top:1px solid #d6dddc}
+.contactFinalAreaAll span{padding:10px 11px;border:1px solid #d5dedd;border-radius:4px;background:rgba(255,255,255,.52);color:#334c57;font-size:10px;text-align:center}
+.contactFinalAreaPreview details[open]{grid-column:1/-1}
+.contactFinalAreaPreview details[open] .contactFinalAreaAll{width:100%}
+
+@media(max-width:1000px){
+ .contactFinalAreaCard{border-radius:46px}
+ .contactFinalAreaHero{grid-template-columns:1fr;padding:48px 44px 18px}
+ .contactFinalAreaCopy p{max-width:680px}
+ .contactFinalAreaMap{min-height:330px}
+ .contactFinalAreaMap svg{height:330px}
+ .contactFinalCoverage{padding:20px 44px 28px}
+ .contactFinalAreaAll{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media(max-width:700px){
+ .contactFinalArea{padding:55px 0}
+ .contactFinalAreaCard{border-radius:32px}
+ .contactFinalAreaHero{padding:34px 22px 10px;gap:4px}
+ .contactFinalAreaCopy h2{font-size:clamp(43px,13vw,59px);margin:14px 0 20px}
+ .contactFinalAreaCopy p{font-size:14px}
+ .contactFinalAreaMap{min-height:275px;margin:10px -8px 0}
+ .contactFinalAreaMap svg{height:275px}
+ .contactFinalAreaPoint text{font-size:11px}
+ .contactFinalAreaPin text{font-size:11px}
+ .contactFinalCoverage{padding:20px 22px 28px}
+ .contactFinalCore{display:block}
+ .contactFinalCore>div{margin-top:13px;gap:7px}
+ .contactFinalCore>div>span{padding:9px 13px;font-size:10px}
+ .contactFinalAreaPreview{grid-template-columns:1fr;margin-top:16px;gap:13px}
+ .contactFinalAreaPreview>p{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+ .contactFinalAreaPreview summary{font-size:12px}
+ .contactFinalAreaAll{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ .contactFinalAreaAll span{font-size:11px}
+}
