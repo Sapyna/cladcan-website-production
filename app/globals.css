@@ -5317,3 +5317,30 @@ body:not(.home) .siteHeader + main,
   .articleWrap h2{font-size:2rem}
   .footerBrandCol>p{font-size:1rem}
 }
+
+
+/* ===== v45 — CURATED SYSTEM PHOTOGRAPHY ===== */
+.systemVisualGallery{padding:clamp(64px,8vw,112px) 0;background:#f4f2ed;overflow:hidden}
+.systemVisualGalleryHead{display:grid;grid-template-columns:minmax(180px,.55fr) 1.45fr;gap:32px;align-items:end;margin-bottom:32px}
+.systemVisualGalleryHead span{font-size:.8125rem;font-weight:800;letter-spacing:.14em;color:#a67b43}
+.systemVisualGalleryHead h2{margin:0;font-size:clamp(2.1rem,4vw,4rem);line-height:.98;max-width:760px}
+.systemVisualGalleryGrid{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:repeat(2,minmax(210px,1fr));gap:16px;min-height:clamp(500px,58vw,760px)}
+.systemVisualGalleryGrid figure{position:relative;margin:0;overflow:hidden;background:#d9d7d1;min-height:210px}
+.systemVisualGalleryGrid .systemVisualGalleryLead{grid-row:1 / span 2}
+.systemVisualGalleryGrid img{object-fit:cover;transition:transform .45s ease}
+.systemVisualGalleryGrid figure:hover img{transform:scale(1.025)}
+.productDetailHero,.applicationHero{background-position:center;background-size:cover;background-repeat:no-repeat}
+.systemsVisualMedia,.viewCollectionVisual,.systemsListThumb{position:relative;overflow:hidden}
+.systemsCatalogueImage,.viewCollectionImage,.systemsListThumb img{object-fit:cover;transition:transform .4s ease}
+.systemsVisualCard:hover .systemsCatalogueImage,.viewCollectionCard:hover .viewCollectionImage{transform:scale(1.035)}
+.systemsVisualMedia:after,.viewCollectionVisual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,20,31,.05),rgba(3,20,31,.42));pointer-events:none}
+.systemsVisualMedia>*:not(img),.viewCollectionVisual>*:not(img){position:relative;z-index:2}
+.systemsListThumb{min-height:72px}
+.systemsListThumb img{border-radius:4px}
+@media(max-width:760px){
+  .systemVisualGallery{padding:56px 0}
+  .systemVisualGalleryHead{grid-template-columns:1fr;gap:12px}
+  .systemVisualGalleryGrid{grid-template-columns:1fr 1fr;grid-template-rows:minmax(300px,55vh) 180px;min-height:0}
+  .systemVisualGalleryGrid .systemVisualGalleryLead{grid-column:1 / -1;grid-row:auto}
+}
+@media(max-width:430px){.systemVisualGalleryGrid{grid-template-columns:1fr;grid-template-rows:320px 200px 200px}.systemVisualGalleryGrid .systemVisualGalleryLead{grid-column:auto}}
