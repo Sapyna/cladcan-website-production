@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Grid2X2, List } from "lucide-react";
+import Image from "next/image";
+import { getPrimaryVisual } from "@/data/visualCatalog";
 
 const STORAGE_KEY="cladcan-catalogue-view";
 
@@ -17,7 +19,7 @@ export default function ViewToggleCollection({items=[], variant="standard", clas
     <div className="viewCollectionItems">
       {items.map((item,index)=>{
         const content=<>
-          <div className="viewCollectionVisual"><span className="viewCollectionNumber">{item.number || String(index+1).padStart(2,"0")}</span><span className="viewCollectionPlaceholder">{item.visualLabel || item.title}</span>{item.href&&<span className="viewCollectionArrow"><ArrowUpRight size={18}/></span>}</div>
+          <div className="viewCollectionVisual"><Image className="viewCollectionImage" src={item.image || getPrimaryVisual(`${item.title} ${item.subtitle || ""} ${item.href || ""}`)} alt={`${item.title} exterior system`} fill sizes="(max-width: 760px) 100vw, 33vw" /><span className="viewCollectionNumber">{item.number || String(index+1).padStart(2,"0")}</span>{item.href&&<span className="viewCollectionArrow"><ArrowUpRight size={18}/></span>}</div>
           <div className="viewCollectionBody">{item.subtitle&&<span className="viewCollectionSubtitle">{item.subtitle}</span>}<h3>{item.title}</h3>{item.description&&<p>{item.description}</p>}{item.tags?.length>0&&<div className="viewCollectionTags">{item.tags.map(tag=><span key={tag}>{tag}</span>)}</div>}{item.href&&<strong>{item.linkLabel||"Explore"} <ArrowUpRight size={13}/></strong>}</div>
         </>;
         return item.href?<Link href={item.href} key={item.href} className="viewCollectionCard">{content}</Link>:<article key={`${item.title}-${index}`} className="viewCollectionCard">{content}</article>;
