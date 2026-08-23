@@ -5427,3 +5427,66 @@ body:not(.home) .siteHeader + main,
     linear-gradient(90deg,rgba(7,28,41,.72),rgba(7,28,41,.08)),
     url('/images/about/about-detail-hero.webp') center 48%/cover no-repeat!important;
 }
+
+
+/* Services photography framing */
+.servicesImageTeam,
+.servicesImageSupply,
+.servicesImageRepair{
+  position:relative;
+  isolation:isolate;
+  background-color:#dfe4e6;
+}
+.servicesImageTeam::before,
+.servicesImageSupply::before,
+.servicesImageRepair::before{
+  content:"";
+  position:absolute;
+  inset:-18px;
+  z-index:0;
+  background-position:center;
+  background-size:cover;
+  filter:blur(16px);
+  transform:scale(1.06);
+  opacity:.28;
+}
+.servicesImageTeam::before{background-image:url("/images/services/service-team.webp")}
+.servicesImageSupply::before{background-image:url("/images/services/service-material-supply.webp")}
+.servicesImageRepair::before{background-image:url("/images/services/service-repair-maintenance.webp")}
+.servicesImageTeam img,
+.servicesImageSupply img,
+.servicesImageRepair img{
+  position:relative;
+  z-index:1;
+  transform:none;
+}
+.servicesImageTeam img{
+  object-fit:cover;
+  object-position:center bottom;
+}
+.servicesImageSupply img{
+  object-fit:cover;
+  object-position:center bottom;
+}
+.servicesImageRepair img{
+  object-fit:contain;
+  object-position:center center;
+}
+.servicesFeature:hover .servicesImageSupply img,
+.servicesFeature:hover .servicesImageRepair img{
+  transform:none;
+}
+.servicesImageSupply>span,
+.servicesImageRepair>span{
+  z-index:2;
+}
+@media(max-width:700px){
+  .servicesImageTeam img,
+  .servicesImageSupply img{
+    object-position:center bottom;
+  }
+  .servicesImageRepair img{
+    object-fit:contain;
+    object-position:center center;
+  }
+}
