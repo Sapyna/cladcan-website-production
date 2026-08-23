@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import QuickContactRail from "@/components/QuickContactRail";
+import VisibleTextNormalizer from "@/components/VisibleTextNormalizer";
 import { PageBreadcrumb, PageSiblingNav } from "@/components/PageNavigation";
 
 const openSans = Open_Sans({
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={openSans.variable}>
+        <VisibleTextNormalizer />
         <Header />
         <PageBreadcrumb />
         <main>{children}</main>
