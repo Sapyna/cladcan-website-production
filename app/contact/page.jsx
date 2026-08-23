@@ -66,7 +66,7 @@ export default function Contact(){
 
   <section className="contactFinalQuick"><div className="wrap contactFinalQuickGrid">
     <a className="contactFinalQuickCall" href="tel:+18449243030"><Phone/><span>CALL</span><strong>+1 (844) 924-3030</strong></a>
-    <a href="mailto:info@cladcan.ca"><Mail/><span>EMAIL</span><strong>info@cladcan.ca</strong></a>
+    <a href="mailto:info@cladca.ca"><Mail/><span>EMAIL</span><strong>info@cladca.ca</strong></a>
     <a href="#visit"><MapPin/><span>SHOWROOM / OFFICE</span><strong>North York, Ontario</strong></a>
     <div><Clock3/><span>HOURS</span><strong>Mon–Fri · 9am–5pm</strong></div>
   </div></section>
