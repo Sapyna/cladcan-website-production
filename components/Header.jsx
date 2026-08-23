@@ -37,7 +37,7 @@ export default function Header() {
     <header className="siteHeader referenceHeader" onMouseLeave={clear}>
       <div className="wrap headerInner">
         <Link className="referenceLogo realSiteLogo" href="/" onMouseEnter={clear}>
-          <img src="/images/cladcan-logo-official.svg" alt="CladCan Modern Exterior Cladding Solutions" />
+          <img src="/images/cladcan-logo-transparent.svg" alt="CladCan Modern Exterior Cladding Solutions" />
         </Link>
 
         <nav className="desktopNav referenceDesktopNav">
