@@ -5527,3 +5527,42 @@ body:not(.home) .siteHeader + main,
     object-position:32% 50%!important;
   }
 }
+
+
+.projectsV11Hero{
+  background-image:
+    linear-gradient(90deg,rgba(4,24,36,.94) 0%,rgba(4,24,36,.72) 38%,rgba(4,24,36,.28) 68%,rgba(4,24,36,.08) 100%),
+    url('/images/projects/projects-clinic-hero-v2.svg?v=2')!important;
+  background-position:center center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+}
+.servicesImageSupply::before{
+  background-image:url("/images/services/service-material-supply-framed.svg")!important;
+  background-position:center center!important;
+}
+.servicesImageSupply img{
+  object-fit:cover!important;
+  object-position:center center!important;
+}
+.referenceHeader .realSiteLogo{
+  overflow:hidden;
+  background:#fff;
+}
+.referenceHeader .realSiteLogo img{
+  display:block;
+  width:100%!important;
+  height:auto!important;
+  object-fit:contain!important;
+  filter:none!important;
+}
+.footerBrandMark{
+  display:block;
+  width:min(100%,320px);
+}
+.footerBrandMark img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+}
