@@ -5574,3 +5574,281 @@ body:not(.home) .siteHeader + main,
   height:auto;
   object-fit:contain;
 }
+
+
+/* CladCan contact interaction and showroom booking */
+.contactFinalCallLink,
+.contactFinalQuickCall,
+.contactFinalInlineCall,
+.contactFinalBookButton {
+  transition: color .22s ease, background-color .22s ease, border-color .22s ease, transform .22s ease, box-shadow .22s ease;
+}
+.contactFinalCallLink:hover,
+.contactFinalCallLink:focus-visible,
+.contactFinalInlineCall:hover,
+.contactFinalInlineCall:focus-visible {
+  color: #ff2427;
+  transform: translateY(-2px);
+}
+.contactFinalQuickCall:hover,
+.contactFinalQuickCall:focus-visible {
+  background: #071c29;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(7, 28, 41, .16);
+}
+.contactFinalSubmit,
+.contactFinalBookButton {
+  transition: color .22s ease, background-color .22s ease, border-color .22s ease, transform .22s ease, box-shadow .22s ease;
+}
+.contactFinalSubmit:hover:not(:disabled),
+.contactFinalSubmit:focus-visible,
+.contactFinalBookButton:hover,
+.contactFinalBookButton:focus-visible {
+  color: #fff;
+  background: #ff2427;
+  border-color: #ff2427;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(255, 36, 39, .22);
+}
+.contactFinalSubmit:disabled {
+  cursor: wait;
+  opacity: .65;
+}
+.contactFinalStatus.success {
+  color: #17693a;
+  background: #eef8f1;
+  border: 1px solid #b8dfc5;
+  padding: 14px 16px;
+}
+.contactFinalStatus.error {
+  color: #a7181a;
+  background: #fff0f0;
+  border: 1px solid #f1b8b9;
+  padding: 14px 16px;
+}
+.showroomBookingPage {
+  background: #f4f2ed;
+  color: #14222d;
+}
+.showroomBookingHero {
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+  background:
+    linear-gradient(90deg, rgba(4, 25, 38, .96) 0%, rgba(4, 25, 38, .75) 52%, rgba(4, 25, 38, .28) 100%),
+    url("/images/contact/cladcan-contact-hero-walk-in-clinic-cladding.jpg") center 43% / cover no-repeat;
+}
+.showroomBookingHeroInner {
+  padding-top: clamp(190px, 21vw, 280px);
+  padding-bottom: clamp(64px, 8vw, 108px);
+}
+.showroomBookingEyebrow {
+  margin: 0 0 22px;
+  color: #d8a052;
+  font-size: .82rem;
+  font-weight: 800;
+  letter-spacing: .2em;
+}
+.showroomBookingHero h1 {
+  max-width: 820px;
+  margin: 0;
+  font-size: clamp(3.2rem, 7vw, 7rem);
+  line-height: .94;
+  letter-spacing: -.055em;
+}
+.showroomBookingHero p:last-child {
+  max-width: 700px;
+  margin: 28px 0 0;
+  color: rgba(255, 255, 255, .78);
+  font-size: clamp(1rem, 1.45vw, 1.3rem);
+  line-height: 1.65;
+}
+.showroomBookingSection {
+  padding: clamp(72px, 9vw, 140px) 0;
+}
+.showroomBookingGrid {
+  display: grid;
+  grid-template-columns: minmax(280px, .72fr) minmax(520px, 1.28fr);
+  gap: clamp(48px, 7vw, 120px);
+  align-items: start;
+}
+.showroomBookingDetails {
+  position: sticky;
+  top: 40px;
+}
+.showroomBookingDetails h2 {
+  margin: 0 0 24px;
+  max-width: 520px;
+  font-size: clamp(2.3rem, 4.6vw, 4.8rem);
+  line-height: 1;
+  letter-spacing: -.045em;
+}
+.showroomBookingDetails > p:not(.showroomBookingEyebrow) {
+  color: #6d7b84;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+.showroomBookingInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 42px;
+  padding-top: 30px;
+  border-top: 1px solid #cbd3d6;
+  color: #63737d;
+}
+.showroomBookingInfo strong {
+  color: #14222d;
+}
+.showroomBookingInfo a {
+  width: fit-content;
+  margin-top: 10px;
+  color: #14222d;
+  font-weight: 750;
+  transition: color .2s ease, transform .2s ease;
+}
+.showroomBookingInfo a:hover,
+.showroomBookingInfo a:focus-visible {
+  color: #ff2427;
+  transform: translateX(4px);
+}
+.showroomBookingForm {
+  display: grid;
+  gap: 24px;
+  padding: clamp(28px, 4vw, 58px);
+  background: #fff;
+  border: 1px solid #d4dcdf;
+  box-shadow: 0 24px 70px rgba(7, 28, 41, .07);
+}
+.showroomBookingPair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.showroomBookingForm label {
+  display: grid;
+  gap: 10px;
+  color: #14222d;
+  font-size: .92rem;
+  font-weight: 750;
+}
+.showroomBookingForm label > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.showroomBookingForm input,
+.showroomBookingForm select,
+.showroomBookingForm textarea {
+  width: 100%;
+  min-height: 56px;
+  padding: 14px 16px;
+  color: #14222d;
+  background: #fff;
+  border: 1px solid #c7d1d5;
+  border-radius: 0;
+  font: inherit;
+  font-weight: 500;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+.showroomBookingForm textarea {
+  resize: vertical;
+  line-height: 1.55;
+}
+.showroomBookingForm input:focus,
+.showroomBookingForm select:focus,
+.showroomBookingForm textarea:focus {
+  border-color: #ff2427;
+  box-shadow: 0 0 0 3px rgba(255, 36, 39, .12);
+  background: #fffdfc;
+}
+.showroomBookingTrap {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+.showroomBookingSubmit {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 58px;
+  margin-top: 6px;
+  padding: 0 27px;
+  color: #fff;
+  background: #14222d;
+  border: 1px solid #14222d;
+  cursor: pointer;
+  transition: background-color .22s ease, border-color .22s ease, transform .22s ease, box-shadow .22s ease;
+}
+.showroomBookingSubmit:hover:not(:disabled),
+.showroomBookingSubmit:focus-visible {
+  background: #ff2427;
+  border-color: #ff2427;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(255, 36, 39, .22);
+}
+.showroomBookingSubmit:disabled {
+  cursor: wait;
+  opacity: .65;
+}
+.showroomBookingStatus {
+  margin: 0;
+  padding: 15px 17px;
+  line-height: 1.55;
+}
+.showroomBookingStatus.success {
+  color: #17693a;
+  background: #eef8f1;
+  border: 1px solid #b8dfc5;
+}
+.showroomBookingStatus.error {
+  color: #a7181a;
+  background: #fff0f0;
+  border: 1px solid #f1b8b9;
+}
+@media (max-width: 900px) {
+  .showroomBookingHero {
+    min-height: 600px;
+  }
+  .showroomBookingHeroInner {
+    padding-top: 220px;
+  }
+  .showroomBookingGrid {
+    grid-template-columns: 1fr;
+  }
+  .showroomBookingDetails {
+    position: static;
+  }
+}
+@media (max-width: 620px) {
+  .showroomBookingHero h1 {
+    font-size: clamp(3rem, 15vw, 4.6rem);
+  }
+  .showroomBookingPair {
+    grid-template-columns: 1fr;
+  }
+  .showroomBookingForm {
+    padding: 24px 18px;
+  }
+  .showroomBookingSubmit {
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contactFinalCallLink,
+  .contactFinalQuickCall,
+  .contactFinalInlineCall,
+  .contactFinalSubmit,
+  .contactFinalBookButton,
+  .showroomBookingInfo a,
+  .showroomBookingSubmit {
+    transition: none;
+  }
+}
