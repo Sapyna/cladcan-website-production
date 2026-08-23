@@ -13,7 +13,7 @@ const slides=[
   },
   {
     type:"image",
-    src:"/images/before-after/william-rose-after.jpg",
+    src:"/images/hero/home-banner-2.webp",
     eyebrow:"RESIDENTIAL EXTERIOR SYSTEMS",
     titleTop:"Modern Exterior",
     titleBottom:"Built Around the Detail",
@@ -21,7 +21,7 @@ const slides=[
   },
   {
     type:"image",
-    src:"/images/before-after/gray-lane-barrie-after.jpg",
+    src:"/images/hero/home-banner-3.webp",
     eyebrow:"SUPPLY · FABRICATION · INSTALLATION",
     titleTop:"From Material Selection",
     titleBottom:"to Field Execution",
