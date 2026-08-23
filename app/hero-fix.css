@@ -2,7 +2,7 @@
   --internal-hero-min:clamp(640px,78svh,760px);
   --internal-hero-top:220px;
   --internal-hero-bottom:clamp(48px,6vh,68px);
-  --internal-hero-x:clamp(32px,4.2vw,72px);
+  --internal-hero-x:clamp(190px,10vw,220px);
   --internal-hero-copy:760px;
   --internal-hero-gap:22px;
   --internal-hero-gold:#d5a15f;
