@@ -48,7 +48,7 @@ export default function Contact(){
      if(!response.ok) throw new Error(data.message||"Unable to send the inquiry.");
 
      setStatus("success");
-     setMessage(data.message||"Thanks — your project inquiry has been sent to CladCan.");
+     setMessage(data.message||"Thank you. Your information has been sent. A member of the CladCan team will contact you soon.");
      e.currentTarget.reset();
      setIntent("quote");
    }catch(error){
@@ -59,13 +59,13 @@ export default function Contact(){
  return <>
   <section className="contactFinalHero">
     <div className="wrap contactFinalHeroGrid">
-      <div className="contactFinalHeroInner"><span className="contactFinalKicker">CONTACT CLADCAN</span><h1>Start with the project.<br/><em>We’ll help with the next step.</em></h1><p>Tell us what you are planning, pricing or trying to solve. Drawings are helpful, but they are not required to start the conversation.</p><div className="contactFinalHeroActions"><a className="btn" href="#project-inquiry">Start a Project <ArrowUpRight size={14}/></a><a href="tel:+18449243030"><Phone size={14}/> +1 (844) 924-3030</a></div></div>
+      <div className="contactFinalHeroInner"><span className="contactFinalKicker">CONTACT CLADCAN</span><h1>Start with the project.<br/><em>We’ll help with the next step.</em></h1><p>Tell us what you are planning, pricing or trying to solve. Drawings are helpful, but they are not required to start the conversation.</p><div className="contactFinalHeroActions"><a className="btn" href="#project-inquiry">Start a Project <ArrowUpRight size={14}/></a><a className="contactFinalCallLink" href="tel:+18449243030"><Phone size={14}/> +1 (844) 924-3030</a></div></div>
       <div className="contactFinalHeroVisual"><Image src="/images/contact/cladcan-contact-hero-walk-in-clinic-cladding.jpg" alt="Walk-in clinic exterior cladding project completed by CladCan" fill priority sizes="(max-width: 760px) 100vw, 620px"/></div>
     </div>
   </section>
 
   <section className="contactFinalQuick"><div className="wrap contactFinalQuickGrid">
-    <a href="tel:+18449243030"><Phone/><span>CALL</span><strong>+1 (844) 924-3030</strong></a>
+    <a className="contactFinalQuickCall" href="tel:+18449243030"><Phone/><span>CALL</span><strong>+1 (844) 924-3030</strong></a>
     <a href="mailto:info@cladcan.ca"><Mail/><span>EMAIL</span><strong>info@cladcan.ca</strong></a>
     <a href="#visit"><MapPin/><span>SHOWROOM / OFFICE</span><strong>North York, Ontario</strong></a>
     <div><Clock3/><span>HOURS</span><strong>Mon–Fri · 9am–5pm</strong></div>
@@ -74,7 +74,7 @@ export default function Contact(){
   <section id="project-inquiry" className="contactFinalFormSection"><div className="wrap">
    <div className="contactFinalSectionHead"><div><span>01 — START A PROJECT</span><h2>Give us the useful context.</h2></div><p>Choose the closest starting point, then share what you know. The goal is to route your inquiry to the right conversation without turning first contact into paperwork.</p></div>
    <div className="contactFinalIntentGrid">{intents.map(([id,title,text])=><button type="button" key={id} onClick={()=>setIntent(id)} className={intent===id?"active":""}><span>{intent===id?<Check size={13}/>:null}</span><b>{title}</b><small>{text}</small></button>)}</div>
-   <div className="contactFinalFormGrid"><aside><span>02 — PROJECT DETAILS</span><h3>A few details help us respond with better direction.</h3><p>For pricing and technical questions, include the project location, stage and exterior scope where possible.</p><div className="contactFinalAsideLine"/><small>Prefer to talk through it?</small><a href="tel:+18449243030">Call the CladCan team <ArrowUpRight size={13}/></a></aside>
+   <div className="contactFinalFormGrid"><aside><span>02 — PROJECT DETAILS</span><h3>A few details help us respond with better direction.</h3><p>For pricing and technical questions, include the project location, stage and exterior scope where possible.</p><div className="contactFinalAsideLine"/><small>Prefer to talk through it?</small><a className="contactFinalInlineCall" href="tel:+18449243030">Call the CladCan team <ArrowUpRight size={13}/></a></aside>
     <form className="contactFinalForm" onSubmit={submit} encType="multipart/form-data">
      <input type="hidden" name="inquiryType" value={intent}/>
      <label className="contactHoneypot" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off"/></label>
@@ -85,14 +85,14 @@ export default function Contact(){
      <label>Project details<textarea name="details" rows="6" placeholder="Exterior scope, approximate area, materials being considered, timing, or the problem you are trying to solve."/></label>
      <label className="contactFinalUpload"><FileUp size={20}/><span><b>Add drawings or project photos</b><small>PDF, JPG, PNG, WEBP, HEIC or HEIF. Up to 8 MB per file and 15 MB total.</small></span><input name="attachments" type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.webp,.heic,.heif,image/*"/></label>
      <button className="btn contactFinalSubmit" type="submit" disabled={status==="sending"}>{status==="sending"?"Sending…":"Send Project Inquiry"} {status!=="sending"&&<ArrowUpRight size={14}/>}</button>
-     {message?<p className={`contactFinalStatus ${status}`} role={status==="error"?"alert":"status"}>{message}</p>:<small className="contactFinalPrivacy">Your contact information is used only to respond to your project inquiry.</small>}
+     {message?<p className={`contactFinalStatus ${status}`} role={status==="error"?"alert":"status"} aria-live="polite">{message}</p>:<small className="contactFinalPrivacy">Your contact information is used only to respond to your project inquiry.</small>}
     </form>
    </div>
   </div></section>
 
   <section className="contactFinalWork"><div className="wrap"><div className="contactFinalSectionHead light"><div><span>REAL CLADCAN WORK</span><h2>Built work, not stock imagery.</h2></div><p>A selection of residential and commercial exterior work by CladCan. Project imagery gives our team a common visual language when discussing systems, details and scope.</p></div><div className="contactFinalWorkGrid">{work.map((x,i)=><figure key={x.src}><div><Image src={x.src} alt={x.alt} fill sizes="(max-width: 700px) 100vw, (max-width: 1050px) 50vw, 33vw"/></div><figcaption><span>0{i+1}</span>{x.label}</figcaption></figure>)}</div></div></section>
 
-  <section id="visit" className="contactFinalVisit"><div className="wrap contactFinalVisitGrid"><div className="contactFinalShowroom"><Image src="/images/contact/cladcan-north-york-showroom-material-samples.jpg" alt="CladCan North York showroom with exterior cladding and material samples" fill sizes="(max-width: 900px) 100vw, 52vw"/></div><div className="contactFinalVisitCopy"><span>VISIT CLADCAN</span><h2>See materials in person.</h2><p>Visit the North York showroom to discuss exterior systems, profiles and finishes with the CladCan team.</p><div className="contactFinalAddress"><Building2/><div><small>SHOWROOM / OFFICE</small><strong>5000 Dufferin St, Unit K<br/>North York, ON M3H 5T5</strong></div></div><div className="contactFinalAddress"><Clock3/><div><small>HOURS</small><strong>Monday–Friday · 9:00am–5:00pm</strong></div></div><div className="contactFinalVisitActions"><a className="btn" href="#project-inquiry">Book a Showroom Visit <ArrowUpRight size={14}/></a><a href="https://www.google.com/maps/search/?api=1&query=5000+Dufferin+St+Unit+K+North+York+ON+M3H+5T5" target="_blank" rel="noreferrer">Open in Google Maps <ArrowUpRight size={13}/></a></div></div></div></section>
+  <section id="visit" className="contactFinalVisit"><div className="wrap contactFinalVisitGrid"><div className="contactFinalShowroom"><Image src="/images/contact/cladcan-north-york-showroom-material-samples.jpg" alt="CladCan North York showroom with exterior cladding and material samples" fill sizes="(max-width: 900px) 100vw, 52vw"/></div><div className="contactFinalVisitCopy"><span>VISIT CLADCAN</span><h2>See materials in person.</h2><p>Visit the North York showroom to discuss exterior systems, profiles and finishes with the CladCan team.</p><div className="contactFinalAddress"><Building2/><div><small>SHOWROOM / OFFICE</small><strong>5000 Dufferin St, Unit K<br/>North York, ON M3H 5T5</strong></div></div><div className="contactFinalAddress"><Clock3/><div><small>HOURS</small><strong>Monday–Friday · 9:00am–5:00pm</strong></div></div><div className="contactFinalVisitActions"><a className="btn contactFinalBookButton" href="/contact/showroom-visit">Book a Showroom Visit <ArrowUpRight size={14}/></a><a href="https://www.google.com/maps/search/?api=1&query=5000+Dufferin+St+Unit+K+North+York+ON+M3H+5T5" target="_blank" rel="noreferrer">Open in Google Maps <ArrowUpRight size={13}/></a></div></div></div></section>
 
   <section className="contactFinalArea"><div className="wrap">
    <div className="contactFinalSectionHead"><div><span>ONTARIO SERVICE AREA</span><h2>North York based.<br/>Ontario focused.</h2></div><p>CladCan supports residential, commercial and institutional exterior projects across the GTA and surrounding Ontario communities. For work beyond the areas below, contact the team to confirm coverage.</p></div>
