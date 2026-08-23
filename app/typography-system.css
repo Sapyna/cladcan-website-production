@@ -1,11 +1,11 @@
-/* ===== v47 — CLADCAN / NORTEM-INSPIRED TYPOGRAPHY =====
-   Maven Pro is loaded locally through next/font for consistent rendering.
+/* ===== v48 — CLADCAN OPEN SANS TYPOGRAPHY =====
+   Open Sans is loaded locally through next/font for consistent rendering.
    One family is used across display, editorial, navigation and interface text.
 */
 
 :root{
-  --type-display:var(--font-maven-pro),"Maven Pro",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  --type-sans:var(--font-maven-pro),"Maven Pro",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --type-display:var(--font-open-sans),"Open Sans",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --type-sans:var(--font-open-sans),"Open Sans",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   --type-body-size:clamp(1rem,.975rem + .12vw,1.125rem);
   --type-body-leading:1.68;
   --type-ui-size:.9375rem;
