@@ -86,7 +86,7 @@ export default function ServicesPage(){
     <div className="wrap servicesCards">
       {services.map(({n,icon:Icon,title,copy,points,href,image},i)=>
         <article className={`servicesFeature ${i%2 ? "reverse":""}`} key={title}>
-          <div className="servicesFeatureImage">
+          <div className={`servicesFeatureImage ${title === "Supply" ? "servicesImageSupply" : title === "Repairs & Maintenance" ? "servicesImageRepair" : ""}`}>
             <img src={image} alt={`${title} service by CladCan`}/>
             <span>{n}</span>
           </div>
@@ -121,7 +121,7 @@ export default function ServicesPage(){
 
   <section className="servicesAudience">
     <div className="wrap servicesAudienceGrid">
-      <div className="servicesAudienceImage">
+      <div className="servicesAudienceImage servicesImageTeam">
         <img src="/images/services/service-team.webp" alt="CladCan project team on an active Ontario construction site"/>
       </div>
       <div className="servicesAudienceCopy">
