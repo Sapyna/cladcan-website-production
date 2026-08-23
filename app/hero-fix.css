@@ -105,7 +105,7 @@
 .serviceV9HeroGrid>div{width:100%!important;max-width:720px!important}
 .serviceV9HeroGrid>div+div{margin-top:20px!important}
 
-/* Projects and Blog keep their two-column composition but use the same frame. */
+/* Projects, Blog and case-study heroes now use the same single-column copy format as every other internal page. */
 .projectsV11Hero>.wrap,.caseV11Hero>.wrap,.insightsHero>.wrap,.caseHero>.wrap{
   position:relative!important;
   z-index:2!important;
@@ -125,8 +125,8 @@
   z-index:2!important;
   width:100%!important;
   display:grid!important;
-  grid-template-columns:minmax(0,1.12fr) minmax(300px,.72fr)!important;
-  gap:clamp(44px,6vw,96px)!important;
+  grid-template-columns:minmax(0,760px)!important;
+  gap:0!important;
   align-items:start!important;
 }
 .projectsV11HeroGrid>div,.caseV11HeroGrid>div,.insightsHeroGrid>div{
@@ -158,10 +158,21 @@
   min-height:0!important;
   align-content:start!important;
 }
-.projectsV11HeroGrid>div:last-child{
+.projectsV11HeroGrid>div:last-child,
+.caseV11HeroGrid>div:last-child,
+.insightsHeroGrid>div:last-child{
   position:relative!important;
   z-index:2!important;
-  padding-bottom:4px!important;
+  width:100%!important;
+  max-width:680px!important;
+  margin:0!important;
+  padding:0!important;
+  align-self:start!important;
+}
+.projectsV11HeroGrid>div:last-child>a,
+.caseV11HeroGrid>div:last-child>a,
+.insightsHeroGrid>div:last-child>a{
+  margin-top:26px!important;
 }
 .caseHero{padding:0!important}
 .caseHero .visual{display:none!important}
