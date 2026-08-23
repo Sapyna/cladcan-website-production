@@ -16,7 +16,7 @@ export default function Footer(){
       <div className="footerBrandCol">
         <Link href="/" className="footerBrandMark" aria-label="CladCan home">
               <img
-                src="/images/cladcan-logo-official.svg"
+                src="/images/cladcan-logo-transparent.svg"
                 alt="CladCan Modern Exterior Cladding Solutions"
               />
             </Link>
