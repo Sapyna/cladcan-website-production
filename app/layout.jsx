@@ -1,23 +1,17 @@
 import "./globals.css";
 import "./hero-fix.css";
 import "./typography-system.css";
-import { Inter, DM_Serif_Display } from "next/font/google";
+import { Maven_Pro } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import QuickContactRail from "@/components/QuickContactRail";
 import { PageBreadcrumb, PageSiblingNav } from "@/components/PageNavigation";
 
-const inter = Inter({
+const mavenPro = Maven_Pro({
   subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap"
-});
-
-const dmSerif = DM_Serif_Display({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-display",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-maven-pro",
   display: "swap"
 });
 
@@ -47,7 +41,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${dmSerif.variable}`}>
+      <body className={mavenPro.variable}>
         <Header />
         <PageBreadcrumb />
         <main>{children}</main>
