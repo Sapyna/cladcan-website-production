@@ -9,7 +9,7 @@ const services=[
     n:"01", icon:PackageCheck, title:"Supply",
     copy:"Exterior materials and system components sourced around your drawings, specification, schedule and budget.",
     points:["Cladding & siding materials","Roofing & façade components","Bulk / project ordering","Delivery coordination"],
-    href:"/services/material-supply", image:"/images/services/service-material-supply.webp"
+    href:"/services/material-supply", image:"/images/services/service-material-supply-framed.svg"
   },
   {
     n:"02", icon:Factory, title:"Fabrication",
