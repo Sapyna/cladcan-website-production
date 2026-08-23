@@ -1,11 +1,11 @@
-/* ===== v48 — CLADCAN OPEN SANS TYPOGRAPHY =====
-   Open Sans is loaded locally through next/font for consistent rendering.
-   One family is used across display, editorial, navigation and interface text.
+/* ===== v49 CLADCAN SYSTEM UI TYPOGRAPHY =====
+   Interface and body copy use the native Apple style system font stack.
+   Existing display typography remains unchanged.
 */
 
 :root{
   --type-display:var(--font-open-sans),"Open Sans",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  --type-sans:var(--font-open-sans),"Open Sans",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --type-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --type-body-size:clamp(1rem,.975rem + .12vw,1.125rem);
   --type-body-leading:1.68;
   --type-ui-size:.9375rem;
