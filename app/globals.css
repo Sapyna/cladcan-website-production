@@ -5490,3 +5490,40 @@ body:not(.home) .siteHeader + main,
     object-position:center center;
   }
 }
+
+
+/* Services photography crop refinement */
+.servicesImageSupply{
+  overflow:hidden;
+}
+.servicesImageSupply::before{
+  background-position:center bottom;
+}
+.servicesImageSupply img{
+  width:100%;
+  height:100%;
+  object-fit:cover!important;
+  object-position:50% 100%!important;
+}
+.servicesImageRepair{
+  overflow:hidden;
+  background:#dfe4e6;
+}
+.servicesImageRepair::before{
+  display:none!important;
+}
+.servicesImageRepair img{
+  width:100%;
+  height:100%;
+  object-fit:cover!important;
+  object-position:32% 50%!important;
+}
+@media(max-width:700px){
+  .servicesImageSupply img{
+    object-position:50% 100%!important;
+  }
+  .servicesImageRepair img{
+    object-fit:cover!important;
+    object-position:32% 50%!important;
+  }
+}
