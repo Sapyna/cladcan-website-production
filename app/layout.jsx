@@ -1,14 +1,14 @@
 import "./globals.css";
 import "./hero-fix.css";
 import "./typography-system.css";
-import { Manrope, DM_Serif_Display } from "next/font/google";
+import { Inter, DM_Serif_Display } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import QuickContactRail from "@/components/QuickContactRail";
 import { PageBreadcrumb, PageSiblingNav } from "@/components/PageNavigation";
 
-const manrope = Manrope({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap"
@@ -47,7 +47,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} ${dmSerif.variable}`}>
+      <body className={`${inter.variable} ${dmSerif.variable}`}>
         <Header />
         <PageBreadcrumb />
         <main>{children}</main>
