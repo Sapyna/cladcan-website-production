@@ -1,0 +1,140 @@
+/* ===== v46 — CLADCAN TYPOGRAPHY SYSTEM =====
+   A stable, cross-platform type hierarchy:
+   - DM Serif Display for architectural/editorial display headings
+   - Manrope for navigation, body copy, controls and data
+*/
+
+:root{
+  --type-display:var(--font-display),Georgia,"Times New Roman",serif;
+  --type-sans:var(--font-sans),Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --type-body-size:clamp(1rem,.975rem + .12vw,1.125rem);
+  --type-body-leading:1.68;
+  --type-ui-size:.9375rem;
+  --type-caption-size:.8125rem;
+}
+
+html{
+  font-size:100%;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+
+body{
+  font-family:var(--type-sans);
+  font-size:var(--type-body-size);
+  line-height:var(--type-body-leading);
+  font-weight:450;
+  font-synthesis:none;
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+button,input,select,textarea{
+  font-family:var(--type-sans);
+  font-size:1rem;
+  line-height:1.45;
+}
+
+h1,h2,
+.homeHeroCopy h1,.heroCopy h1,.contactIntro h1,
+.sectionTitle h2,.splitFeatureCopy h2,.caseNarrative h2,
+.quoteBand h2,.footerStatement h2,.homeIntroGrid h2,
+.homeProjectIntro h2,.projectsV11Hero h1,.insightsHero h1,
+.caseV11Hero h1,.articleHero h1,.contactFinalHero h1,
+.aboutV8Hero h1,.serviceV9Hero h1,.servicesHero h1,
+.systemsPageHero h1,.internalHero h1,.aluminumPageHero h1,
+.longboardHero h1,.applicationHero h1,.productDetailHero h1{
+  font-family:var(--type-display)!important;
+  font-weight:400!important;
+  font-kerning:normal;
+  text-wrap:balance;
+}
+
+h3,h4,h5,h6,
+.btn,.textLink,.cardLink,
+.referenceHeader,.pageBreadcrumbOverlay,
+label,legend,summary{
+  font-family:var(--type-sans);
+}
+
+p,li,dd,blockquote{
+  text-wrap:pretty;
+}
+
+strong,b{font-weight:750}
+
+.referenceHeader .desktopNav a,
+.referenceHeader .desktopNav button{
+  font-size:clamp(.875rem,.84rem + .1vw,.96875rem)!important;
+  line-height:1.25!important;
+  font-weight:750!important;
+}
+
+.referenceHeader .headerPhone{
+  font-size:.875rem!important;
+  font-weight:750!important;
+}
+
+.referenceHeader .headerQuote,
+.btn{
+  font-size:.9375rem!important;
+  line-height:1.2!important;
+  font-weight:800!important;
+}
+
+.pageBreadcrumbOverlay,
+.eyebrow,
+.systemsPageEyebrow,.servicesKicker,.contactFinalKicker,.aboutV8Kicker,
+.projectsV11Hero .eyebrow,.caseV11Hero .eyebrow,.insightsHero .eyebrow{
+  font-family:var(--type-sans)!important;
+}
+
+.sectionTitle p,
+.splitFeatureCopy p,.reverse p,
+.caseNarrative p,.articleWrap p,
+.contactFinalFormGrid p,.contactFinalVisitCopy p,
+.systemsPageIntroCopy p,.servicesIntro p{
+  font-size:var(--type-body-size);
+  line-height:var(--type-body-leading);
+}
+
+.contactFinalForm label,
+.quoteForm label,.miniQuoteForm label{
+  font-size:.875rem!important;
+  line-height:1.4!important;
+  font-weight:750!important;
+}
+
+.contactFinalForm input,.contactFinalForm select,.contactFinalForm textarea,
+.quoteForm input,.quoteForm select,.quoteForm textarea,
+.miniQuoteForm input,.miniQuoteForm select,.miniQuoteForm textarea{
+  font-size:1rem!important;
+  line-height:1.45!important;
+}
+
+.contactFinalPrivacy,.contactFinalStatus,
+.contactFinalUpload small,
+.footerBottom,.footerGrid small{
+  font-size:var(--type-caption-size)!important;
+  line-height:1.55!important;
+}
+
+@media(max-width:760px){
+  :root{
+    --type-body-size:1rem;
+    --type-body-leading:1.65;
+    --type-ui-size:.9375rem;
+    --type-caption-size:.8125rem;
+  }
+
+  body{font-weight:450}
+
+  .referenceHeader .mobileNav a{
+    font-size:1rem!important;
+    line-height:1.3!important;
+    font-weight:750!important;
+  }
+
+  button,input,select,textarea{font-size:1rem!important}
+}
