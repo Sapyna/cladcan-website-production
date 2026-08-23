@@ -51,7 +51,7 @@ export async function POST(request) {
     if (clean(form.get("website"))) {
       return NextResponse.json({
         ok: true,
-        message: "Thanks — your project inquiry has been sent to CladCan.",
+        message: "Thank you. Your information has been sent. A member of the CladCan team will contact you soon.",
       });
     }
 
@@ -124,7 +124,7 @@ export async function POST(request) {
     const port = Number(process.env.SMTP_PORT || 587);
     const user = process.env.SMTP_USER;
     const pass = process.env.SMTP_PASS;
-    const to = process.env.CONTACT_TO_EMAIL || "info@cladcan.ca";
+    const to = "info@cladcan.ca";
     const from = process.env.CONTACT_FROM_EMAIL || user;
 
     if (!host || !user || !pass || !from) {
@@ -198,7 +198,7 @@ export async function POST(request) {
 
     return NextResponse.json({
       ok: true,
-      message: "Thanks — your project inquiry has been sent to CladCan.",
+      message: "Thank you. Your information has been sent. A member of the CladCan team will contact you soon.",
     });
   } catch (error) {
     console.error("Contact form error:", error);
