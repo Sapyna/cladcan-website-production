@@ -83,11 +83,14 @@ strong,b{font-weight:700}
   font-weight:700!important;
 }
 
-.pageBreadcrumbOverlay,
+.pageBreadcrumbOverlay{
+  font-family:var(--type-sans)!important;
+}
+
 .eyebrow,
 .systemsPageEyebrow,.servicesKicker,.contactFinalKicker,.aboutV8Kicker,
 .projectsV11Hero .eyebrow,.caseV11Hero .eyebrow,.insightsHero .eyebrow{
-  font-family:var(--type-sans)!important;
+  font-family:Arial,Helvetica,sans-serif!important;
 }
 
 .sectionTitle p,
