@@ -1,12 +1,11 @@
-/* ===== v46 — CLADCAN TYPOGRAPHY SYSTEM =====
-   A stable, cross-platform type hierarchy:
-   - DM Serif Display for architectural/editorial display headings
-   - Inter for navigation, body copy, controls and data
+/* ===== v47 — CLADCAN / NORTEM-INSPIRED TYPOGRAPHY =====
+   Maven Pro is loaded locally through next/font for consistent rendering.
+   One family is used across display, editorial, navigation and interface text.
 */
 
 :root{
-  --type-display:var(--font-display),Georgia,"Times New Roman",serif;
-  --type-sans:var(--font-sans),Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --type-display:var(--font-maven-pro),"Maven Pro",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --type-sans:var(--font-maven-pro),"Maven Pro",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   --type-body-size:clamp(1rem,.975rem + .12vw,1.125rem);
   --type-body-leading:1.68;
   --type-ui-size:.9375rem;
@@ -46,8 +45,9 @@ h1,h2,
 .systemsPageHero h1,.internalHero h1,.aluminumPageHero h1,
 .longboardHero h1,.applicationHero h1,.productDetailHero h1{
   font-family:var(--type-display)!important;
-  font-weight:400!important;
+  font-weight:600!important;
   font-kerning:normal;
+  letter-spacing:-.025em;
   text-wrap:balance;
 }
 
@@ -62,25 +62,25 @@ p,li,dd,blockquote{
   text-wrap:pretty;
 }
 
-strong,b{font-weight:750}
+strong,b{font-weight:700}
 
 .referenceHeader .desktopNav a,
 .referenceHeader .desktopNav button{
   font-size:1rem!important;
   line-height:1.25!important;
-  font-weight:700!important;
+  font-weight:600!important;
 }
 
 .referenceHeader .headerPhone{
   font-size:.875rem!important;
-  font-weight:700!important;
+  font-weight:600!important;
 }
 
 .referenceHeader .headerQuote,
 .btn{
   font-size:.9375rem!important;
   line-height:1.2!important;
-  font-weight:800!important;
+  font-weight:700!important;
 }
 
 .pageBreadcrumbOverlay,
@@ -103,7 +103,7 @@ strong,b{font-weight:750}
 .quoteForm label,.miniQuoteForm label{
   font-size:.875rem!important;
   line-height:1.4!important;
-  font-weight:750!important;
+  font-weight:700!important;
 }
 
 .contactFinalForm input,.contactFinalForm select,.contactFinalForm textarea,
@@ -133,7 +133,7 @@ strong,b{font-weight:750}
   .referenceHeader .mobileNav a{
     font-size:1rem!important;
     line-height:1.3!important;
-    font-weight:750!important;
+    font-weight:700!important;
   }
 
   button,input,select,textarea{font-size:1rem!important}
