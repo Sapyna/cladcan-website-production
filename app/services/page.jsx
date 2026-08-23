@@ -122,7 +122,7 @@ export default function ServicesPage(){
   <section className="servicesAudience">
     <div className="wrap servicesAudienceGrid">
       <div className="servicesAudienceImage">
-        <img src="/images/before-after/sideroad-17-schomberg-before.jpg" alt="CladCan exterior construction project in progress"/>
+        <img src="/images/services/service-team.webp" alt="CladCan project team on an active Ontario construction site"/>
       </div>
       <div className="servicesAudienceCopy">
         <span className="servicesKicker dark">WHO WE WORK WITH</span>
