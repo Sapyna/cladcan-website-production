@@ -1,6 +1,6 @@
 :root{
   --internal-hero-min:clamp(640px,78svh,760px);
-  --internal-hero-top:170px;
+  --internal-hero-top:220px;
   --internal-hero-bottom:clamp(48px,6vh,68px);
   --internal-hero-x:clamp(32px,4.2vw,72px);
   --internal-hero-copy:760px;
@@ -74,6 +74,7 @@
   background:linear-gradient(90deg,rgba(4,24,36,.97) 0%,rgba(4,24,36,.90) 30%,rgba(4,24,36,.64) 54%,rgba(4,24,36,.20) 78%,rgba(4,24,36,.04) 100%)!important;
 }
 
+/* The copy origin is fixed rather than bottom-aligned. This keeps the vertical rhythm identical even when page copy lengths differ. */
 /* Shared copy frame: always below the overlay header and always inside the hero. */
 .contactFinalHeroInner,.aboutV8HeroInner,.serviceV9HeroGrid,.servicesHeroInner,
 .systemsPageHeroInner,.internalHeroCopy,.aluminumPageHeroContent,.longboardHeroContent,
@@ -89,7 +90,7 @@
   box-sizing:border-box!important;
   display:flex!important;
   flex-direction:column!important;
-  justify-content:flex-end!important;
+  justify-content:flex-start!important;
 }
 .contactFinalHeroGrid.wrap{
   position:relative!important;
@@ -116,7 +117,7 @@
   box-sizing:border-box!important;
   display:flex!important;
   flex-direction:column!important;
-  justify-content:flex-end!important;
+  justify-content:flex-start!important;
 }
 .projectsV11Crumb{display:none!important}
 .projectsV11HeroGrid,.caseV11HeroGrid,.insightsHeroGrid{
@@ -126,7 +127,7 @@
   display:grid!important;
   grid-template-columns:minmax(0,1.12fr) minmax(300px,.72fr)!important;
   gap:clamp(44px,6vw,96px)!important;
-  align-items:end!important;
+  align-items:start!important;
 }
 .projectsV11HeroGrid>div,.caseV11HeroGrid>div,.insightsHeroGrid>div{
   width:auto!important;
@@ -224,7 +225,7 @@
 @media(max-width:760px){
   :root{
     --internal-hero-min:clamp(620px,92svh,760px);
-    --internal-hero-top:132px;
+    --internal-hero-top:168px;
     --internal-hero-bottom:38px;
     --internal-hero-x:22px;
   }
