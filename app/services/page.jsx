@@ -9,31 +9,31 @@ const services=[
     n:"01", icon:PackageCheck, title:"Supply",
     copy:"Exterior materials and system components sourced around your drawings, specification, schedule and budget.",
     points:["Cladding & siding materials","Roofing & façade components","Bulk / project ordering","Delivery coordination"],
-    href:"/services/material-supply", image:"/images/before-after/sideroad-17-schomberg-after.jpg"
+    href:"/services/material-supply", image:"/images/services/service-material-supply.webp"
   },
   {
     n:"02", icon:Factory, title:"Fabrication",
     copy:"Project-specific fabrication for architectural metal and the secondary components required for clean field execution.",
     points:["ACM panel fabrication","Custom flashing & trim","Z-bar & hat channel","Project-specific components"],
-    href:"/services/custom-fabrication", image:"/images/before-after/pharmacy-scarborough-after.jpg"
+    href:"/services/custom-fabrication", image:"/images/services/service-custom-fabrication.webp"
   },
   {
     n:"03", icon:HardHat, title:"Installation",
     copy:"Coordinated installation for wall, soffit, glazing, roofing and architectural exterior systems across Ontario.",
     points:["Wall & soffit systems","Windows & glazing","Roofing systems","Roofline & aluminum work"],
-    href:"/services/installation", image:"/images/before-after/gray-lane-barrie-after.jpg"
+    href:"/services/installation", image:"/images/services/service-installation.webp"
   },
   {
     n:"04", icon:PenTool, title:"Design & Permits",
     copy:"Design-assist and permit support that connects architectural intent with material selection, detailing and constructability.",
     points:["Façade design support","Material selection","Detail coordination","Permit assistance"],
-    href:"/services/design-permit-support", image:"/images/before-after/william-rose-after.jpg"
+    href:"/services/design-permit-support", image:"/images/services/service-design-support.webp"
   },
   {
     n:"05", icon:Wrench, title:"Repairs & Maintenance",
     copy:"Targeted exterior repairs and maintenance to restore appearance, weather protection and envelope performance.",
     points:["Cladding repairs","Flashing & trim corrections","Leak-response coordination","Exterior maintenance"],
-    href:"/services/repair-maintenance", image:"/images/before-after/county-before.jpg"
+    href:"/services/repair-maintenance", image:"/images/services/service-repair-maintenance.webp"
   }
 ];
 
@@ -52,7 +52,7 @@ export const metadata={
 
 export default function ServicesPage(){
  return <>
-  <section className="servicesHero">
+  <section className="servicesHero" style={{backgroundImage:'url("/images/services/services-overview.webp")'}}>
     <div className="servicesHeroShade"></div>
     <div className="wrap servicesHeroInner">
       <span className="servicesKicker">CLADCAN SERVICES</span>
@@ -87,7 +87,7 @@ export default function ServicesPage(){
       {services.map(({n,icon:Icon,title,copy,points,href,image},i)=>
         <article className={`servicesFeature ${i%2 ? "reverse":""}`} key={title}>
           <div className="servicesFeatureImage">
-            <img src={image} alt={`${title} exterior project by CladCan`}/>
+            <img src={image} alt={`${title} service by CladCan`}/>
             <span>{n}</span>
           </div>
           <div className="servicesFeatureCopy">
