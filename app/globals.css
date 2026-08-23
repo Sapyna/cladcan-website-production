@@ -1384,10 +1384,14 @@ button,input,select,textarea{font:inherit}
   color:#ef2323;
   flex:0 0 auto;
 }
-.footerAddress{
+.footerContactCol>a.footerAddress{
   display:flex;
+  align-items:flex-start;
   gap:14px;
-  margin-top:22px;
+  margin:22px 0 0;
+  color:#d1d3d6;
+  text-decoration:none;
+  transition:color .16s ease, transform .16s ease;
 }
 .footerAddress>div{
   display:grid;
@@ -1396,6 +1400,15 @@ button,input,select,textarea{font:inherit}
   line-height:1.35;
 }
 .footerAddress b{color:#fff}
+.footerContactCol>a.footerAddress:hover{
+  color:#fff;
+  transform:translateY(-2px);
+}
+.footerContactCol>a.footerAddress:focus-visible{
+  outline:2px solid #ef2323;
+  outline-offset:6px;
+  border-radius:2px;
+}
 .footerSocials{
   display:flex;
   gap:18px;
