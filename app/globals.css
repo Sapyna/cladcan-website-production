@@ -5411,3 +5411,19 @@ body:not(.home) .siteHeader + main,
  .contactFinalAreaGroups h3{font-size:15px}
  .contactFinalAreaGroups p{font-size:13px;line-height:1.65}
 }
+
+
+/* ===== Approved Projects and About hero photography ===== */
+.projectsV11Hero{
+  background-image:
+    linear-gradient(90deg,rgba(4,24,36,.94) 0%,rgba(4,24,36,.72) 38%,rgba(4,24,36,.28) 68%,rgba(4,24,36,.08) 100%),
+    url('/images/projects/projects-clinic-hero.webp')!important;
+  background-position:center 48%!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+}
+.aboutV8HeroVisual{
+  background:
+    linear-gradient(90deg,rgba(7,28,41,.72),rgba(7,28,41,.08)),
+    url('/images/about/about-detail-hero.webp') center 48%/cover no-repeat!important;
+}
