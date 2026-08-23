@@ -1,7 +1,7 @@
 /* ===== v46 — CLADCAN TYPOGRAPHY SYSTEM =====
    A stable, cross-platform type hierarchy:
    - DM Serif Display for architectural/editorial display headings
-   - Manrope for navigation, body copy, controls and data
+   - Inter for navigation, body copy, controls and data
 */
 
 :root{
@@ -23,7 +23,7 @@ body{
   font-family:var(--type-sans);
   font-size:var(--type-body-size);
   line-height:var(--type-body-leading);
-  font-weight:450;
+  font-weight:400;
   font-synthesis:none;
   text-rendering:optimizeLegibility;
   -webkit-font-smoothing:antialiased;
@@ -66,14 +66,14 @@ strong,b{font-weight:750}
 
 .referenceHeader .desktopNav a,
 .referenceHeader .desktopNav button{
-  font-size:clamp(.875rem,.84rem + .1vw,.96875rem)!important;
+  font-size:1rem!important;
   line-height:1.25!important;
-  font-weight:750!important;
+  font-weight:700!important;
 }
 
 .referenceHeader .headerPhone{
   font-size:.875rem!important;
-  font-weight:750!important;
+  font-weight:700!important;
 }
 
 .referenceHeader .headerQuote,
@@ -128,7 +128,7 @@ strong,b{font-weight:750}
     --type-caption-size:.8125rem;
   }
 
-  body{font-weight:450}
+  body{font-weight:400}
 
   .referenceHeader .mobileNav a{
     font-size:1rem!important;
