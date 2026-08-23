@@ -4,7 +4,7 @@
 */
 
 :root{
-  --type-display:var(--font-open-sans),"Open Sans",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --type-display:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --type-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --type-body-size:clamp(1rem,.975rem + .12vw,1.125rem);
   --type-body-leading:1.68;
@@ -140,4 +140,44 @@ strong,b{font-weight:700}
   }
 
   button,input,select,textarea{font-size:1rem!important}
+}
+
+
+/* Sitewide native system typography */
+body,
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6,
+body p,
+body li,
+body a,
+body button,
+body input,
+body select,
+body textarea,
+body label,
+body legend,
+body summary,
+body small,
+body strong,
+body b,
+body figcaption,
+body dt,
+body dd{
+  font-family:var(--type-sans)!important;
+}
+
+/* Preserve the approved compact gold label treatment */
+body .eyebrow,
+body .systemsPageEyebrow,
+body .servicesKicker,
+body .contactFinalKicker,
+body .aboutV8Kicker,
+body .projectsV11Hero .eyebrow,
+body .caseV11Hero .eyebrow,
+body .insightsHero .eyebrow{
+  font-family:Arial,Helvetica,sans-serif!important;
 }
