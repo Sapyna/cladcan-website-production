@@ -124,7 +124,7 @@ export async function POST(request) {
     const port = Number(process.env.SMTP_PORT || 587);
     const user = process.env.SMTP_USER;
     const pass = process.env.SMTP_PASS;
-    const to = "info@cladcan.ca";
+    const to = "info@cladca.ca";
     const from = process.env.CONTACT_FROM_EMAIL || user;
 
     if (!host || !user || !pass || !from) {
