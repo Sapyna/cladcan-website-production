@@ -1,22 +1,23 @@
-
 "use client";
 import {useState} from "react";
 
 const brands=[
-  {name:"Agway Metals",src:"https://logo.clearbit.com/agwaymetals.com?size=320"},
-  {name:"Vicwest",src:"https://logo.clearbit.com/vicwest.com?size=320"},
-  {name:"Longboard",src:"https://logo.clearbit.com/longboardproducts.com?size=320"},
-  {name:"FastPlank",src:"https://logo.clearbit.com/engagebp.com?size=320"},
-  {name:"Sto",src:"https://logo.clearbit.com/sto.ca?size=320"},
-  {name:"DuROCK",src:"https://logo.clearbit.com/durock.com?size=320"},
-  {name:"Alubond Canada",src:"https://logo.clearbit.com/alubond.com?size=320"},
-  {name:"ALPOLIC",src:"https://logo.clearbit.com/alpolic-americas.com?size=320"},
-  {name:"Alcotex",src:"https://logo.clearbit.com/alcotex.com?size=320"},
-  {name:"James Hardie",src:"https://logo.clearbit.com/jameshardie.ca?size=320"},
-  {name:"Maibec",src:"https://logo.clearbit.com/maibec.com?size=320"},
-  {name:"Nichiha",src:"https://logo.clearbit.com/nichiha.com?size=320"},
-  {name:"IKO",src:"https://logo.clearbit.com/iko.com?size=320"},
-  {name:"Norbec",src:"https://logo.clearbit.com/norbec.com?size=320"}
+  {name:"Agway",src:"https://cladcan.ca/assets/agway-jARvj5i5.png"},
+  {name:"Vicwest",src:"https://cladcan.ca/assets/vicwest-CspsHFbN.png"},
+  {name:"Longboard",src:"https://cladcan.ca/assets/longboard-CvOL7Wix.png"},
+  {name:"FastPlank",src:"https://cladcan.ca/assets/fastplank-Df-wzxHz.png"},
+  {name:"Sto",src:"https://cladcan.ca/assets/sto-6VQzAvEV.png"},
+  {name:"DuROCK",src:"https://cladcan.ca/assets/durock-BNHEjvHk.png"},
+  {name:"Alubond",src:"https://cladcan.ca/assets/alubond-C9gYLeya.png"},
+  {name:"ALPOLIC",src:"https://cladcan.ca/assets/alpolic-D9jKHm5e.png"},
+  {name:"Alcotex",src:"https://cladcan.ca/assets/alcotex-CtxDQ0-0.png"},
+  {name:"WPC",src:"https://cladcan.ca/assets/wpc-DtlpDGgC.png"},
+  {name:"James Hardie",src:"https://cladcan.ca/assets/jameshardie-cZd73Qfv.png"},
+  {name:"Maibec",src:"https://cladcan.ca/assets/maibec-h9_uIOxm.png"},
+  {name:"Nichiha",src:"https://cladcan.ca/assets/nichiha-C__G6K9O.png"},
+  {name:"Galanta",src:"https://cladcan.ca/assets/galanta-u-9GvORR.png"},
+  {name:"IKO",src:"https://cladcan.ca/assets/iko-C7Ro_7C5.png"},
+  {name:"Norbec",src:"https://cladcan.ca/assets/norbec-B0bTxxP1.png"}
 ];
 
 function Logo({brand}){
