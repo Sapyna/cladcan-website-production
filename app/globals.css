@@ -5530,12 +5530,20 @@ body:not(.home) .siteHeader + main,
 
 
 .projectsV11Hero{
-  background-image:
-    linear-gradient(90deg,rgba(4,24,36,.94) 0%,rgba(4,24,36,.72) 38%,rgba(4,24,36,.28) 68%,rgba(4,24,36,.08) 100%),
-    url('/images/projects/projects-clinic-hero-v2.svg?v=2')!important;
-  background-position:center center!important;
-  background-size:cover!important;
-  background-repeat:no-repeat!important;
+  background:#071c29!important;
+}
+.projectsV11HeroBackdrop{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center 48%!important;
+  z-index:0!important;
+}
+.projectsV11Hero>.wrap{
+  position:relative!important;
+  z-index:1!important;
 }
 .servicesImageSupply::before{
   background-image:url("/images/services/service-material-supply-framed.svg")!important;
@@ -5546,8 +5554,8 @@ body:not(.home) .siteHeader + main,
   object-position:center center!important;
 }
 .referenceHeader .realSiteLogo{
-  overflow:hidden;
-  background:#fff;
+  overflow:visible;
+  background:transparent!important;
 }
 .referenceHeader .realSiteLogo img{
   display:block;
