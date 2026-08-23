@@ -7,6 +7,8 @@ const posts = [
   {date:"JANUARY 15, 2024", title:"The Complete Guide to Choosing Exterior Cladding Materials", href:"/blog/guide-to-cladding-materials"},
 ];
 
+const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=CladCan%20Building%20Envelope%20%26%20Facade%20Contractors%205000%20Dufferin%20St%20Unit%20K%20North%20York%20ON%20M3H%205T5";
+
 export default function Footer(){
   return <footer className="referenceFooter">
     <div className="wrap referenceFooterGrid">
@@ -34,7 +36,13 @@ export default function Footer(){
         <a href="tel:+18449243030"><Phone size={20}/> <span>+1 (844) 924-3030</span></a>
         <a href="mailto:info@cladcan.ca"><Mail size={20}/> <span>info@cladcan.ca</span></a>
 
-        <div className="footerAddress">
+        <a
+          className="footerAddress"
+          href={googleMapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open CladCan showroom and office address in Google Maps"
+        >
           <MapPin size={21}/>
           <div>
             <b>Showroom/Office Address:</b>
@@ -42,7 +50,7 @@ export default function Footer(){
             <span>5000 Dufferin St, Unit K,</span>
             <span>North York, ON M3H 5T5</span>
           </div>
-        </div>
+        </a>
 
         <div className="footerSocials" aria-label="CladCan social links">
           <span aria-label="Facebook" style={{opacity:.7}}><Facebook size={21}/></span>
