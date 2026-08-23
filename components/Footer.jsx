@@ -15,12 +15,11 @@ export default function Footer(){
 
       <div className="footerBrandCol">
         <Link href="/" className="footerBrandMark" aria-label="CladCan home">
-          <span className="footerMarkBox">DC</span>
-          <span className="footerWordmark">
-            <b>CLADCAN</b>
-            <small>Modern Exterior Cladding Solutions</small>
-          </span>
-        </Link>
+              <img
+                src="/images/cladcan-logo-official.svg"
+                alt="CladCan Modern Exterior Cladding Solutions"
+              />
+            </Link>
 
         <p>
           CladCan coordinates exterior material supply, fabrication, installation and design support for residential, commercial and institutional projects across Ontario.
