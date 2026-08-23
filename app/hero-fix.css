@@ -136,6 +136,28 @@
   height:auto!important;
   padding:0!important;
 }
+
+/* Defeat the older v22/v24 first-column rule that bottom-aligned Projects and Blog. */
+.projectsV11HeroGrid>div:first-child,
+.caseV11HeroGrid>div:first-child,
+.insightsHeroGrid>div:first-child{
+  position:relative!important;
+  inset:auto!important;
+  width:auto!important;
+  max-width:760px!important;
+  height:auto!important;
+  min-height:0!important;
+  padding:0!important;
+  margin:0!important;
+  display:block!important;
+  align-self:start!important;
+  justify-content:flex-start!important;
+}
+.projectsV11HeroGrid{
+  height:auto!important;
+  min-height:0!important;
+  align-content:start!important;
+}
 .projectsV11HeroGrid>div:last-child{
   position:relative!important;
   z-index:2!important;
