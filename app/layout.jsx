@@ -9,7 +9,6 @@ import QuickContactRail from "@/components/QuickContactRail";
 import VisibleTextNormalizer from "@/components/VisibleTextNormalizer";
 import ShowroomVisitLinkFix from "@/components/ShowroomVisitLinkFix";
 import AttachmentSelectionFeedback from "@/components/AttachmentSelectionFeedback";
-import FormSubmitClientSubmit from "@/components/FormSubmitClientSubmit";
 import { PageBreadcrumb, PageSiblingNav } from "@/components/PageNavigation";
 
 export const metadata = {
@@ -42,7 +41,6 @@ export default function RootLayout({ children }) {
         <VisibleTextNormalizer />
         <ShowroomVisitLinkFix />
         <AttachmentSelectionFeedback />
-        <FormSubmitClientSubmit />
         <Header />
         <PageBreadcrumb />
         <main>{children}</main>
