@@ -3,6 +3,8 @@
 import { useEffect } from "react";
 
 const ENDPOINT = "https://formsubmit.co/ajax/info@cladcan.ca";
+const CONTACT_FORM_URL = "https://cladcan.ca/contact";
+const SHOWROOM_FORM_URL = "https://cladcan.ca/contact/showroom-visit";
 
 function setStatus(form, kind, message) {
   const isContact = form.classList.contains("contactFinalForm");
@@ -33,7 +35,7 @@ function normaliseContactFields(data) {
   data.set("_template", "table");
   data.set("_replyto", email);
   data.set("_honey", "");
-  data.set("_url", window.location.href);
+  data.set("_url", CONTACT_FORM_URL);
   data.set("Name", `${first} ${last}`.trim());
   data.set("Email", email);
   data.set("Phone", String(data.get("phone") || ""));
@@ -55,7 +57,7 @@ function normaliseShowroomFields(data) {
   data.set("_template", "table");
   data.set("_replyto", email);
   data.set("_honey", "");
-  data.set("_url", window.location.href);
+  data.set("_url", SHOWROOM_FORM_URL);
   data.set("Name", `${first} ${last}`.trim());
   data.set("Email", email);
   data.set("Phone", String(data.get("phone") || ""));
@@ -101,12 +103,12 @@ export default function FormSubmitClientSubmit() {
         const result = await response.json().catch(() => ({}));
 
         if (!response.ok || result?.success === false) {
-          throw new Error(result?.message || `FormSubmit returned HTTP ${response.status}.`);
+          throw new Error(`FormSubmit response — HTTP ${response.status} | success: ${String(result?.success)} | message: ${result?.message || "No message returned."}`);
         }
 
         const successMessage = isContact
-          ? "Thank you. Your information has been sent. A member of the CladCan team will contact you soon."
-          : "Your showroom visit request has been sent. A member of the CladCan team will confirm the appointment.";
+          ? `FormSubmit response — HTTP ${response.status} | success: ${String(result?.success)} | message: ${result?.message || "Submission accepted."}`
+          : `FormSubmit response — HTTP ${response.status} | success: ${String(result?.success)} | message: ${result?.message || "Showroom request accepted."}`;
         setStatus(form, "success", successMessage);
         form.reset();
       } catch (error) {
