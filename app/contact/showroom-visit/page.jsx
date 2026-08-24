@@ -1,4 +1,3 @@
-import Image from "next/image";
 import ShowroomBookingForm from "./ShowroomBookingForm";
 
 export const metadata = {
@@ -9,21 +8,18 @@ export const metadata = {
 export default function ShowroomVisitPage() {
   return (
     <main className="showroomBookingPage">
-      <section className="showroomBookingHero">
-        <Image
-          className="showroomBookingHeroBackdrop"
-          src="/images/contact/cladcan-north-york-showroom-material-samples.jpg"
-          alt="CladCan North York showroom with exterior cladding and material samples"
-          fill
-          priority
-          sizes="100vw"
-        />
-        <div className="wrap showroomBookingHeroInner">
-          <p className="showroomBookingEyebrow">CLADCAN SHOWROOM</p>
-          <h1>Choose a time to visit.</h1>
+      <section
+        className="servicesHero"
+        style={{ backgroundImage: 'url("/images/contact/cladcan-north-york-showroom-material-samples.jpg")' }}
+      >
+        <div className="servicesHeroShade"></div>
+        <div className="wrap servicesHeroInner">
+          <span className="servicesKicker">CLADCAN SHOWROOM</span>
+          <h1>Choose a time<br/><em>to visit.</em></h1>
           <p>Meet with the CladCan team to review exterior materials, finishes and project requirements at our North York showroom.</p>
         </div>
       </section>
+
       <section className="showroomBookingSection">
         <div className="wrap showroomBookingGrid">
           <aside className="showroomBookingDetails">
