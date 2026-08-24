@@ -1,12 +1,9 @@
 /*
  * Internal hero media normalization.
  * Services remains the visual baseline. Home is intentionally excluded.
- *
- * IMPORTANT: Projects is the controlled test page for the new asset-first
- * workflow. The complete source image is shown without crop or distortion.
+ * Projects is the controlled test page.
  */
 
-/* Keep existing internal hero background behaviour untouched for now. */
 .servicesHero,
 .systemsPageHero,
 .aluminumPageHero,
@@ -24,7 +21,8 @@
   background-repeat: no-repeat !important;
 }
 
-/* PROJECTS TEST: show the complete prepared image inside the hero frame. */
+/* PROJECTS TEST: force the approved prepared image to occupy the entire hero frame.
+   This keeps the full top and bottom visible and removes the dark side gutters. */
 .projectsV11Hero {
   position: relative !important;
   overflow: hidden !important;
@@ -36,7 +34,7 @@
   inset: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  object-fit: contain !important;
+  object-fit: fill !important;
   object-position: center center !important;
   transform: none !important;
   max-width: none !important;
