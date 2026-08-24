@@ -12,172 +12,93 @@
   --type-caption-size:.8125rem;
 }
 
-html{
-  font-size:100%;
-  -webkit-text-size-adjust:100%;
-  text-size-adjust:100%;
-}
+html{font-size:100%;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{font-family:var(--type-sans);font-size:var(--type-body-size);line-height:var(--type-body-leading);font-weight:400;font-synthesis:none;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+button,input,select,textarea{font-family:var(--type-sans);font-size:1rem;line-height:1.45}
 
-body{
-  font-family:var(--type-sans);
-  font-size:var(--type-body-size);
-  line-height:var(--type-body-leading);
-  font-weight:400;
-  font-synthesis:none;
-  text-rendering:optimizeLegibility;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
+h1,h2,.homeHeroCopy h1,.heroCopy h1,.contactIntro h1,.sectionTitle h2,.splitFeatureCopy h2,.caseNarrative h2,.quoteBand h2,.footerStatement h2,.homeIntroGrid h2,.homeProjectIntro h2,.projectsV11Hero h1,.insightsHero h1,.caseV11Hero h1,.articleHero h1,.contactFinalHero h1,.aboutV8Hero h1,.serviceV9Hero h1,.servicesHero h1,.systemsPageHero h1,.internalHero h1,.aluminumPageHero h1,.longboardHero h1,.applicationHero h1,.productDetailHero h1{font-family:var(--type-display)!important;font-weight:600!important;font-kerning:normal;letter-spacing:-.025em;text-wrap:balance}
 
-button,input,select,textarea{
-  font-family:var(--type-sans);
-  font-size:1rem;
-  line-height:1.45;
-}
-
-h1,h2,
-.homeHeroCopy h1,.heroCopy h1,.contactIntro h1,
-.sectionTitle h2,.splitFeatureCopy h2,.caseNarrative h2,
-.quoteBand h2,.footerStatement h2,.homeIntroGrid h2,
-.homeProjectIntro h2,.projectsV11Hero h1,.insightsHero h1,
-.caseV11Hero h1,.articleHero h1,.contactFinalHero h1,
-.aboutV8Hero h1,.serviceV9Hero h1,.servicesHero h1,
-.systemsPageHero h1,.internalHero h1,.aluminumPageHero h1,
-.longboardHero h1,.applicationHero h1,.productDetailHero h1{
-  font-family:var(--type-display)!important;
-  font-weight:600!important;
-  font-kerning:normal;
-  letter-spacing:-.025em;
-  text-wrap:balance;
-}
-
-h3,h4,h5,h6,
-.btn,.textLink,.cardLink,
-.referenceHeader,.pageBreadcrumbOverlay,
-label,legend,summary{
-  font-family:var(--type-sans);
-}
-
-p,li,dd,blockquote{
-  text-wrap:pretty;
-}
-
+h3,h4,h5,h6,.btn,.textLink,.cardLink,.referenceHeader,.pageBreadcrumbOverlay,label,legend,summary{font-family:var(--type-sans)}
+p,li,dd,blockquote{text-wrap:pretty}
 strong,b{font-weight:700}
 
-.referenceHeader .desktopNav a,
-.referenceHeader .desktopNav button{
-  font-size:1rem!important;
-  line-height:1.25!important;
-  font-weight:600!important;
+.referenceHeader .desktopNav a,.referenceHeader .desktopNav button{font-size:1rem!important;line-height:1.25!important;font-weight:600!important}
+.referenceHeader .headerPhone{font-size:.875rem!important;font-weight:600!important}
+.referenceHeader .headerQuote,.btn{font-size:.9375rem!important;line-height:1.2!important;font-weight:700!important}
+.pageBreadcrumbOverlay{font-family:var(--type-sans)!important}
+
+.eyebrow,.systemsPageEyebrow,.servicesKicker,.contactFinalKicker,.aboutV8Kicker,.projectsV11Hero .eyebrow,.caseV11Hero .eyebrow,.insightsHero .eyebrow{font-family:Arial,Helvetica,sans-serif!important}
+
+.sectionTitle p,.splitFeatureCopy p,.reverse p,.caseNarrative p,.articleWrap p,.contactFinalFormGrid p,.contactFinalVisitCopy p,.systemsPageIntroCopy p,.servicesIntro p{font-size:var(--type-body-size);line-height:var(--type-body-leading)}
+
+.contactFinalForm label,.quoteForm label,.miniQuoteForm label{font-size:.875rem!important;line-height:1.4!important;font-weight:700!important}
+.contactFinalForm input,.contactFinalForm select,.contactFinalForm textarea,.quoteForm input,.quoteForm select,.quoteForm textarea,.miniQuoteForm input,.miniQuoteForm select,.miniQuoteForm textarea{font-size:1rem!important;line-height:1.45!important}
+.contactFinalPrivacy,.contactFinalStatus,.contactFinalUpload small,.footerBottom,.footerGrid small{font-size:var(--type-caption-size)!important;line-height:1.55!important}
+
+/* Readability pass: bring editorial and secondary UI copy into the same scale
+   used throughout Services and Projects. */
+.insightsFeatureCopy p,
+.insightsLibraryHead p,
+.insightsCardBody p,
+.insightsFunnel p,
+.aboutV8Intro p,
+.aboutV8Statement p,
+.aboutV8Copy p,
+.aboutV8Grid p,
+.contactFinalSectionHead p,
+.contactFinalAreaSummary p,
+.contactFinalFaq p,
+.showroomBookingDetails p,
+.showroomBookingHero p{
+  font-size:clamp(1rem,.97rem + .14vw,1.125rem)!important;
+  line-height:1.65!important;
 }
 
-.referenceHeader .headerPhone{
+.insightsFeatureCopy h2{font-size:clamp(2rem,2.6vw,3.25rem)!important;line-height:1.05!important}
+.insightsLibraryHead h2,.insightsFunnel h2{font-size:clamp(2.6rem,4.6vw,5.25rem)!important;line-height:.98!important}
+
+.insightsMeta,
+.insightsTopics>div>span,
+.insightsTopicRail small,
+.insightsTopicRail b,
+.insightsFeatureVisual small,
+.insightsFunnel>div>div>span,
+.insightsLibraryHead>div>span{
   font-size:.875rem!important;
-  font-weight:600!important;
+  line-height:1.35!important;
 }
 
-.referenceHeader .headerQuote,
-.btn{
-  font-size:.9375rem!important;
-  line-height:1.2!important;
-  font-weight:700!important;
-}
+.insightsTopicRail b,.insightsFunnelLinks a{font-size:1rem!important}
+.insightsFunnelLinks a{line-height:1.45!important}
 
-.pageBreadcrumbOverlay{
-  font-family:var(--type-sans)!important;
+/* Contact attachment state */
+.contactAttachmentFeedback{
+  width:100%;
+  margin-top:.75rem;
+  padding:.7rem .9rem;
+  border-radius:8px;
+  background:#eef2f4;
+  color:#61717c;
+  font-size:.9rem;
+  line-height:1.45;
+  overflow-wrap:anywhere;
 }
+.contactAttachmentFeedback.hasFiles{background:#e9f4ee;color:#245c3d;font-weight:650}
 
-.eyebrow,
-.systemsPageEyebrow,.servicesKicker,.contactFinalKicker,.aboutV8Kicker,
-.projectsV11Hero .eyebrow,.caseV11Hero .eyebrow,.insightsHero .eyebrow{
-  font-family:Arial,Helvetica,sans-serif!important;
-}
-
-.sectionTitle p,
-.splitFeatureCopy p,.reverse p,
-.caseNarrative p,.articleWrap p,
-.contactFinalFormGrid p,.contactFinalVisitCopy p,
-.systemsPageIntroCopy p,.servicesIntro p{
-  font-size:var(--type-body-size);
-  line-height:var(--type-body-leading);
-}
-
-.contactFinalForm label,
-.quoteForm label,.miniQuoteForm label{
-  font-size:.875rem!important;
-  line-height:1.4!important;
-  font-weight:700!important;
-}
-
-.contactFinalForm input,.contactFinalForm select,.contactFinalForm textarea,
-.quoteForm input,.quoteForm select,.quoteForm textarea,
-.miniQuoteForm input,.miniQuoteForm select,.miniQuoteForm textarea{
-  font-size:1rem!important;
-  line-height:1.45!important;
-}
-
-.contactFinalPrivacy,.contactFinalStatus,
-.contactFinalUpload small,
-.footerBottom,.footerGrid small{
-  font-size:var(--type-caption-size)!important;
-  line-height:1.55!important;
-}
+/* Showroom form readability */
+.showroomBookingForm label{font-size:.95rem!important;font-weight:650!important;line-height:1.4!important}
+.showroomBookingForm input,.showroomBookingForm select,.showroomBookingForm textarea{font-size:1rem!important;line-height:1.45!important}
+.showroomBookingStatus{font-size:1rem!important;line-height:1.55!important}
 
 @media(max-width:760px){
-  :root{
-    --type-body-size:1rem;
-    --type-body-leading:1.65;
-    --type-ui-size:.9375rem;
-    --type-caption-size:.8125rem;
-  }
-
+  :root{--type-body-size:1rem;--type-body-leading:1.65;--type-ui-size:.9375rem;--type-caption-size:.8125rem}
   body{font-weight:400}
-
-  .referenceHeader .mobileNav a{
-    font-size:1rem!important;
-    line-height:1.3!important;
-    font-weight:700!important;
-  }
-
+  .referenceHeader .mobileNav a{font-size:1rem!important;line-height:1.3!important;font-weight:700!important}
   button,input,select,textarea{font-size:1rem!important}
 }
 
-
 /* Sitewide native system typography */
-body,
-body h1,
-body h2,
-body h3,
-body h4,
-body h5,
-body h6,
-body p,
-body li,
-body a,
-body button,
-body input,
-body select,
-body textarea,
-body label,
-body legend,
-body summary,
-body small,
-body strong,
-body b,
-body figcaption,
-body dt,
-body dd{
-  font-family:var(--type-sans)!important;
-}
+body,body h1,body h2,body h3,body h4,body h5,body h6,body p,body li,body a,body button,body input,body select,body textarea,body label,body legend,body summary,body small,body strong,body b,body figcaption,body dt,body dd{font-family:var(--type-sans)!important}
 
 /* Preserve the approved compact gold label treatment */
-body .eyebrow,
-body .systemsPageEyebrow,
-body .servicesKicker,
-body .contactFinalKicker,
-body .aboutV8Kicker,
-body .projectsV11Hero .eyebrow,
-body .caseV11Hero .eyebrow,
-body .insightsHero .eyebrow{
-  font-family:Arial,Helvetica,sans-serif!important;
-}
+body .eyebrow,body .systemsPageEyebrow,body .servicesKicker,body .contactFinalKicker,body .aboutV8Kicker,body .projectsV11Hero .eyebrow,body .caseV11Hero .eyebrow,body .insightsHero .eyebrow{font-family:Arial,Helvetica,sans-serif!important}
