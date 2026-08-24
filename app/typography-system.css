@@ -25,7 +25,33 @@ strong,b{font-weight:700}
 .referenceHeader .desktopNav a,.referenceHeader .desktopNav button{font-size:1rem!important;line-height:1.25!important;font-weight:600!important}
 .referenceHeader .headerPhone{font-size:.875rem!important;font-weight:600!important}
 .referenceHeader .headerQuote,.btn{font-size:.9375rem!important;line-height:1.2!important;font-weight:700!important}
+
+/* Internal breadcrumb / page navigation: readable at desktop distance */
 .pageBreadcrumbOverlay{font-family:var(--type-sans)!important}
+.pageBreadcrumbInner,
+.pageBreadcrumbInner a,
+.pageBreadcrumbInner > span,
+.pageBreadcrumbInner .current,
+.pageStickyTrailCrumbs,
+.pageStickyTrailCrumbs a,
+.pageStickyTrailCrumbs > span,
+.pageStickyTrail button{
+  font-size:clamp(.92rem,.88rem + .12vw,1rem)!important;
+  line-height:1.35!important;
+  font-weight:600!important;
+}
+.pageBreadcrumbType,
+.pageStickyType{
+  font-size:.76rem!important;
+  line-height:1!important;
+  letter-spacing:.16em!important;
+  font-weight:750!important;
+}
+.pageBreadcrumbInner i,
+.pageStickyTrailCrumbs i{
+  margin-inline:.55rem!important;
+  font-size:.9rem!important;
+}
 
 .eyebrow,.systemsPageEyebrow,.servicesKicker,.contactFinalKicker,.aboutV8Kicker,.projectsV11Hero .eyebrow,.caseV11Hero .eyebrow,.insightsHero .eyebrow{font-family:Arial,Helvetica,sans-serif!important}
 
@@ -41,10 +67,6 @@ strong,b{font-weight:700}
 .insightsLibraryHead p,
 .insightsCardBody p,
 .insightsFunnel p,
-.aboutV8Intro p,
-.aboutV8Statement p,
-.aboutV8Copy p,
-.aboutV8Grid p,
 .contactFinalSectionHead p,
 .contactFinalAreaSummary p,
 .contactFinalFaq p,
@@ -71,6 +93,55 @@ strong,b{font-weight:700}
 .insightsTopicRail b,.insightsFunnelLinks a{font-size:1rem!important}
 .insightsFunnelLinks a{line-height:1.45!important}
 
+/* ABOUT — align scale with Services / Projects */
+.aboutV8HeroFoot p,
+.aboutV8Manifesto p,
+.aboutV8Manifesto .lead,
+.aboutV8SectionHead p,
+.aboutV8CapabilityRail p,
+.aboutV8MarketsCopy p,
+.aboutV8Proof p,
+.aboutV8Final p{
+  font-size:clamp(1rem,.97rem + .14vw,1.125rem)!important;
+  line-height:1.66!important;
+}
+.aboutV8Manifesto .lead{
+  font-size:clamp(1.35rem,1.15rem + .65vw,1.8rem)!important;
+  line-height:1.42!important;
+}
+.aboutV8Manifesto h2,
+.aboutV8SectionHead h2,
+.aboutV8MarketsCopy h2,
+.aboutV8Proof h2,
+.aboutV8Final h2{
+  font-size:clamp(2.5rem,4vw,4.75rem)!important;
+  line-height:1.02!important;
+  letter-spacing:-.035em!important;
+}
+.aboutV8CapabilityRail h3{
+  font-size:clamp(1.15rem,1.05rem + .25vw,1.4rem)!important;
+  line-height:1.25!important;
+}
+.aboutV8CapabilityRail b,
+.aboutV8CapabilityRail strong,
+.aboutV8MiniProof span,
+.aboutV8Audience b,
+.aboutV8ProcessGrid b,
+.aboutV8ProofCards strong,
+.aboutV8TextLink{
+  font-size:.98rem!important;
+  line-height:1.4!important;
+}
+.aboutV8Audience small,
+.aboutV8ProofCards span,
+.aboutV8ProcessGrid span,
+.aboutV8SectionHead>span,
+.aboutV8MarketsVisual span,
+.aboutV8Final>div>span{
+  font-size:.82rem!important;
+  line-height:1.4!important;
+}
+
 /* Contact attachment state */
 .contactAttachmentFeedback{
   width:100%;
@@ -95,6 +166,8 @@ strong,b{font-weight:700}
   body{font-weight:400}
   .referenceHeader .mobileNav a{font-size:1rem!important;line-height:1.3!important;font-weight:700!important}
   button,input,select,textarea{font-size:1rem!important}
+  .pageBreadcrumbInner,.pageBreadcrumbInner a,.pageBreadcrumbInner>span{font-size:.9rem!important}
+  .pageBreadcrumbType{font-size:.7rem!important}
 }
 
 /* Sitewide native system typography */
