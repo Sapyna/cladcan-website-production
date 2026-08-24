@@ -1,7 +1,6 @@
 /*
  * Internal hero media normalization.
  * Services remains the visual baseline. Home is intentionally excluded.
- * Projects is the controlled test page.
  */
 
 .servicesHero,
@@ -22,9 +21,9 @@
 }
 
 /* PROJECTS
- * Fill the complete horizontal span of the hero while preserving the
- * image's natural aspect ratio. No horizontal/vertical stretching.
- * Any unavoidable overflow is vertical only.
+ * The image in /public/images/projects is already prepared for this hero.
+ * Place that final image directly into the complete hero frame with no
+ * extra scaling transform, manual zoom, or positional offset.
  */
 .projectsV11Hero {
   position: relative !important;
@@ -34,15 +33,12 @@
 
 .projectsV11HeroBackdrop {
   position: absolute !important;
-  top: 50% !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: auto !important;
+  inset: 0 !important;
   width: 100% !important;
-  height: auto !important;
-  min-width: 100% !important;
+  height: 100% !important;
   max-width: 100% !important;
-  object-fit: initial !important;
-  object-position: initial !important;
-  transform: translateY(-50%) !important;
+  max-height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  transform: none !important;
 }
