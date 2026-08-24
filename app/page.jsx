@@ -14,12 +14,12 @@ const capabilities=[
 ];
 
 const systems=[
-  {name:"Aluminum Siding & Soffit",copy:"Solid, woodgrain and architectural aluminum profiles for walls, soffits and linear exterior features.",href:"/exterior-systems/aluminum",variant:"graphite"},
-  {name:"Steel Siding & Soffit",copy:"Exposed- and hidden-fastener steel profiles for residential, commercial and industrial exterior applications.",href:"/exterior-systems/steel",variant:"silver"},
-  {name:"ACM / ACP",copy:"Architectural aluminum composite panel systems with crisp geometry, finish flexibility and project-specific fabrication.",href:"/exterior-systems/acm-acp",variant:"metal"},
-  {name:"Natural Wood",copy:"Natural and charred wood options for warm, textural façades, soffits and architectural accents.",href:"/exterior-systems/natural-wood",variant:"charred"},
-  {name:"IMP",copy:"Insulated metal panel solutions for projects that require an integrated exterior wall or roof assembly.",href:"/exterior-systems/imp",variant:"stone"},
-  {name:"WPC & Composite",copy:"Wood-look composite exterior systems for lower-maintenance cladding, soffit and feature applications.",href:"/exterior-systems/wpc",variant:"wood"},
+  {name:"Aluminum Siding & Soffit",label:"ALUMINUM SIDING & SOFFIT",copy:"Solid and woodgrain aluminum systems for durable façades, soffits and architectural accents.",href:"/exterior-systems/aluminum",variant:"graphite"},
+  {name:"ACM / ACP",label:"ACM / ACP",copy:"Custom-fabricated aluminum composite panel systems for precise, modern residential and commercial façades.",href:"/exterior-systems/acm-acp",variant:"metal"},
+  {name:"Steel Siding & Soffit",label:"STEEL SIDING & SOFFIT",copy:"Exposed- and hidden-fastener steel systems for durable residential, commercial and industrial applications.",href:"/exterior-systems/steel",variant:"silver"},
+  {name:"Fibre Cement",label:"FIBRE CEMENT",copy:"Durable, low-maintenance cladding with versatile profiles and finishes for residential and commercial exteriors.",href:"/exterior-systems/fibre-cement",variant:"stone"},
+  {name:"IMP",label:"INSULATED METAL PANELS",copy:"High-performance insulated wall systems combining thermal efficiency, durability and fast enclosure for commercial and industrial projects.",href:"/exterior-systems/imp",variant:"graphite"},
+  {name:"WPC & Composite",label:"WPC & COMPOSITE",copy:"Low-maintenance wood-look systems for façades, soffits, fluted features and architectural accents.",href:"/exterior-systems/wpc",variant:"wood"},
 ];
 
 const featuredProjects=[
@@ -59,9 +59,9 @@ export default function Home(){
 
    <section className="section">
     <div className="wrap">
-      <SectionTitle kicker="EXTERIOR SYSTEMS" title="Material choices connected to the work." copy="Explore the core wall and soffit families in the CladCan library. Each system can lead into subcategories, applications and product-level information." link={{label:"Browse all exterior systems",href:"/exterior-systems"}}/>
+      <SectionTitle kicker="EXTERIOR SYSTEMS" title="Exterior systems for every project." copy="Compare the core cladding and wall systems CladCan can supply, fabricate and install across residential, commercial and industrial projects." link={{label:"Browse all exterior systems",href:"/exterior-systems"}}/>
       <div className="systemEditorialGrid">
-        {systems.map((s,i)=><Link href={s.href} className={`systemEditorialCard systemCard${i+1}`} key={s.name}><Visual label={s.name.toUpperCase()} variant={s.variant} ratio="system"/><div className="systemEditorialText"><span className="eyebrow">SYSTEM {String(i+1).padStart(2,"0")}</span><h3>{s.name}</h3><p>{s.copy}</p><span>Explore system <ArrowUpRight size={12}/></span></div></Link>)}
+        {systems.map((s,i)=><Link href={s.href} className={`systemEditorialCard systemCard${i+1}`} key={s.name}><Visual label={s.label} variant={s.variant} ratio="system"/><div className="systemEditorialText"><span className="eyebrow">SYSTEM {String(i+1).padStart(2,"0")}</span><h3>{s.name}</h3><p>{s.copy}</p><span>Explore system <ArrowUpRight size={12}/></span></div></Link>)}
       </div>
     </div>
    </section>
