@@ -1,5 +1,6 @@
 import "./globals.css";
 import "./hero-fix.css";
+import "./hero-media-normalize.css";
 import "./typography-system.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
