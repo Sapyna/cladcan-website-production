@@ -60,6 +60,14 @@
   background:url('/images/before-after/sideroad-17-schomberg-after.jpg') center/cover no-repeat!important;
 }
 
+/* Projects uses its existing clinic image. Shift/zoom only that image so the right edge with the car is outside the hero crop. */
+.projectsV11HeroBackdrop{
+  object-fit:cover!important;
+  object-position:42% center!important;
+  transform:scale(1.10)!important;
+  transform-origin:center center!important;
+}
+
 /* A single left-to-right reading gradient. Existing page images remain unchanged. */
 .servicesHeroShade,.systemsPageHeroShade{background:none!important}
 .contactFinalHero::after,.aboutV8Hero::after,.serviceV9Hero::after,.servicesHero::after,
