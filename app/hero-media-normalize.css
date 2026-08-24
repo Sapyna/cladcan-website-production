@@ -21,9 +21,8 @@
 }
 
 /* PROJECTS
- * The image in /public/images/projects is already prepared for this hero.
- * Show the complete image inside the hero frame: no crop, no zoom,
- * no distortion, and no part of the image outside the placeholder.
+ * Use the prepared image in /public/images/projects and resize it exactly
+ * to the hero frame. No crop, no overflow, no side bars and no zoom crop.
  */
 .projectsV11Hero {
   position: relative !important;
@@ -38,7 +37,7 @@
   height: 100% !important;
   max-width: 100% !important;
   max-height: 100% !important;
-  object-fit: contain !important;
+  object-fit: fill !important;
   object-position: center center !important;
   transform: none !important;
 }
