@@ -17,12 +17,28 @@ async function sendToFormSubmit(formData){
     headers:{Accept:"application/json"},
     body:formData,
   });
-  const data=await response.json().catch(()=>({}));
+
+  const rawText=await response.text();
+  let data={};
+  try{data=rawText?JSON.parse(rawText):{};}catch{data={raw:rawText};}
+
+  const debug={
+    httpStatus:response.status,
+    httpStatusText:response.statusText,
+    success:data?.success ?? null,
+    message:data?.message ?? null,
+    raw:data?.raw ?? null,
+  };
+
+  console.log("FormSubmit contact response:",debug);
+
   if(!response.ok||data?.success===false){
-    console.error("FormSubmit contact error:",data);
-    throw new Error(data?.message||"FormSubmit could not send the inquiry.");
+    const err=new Error(data?.message||`FormSubmit returned HTTP ${response.status}.`);
+    err.debug=debug;
+    throw err;
   }
-  return data;
+
+  return {data,debug};
 }
 
 export async function POST(request){
@@ -74,6 +90,7 @@ export async function POST(request){
   outgoing.set("_template","table");
   outgoing.set("_replyto",email);
   outgoing.set("_honey","");
+  outgoing.set("_url",request.headers.get("referer")||"http://localhost:3000/contact");
   outgoing.set("Name",`${firstName} ${lastName}`);
   outgoing.set("Email",email);
   outgoing.set("Phone",phone);
@@ -87,11 +104,17 @@ export async function POST(request){
     outgoing.append("attachment",file,file.name||"attachment");
   }
 
-  await sendToFormSubmit(outgoing);
+  const result=await sendToFormSubmit(outgoing);
+  const d=result.debug;
+  const diagnostic=`FormSubmit response — HTTP ${d.httpStatus}${d.success!==null?` | success: ${String(d.success)}`:""}${d.message?` | message: ${d.message}`:""}${d.raw?` | raw: ${String(d.raw).slice(0,500)}`:""}`;
 
-  return NextResponse.json({ok:true,message:"Thank you. Your information has been sent. A member of the CladCan team will contact you soon."});
+  return NextResponse.json({ok:true,message:diagnostic,formSubmit:d});
  }catch(error){
   console.error("Contact form error:",error);
-  return NextResponse.json({ok:false,message:error?.message||"We could not send your inquiry. Please try again or contact CladCan directly."},{status:500});
+  const d=error?.debug;
+  const diagnostic=d
+    ? `FormSubmit response — HTTP ${d.httpStatus}${d.success!==null?` | success: ${String(d.success)}`:""}${d.message?` | message: ${d.message}`:""}${d.raw?` | raw: ${String(d.raw).slice(0,500)}`:""}`
+    : (error?.message||"We could not send your inquiry. Please try again or contact CladCan directly.");
+  return NextResponse.json({ok:false,message:diagnostic,formSubmit:d||null},{status:500});
  }
 }
