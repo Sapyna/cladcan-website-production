@@ -1,0 +1,73 @@
+/* Larger breadcrumb/navigation trail for internal pages */
+.pageBreadcrumbOverlay,
+.pageStickyTrail {
+  min-height: 58px;
+}
+
+.pageBreadcrumbInner,
+.pageStickyTrailInner {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+}
+
+.pageBreadcrumbInner,
+.pageStickyTrailCrumbs {
+  gap: 12px;
+}
+
+.pageBreadcrumbOverlay,
+.pageBreadcrumbOverlay a,
+.pageBreadcrumbOverlay span,
+.pageBreadcrumbOverlay i,
+.pageStickyTrail,
+.pageStickyTrail a,
+.pageStickyTrail span,
+.pageStickyTrail i,
+.pageStickyTrail button {
+  font-size: 13px !important;
+}
+
+.pageBreadcrumbType,
+.pageStickyType {
+  font-size: 10px !important;
+  letter-spacing: .16em;
+  padding: 5px 10px !important;
+}
+
+.pageBreadcrumbInner > span,
+.pageStickyTrailCrumbs > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pageBreadcrumbOverlay .current,
+.pageStickyTrail .current {
+  font-weight: 700;
+}
+
+.pageStickyTrail button {
+  gap: 7px;
+}
+
+@media (max-width: 760px) {
+  .pageBreadcrumbOverlay,
+  .pageStickyTrail,
+  .pageBreadcrumbInner,
+  .pageStickyTrailInner {
+    min-height: 52px;
+  }
+
+  .pageBreadcrumbOverlay,
+  .pageBreadcrumbOverlay a,
+  .pageBreadcrumbOverlay span,
+  .pageBreadcrumbOverlay i,
+  .pageStickyTrail,
+  .pageStickyTrail a,
+  .pageStickyTrail span,
+  .pageStickyTrail i,
+  .pageStickyTrail button {
+    font-size: 12px !important;
+  }
+}
