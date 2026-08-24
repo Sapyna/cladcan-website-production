@@ -22,8 +22,8 @@
 
 /* PROJECTS
  * The image in /public/images/projects is already prepared for this hero.
- * Place that final image directly into the complete hero frame with no
- * extra scaling transform, manual zoom, or positional offset.
+ * Show the complete image inside the hero frame: no crop, no zoom,
+ * no distortion, and no part of the image outside the placeholder.
  */
 .projectsV11Hero {
   position: relative !important;
@@ -38,7 +38,7 @@
   height: 100% !important;
   max-width: 100% !important;
   max-height: 100% !important;
-  object-fit: cover !important;
+  object-fit: contain !important;
   object-position: center center !important;
   transform: none !important;
 }
