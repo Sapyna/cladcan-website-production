@@ -1,6 +1,7 @@
 /*
  * Internal hero media normalization.
- * Services remains the visual baseline. Home is intentionally excluded.
+ * Services and Projects are the visual baseline.
+ * Home is intentionally excluded.
  */
 
 .servicesHero,
@@ -16,20 +17,34 @@
 .internalHero,
 .aboutV8Hero,
 .contactFinalHero,
-.serviceV9Hero {
-  background-repeat: no-repeat !important;
-}
-
-/* PROJECTS
- * Use the prepared image in /public/images/projects and resize it exactly
- * to the hero frame. No crop, no overflow, no side bars and no zoom crop.
- */
+.serviceV9Hero,
 .projectsV11Hero {
   position: relative !important;
   overflow: hidden !important;
-  background: #071c2b !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+  background-position: center center !important;
 }
 
+/* Any direct hero image/media element should behave like the approved
+ * Services/Projects treatment: fill the hero frame exactly, with no crop,
+ * no overflow and no positional transform. Home is intentionally excluded.
+ */
+.servicesHero > img,
+.systemsPageHero > img,
+.aluminumPageHero > img,
+.longboardHero > img,
+.applicationHero > img,
+.productDetailHero > img,
+.caseV11Hero > img,
+.insightsHero > img,
+.caseHero > img,
+.articleHero > img,
+.internalHero > img,
+.aboutV8Hero > img,
+.contactFinalHero > img,
+.serviceV9Hero > img,
+.projectsV11Hero > img,
 .projectsV11HeroBackdrop {
   position: absolute !important;
   inset: 0 !important;
