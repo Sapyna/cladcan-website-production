@@ -1,24 +1,11 @@
+import { sendShowroomEmail } from "@/lib/cladcanMailer";
+
 export const runtime = "nodejs";
 
 const allowedTimes=new Map([["09:00","9:00 AM"],["10:30","10:30 AM"],["12:00","12:00 PM"],["13:30","1:30 PM"],["15:00","3:00 PM"]]);
-const FORMSUBMIT_ENDPOINT="https://formsubmit.co/ajax/info@cladcan.ca";
 function clean(value,max=500){return String(value||"").trim().slice(0,max)}
 function validEmail(value){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)}
 function formatDate(dateString){return new Intl.DateTimeFormat("en-CA",{weekday:"long",year:"numeric",month:"long",day:"numeric",timeZone:"America/Toronto"}).format(new Date(dateString+"T12:00:00"))}
-
-async function sendToFormSubmit(formData){
- const response=await fetch(FORMSUBMIT_ENDPOINT,{
-  method:"POST",
-  headers:{Accept:"application/json"},
-  body:formData,
- });
- const data=await response.json().catch(()=>({}));
- if(!response.ok||data?.success===false){
-  console.error("FormSubmit showroom error:",data);
-  throw new Error(data?.message||"FormSubmit could not send the showroom request.");
- }
- return data;
-}
 
 export async function POST(request){
  try{
@@ -43,19 +30,8 @@ export async function POST(request){
 
   const dateLabel=formatDate(date);
   const timeLabel=allowedTimes.get(time);
-  const outgoing=new FormData();
-  outgoing.set("_subject",`CladCan showroom visit — ${dateLabel} at ${timeLabel}`);
-  outgoing.set("_template","table");
-  outgoing.set("_replyto",email);
-  outgoing.set("_honey","");
-  outgoing.set("Name",`${firstName} ${lastName}`);
-  outgoing.set("Email",email);
-  outgoing.set("Phone",phone);
-  outgoing.set("Preferred Date",dateLabel);
-  outgoing.set("Preferred Time",timeLabel);
-  outgoing.set("Notes",notes||"No additional notes provided.");
 
-  await sendToFormSubmit(outgoing);
+  await sendShowroomEmail({firstName,lastName,email,phone,dateLabel,timeLabel,notes});
 
   return Response.json({message:`Your showroom visit request has been sent for ${dateLabel} at ${timeLabel}. A member of the CladCan team will confirm the appointment.`});
  }catch(error){
