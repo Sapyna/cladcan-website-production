@@ -6,6 +6,7 @@ const ENDPOINT = "https://formsubmit.co/info@cladcan.ca";
 const CONTACT_FORM_URL = "https://cladcan.ca/contact";
 const SHOWROOM_FORM_URL = "https://cladcan.ca/contact/showroom-visit";
 const FRAME_NAME = "cladcan-formsubmit-frame";
+const SHOWROOM_TIMES = new Set(["09:00", "10:30", "12:00", "13:30", "15:00"]);
 
 function upsertHidden(form, name, value) {
   let input = form.querySelector(`input[type="hidden"][name="${name}"]`);
@@ -35,6 +36,109 @@ function setStatus(form, kind, message) {
   node.setAttribute("role", kind === "error" ? "alert" : "status");
   node.setAttribute("aria-live", "polite");
   node.textContent = message;
+}
+
+function validEmail(value) {
+  const email = String(value || "").trim();
+  if (!email || email.length > 254 || /\s/.test(email)) return false;
+  const parts = email.split("@");
+  if (parts.length !== 2 || !parts[0] || !parts[1]) return false;
+  const [local, domain] = parts;
+  if (local.startsWith(".") || local.endsWith(".") || local.includes("..")) return false;
+  if (!domain.includes(".") || domain.startsWith(".") || domain.endsWith(".") || domain.includes("..")) return false;
+  return /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+$/.test(email);
+}
+
+function validNorthAmericanPhone(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return true;
+  if (!/^[+()\-\.\s0-9]+$/.test(raw)) return false;
+  let digits = raw.replace(/\D/g, "");
+  if (digits.length === 11 && digits.startsWith("1")) digits = digits.slice(1);
+  if (digits.length !== 10) return false;
+
+  const area = digits.slice(0, 3);
+  const exchange = digits.slice(3, 6);
+  if (!/^[2-9]\d{2}$/.test(area) || !/^[2-9]\d{2}$/.test(exchange)) return false;
+  if (/^(\d)\1{9}$/.test(digits)) return false;
+  if (["1234567890", "0123456789", "9876543210"].includes(digits)) return false;
+  return true;
+}
+
+function validateCommonFields(form) {
+  const email = form.querySelector('input[name="email"]');
+  const phone = form.querySelector('input[name="phone"]');
+
+  if (email) {
+    email.setCustomValidity("");
+    if (!validEmail(email.value)) {
+      email.setCustomValidity("Please enter a valid email address, for example name@example.com.");
+      email.reportValidity();
+      email.focus();
+      return false;
+    }
+  }
+
+  if (phone) {
+    phone.setCustomValidity("");
+    if (!validNorthAmericanPhone(phone.value)) {
+      phone.setCustomValidity("Please enter a valid Canadian or US phone number, for example (416) 555-1234 or +1 416 555 1234.");
+      phone.reportValidity();
+      phone.focus();
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function validateShowroomFields(form) {
+  const dateInput = form.querySelector('input[name="date"]');
+  const timeInput = form.querySelector('select[name="time"]');
+
+  if (dateInput) {
+    dateInput.setCustomValidity("");
+    if (!dateInput.value) {
+      dateInput.setCustomValidity("Please select a showroom visit date.");
+      dateInput.reportValidity();
+      dateInput.focus();
+      return false;
+    }
+    const selected = new Date(`${dateInput.value}T12:00:00`);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    if (Number.isNaN(selected.getTime()) || selected <= today) {
+      dateInput.setCustomValidity("Please choose a future date.");
+      dateInput.reportValidity();
+      dateInput.focus();
+      return false;
+    }
+    if (selected.getDay() === 0 || selected.getDay() === 6) {
+      dateInput.setCustomValidity("Showroom visits are available Monday through Friday. Please choose a weekday.");
+      dateInput.reportValidity();
+      dateInput.focus();
+      return false;
+    }
+  }
+
+  if (timeInput && !SHOWROOM_TIMES.has(timeInput.value)) {
+    timeInput.setCustomValidity("Please select an available showroom visit time.");
+    timeInput.reportValidity();
+    timeInput.focus();
+    return false;
+  }
+  timeInput?.setCustomValidity("");
+  return true;
+}
+
+function validateForm(form, isShowroom) {
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return false;
+  }
+  if (!validateCommonFields(form)) return false;
+  if (isShowroom && !validateShowroomFields(form)) return false;
+  return true;
 }
 
 function configureContact(form) {
@@ -75,6 +179,26 @@ export default function FormSubmitClientSubmit() {
       document.body.appendChild(frame);
     }
 
+    function prepareFields() {
+      document.querySelectorAll('input[name="email"]').forEach((input) => {
+        input.setAttribute("inputmode", "email");
+        input.setAttribute("autocomplete", "email");
+        input.addEventListener("input", () => input.setCustomValidity(""));
+      });
+      document.querySelectorAll('input[name="phone"]').forEach((input) => {
+        input.setAttribute("inputmode", "tel");
+        input.setAttribute("autocomplete", "tel");
+        input.setAttribute("placeholder", input.getAttribute("placeholder") || "(416) 555-1234");
+        input.addEventListener("input", () => input.setCustomValidity(""));
+      });
+      document.querySelectorAll('input[name="date"], select[name="time"]').forEach((input) => {
+        input.addEventListener("input", () => input.setCustomValidity(""));
+        input.addEventListener("change", () => input.setCustomValidity(""));
+      });
+    }
+
+    prepareFields();
+
     function onFrameLoad() {
       const formId = frame.dataset.pendingFormId;
       if (!formId) return;
@@ -113,6 +237,8 @@ export default function FormSubmitClientSubmit() {
 
       const trap = form.querySelector('[name="website"]');
       if (trap && trap.value) return;
+
+      if (!validateForm(form, isShowroom)) return;
 
       if (isContact) configureContact(form);
       else configureShowroom(form);
