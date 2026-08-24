@@ -18,7 +18,8 @@
 .aboutV8Hero,
 .contactFinalHero,
 .serviceV9Hero,
-.projectsV11Hero {
+.projectsV11Hero,
+.showroomBookingHero {
   position: relative !important;
   overflow: hidden !important;
   background-repeat: no-repeat !important;
@@ -45,7 +46,8 @@
 .contactFinalHero > img,
 .serviceV9Hero > img,
 .projectsV11Hero > img,
-.projectsV11HeroBackdrop {
+.projectsV11HeroBackdrop,
+.showroomBookingHeroBackdrop {
   position: absolute !important;
   inset: 0 !important;
   width: 100% !important;
@@ -55,4 +57,9 @@
   object-fit: fill !important;
   object-position: center center !important;
   transform: none !important;
+}
+
+.showroomBookingHeroInner {
+  position: relative !important;
+  z-index: 2 !important;
 }
