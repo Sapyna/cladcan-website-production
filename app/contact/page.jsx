@@ -31,12 +31,13 @@ export default function Contact(){
  async function submit(e){
    e.preventDefault();
    if(status==="sending") return;
+   const formElement=e.currentTarget;
 
    setStatus("sending");
    setMessage("");
 
    try{
-     const formData=new FormData(e.currentTarget);
+     const formData=new FormData(formElement);
      formData.set("inquiryType",intent);
 
      const response=await fetch("/api/contact",{
@@ -49,7 +50,7 @@ export default function Contact(){
 
      setStatus("success");
      setMessage(data.message||"Thank you. Your information has been sent. A member of the CladCan team will contact you soon.");
-     e.currentTarget.reset();
+     formElement.reset();
      setIntent("quote");
    }catch(error){
      setStatus("error");
