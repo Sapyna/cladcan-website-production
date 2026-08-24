@@ -3,22 +3,24 @@ import { NextResponse } from "next/server";
 export const runtime = "nodejs";
 
 const MAX_FILE_SIZE = 8 * 1024 * 1024;
-const MAX_TOTAL_SIZE = 15 * 1024 * 1024;
+const MAX_TOTAL_SIZE = 10 * 1024 * 1024;
 const ALLOWED_TYPES = new Set([
   "application/pdf","image/jpeg","image/png","image/webp","image/heic","image/heif",
 ]);
+const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/info@cladcan.ca";
 
 function clean(value,max=2000){return String(value??"").replace(/\0/g,"").trim().slice(0,max)}
 
-async function sendToWeb3Forms(formData){
-  const response=await fetch("https://api.web3forms.com/submit",{
+async function sendToFormSubmit(formData){
+  const response=await fetch(FORMSUBMIT_ENDPOINT,{
     method:"POST",
+    headers:{Accept:"application/json"},
     body:formData,
   });
   const data=await response.json().catch(()=>({}));
   if(!response.ok||data?.success===false){
-    console.error("Web3Forms contact error:",data);
-    throw new Error(data?.message||"Web3Forms could not send the inquiry.");
+    console.error("FormSubmit contact error:",data);
+    throw new Error(data?.message||"FormSubmit could not send the inquiry.");
   }
   return data;
 }
@@ -60,37 +62,32 @@ export async function POST(request){
     }
     totalSize+=file.size;
     if(totalSize>MAX_TOTAL_SIZE){
-      return NextResponse.json({ok:false,message:"The combined attachment size must be 15 MB or less."},{status:400});
+      return NextResponse.json({ok:false,message:"The combined attachment size must be 10 MB or less."},{status:400});
     }
     if(file.type&&!ALLOWED_TYPES.has(file.type)){
       return NextResponse.json({ok:false,message:`${file.name} is not an accepted PDF or image format.`},{status:400});
     }
   }
 
-  const accessKey=process.env.WEB3FORMS_ACCESS_KEY;
-  if(!accessKey){
-    return NextResponse.json({ok:false,message:"Email delivery is not configured. WEB3FORMS_ACCESS_KEY is missing from the server environment."},{status:503});
-  }
-
   const outgoing=new FormData();
-  outgoing.set("access_key",accessKey);
-  outgoing.set("subject",`CladCan website inquiry — ${inquiryType||"Project"} — ${firstName} ${lastName}`);
-  outgoing.set("from_name","CladCan Website");
-  outgoing.set("name",`${firstName} ${lastName}`);
-  outgoing.set("email",email);
-  outgoing.set("phone",phone);
+  outgoing.set("_subject",`CladCan website inquiry — ${inquiryType||"Project"} — ${firstName} ${lastName}`);
+  outgoing.set("_template","table");
+  outgoing.set("_replyto",email);
+  outgoing.set("_honey","");
+  outgoing.set("Name",`${firstName} ${lastName}`);
+  outgoing.set("Email",email);
+  outgoing.set("Phone",phone);
   outgoing.set("Inquiry Type",inquiryType);
   outgoing.set("Project Location",location);
   outgoing.set("Project Type",projectType);
   outgoing.set("Project Stage",stage);
-  outgoing.set("message",details||"No additional project details provided.");
-  outgoing.set("botcheck","");
+  outgoing.set("Project Details",details||"No additional project details provided.");
 
   for(const file of files){
     outgoing.append("attachment",file,file.name||"attachment");
   }
 
-  await sendToWeb3Forms(outgoing);
+  await sendToFormSubmit(outgoing);
 
   return NextResponse.json({ok:true,message:"Thank you. Your information has been sent. A member of the CladCan team will contact you soon."});
  }catch(error){
