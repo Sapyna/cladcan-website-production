@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import QuickContactRail from "@/components/QuickContactRail";
 import VisibleTextNormalizer from "@/components/VisibleTextNormalizer";
+import ShowroomVisitLinkFix from "@/components/ShowroomVisitLinkFix";
 import { PageBreadcrumb, PageSiblingNav } from "@/components/PageNavigation";
 
 
@@ -38,6 +39,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <VisibleTextNormalizer />
+        <ShowroomVisitLinkFix />
         <Header />
         <PageBreadcrumb />
         <main>{children}</main>
