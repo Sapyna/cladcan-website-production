@@ -2,15 +2,14 @@ import "./globals.css";
 import "./hero-fix.css";
 import "./hero-media-normalize.css";
 import "./typography-system.css";
-import "./page-navigation.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import QuickContactRail from "@/components/QuickContactRail";
 import VisibleTextNormalizer from "@/components/VisibleTextNormalizer";
 import ShowroomVisitLinkFix from "@/components/ShowroomVisitLinkFix";
+import AttachmentSelectionFeedback from "@/components/AttachmentSelectionFeedback";
 import { PageBreadcrumb, PageSiblingNav } from "@/components/PageNavigation";
-
 
 export const metadata = {
   applicationName: "CladCan",
@@ -41,6 +40,7 @@ export default function RootLayout({ children }) {
       <body>
         <VisibleTextNormalizer />
         <ShowroomVisitLinkFix />
+        <AttachmentSelectionFeedback />
         <Header />
         <PageBreadcrumb />
         <main>{children}</main>
