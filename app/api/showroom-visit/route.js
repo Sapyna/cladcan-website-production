@@ -1,20 +1,21 @@
 export const runtime = "nodejs";
 
 const allowedTimes=new Map([["09:00","9:00 AM"],["10:30","10:30 AM"],["12:00","12:00 PM"],["13:30","1:30 PM"],["15:00","3:00 PM"]]);
+const FORMSUBMIT_ENDPOINT="https://formsubmit.co/ajax/info@cladcan.ca";
 function clean(value,max=500){return String(value||"").trim().slice(0,max)}
 function validEmail(value){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)}
 function formatDate(dateString){return new Intl.DateTimeFormat("en-CA",{weekday:"long",year:"numeric",month:"long",day:"numeric",timeZone:"America/Toronto"}).format(new Date(dateString+"T12:00:00"))}
 
-async function sendToWeb3Forms(payload){
- const response=await fetch("https://api.web3forms.com/submit",{
+async function sendToFormSubmit(formData){
+ const response=await fetch(FORMSUBMIT_ENDPOINT,{
   method:"POST",
-  headers:{"Content-Type":"application/json",Accept:"application/json"},
-  body:JSON.stringify(payload),
+  headers:{Accept:"application/json"},
+  body:formData,
  });
  const data=await response.json().catch(()=>({}));
  if(!response.ok||data?.success===false){
-  console.error("Web3Forms showroom error:",data);
-  throw new Error(data?.message||"Web3Forms could not send the showroom request.");
+  console.error("FormSubmit showroom error:",data);
+  throw new Error(data?.message||"FormSubmit could not send the showroom request.");
  }
  return data;
 }
@@ -40,24 +41,21 @@ export async function POST(request){
   const visitDate=new Date(date+"T12:00:00"),today=new Date(); today.setHours(0,0,0,0);
   if(Number.isNaN(visitDate.getTime())||visitDate<=today||visitDate.getDay()===0||visitDate.getDay()===6) return Response.json({message:"Please choose a future weekday."},{status:400});
 
-  const accessKey=process.env.WEB3FORMS_ACCESS_KEY;
-  if(!accessKey) return Response.json({message:"Showroom booking is not configured. WEB3FORMS_ACCESS_KEY is missing from the server environment."},{status:503});
-
   const dateLabel=formatDate(date);
   const timeLabel=allowedTimes.get(time);
+  const outgoing=new FormData();
+  outgoing.set("_subject",`CladCan showroom visit — ${dateLabel} at ${timeLabel}`);
+  outgoing.set("_template","table");
+  outgoing.set("_replyto",email);
+  outgoing.set("_honey","");
+  outgoing.set("Name",`${firstName} ${lastName}`);
+  outgoing.set("Email",email);
+  outgoing.set("Phone",phone);
+  outgoing.set("Preferred Date",dateLabel);
+  outgoing.set("Preferred Time",timeLabel);
+  outgoing.set("Notes",notes||"No additional notes provided.");
 
-  await sendToWeb3Forms({
-    access_key:accessKey,
-    subject:`CladCan showroom visit — ${dateLabel} at ${timeLabel}`,
-    from_name:"CladCan Website",
-    name:`${firstName} ${lastName}`,
-    email,
-    phone,
-    "Preferred Date":dateLabel,
-    "Preferred Time":timeLabel,
-    message:notes||"No additional notes provided.",
-    botcheck:"",
-  });
+  await sendToFormSubmit(outgoing);
 
   return Response.json({message:`Your showroom visit request has been sent for ${dateLabel} at ${timeLabel}. A member of the CladCan team will confirm the appointment.`});
  }catch(error){
