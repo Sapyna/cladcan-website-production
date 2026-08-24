@@ -1,0 +1,80 @@
+/* Global Apple-inspired typography system */
+:root{
+  --font-sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+}
+
+html,body,button,input,select,textarea{
+  font-family:var(--font-sans)!important;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+
+body{font-weight:400;letter-spacing:-.01em}
+
+h1,h2,h3,h4,h5,h6,
+.homeHeroCopy h1,.heroCopy h1,.contactIntro h1,.caseHero h1,
+.sectionTitle h2,.splitFeatureCopy h2,.caseNarrative h2,.quoteBand h2,.footerStatement h2,
+.contactFinalHero h1,.contactFinalSectionHead h2,.contactFinalFormGrid aside h3,.contactFinalVisitCopy h2,.contactFinalFaqGrid h2,
+.articleWrap h1,.articleWrap h2,
+.contactFinalWork h2{
+  font-family:var(--font-sans)!important;
+  font-style:normal!important;
+  font-weight:700!important;
+  letter-spacing:-.045em;
+}
+
+h1,.homeHeroCopy h1,.heroCopy h1,.contactIntro h1,.caseHero h1,.contactFinalHero h1,.articleWrap h1{
+  font-weight:700!important;
+  letter-spacing:-.055em!important;
+}
+
+h2,.sectionTitle h2,.splitFeatureCopy h2,.caseNarrative h2,.quoteBand h2,.footerStatement h2,
+.contactFinalSectionHead h2,.contactFinalVisitCopy h2,.contactFinalFaqGrid h2,.contactFinalWork h2{
+  font-weight:700!important;
+  letter-spacing:-.048em!important;
+}
+
+h3,h4,h5,h6,.contactFinalFormGrid aside h3{
+  font-weight:650!important;
+  letter-spacing:-.03em!important;
+}
+
+em,
+.homeHeroCopy h1 em,
+.contactFinalHero h1 em,
+.contactV2Hero h1 em,
+.contactV2MapCard h3 em{
+  font-family:inherit!important;
+}
+
+p,li,small,label,input,textarea,select{
+  font-family:var(--font-sans)!important;
+}
+
+p{font-weight:400;letter-spacing:-.012em}
+
+.siteHeader,.desktopNav,.mobileNav,.mega,.headerActions,.btn,
+button,a,.contactFinalQuickGrid,.contactFinalIntentGrid,.contactFinalForm,
+.contactFinalWorkGrid figcaption,.contactFinalAddress{
+  font-family:var(--font-sans)!important;
+}
+
+.btn,button,.desktopNav a,.desktopNav button,.headerTextLink,
+.contactFinalIntentGrid b,.contactFinalQuickGrid strong,.contactFinalAddress strong{
+  font-weight:600!important;
+  letter-spacing:-.015em!important;
+}
+
+.eyebrow,
+.contactFinalKicker,.contactFinalSectionHead span,.contactFinalFormGrid aside>span,.contactFinalVisitCopy>span,.contactFinalFaqGrid>div:first-child>span,
+.contactV2Eyebrow,.contactV2SectionIntro>span,.contactV2FormIntro>span,.contactV2ProjectsHead span,.contactV2ShowroomContent>span,.contactV2LocationHead span,.contactV2FaqGrid>div:first-child>span{
+  font-family:var(--font-sans)!important;
+  font-weight:700!important;
+  letter-spacing:.18em!important;
+}
+
+/* Preserve the existing hierarchy while removing legacy serif overrides. */
+[class*="Hero"] h1,[class*="hero"] h1,[class*="Section"] h2,[class*="section"] h2{
+  font-family:var(--font-sans)!important;
+}
