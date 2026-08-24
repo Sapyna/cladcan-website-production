@@ -22,9 +22,9 @@
 }
 
 /* PROJECTS
- * The current projects-clinic-hero-final.jpg is already prepared/cropped
- * for the hero. Keep its natural aspect ratio: never stretch it wider
- * than the hero and never distort it. Center it in the frame.
+ * Show the complete prepared hero asset. No zoom, no crop, no distortion.
+ * The image is scaled proportionally so the whole image remains visible
+ * inside the hero frame.
  */
 .projectsV11Hero {
   position: relative !important;
@@ -38,7 +38,7 @@
   width: 100% !important;
   height: 100% !important;
   max-width: 100% !important;
-  object-fit: cover !important;
+  object-fit: contain !important;
   object-position: center center !important;
   transform: none !important;
 }
