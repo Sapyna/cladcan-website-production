@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { sendProjectInquiryEmail } from "@/lib/cladcanMailer";
 
 export const runtime = "nodejs";
 
@@ -7,39 +8,8 @@ const MAX_TOTAL_SIZE = 10 * 1024 * 1024;
 const ALLOWED_TYPES = new Set([
   "application/pdf","image/jpeg","image/png","image/webp","image/heic","image/heif",
 ]);
-const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/info@cladcan.ca";
 
 function clean(value,max=2000){return String(value??"").replace(/\0/g,"").trim().slice(0,max)}
-
-async function sendToFormSubmit(formData){
-  const response=await fetch(FORMSUBMIT_ENDPOINT,{
-    method:"POST",
-    headers:{Accept:"application/json"},
-    body:formData,
-  });
-
-  const rawText=await response.text();
-  let data={};
-  try{data=rawText?JSON.parse(rawText):{};}catch{data={raw:rawText};}
-
-  const debug={
-    httpStatus:response.status,
-    httpStatusText:response.statusText,
-    success:data?.success ?? null,
-    message:data?.message ?? null,
-    raw:data?.raw ?? null,
-  };
-
-  console.log("FormSubmit contact response:",debug);
-
-  if(!response.ok||data?.success===false){
-    const err=new Error(data?.message||`FormSubmit returned HTTP ${response.status}.`);
-    err.debug=debug;
-    throw err;
-  }
-
-  return {data,debug};
-}
 
 export async function POST(request){
  try{
@@ -72,6 +42,7 @@ export async function POST(request){
 
   const files=form.getAll("attachments").filter(item=>item&&typeof item==="object"&&"arrayBuffer" in item&&item.size>0);
   let totalSize=0;
+  const attachments=[];
   for(const file of files){
     if(file.size>MAX_FILE_SIZE){
       return NextResponse.json({ok:false,message:`${file.name} is larger than the 8 MB file limit.`},{status:400});
@@ -83,38 +54,18 @@ export async function POST(request){
     if(file.type&&!ALLOWED_TYPES.has(file.type)){
       return NextResponse.json({ok:false,message:`${file.name} is not an accepted PDF or image format.`},{status:400});
     }
+    attachments.push({
+      filename:file.name||"attachment",
+      content:Buffer.from(await file.arrayBuffer()),
+      contentType:file.type||undefined,
+    });
   }
 
-  const outgoing=new FormData();
-  outgoing.set("_subject",`CladCan website inquiry — ${inquiryType||"Project"} — ${firstName} ${lastName}`);
-  outgoing.set("_template","table");
-  outgoing.set("_replyto",email);
-  outgoing.set("_honey","");
-  outgoing.set("_url",request.headers.get("referer")||"http://localhost:3000/contact");
-  outgoing.set("Name",`${firstName} ${lastName}`);
-  outgoing.set("Email",email);
-  outgoing.set("Phone",phone);
-  outgoing.set("Inquiry Type",inquiryType);
-  outgoing.set("Project Location",location);
-  outgoing.set("Project Type",projectType);
-  outgoing.set("Project Stage",stage);
-  outgoing.set("Project Details",details||"No additional project details provided.");
+  await sendProjectInquiryEmail({firstName,lastName,email,phone,inquiryType,location,projectType,stage,details},attachments);
 
-  for(const file of files){
-    outgoing.append("attachment",file,file.name||"attachment");
-  }
-
-  const result=await sendToFormSubmit(outgoing);
-  const d=result.debug;
-  const diagnostic=`FormSubmit response — HTTP ${d.httpStatus}${d.success!==null?` | success: ${String(d.success)}`:""}${d.message?` | message: ${d.message}`:""}${d.raw?` | raw: ${String(d.raw).slice(0,500)}`:""}`;
-
-  return NextResponse.json({ok:true,message:diagnostic,formSubmit:d});
+  return NextResponse.json({ok:true,message:"Thank you. Your information has been sent. A member of the CladCan team will contact you soon."});
  }catch(error){
   console.error("Contact form error:",error);
-  const d=error?.debug;
-  const diagnostic=d
-    ? `FormSubmit response — HTTP ${d.httpStatus}${d.success!==null?` | success: ${String(d.success)}`:""}${d.message?` | message: ${d.message}`:""}${d.raw?` | raw: ${String(d.raw).slice(0,500)}`:""}`
-    : (error?.message||"We could not send your inquiry. Please try again or contact CladCan directly.");
-  return NextResponse.json({ok:false,message:diagnostic,formSubmit:d||null},{status:500});
+  return NextResponse.json({ok:false,message:error?.message||"We could not send your inquiry. Please try again or contact CladCan directly."},{status:500});
  }
 }
