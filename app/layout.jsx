@@ -2,6 +2,7 @@ import "./globals.css";
 import "./hero-fix.css";
 import "./hero-media-normalize.css";
 import "./typography-system.css";
+import "./page-navigation.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
