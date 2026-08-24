@@ -22,18 +22,19 @@ export default function ShowroomBookingForm() {
 
   async function submit(event) {
     event.preventDefault();
+    const formElement = event.currentTarget;
     setStatus("sending");
     setMessage("");
     try {
       const response = await fetch("/api/showroom-visit", {
         method: "POST",
-        body: new FormData(event.currentTarget),
+        body: new FormData(formElement),
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.message || "Unable to book the showroom visit.");
       setStatus("success");
       setMessage(data.message);
-      event.currentTarget.reset();
+      formElement.reset();
     } catch (error) {
       setStatus("error");
       setMessage(error.message || "We could not book your visit. Please try again.");
