@@ -1,0 +1,85 @@
+/*
+ * Internal hero media normalization.
+ * Services is the visual baseline. Home is intentionally excluded.
+ */
+
+/* Background-image based internal heroes */
+.servicesHero,
+.systemsPageHero,
+.aluminumPageHero,
+.longboardHero,
+.applicationHero,
+.productDetailHero,
+.projectsV11Hero,
+.caseV11Hero,
+.insightsHero,
+.caseHero,
+.articleHero,
+.internalHero,
+.aboutV8Hero,
+.contactFinalHero,
+.serviceV9Hero {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Absolutely positioned hero media wrappers */
+.contactFinalHeroVisual,
+.aboutV8HeroVisual,
+.serviceV9HeroMedia,
+.internalHeroImage,
+.articleHeroImage {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Next/Image and img based hero media */
+.projectsV11HeroBackdrop,
+.contactFinalHeroVisual img,
+.aboutV8HeroVisual img,
+.serviceV9HeroMedia img,
+.internalHeroImage img,
+.articleHeroImage img,
+.projectsV11Hero img,
+.caseV11Hero img,
+.insightsHero img,
+.caseHero img,
+.systemsPageHero img,
+.aluminumPageHero img,
+.longboardHero img,
+.applicationHero img,
+.productDetailHero img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  transform: none !important;
+  max-width: none !important;
+}
+
+/* Preserve the shared full-bleed hero frame used by Services. */
+.contactFinalHero,
+.aboutV8Hero,
+.serviceV9Hero,
+.servicesHero,
+.systemsPageHero,
+.internalHero,
+.aluminumPageHero,
+.longboardHero,
+.applicationHero,
+.productDetailHero,
+.projectsV11Hero,
+.caseV11Hero,
+.insightsHero,
+.caseHero,
+.articleHero {
+  position: relative !important;
+  overflow: hidden !important;
+}
