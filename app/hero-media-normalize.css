@@ -21,11 +21,10 @@
   background-repeat: no-repeat !important;
 }
 
-/* PROJECTS TEST
- * Use the current projects-clinic-hero-final.jpg asset.
- * Preserve the image aspect ratio (no horizontal/vertical stretching),
- * fill the full hero width, keep the top of the image visible,
- * and allow only the excess at the bottom to be cropped by the hero frame.
+/* PROJECTS
+ * The current projects-clinic-hero-final.jpg is already prepared/cropped
+ * for the hero. Keep its natural aspect ratio: never stretch it wider
+ * than the hero and never distort it. Center it in the frame.
  */
 .projectsV11Hero {
   position: relative !important;
@@ -35,15 +34,11 @@
 
 .projectsV11HeroBackdrop {
   position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: auto !important;
+  inset: 0 !important;
   width: 100% !important;
-  height: auto !important;
-  min-height: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
   object-fit: cover !important;
-  object-position: center top !important;
+  object-position: center center !important;
   transform: none !important;
-  max-width: none !important;
 }
