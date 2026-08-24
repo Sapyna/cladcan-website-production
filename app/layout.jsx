@@ -9,6 +9,7 @@ import QuickContactRail from "@/components/QuickContactRail";
 import VisibleTextNormalizer from "@/components/VisibleTextNormalizer";
 import ShowroomVisitLinkFix from "@/components/ShowroomVisitLinkFix";
 import AttachmentSelectionFeedback from "@/components/AttachmentSelectionFeedback";
+import Web3FormsClientSubmit from "@/components/Web3FormsClientSubmit";
 import { PageBreadcrumb, PageSiblingNav } from "@/components/PageNavigation";
 
 export const metadata = {
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
         <VisibleTextNormalizer />
         <ShowroomVisitLinkFix />
         <AttachmentSelectionFeedback />
+        <Web3FormsClientSubmit />
         <Header />
         <PageBreadcrumb />
         <main>{children}</main>
