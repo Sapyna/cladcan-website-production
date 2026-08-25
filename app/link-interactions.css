@@ -1,0 +1,118 @@
+/* CladCan sitewide link interaction system
+   Purpose: make links visibly interactive without changing the established visual language. */
+
+:root{
+  --link-accent:#a1743e;
+  --link-ease:cubic-bezier(.22,.61,.36,1);
+}
+
+/* Baseline motion for every real link. */
+a[href]{
+  transition:
+    color .22s var(--link-ease),
+    opacity .22s var(--link-ease),
+    border-color .22s var(--link-ease),
+    background-color .22s var(--link-ease),
+    box-shadow .22s var(--link-ease),
+    transform .22s var(--link-ease),
+    text-decoration-color .22s var(--link-ease),
+    text-underline-offset .22s var(--link-ease);
+}
+
+/* Text links: reveal a refined underline on hover/focus. Header navigation is
+   excluded because it already has its own interaction treatment. */
+body :where(main,footer) a[href]:not([class*="button"]):not([class*="Button"]):not([class*="btn"]):not([class*="Btn"]):not([class*="card"]):not([class*="Card"]):not([class*="tile"]):not([class*="Tile"]):not([class*="hero"]):not([class*="Hero"]):not(.chatLauncher):not(.chatActionBtn){
+  text-decoration-line:underline;
+  text-decoration-thickness:1px;
+  text-decoration-color:transparent;
+  text-underline-offset:.24em;
+  text-decoration-skip-ink:auto;
+}
+
+body :where(main,footer) a[href]:not([class*="button"]):not([class*="Button"]):not([class*="btn"]):not([class*="Btn"]):not([class*="card"]):not([class*="Card"]):not([class*="tile"]):not([class*="Tile"]):not([class*="hero"]):not([class*="Hero"]):not(.chatLauncher):not(.chatActionBtn):hover,
+body :where(main,footer) a[href]:not([class*="button"]):not([class*="Button"]):not([class*="btn"]):not([class*="Btn"]):not([class*="card"]):not([class*="Card"]):not([class*="tile"]):not([class*="Tile"]):not([class*="hero"]):not([class*="Hero"]):not(.chatLauncher):not(.chatActionBtn):focus-visible{
+  text-decoration-color:currentColor;
+  text-underline-offset:.34em;
+}
+
+/* Arrow/icon links get a small directional cue. */
+a[href] svg,
+a[href] .linkArrow,
+a[href] .arrow,
+a[href] [data-link-arrow]{
+  transition:transform .22s var(--link-ease),opacity .22s var(--link-ease);
+  transform-origin:center;
+}
+
+a[href]:hover svg,
+a[href]:focus-visible svg,
+a[href]:hover .linkArrow,
+a[href]:focus-visible .linkArrow,
+a[href]:hover .arrow,
+a[href]:focus-visible .arrow,
+a[href]:hover [data-link-arrow],
+a[href]:focus-visible [data-link-arrow]{
+  transform:translate(2px,-2px);
+}
+
+/* CTA/button-style links: no underline; use lift + soft shadow instead. */
+a[href][class*="button"],
+a[href][class*="Button"],
+a[href][class*="btn"],
+a[href][class*="Btn"],
+a[href][class*="cta"],
+a[href][class*="Cta"]{
+  text-decoration:none!important;
+}
+
+a[href][class*="button"]:hover,
+a[href][class*="Button"]:hover,
+a[href][class*="btn"]:hover,
+a[href][class*="Btn"]:hover,
+a[href][class*="cta"]:hover,
+a[href][class*="Cta"]:hover,
+a[href][class*="button"]:focus-visible,
+a[href][class*="Button"]:focus-visible,
+a[href][class*="btn"]:focus-visible,
+a[href][class*="Btn"]:focus-visible,
+a[href][class*="cta"]:focus-visible,
+a[href][class*="Cta"]:focus-visible{
+  transform:translateY(-2px);
+  box-shadow:0 8px 22px rgba(8,29,47,.10);
+}
+
+/* Whole-card/tile links should read as interactive without underlining every
+   child label. Keep movement intentionally restrained. */
+a[href][class*="card"],
+a[href][class*="Card"],
+a[href][class*="tile"],
+a[href][class*="Tile"]{
+  text-decoration:none!important;
+}
+
+a[href][class*="card"]:hover,
+a[href][class*="Card"]:hover,
+a[href][class*="tile"]:hover,
+a[href][class*="Tile"]:hover,
+a[href][class*="card"]:focus-visible,
+a[href][class*="Card"]:focus-visible,
+a[href][class*="tile"]:focus-visible,
+a[href][class*="Tile"]:focus-visible{
+  transform:translateY(-2px);
+  box-shadow:0 10px 26px rgba(8,29,47,.08);
+}
+
+/* Keyboard users get an equally clear interaction state. */
+a[href]:focus-visible{
+  outline:2px solid color-mix(in srgb,var(--link-accent) 72%,white);
+  outline-offset:4px;
+  border-radius:2px;
+}
+
+/* Respect reduced-motion preferences. */
+@media (prefers-reduced-motion:reduce){
+  a[href],a[href] svg,a[href] .linkArrow,a[href] .arrow,a[href] [data-link-arrow]{
+    transition:none!important;
+    transform:none!important;
+  }
+}
