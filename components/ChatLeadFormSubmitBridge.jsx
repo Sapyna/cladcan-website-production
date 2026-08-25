@@ -32,18 +32,29 @@ function flattenValues(form, value, prefix = "") {
 }
 
 function attachFiles(form, files) {
-  files.forEach((file, index) => {
-    try {
-      const input = document.createElement("input");
-      input.type = "file";
-      input.name = index === 0 ? "attachment" : `attachment_${index + 1}`;
-      const dt = new DataTransfer();
-      dt.items.add(file);
-      input.files = dt.files;
-      input.style.display = "none";
-      form.appendChild(input);
-    } catch (_) {}
-  });
+  if (!files.length) return;
+  try {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.name = "attachment";
+    input.multiple = true;
+    input.style.display = "none";
+
+    const dt = new DataTransfer();
+    files.forEach((file) => {
+      if (file instanceof File) dt.items.add(file);
+    });
+    input.files = dt.files;
+    form.appendChild(input);
+
+    addHidden(
+      form,
+      "Attachments",
+      files.map((file) => `${file.name} (${Math.max(1, Math.round(file.size / 1024))} KB)`).join(", ")
+    );
+  } catch (error) {
+    console.error("Could not attach chatbot files:", error);
+  }
 }
 
 export default function ChatLeadFormSubmitBridge() {
@@ -57,13 +68,13 @@ export default function ChatLeadFormSubmitBridge() {
       document.body.appendChild(frame);
     }
 
-    const selectedFiles = [];
+    let selectedFiles = [];
+
     const onFileChange = (event) => {
       const input = event.target;
       if (!(input instanceof HTMLInputElement)) return;
       if (input.type !== "file" || !input.closest(".chatPanel")) return;
-      selectedFiles.length = 0;
-      selectedFiles.push(...Array.from(input.files || []));
+      selectedFiles = Array.from(input.files || []).filter((file) => file instanceof File);
     };
     document.addEventListener("change", onFileChange, true);
 
@@ -99,8 +110,11 @@ export default function ChatLeadFormSubmitBridge() {
 
         document.body.appendChild(form);
         form.submit();
-        window.setTimeout(() => form.remove(), 1500);
-        selectedFiles.length = 0;
+
+        // Keep the form and its File objects alive long enough for the browser
+        // to serialize the multipart submission to the hidden iframe.
+        window.setTimeout(() => form.remove(), 10000);
+        selectedFiles = [];
       } catch (error) {
         console.error("Chatbot FormSubmit bridge error:", error);
       }
