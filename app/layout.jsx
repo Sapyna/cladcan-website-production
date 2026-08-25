@@ -6,7 +6,7 @@ import "./chatbot-polish.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
-import ChatLeadFormSubmitBridge from "@/components/ChatLeadFormSubmitBridge";
+import ChatLeadEmailBridge from "@/components/ChatLeadEmailBridge";
 import QuickContactRail from "@/components/QuickContactRail";
 import VisibleTextNormalizer from "@/components/VisibleTextNormalizer";
 import ShowroomVisitLinkFix from "@/components/ShowroomVisitLinkFix";
@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
         <ShowroomVisitLinkFix />
         <AttachmentSelectionFeedback />
         <FormSubmitClientSubmit />
-        <ChatLeadFormSubmitBridge />
+        <ChatLeadEmailBridge />
         <Header />
         <PageBreadcrumb />
         <main>{children}</main>
