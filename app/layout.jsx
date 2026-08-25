@@ -2,6 +2,7 @@ import "./globals.css";
 import "./hero-fix.css";
 import "./hero-media-normalize.css";
 import "./typography-system.css";
+import "./link-interactions.css";
 import "./chatbot-polish.css";
 import "./chat-ai-addon.css";
 import Header from "@/components/Header";
