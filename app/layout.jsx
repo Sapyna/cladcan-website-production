@@ -3,11 +3,13 @@ import "./hero-fix.css";
 import "./hero-media-normalize.css";
 import "./typography-system.css";
 import "./chatbot-polish.css";
+import "./chat-ai-addon.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import ChatLeadEmailBridge from "@/components/ChatLeadEmailBridge";
 import ChatAttachmentUX from "@/components/ChatAttachmentUX";
+import ChatAIAddon from "@/components/ChatAIAddon";
 import QuickContactRail from "@/components/QuickContactRail";
 import VisibleTextNormalizer from "@/components/VisibleTextNormalizer";
 import ShowroomVisitLinkFix from "@/components/ShowroomVisitLinkFix";
@@ -48,6 +50,7 @@ export default function RootLayout({ children }) {
         <FormSubmitClientSubmit />
         <ChatLeadEmailBridge />
         <ChatAttachmentUX />
+        <ChatAIAddon />
         <Header />
         <PageBreadcrumb />
         <main>{children}</main>
