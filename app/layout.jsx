@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import ChatLeadEmailBridge from "@/components/ChatLeadEmailBridge";
+import ChatAttachmentUX from "@/components/ChatAttachmentUX";
 import QuickContactRail from "@/components/QuickContactRail";
 import VisibleTextNormalizer from "@/components/VisibleTextNormalizer";
 import ShowroomVisitLinkFix from "@/components/ShowroomVisitLinkFix";
@@ -46,6 +47,7 @@ export default function RootLayout({ children }) {
         <AttachmentSelectionFeedback />
         <FormSubmitClientSubmit />
         <ChatLeadEmailBridge />
+        <ChatAttachmentUX />
         <Header />
         <PageBreadcrumb />
         <main>{children}</main>
