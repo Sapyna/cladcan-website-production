@@ -23,9 +23,9 @@ const systems=[
 ];
 
 const featuredProjects=[
-  {type:"Residential",title:"17th Sideroad",location:"Schomberg, ON",copy:"A verified before-and-after exterior transformation documented in the CladCan project library.",image:"/images/before-after/sideroad-17-schomberg-after.jpg",href:"/projects/sideroad-17-schomberg"},
-  {type:"Commercial",title:"Pharmacy Avenue",location:"Scarborough, ON",copy:"Commercial exterior renovation with a documented completed façade and before-and-after comparison.",image:"/images/before-after/pharmacy-scarborough-after.jpg",href:"/projects/pharmacy-scarborough"},
-  {type:"Residential",title:"Gray Lane",location:"Barrie, ON",copy:"Residential exterior transformation presented as a full before-and-after case study.",image:"/images/before-after/gray-lane-barrie-after.jpg",href:"/projects/gray-lane-barrie"},
+  {type:"In Progress",title:"Adelaide Rd",location:"Toronto, ON",copy:"Active exterior envelope and aluminum composite panel installation documented during construction.",image:"/images/projects/in-progress-adelaide-rd.jpg",href:"/projects"},
+  {type:"In Progress",title:"Eglinton",location:"Toronto, ON",copy:"Residential exterior work in progress with coordinated façade, window and envelope detailing.",image:"/images/projects/in-progress-eglinton.jpg",href:"/projects"},
+  {type:"In Progress",title:"Toronto",location:"Toronto, ON",copy:"Current cladding installation showing the building envelope and panel work before final completion.",image:"/images/projects/in-progress-toronto.jpg",href:"/projects"},
 ];
 
 const insights=[
@@ -83,8 +83,8 @@ export default function Home(){
 
    <section className="section homeFeaturedProjects">
     <div className="wrap">
-      <SectionTitle kicker="FEATURED PROJECTS" title="The work is the proof." copy="A selection of real CladCan project transformations. Open a case study or browse the full project library." link={{label:"View all projects",href:"/projects"}}/>
-      <div className="homeProjectGrid">{featuredProjects.map((p,i)=><Link href={p.href} className={i===0?"homeProjectCard homeProjectLead":"homeProjectCard"} key={p.title}><div className="homeProjectImage"><img src={p.image} alt={`${p.title}, ${p.location}`}/><span>{p.type}</span></div><div className="homeProjectCopy"><small>{p.location}</small><h3>{p.title}</h3><p>{p.copy}</p><strong>View case study <ArrowUpRight size={13}/></strong></div></Link>)}</div>
+      <SectionTitle kicker="OUR WORK IN PROGRESS" title="More projects in progress." copy="A look at some of the projects currently underway, with real construction-stage photography from active CladCan work." link={{label:"View all projects",href:"/projects"}}/>
+      <div className="homeProjectGrid">{featuredProjects.map((p,i)=><Link href={p.href} className={i===0?"homeProjectCard homeProjectLead":"homeProjectCard"} key={p.title}><div className="homeProjectImage"><img src={p.image} alt={`${p.title}, ${p.location} — project in progress`}/><span>{p.type}</span></div><div className="homeProjectCopy"><small>{p.location}</small><h3>{p.title}</h3><p>{p.copy}</p><strong>View projects <ArrowUpRight size={13}/></strong></div></Link>)}</div>
     </div>
    </section>
 
