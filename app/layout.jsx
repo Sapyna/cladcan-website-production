@@ -15,7 +15,6 @@ import ChatAttachmentUX from "@/components/ChatAttachmentUX";
 import ChatAIAddon from "@/components/ChatAIAddon";
 import QuickContactRail from "@/components/QuickContactRail";
 import VisibleTextNormalizer from "@/components/VisibleTextNormalizer";
-import ShowroomVisitLinkFix from "@/components/ShowroomVisitLinkFix";
 import AttachmentSelectionFeedback from "@/components/AttachmentSelectionFeedback";
 import FormSubmitClientSubmit from "@/components/FormSubmitClientSubmit";
 import { PageBreadcrumb, PageSiblingNav } from "@/components/PageNavigation";
@@ -48,7 +47,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <VisibleTextNormalizer />
-        <ShowroomVisitLinkFix />
         <AttachmentSelectionFeedback />
         <FormSubmitClientSubmit />
         <ChatLeadEmailBridge />
