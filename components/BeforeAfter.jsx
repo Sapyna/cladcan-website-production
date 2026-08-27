@@ -29,9 +29,9 @@ const pairs=[
 ];
 
 const progress=[
- {title:"Bellamy",image:"/images/before-after/bellamy-before.jpg"},
- {title:"Port Union",image:"/images/before-after/port-union-before.jpg"},
- {title:"County",image:"/images/before-after/county-before.jpg"}
+ {title:"Adelaide Rd",image:"/images/projects/in-progress-adelaide-rd.jpg"},
+ {title:"Eglinton",image:"/images/projects/in-progress-eglinton.jpg"},
+ {title:"North York",image:"/images/projects/in-progress-toronto.jpg"}
 ];
 
 function Compare({item}){
@@ -78,15 +78,15 @@ export default function BeforeAfter(){
 
    <div className="progressHead">
     <h3>More projects in progress</h3>
-    <p>These projects currently have only a verified Before / in-progress photo. They will move into the comparison gallery once the matching completed photo is available.</p>
+    <p>A look at three active CladCan projects currently underway. Completed photography can be added as each exterior scope is finished.</p>
    </div>
 
    <div className="progressGrid">
     {progress.map(item=><figure key={item.title}>
-      <img src={item.image} alt={`${item.title} project before or in progress`}/>
+      <img src={item.image} alt={`${item.title} project in progress`}/>
       <figcaption>
        <b>{item.title}</b>
-       <span>Before / in progress</span>
+       <span>In progress</span>
       </figcaption>
     </figure>)}
    </div>
