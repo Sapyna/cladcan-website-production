@@ -29,8 +29,8 @@ const pairs=[
 ];
 
 const progress=[
- {title:"Adelaide Rd",image:"/images/projects/in-progress-adelaide-rd.jpg"},
- {title:"Eglinton",image:"/images/projects/in-progress-eglinton.jpg"},
+ {title:"North York",image:"/images/projects/in-progress-eglinton.jpg"},
+ {title:"North York",image:"/images/projects/in-progress-adelaide-rd.jpg"},
  {title:"North York",image:"/images/projects/in-progress-toronto.jpg"}
 ];
 
@@ -82,8 +82,10 @@ export default function BeforeAfter(){
    </div>
 
    <div className="progressGrid">
-    {progress.map(item=><figure key={item.title}>
-      <img src={item.image} alt={`${item.title} project in progress`}/>
+    {progress.map(item=><figure key={item.image}>
+      <div style={{width:"100%",aspectRatio:"4 / 3",display:"flex",alignItems:"center",justifyContent:"center",background:"#f2f4f5",overflow:"hidden"}}>
+       <img src={item.image} alt={`${item.title} project in progress`} style={{width:"100%",height:"100%",objectFit:"contain",display:"block"}}/>
+      </div>
       <figcaption>
        <b>{item.title}</b>
        <span>In progress</span>
