@@ -26,9 +26,9 @@ const featuredProjects=[
   {type:"In Progress",title:"North York",location:"North York, ON",copy:"Residential exterior work in progress with coordinated façade, window and envelope detailing.",image:"/images/projects/in-progress-eglinton.jpg",href:"/projects"},
   {type:"In Progress",title:"Toronto",location:"Toronto, ON",copy:"Active exterior envelope and aluminum composite panel installation documented during construction.",image:"/images/projects/in-progress-adelaide-rd.jpg",href:"/projects"},
   {type:"In Progress",title:"North York",location:"North York, ON",copy:"Current cladding installation showing the building envelope and panel work before final completion.",image:"/images/projects/in-progress-toronto.jpg",href:"/projects"},
-  {type:"In Progress",title:"Project 4",location:"Ontario",copy:"Additional active project photography and details will be added here.",image:null,href:"/projects",placeholder:true},
-  {type:"In Progress",title:"Project 5",location:"Ontario",copy:"Additional active project photography and details will be added here.",image:null,href:"/projects",placeholder:true},
-  {type:"In Progress",title:"Project 6",location:"Ontario",copy:"Additional active project photography and details will be added here.",image:null,href:"/projects",placeholder:true},
+  {type:"In Progress",title:"Acton",location:"Acton, ON",copy:"Active CladCan exterior project currently progressing through field installation and envelope work.",image:"/images/project/acton.jpeg",href:"/projects"},
+  {type:"In Progress",title:"Stratford",location:"Stratford, ON",copy:"Exterior construction in progress with coordinated cladding and building envelope installation.",image:"/images/project/Stratford.jpeg",href:"/projects"},
+  {type:"In Progress",title:"Mississauga",location:"Mississauga, ON",copy:"Current exterior project documenting ongoing façade and envelope installation work.",image:"/images/project/mississauga.jpeg",href:"/projects"},
 ];
 
 const insights=[
@@ -40,10 +40,7 @@ const insights=[
 function ProjectCard({p,i}){
  return <Link href={p.href} className={(i===0||i===3)?"homeProjectCard homeProjectLead":"homeProjectCard"}>
    <div className="homeProjectImage" style={{background:"#f3f5f6"}}>
-    {p.placeholder
-      ? <div style={{width:"100%",height:"100%",display:"grid",placeItems:"center",background:"linear-gradient(135deg,#eef2f4,#dfe5e8)",color:"#76858e",fontSize:"12px",fontWeight:800,letterSpacing:".08em",textTransform:"uppercase"}}>Project photo coming soon</div>
-      : <img src={p.image} alt={`${p.title}, ${p.location} — project in progress`} style={{width:"100%",height:"100%",objectFit:i===1?"cover":"contain",objectPosition:"center",display:"block"}}/>
-    }
+    <img src={p.image} alt={`${p.title}, ${p.location} — project in progress`} style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center",display:"block"}}/>
     <span>{p.type}</span>
    </div>
    <div className="homeProjectCopy"><small>{p.location}</small><h3>{p.title}</h3><p>{p.copy}</p><strong>View projects <ArrowUpRight size={13}/></strong></div>
