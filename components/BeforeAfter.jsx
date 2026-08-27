@@ -30,7 +30,6 @@ const pairs=[
 
 function Compare({item}){
  const [value,setValue]=useState(50);
- const [ratio,setRatio]=useState(null);
  const commonImageStyle={
   position:"absolute",
   inset:0,
@@ -47,25 +46,15 @@ function Compare({item}){
    style={{
     position:"relative",
     width:"100%",
-    aspectRatio:ratio || "4 / 3",
+    aspectRatio:"16 / 9",
     overflow:"hidden",
     background:"#f2f4f5"
    }}
   >
-   <img
-    src={item.after}
-    alt={`${item.title} after`}
-    style={commonImageStyle}
-   />
+   <img src={item.after} alt={`${item.title} after`} style={commonImageStyle}/>
    <img
     src={item.before}
     alt={`${item.title} before`}
-    onLoad={e=>{
-      const img=e.currentTarget;
-      if(img.naturalWidth && img.naturalHeight){
-        setRatio(`${img.naturalWidth} / ${img.naturalHeight}`);
-      }
-    }}
     style={{...commonImageStyle,clipPath:`inset(0 ${100-value}% 0 0)`}}
    />
    <div className="baDivider" style={{left:`${value}%`}}><span>↔</span></div>
