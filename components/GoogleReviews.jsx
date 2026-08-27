@@ -13,12 +13,12 @@ export default function GoogleReviews(){
       .then(d=>setData({loading:false,...d}))
       .catch(()=>setData({loading:false,reviews:[],error:"Google Reviews could not be loaded."}));
   },[]);
-  if(data.loading) return <div className="reviewStatus">Loading current Google reviews…</div>;
+  if(data.loading) return <div className="reviewStatus">Loading Google reviews…</div>;
   if(!data.configured && !(data.reviews||[]).length) return <div className="reviewStatus">
-    <b>Google Reviews feed ready.</b>
-    <span>Connect the CladCan Google API credentials to display live reviews. No sample reviews are shown.</span>
+    <b>Google Reviews are temporarily unavailable.</b>
+    <span>Please visit our Google Business Profile to read current customer feedback.</span>
   </div>;
-  if(data.error) return <div className="reviewStatus"><b>Google Reviews temporarily unavailable.</b><span>No cached or invented testimonials are substituted.</span></div>;
+  if(data.error) return <div className="reviewStatus"><b>Google Reviews temporarily unavailable.</b><span>Please check back shortly or view our reviews directly on Google.</span></div>;
 
   const reviews=(data.reviews||[]).filter(r=>Number(r.rating)===5);
   return <div className="googleReviewsBlock">
@@ -28,10 +28,10 @@ export default function GoogleReviews(){
         <strong>{data.businessRating ?? "—"}/5</strong>
         <span>{data.businessReviewCount ?? "—"} Google Reviews</span>
       </div>
-      <p>Five-star Google reviews only.</p>
-      {data.source==="verified_google_snapshot"&&<small className="googleSnapshotNote">Verified Google snapshot · live refresh activates with Google API credentials</small>}{data.googleUrl&&<a className="googleReviewLink" href={data.googleUrl} target="_blank" rel="noreferrer">View on Google <ExternalLink size={12}/></a>}
+      <p>A selection of five-star feedback from CladCan customers.</p>
+      {data.googleUrl&&<a className="googleReviewLink" href={data.googleUrl} target="_blank" rel="noreferrer">View all reviews on Google <ExternalLink size={12}/></a>}
     </div>
-    {reviews.length===0?<div className="reviewStatus"><span>No five-star reviews were returned by the current Google feed.</span></div>:
+    {reviews.length===0?<div className="reviewStatus"><span>No five-star reviews are available to display right now.</span></div>:
     <div className="reviewGrid">
       {reviews.slice(0,6).map((r,i)=><article className="reviewCard" key={`${r.author_name}-${r.time}-${i}`}>
         <div className="reviewStars smallStars">{[1,2,3,4,5].map(j=><Star key={j} size={13} fill="currentColor"/>)}</div>
