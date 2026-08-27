@@ -36,13 +36,13 @@ function Compare({item}){
   inset:0,
   width:"100%",
   height:"100%",
-  objectFit:"cover",
+  objectFit:"contain",
   objectPosition:"center",
   display:"block"
  };
  return <article className="baCard">
   <div className="baCompare" style={{position:"relative",aspectRatio:"16 / 9",overflow:"hidden",background:"#f2f4f5"}}>
-   <Image src={item.after} alt={`${item.title} after`} fill sizes="(max-width: 900px) 100vw, 50vw" style={{objectFit:"cover",objectPosition:"center"}}/>
+   <Image src={item.after} alt={`${item.title} after`} fill sizes="(max-width: 900px) 100vw, 50vw" style={{objectFit:"contain",objectPosition:"center"}}/>
    <img
     src={item.before}
     alt={`${item.title} before`}
