@@ -17,11 +17,11 @@ const pairs=[
  {
   title:"Schomberg, ON",
   before:"/images/before-after/sideroad-17-schomberg-before.jpg",
-  after:"/images/before-after/sideroad-17-schomberg-after.jpg",
+  after:"/images/before-after/sideroad-17-schomberg-after.jpg?v=2",
   note:"Building-envelope preparation to finished ACM cladding"
  },
  {
-  title:"Stouffville · Ontario",
+  title:"Stoufville, ON",
   before:"/images/before-after/Stoufville%20-%20before.jpeg",
   after:"/images/before-after/Stoufville%20-%20after.jpeg",
   note:"Exterior cladding transformation"
