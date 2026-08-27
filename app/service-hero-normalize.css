@@ -1,0 +1,120 @@
+/* Service detail hero normalization
+   Keep every internal service page aligned with the approved internal-page hero system. */
+
+.serviceV9.serviceV10 .serviceV9Hero{
+  width:100%!important;
+  max-width:none!important;
+  min-height:var(--internal-hero-min)!important;
+  height:auto!important;
+  margin:0!important;
+  padding:0!important;
+  position:relative!important;
+  overflow:hidden!important;
+  color:#fff!important;
+}
+
+.serviceV9.serviceV10 .serviceV9HeroMedia{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:100%!important;
+  z-index:0!important;
+}
+
+.serviceV9.serviceV10 .serviceV9HeroMedia img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  display:block!important;
+}
+
+.serviceV9.serviceV10 .serviceV9Hero::after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  pointer-events:none!important;
+  background:linear-gradient(90deg,rgba(4,24,36,.97) 0%,rgba(4,24,36,.90) 30%,rgba(4,24,36,.64) 54%,rgba(4,24,36,.20) 78%,rgba(4,24,36,.04) 100%)!important;
+}
+
+.serviceV9.serviceV10 .serviceV9HeroGrid.wrap{
+  position:relative!important;
+  z-index:2!important;
+  width:100%!important;
+  max-width:none!important;
+  min-height:var(--internal-hero-min)!important;
+  margin:0!important;
+  padding:var(--internal-hero-top) 20px var(--internal-hero-bottom) var(--internal-hero-x)!important;
+  box-sizing:border-box!important;
+  display:block!important;
+}
+
+.serviceV9.serviceV10 .serviceV9HeroGrid>div{
+  width:100%!important;
+  max-width:var(--internal-hero-copy)!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0!important;
+}
+
+.serviceV9.serviceV10 .serviceV9HeroGrid>div+div{
+  margin-top:20px!important;
+}
+
+.serviceV9.serviceV10 .serviceV9HeroGrid>div:first-child>span{
+  display:block!important;
+  margin:0 0 16px!important;
+  color:var(--internal-hero-gold)!important;
+  font-family:Arial,Helvetica,sans-serif!important;
+  font-size:11px!important;
+  line-height:1.2!important;
+  font-weight:900!important;
+  letter-spacing:.18em!important;
+  text-transform:uppercase!important;
+}
+
+.serviceV9.serviceV10 .serviceV9Hero h1{
+  width:100%!important;
+  max-width:760px!important;
+  margin:0 0 var(--internal-hero-gap)!important;
+  font-size:clamp(52px,5.35vw,82px)!important;
+  line-height:.94!important;
+  letter-spacing:-.045em!important;
+  font-weight:600!important;
+  text-wrap:balance!important;
+}
+
+.serviceV9.serviceV10 .serviceV9Hero p{
+  width:100%!important;
+  max-width:680px!important;
+  margin:0!important;
+  color:rgba(232,238,241,.82)!important;
+  font-size:clamp(16px,1.15vw,18px)!important;
+  line-height:1.65!important;
+}
+
+.serviceV9.serviceV10 .serviceV9HeroActions{
+  margin-top:28px!important;
+}
+
+@media(max-width:760px){
+  .serviceV9.serviceV10 .serviceV9Hero::after{
+    background:linear-gradient(180deg,rgba(4,24,36,.22) 0%,rgba(4,24,36,.40) 31%,rgba(4,24,36,.87) 67%,rgba(4,24,36,.98) 100%)!important;
+  }
+  .serviceV9.serviceV10 .serviceV9HeroGrid.wrap{
+    width:100%!important;
+    max-width:none!important;
+    min-height:var(--internal-hero-min)!important;
+    padding:var(--internal-hero-top) 22px var(--internal-hero-bottom)!important;
+  }
+  .serviceV9.serviceV10 .serviceV9HeroGrid>div:first-child>span{
+    font-size:10px!important;
+    margin-bottom:13px!important;
+  }
+  .serviceV9.serviceV10 .serviceV9Hero h1{
+    font-size:clamp(40px,11vw,56px)!important;
+    line-height:.97!important;
+  }
+}
