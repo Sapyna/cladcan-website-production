@@ -26,6 +26,9 @@ const featuredProjects=[
   {type:"In Progress",title:"North York",location:"North York, ON",copy:"Residential exterior work in progress with coordinated façade, window and envelope detailing.",image:"/images/projects/in-progress-eglinton.jpg",href:"/projects"},
   {type:"In Progress",title:"Toronto",location:"Toronto, ON",copy:"Active exterior envelope and aluminum composite panel installation documented during construction.",image:"/images/projects/in-progress-adelaide-rd.jpg",href:"/projects"},
   {type:"In Progress",title:"North York",location:"North York, ON",copy:"Current cladding installation showing the building envelope and panel work before final completion.",image:"/images/projects/in-progress-toronto.jpg",href:"/projects"},
+  {type:"In Progress",title:"Project 4",location:"Ontario",copy:"Additional active project photography and details will be added here.",image:null,href:"/projects",placeholder:true},
+  {type:"In Progress",title:"Project 5",location:"Ontario",copy:"Additional active project photography and details will be added here.",image:null,href:"/projects",placeholder:true},
+  {type:"In Progress",title:"Project 6",location:"Ontario",copy:"Additional active project photography and details will be added here.",image:null,href:"/projects",placeholder:true},
 ];
 
 const insights=[
@@ -33,6 +36,19 @@ const insights=[
  {kicker:"PLANNING · 2026",title:"Façade Budget Planning Checklist",copy:"A practical checklist for scope boundaries, envelope-critical allowances and procurement assumptions.",href:"/blog/facade-budget-planning-checklist"},
  {kicker:"MATERIALS · 2024",title:"Choosing Exterior Cladding Materials",copy:"A framework for comparing cladding by performance, aesthetics, lifecycle cost and maintenance.",href:"/blog/guide-to-cladding-materials"},
 ];
+
+function ProjectCard({p,i}){
+ return <Link href={p.href} className={(i===0||i===3)?"homeProjectCard homeProjectLead":"homeProjectCard"}>
+   <div className="homeProjectImage" style={{background:"#f3f5f6"}}>
+    {p.placeholder
+      ? <div style={{width:"100%",height:"100%",display:"grid",placeItems:"center",background:"linear-gradient(135deg,#eef2f4,#dfe5e8)",color:"#76858e",fontSize:"12px",fontWeight:800,letterSpacing:".08em",textTransform:"uppercase"}}>Project photo coming soon</div>
+      : <img src={p.image} alt={`${p.title}, ${p.location} — project in progress`} style={{width:"100%",height:"100%",objectFit:i===1?"cover":"contain",objectPosition:"center",display:"block"}}/>
+    }
+    <span>{p.type}</span>
+   </div>
+   <div className="homeProjectCopy"><small>{p.location}</small><h3>{p.title}</h3><p>{p.copy}</p><strong>View projects <ArrowUpRight size={13}/></strong></div>
+  </Link>;
+}
 
 export default function Home(){
  return <>
@@ -84,7 +100,8 @@ export default function Home(){
    <section className="section homeFeaturedProjects">
     <div className="wrap">
       <SectionTitle kicker="OUR WORK IN PROGRESS" title="More projects in progress." copy="A look at some of the projects currently underway, with real construction-stage photography from active CladCan work." link={{label:"View all projects",href:"/projects"}}/>
-      <div className="homeProjectGrid">{featuredProjects.map((p,i)=><Link href={p.href} className={i===0?"homeProjectCard homeProjectLead":"homeProjectCard"} key={`${p.image}-${i}`}><div className="homeProjectImage" style={{background:"#f3f5f6"}}><img src={p.image} alt={`${p.title}, ${p.location} — project in progress`} style={{width:"100%",height:"100%",objectFit:i===1?"cover":"contain",objectPosition:"center",display:"block"}}/><span>{p.type}</span></div><div className="homeProjectCopy"><small>{p.location}</small><h3>{p.title}</h3><p>{p.copy}</p><strong>View projects <ArrowUpRight size={13}/></strong></div></Link>)}</div>
+      <div className="homeProjectGrid">{featuredProjects.slice(0,3).map((p,i)=><ProjectCard p={p} i={i} key={`row1-${i}`}/>)}</div>
+      <div className="homeProjectGrid" style={{marginTop:"14px"}}>{featuredProjects.slice(3,6).map((p,i)=><ProjectCard p={p} i={i+3} key={`row2-${i}`}/>)}</div>
     </div>
    </section>
 
