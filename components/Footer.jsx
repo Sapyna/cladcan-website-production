@@ -26,6 +26,7 @@ export default function Footer(){
         </p>
 
         <em>Clear project direction. Coordinated exterior delivery.</em>
+        <div style={{marginTop:16}}><Link href="/privacy">Privacy Policy</Link></div>
       </div>
 
       <div className="footerContactCol">

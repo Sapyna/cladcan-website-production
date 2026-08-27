@@ -92,7 +92,7 @@ export default function Home(){
 
    <section className="section paper">
     <div className="wrap">
-      <SectionTitle kicker="CLIENT FEEDBACK" title="Google reviews, without invented testimonials." copy="This module displays verified review data available to the site. When live Google credentials are connected, it can refresh from the business profile."/>
+      <SectionTitle kicker="CLIENT FEEDBACK" title="What our clients say on Google." copy="See a selection of five-star feedback from customers who have worked with CladCan."/>
       <GoogleReviews/>
     </div>
    </section>
