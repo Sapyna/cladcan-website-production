@@ -1,6 +1,5 @@
 "use client";
 import {useState} from "react";
-import Image from "next/image";
 
 const pairs=[
  {
@@ -18,7 +17,7 @@ const pairs=[
  {
   title:"Schomberg, ON",
   before:"/images/before-after/sideroad-17-schomberg-before.jpg",
-  after:"/images/before-after/sideroad-17-schomberg-after.jpg",
+  after:"/images/before-after/schomberg-after-v3.jpg",
   note:"Building-envelope preparation to finished ACM cladding"
  },
  {
@@ -40,7 +39,6 @@ function Compare({item}){
   objectPosition:"center",
   display:"block"
  };
- const isSchomberg=item.title==="Schomberg, ON";
 
  return <article className="baCard">
   <div
@@ -53,10 +51,7 @@ function Compare({item}){
     background:"#f2f4f5"
    }}
   >
-   {isSchomberg
-    ? <Image src={item.after} alt={`${item.title} after`} fill unoptimized sizes="(max-width: 900px) 100vw, 50vw" style={{objectFit:"cover",objectPosition:"center"}}/>
-    : <img src={item.after} alt={`${item.title} after`} style={commonImageStyle}/>
-   }
+   <img src={item.after} alt={`${item.title} after`} style={commonImageStyle}/>
    <img
     src={item.before}
     alt={`${item.title} before`}
