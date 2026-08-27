@@ -28,12 +28,6 @@ const pairs=[
  }
 ];
 
-const progress=[
- {title:"North York",image:"/images/projects/in-progress-eglinton.jpg"},
- {title:"North York",image:"/images/projects/in-progress-adelaide-rd.jpg"},
- {title:"North York",image:"/images/projects/in-progress-toronto.jpg"}
-];
-
 function Compare({item}){
  const [value,setValue]=useState(50);
  const imageStyle={
@@ -85,23 +79,6 @@ export default function BeforeAfter(){
 
    <div className="baGrid">
     {pairs.map(item=><Compare key={item.title} item={item}/>)}
-   </div>
-
-   <div className="progressHead">
-    <h3>More projects in progress</h3>
-    <p>A look at three active CladCan projects currently underway. Completed photography can be added as each exterior scope is finished.</p>
-   </div>
-
-   <div className="progressGrid">
-    {progress.map(item=><figure key={item.image}>
-      <div style={{width:"100%",aspectRatio:"4 / 3",display:"flex",alignItems:"center",justifyContent:"center",background:"#f2f4f5",overflow:"hidden"}}>
-       <img src={item.image} alt={`${item.title} project in progress`} style={{width:"100%",height:"100%",objectFit:"contain",display:"block"}}/>
-      </div>
-      <figcaption>
-       <b>{item.title}</b>
-       <span>In progress</span>
-      </figcaption>
-    </figure>)}
    </div>
   </div>
  </section>;
