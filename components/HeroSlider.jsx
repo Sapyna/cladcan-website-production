@@ -37,10 +37,12 @@ export default function HeroSlider(){
   const next=()=>setIndex((index+1)%slides.length);
 
   return <section className="homeHero sliderHero">
-    <div className={`sliderMedia ${slide.fit==="contain"?"sliderMediaContain":""}`}>
+    <div className="sliderMedia">
       {slide.type==="video"
         ? <video key={slide.src} autoPlay muted loop playsInline preload="metadata"><source src={slide.src} type="video/mp4"/></video>
-        : <img key={slide.src} src={slide.src} alt="CladCan project"/>
+        : slide.fit==="contain"
+          ? <div key={slide.src} role="img" aria-label="CladCan project" style={{width:"100%",height:"100%",backgroundImage:`url(${slide.src})`,backgroundSize:"contain",backgroundPosition:"center",backgroundRepeat:"no-repeat"}}/>
+          : <img key={slide.src} src={slide.src} alt="CladCan project"/>
       }
     </div>
     <div className="sliderOverlay"></div>
