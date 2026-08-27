@@ -2,7 +2,7 @@
 
 import {useMemo,useState} from "react";
 import Link from "next/link";
-import {ArrowUpRight,CalendarDays,Clock3,MapPin} from "lucide-react";
+import {ArrowUpRight,Clock3,MapPin} from "lucide-react";
 
 const TIMES=["9:00 AM","10:00 AM","11:00 AM","1:00 PM","2:00 PM","3:00 PM","4:00 PM"];
 
@@ -27,40 +27,34 @@ export default function ShowroomAppointment(){
   }
 
   return <>
-    <section className="section paper">
-      <div className="wrap" style={{maxWidth:980}}>
-        <span className="eyebrow">VISIT CLADCAN</span>
-        <h1>Book a showroom visit.</h1>
-        <p>Choose a preferred date and time to review exterior systems, profiles and finishes with the CladCan team in North York. Your selection is a request; the team will confirm availability by email or phone.</p>
-      </div>
-    </section>
-    <section className="section">
-      <div className="wrap" style={{maxWidth:980}}>
-        <div className="grid2">
-          <div className="card">
-            <div style={{display:"grid",gap:22}}>
-              <div><MapPin size={20}/><h3>CladCan Showroom / Office</h3><p>5000 Dufferin St, Unit K<br/>North York, ON M3H 5T5</p></div>
-              <div><Clock3 size={20}/><h3>Showroom hours</h3><p>Monday–Friday · 9:00am–5:00pm</p></div>
-              <p className="muted">For urgent project questions, call <a href="tel:+18449243030">+1 (844) 924-3030</a>.</p>
-            </div>
-          </div>
-          <form className="card" onSubmit={submit}>
-            <input name="website" tabIndex={-1} autoComplete="off" style={{position:"absolute",left:"-10000px"}} aria-hidden="true"/>
-            <div className="formGrid">
-              <div className="field"><label>First name *<input name="firstName" required autoComplete="given-name"/></label></div>
-              <div className="field"><label>Last name *<input name="lastName" required autoComplete="family-name"/></label></div>
-              <div className="field"><label>Email *<input type="email" name="email" required autoComplete="email"/></label></div>
-              <div className="field"><label>Phone<input type="tel" name="phone" autoComplete="tel"/></label></div>
-              <div className="field"><label>Preferred date *<input type="date" name="date" min={minDate} required/></label></div>
-              <div className="field"><label>Preferred time *<select name="time" defaultValue="" required><option value="" disabled>Select a time</option>{TIMES.map(t=><option key={t}>{t}</option>)}</select></label></div>
-              <div className="field span2"><label>What would you like to review?<textarea name="details" rows="5" placeholder="Materials, finishes, samples, project type or other context."/></label></div>
-            </div>
-            <button className="btn" type="submit" disabled={status==="sending"} style={{marginTop:16}}>{status==="sending"?"Sending…":"Request Appointment"} {status!=="sending"&&<ArrowUpRight size={14}/>}</button>
-            {message&&<p role={status==="error"?"alert":"status"} style={{marginTop:14}}>{message}</p>}
-            <p className="muted" style={{marginTop:14,fontSize:13}}>By submitting this form, you agree that CladCan may contact you about this appointment request. See our <Link href="/privacy">Privacy Policy</Link>.</p>
-          </form>
+    <section className="contactFinalHero">
+      <div className="wrap contactFinalHeroGrid">
+        <div className="contactFinalHeroInner">
+          <span className="contactFinalKicker">VISIT CLADCAN</span>
+          <h1>Book a showroom visit.</h1>
+          <p>Choose a preferred date and time to review exterior systems, profiles and finishes with the CladCan team in North York. Your selection is a request; the team will confirm availability by email or phone.</p>
+        </div>
+        <div className="contactFinalVisitCopy">
+          <div className="contactFinalAddress"><MapPin/><div><small>SHOWROOM / OFFICE</small><strong>5000 Dufferin St, Unit K<br/>North York, ON M3H 5T5</strong></div></div>
+          <div className="contactFinalAddress"><Clock3/><div><small>HOURS</small><strong>Monday–Friday · 9:00am–5:00pm</strong></div></div>
         </div>
       </div>
     </section>
+
+    <section className="contactFinalFormSection"><div className="wrap">
+      <div className="contactFinalSectionHead"><div><span>SHOWROOM APPOINTMENT</span><h2>Choose a preferred date and time.</h2></div><p>We will use these details to coordinate your visit and confirm the appointment with you.</p></div>
+      <div className="contactFinalFormGrid">
+        <aside><span>VISIT DETAILS</span><h3>Review materials in person.</h3><p>Bring drawings, photos, samples or simply a list of systems and finishes you would like to compare.</p><div className="contactFinalAsideLine"/><small>Need help sooner?</small><a href="tel:+18449243030">Call the CladCan team <ArrowUpRight size={13}/></a></aside>
+        <form className="contactFinalForm" onSubmit={submit}>
+          <label className="contactHoneypot" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off"/></label>
+          <div className="projectFormTwo"><label>First name *<input name="firstName" required autoComplete="given-name"/></label><label>Last name *<input name="lastName" required autoComplete="family-name"/></label></div>
+          <div className="projectFormTwo"><label>Email *<input type="email" name="email" required autoComplete="email"/></label><label>Phone<input type="tel" name="phone" autoComplete="tel"/></label></div>
+          <div className="projectFormTwo"><label>Preferred date *<input type="date" name="date" min={minDate} required/></label><label>Preferred time *<select name="time" defaultValue="" required><option value="" disabled>Select a time</option>{TIMES.map(t=><option key={t}>{t}</option>)}</select></label></div>
+          <label>What would you like to review?<textarea name="details" rows="5" placeholder="Materials, finishes, samples, project type or other context."/></label>
+          <button className="btn contactFinalSubmit" type="submit" disabled={status==="sending"}>{status==="sending"?"Sending…":"Request Appointment"} {status!=="sending"&&<ArrowUpRight size={14}/>}</button>
+          {message?<p className={`contactFinalStatus ${status}`} role={status==="error"?"alert":"status"}>{message}</p>:<small className="contactFinalPrivacy">By submitting this form, you agree that CladCan may contact you about this appointment request. See our <Link href="/privacy">Privacy Policy</Link>.</small>}
+        </form>
+      </div>
+    </div></section>
   </>;
 }
