@@ -92,8 +92,11 @@ export default function Home(){
 
    <section className="section darkSection">
     <div className="wrap">
-      <SectionTitle kicker="HOW WE WORK" title="From project question to field execution." copy="The exact scope changes by project, but the coordination logic stays consistent: define what is needed, select the right system, resolve interfaces, then execute the work."/>
-      <div className="processLine">{[["01","Review & Scope","Drawings, elevations, existing conditions and project requirements."],["02","Material Strategy","System, finish, procurement, budget and schedule priorities."],["03","Detail & Coordinate","Dimensions, trims, transitions, interfaces and constructability."],["04","Fabricate & Supply","Project-specific components and coordinated material packages."],["05","Install & Close Out","Field execution, deficiencies, repair support and closeout coordination."]].map(([n,t,c])=><div key={n}><span>{n}</span><h3>{t}</h3><p>{c}</p></div>)}</div>
+      <div className="sectionTitle" style={{gridTemplateColumns:"1.1fr .78fr auto",alignItems:"end",gap:"36px",marginBottom:"44px"}}>
+        <div><span className="eyebrow">HOW WE WORK</span><h2>From project question to field execution.</h2></div>
+        <p style={{fontSize:"15px",lineHeight:1.72,color:"#b8c7d0",maxWidth:"560px"}}>The exact scope changes by project, but the coordination logic stays consistent: define what is needed, select the right system, resolve interfaces, then execute the work.</p>
+      </div>
+      <div className="processLine">{[["01","Review & Scope","Drawings, elevations, existing conditions and project requirements."],["02","Material Strategy","System, finish, procurement, budget and schedule priorities."],["03","Detail & Coordinate","Dimensions, trims, transitions, interfaces and constructability."],["04","Fabricate & Supply","Project-specific components and coordinated material packages."],["05","Install & Close Out","Field execution, deficiencies, repair support and closeout coordination."]].map(([n,t,c])=><div key={n} style={{padding:"28px 25px",minHeight:"235px"}}><span style={{fontSize:"10px"}}>{n}</span><h3 style={{fontSize:"17px",margin:"38px 0 11px",lineHeight:1.25}}>{t}</h3><p style={{fontSize:"12px",lineHeight:1.72}}>{c}</p></div>)}</div>
     </div>
    </section>
 
