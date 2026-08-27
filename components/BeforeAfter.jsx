@@ -3,16 +3,10 @@ import {useState} from "react";
 
 const pairs=[
  {
-  title:"William Rose",
-  before:"/images/before-after/william-rose-before.jpg",
-  after:"/images/before-after/william-rose-after.jpg",
-  note:"Exterior canopy / façade transformation"
- },
- {
-  title:"17th Sideroad · Schomberg",
-  before:"/images/before-after/sideroad-17-schomberg-before.jpg",
-  after:"/images/before-after/sideroad-17-schomberg-after.jpg",
-  note:"Building-envelope preparation to finished ACM cladding"
+  title:"Gray Lane · Barrie",
+  before:"/images/before-after/gray-lane-barrie-before.jpg",
+  after:"/images/before-after/gray-lane-barrie-after.jpg",
+  note:"Residential exterior transformation"
  },
  {
   title:"Pharmacy Ave · Scarborough",
@@ -21,10 +15,16 @@ const pairs=[
   note:"Commercial exterior renovation"
  },
  {
-  title:"Gray Lane · Barrie",
-  before:"/images/before-after/gray-lane-barrie-before.jpg",
-  after:"/images/before-after/gray-lane-barrie-after.jpg",
-  note:"Residential exterior transformation"
+  title:"17th Sideroad · Schomberg",
+  before:"/images/before-after/sideroad-17-schomberg-before.jpg",
+  after:"/images/before-after/sideroad-17-schomberg-after.jpg",
+  note:"Building-envelope preparation to finished ACM cladding"
+ },
+ {
+  title:"Richmond Hill Medical Mall · Richmond Hill",
+  before:"/images/before-after/IMG_4511.JPG",
+  after:"/images/before-after/IMG_4688.jpg",
+  note:"Commercial façade transformation"
  }
 ];
 
@@ -36,12 +36,23 @@ const progress=[
 
 function Compare({item}){
  const [value,setValue]=useState(50);
+ const imageStyle={
+  position:"absolute",
+  inset:0,
+  width:"100%",
+  height:"100%",
+  objectFit:"contain",
+  objectPosition:"center",
+  display:"block"
+ };
  return <article className="baCard">
-  <div className="baCompare">
-   <img src={item.after} alt={`${item.title} after`} className="baBase"/>
-   <div className="baBeforeLayer" style={{width:`${value}%`}}>
-    <img src={item.before} alt={`${item.title} before`}/>
-   </div>
+  <div className="baCompare" style={{position:"relative",aspectRatio:"16 / 9",overflow:"hidden",background:"#f2f4f5"}}>
+   <img src={item.after} alt={`${item.title} after`} className="baBase" style={imageStyle}/>
+   <img
+    src={item.before}
+    alt={`${item.title} before`}
+    style={{...imageStyle,clipPath:`inset(0 ${100-value}% 0 0)`}}
+   />
    <div className="baDivider" style={{left:`${value}%`}}><span>↔</span></div>
    <span className="baTag baBeforeTag">BEFORE</span>
    <span className="baTag baAfterTag">AFTER</span>
@@ -51,7 +62,7 @@ function Compare({item}){
      min="0"
      max="100"
      value={value}
-     onChange={e=>setValue(e.target.value)}
+     onChange={e=>setValue(Number(e.target.value))}
    />
   </div>
   <div className="baMeta">
