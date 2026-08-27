@@ -14,6 +14,7 @@ const slides=[
   {
     type:"image",
     src:"/images/hero/home-banner-2.webp",
+    fit:"contain",
     eyebrow:"RESIDENTIAL EXTERIOR SYSTEMS",
     titleTop:"Modern Exterior",
     titleBottom:"Built Around the Detail",
@@ -39,7 +40,7 @@ export default function HeroSlider(){
     <div className="sliderMedia">
       {slide.type==="video"
         ? <video key={slide.src} autoPlay muted loop playsInline preload="metadata"><source src={slide.src} type="video/mp4"/></video>
-        : <img key={slide.src} src={slide.src} alt="CladCan project"/>
+        : <img key={slide.src} src={slide.src} alt="CladCan project" style={{objectFit:slide.fit||"cover",objectPosition:"center"}}/>
       }
     </div>
     <div className="sliderOverlay"></div>
