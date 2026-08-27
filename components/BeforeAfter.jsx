@@ -3,19 +3,19 @@ import {useState} from "react";
 
 const pairs=[
  {
-  title:"Gray Lane · Barrie",
+  title:"Barrie, ON",
   before:"/images/before-after/gray-lane-barrie-before.jpg",
   after:"/images/before-after/gray-lane-barrie-after.jpg",
   note:"Residential exterior transformation"
  },
  {
-  title:"Pharmacy Ave · Scarborough",
+  title:"Scarborough, ON",
   before:"/images/before-after/pharmacy-scarborough-before.jpg",
   after:"/images/before-after/pharmacy-scarborough-after.jpg",
   note:"Commercial exterior renovation"
  },
  {
-  title:"17th Sideroad · Schomberg",
+  title:"Schomberg, ON",
   before:"/images/before-after/sideroad-17-schomberg-before.jpg",
   after:"/images/before-after/sideroad-17-schomberg-after.jpg",
   note:"Building-envelope preparation to finished ACM cladding"
