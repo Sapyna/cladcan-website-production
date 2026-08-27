@@ -1,5 +1,6 @@
 "use client";
 import {useState} from "react";
+import Image from "next/image";
 
 const pairs=[
  {
@@ -17,7 +18,7 @@ const pairs=[
  {
   title:"Schomberg, ON",
   before:"/images/before-after/sideroad-17-schomberg-before.jpg",
-  after:"/images/before-after/sideroad-17-schomberg-after.jpg?v=2",
+  after:"/images/before-after/sideroad-17-schomberg-after.jpg",
   note:"Building-envelope preparation to finished ACM cladding"
  },
  {
@@ -41,7 +42,7 @@ function Compare({item}){
  };
  return <article className="baCard">
   <div className="baCompare" style={{position:"relative",aspectRatio:"16 / 9",overflow:"hidden",background:"#f2f4f5"}}>
-   <img src={item.after} alt={`${item.title} after`} className="baBase" style={imageStyle}/>
+   <Image src={item.after} alt={`${item.title} after`} fill sizes="(max-width: 900px) 100vw, 50vw" style={{objectFit:"cover",objectPosition:"center"}}/>
    <img
     src={item.before}
     alt={`${item.title} before`}
