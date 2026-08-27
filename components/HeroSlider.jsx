@@ -23,6 +23,7 @@ const slides=[
   {
     type:"image",
     src:"/images/hero/home-banner-3.webp",
+    fit:"contain",
     eyebrow:"SUPPLY · FABRICATION · INSTALLATION",
     titleTop:"From Material Selection",
     titleBottom:"to Field Execution",
