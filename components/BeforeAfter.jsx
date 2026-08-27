@@ -21,10 +21,10 @@ const pairs=[
   note:"Building-envelope preparation to finished ACM cladding"
  },
  {
-  title:"Richmond Hill Medical Mall · Richmond Hill",
-  before:"/images/before-after/IMG_4511.JPG",
-  after:"/images/before-after/IMG_4688.jpg",
-  note:"Commercial façade transformation"
+  title:"Stouffville · Ontario",
+  before:"/images/before-after/Stoufville%20-%20before.jpeg",
+  after:"/images/before-after/Stoufville%20-%20after.jpeg",
+  note:"Exterior cladding transformation"
  }
 ];
 
