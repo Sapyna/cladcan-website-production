@@ -1,6 +1,5 @@
 "use client";
 import {useState} from "react";
-import Image from "next/image";
 
 const pairs=[
  {
@@ -31,7 +30,8 @@ const pairs=[
 
 function Compare({item}){
  const [value,setValue]=useState(50);
- const imageStyle={
+ const [ratio,setRatio]=useState(null);
+ const commonImageStyle={
   position:"absolute",
   inset:0,
   width:"100%",
@@ -40,13 +40,33 @@ function Compare({item}){
   objectPosition:"center",
   display:"block"
  };
+
  return <article className="baCard">
-  <div className="baCompare" style={{position:"relative",aspectRatio:"16 / 9",overflow:"hidden",background:"#f2f4f5"}}>
-   <Image src={item.after} alt={`${item.title} after`} fill sizes="(max-width: 900px) 100vw, 50vw" style={{objectFit:"cover",objectPosition:"center"}}/>
+  <div
+   className="baCompare"
+   style={{
+    position:"relative",
+    width:"100%",
+    aspectRatio:ratio || "4 / 3",
+    overflow:"hidden",
+    background:"#f2f4f5"
+   }}
+  >
+   <img
+    src={item.after}
+    alt={`${item.title} after`}
+    style={commonImageStyle}
+   />
    <img
     src={item.before}
     alt={`${item.title} before`}
-    style={{...imageStyle,clipPath:`inset(0 ${100-value}% 0 0)`}}
+    onLoad={e=>{
+      const img=e.currentTarget;
+      if(img.naturalWidth && img.naturalHeight){
+        setRatio(`${img.naturalWidth} / ${img.naturalHeight}`);
+      }
+    }}
+    style={{...commonImageStyle,clipPath:`inset(0 ${100-value}% 0 0)`}}
    />
    <div className="baDivider" style={{left:`${value}%`}}><span>↔</span></div>
    <span className="baTag baBeforeTag">BEFORE</span>
