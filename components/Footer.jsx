@@ -19,6 +19,13 @@ const exploreLinks = [
 
 const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=CladCan%20Building%20Envelope%20%26%20Facade%20Contractors%205000%20Dufferin%20St%20Unit%20K%20North%20York%20ON%20M3H%205T5";
 
+const socialLinks = [
+  ["Facebook", "https://www.facebook.com/cladcan/", Facebook],
+  ["X", "https://x.com/CladCan", Twitter],
+  ["Instagram", "https://www.instagram.com/CladCan", Instagram],
+  ["LinkedIn", "https://www.linkedin.com/company/cladcan-corporation/", Linkedin],
+];
+
 export default function Footer(){
   return <footer className="siteFooterPro">
     <div className="wrap footerCtaBand">
@@ -69,10 +76,11 @@ export default function Footer(){
         <Link href="/privacy">Privacy Policy</Link>
       </div>
       <div className="footerSocialsPro" aria-label="CladCan social channels">
-        <span aria-label="Facebook"><Facebook size={18}/></span>
-        <span aria-label="Twitter"><Twitter size={18}/></span>
-        <span aria-label="Instagram"><Instagram size={18}/></span>
-        <span aria-label="LinkedIn"><Linkedin size={18}/></span>
+        {socialLinks.map(([label, href, Icon]) => (
+          <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={`CladCan on ${label}`} title={label}>
+            <Icon size={18}/>
+          </a>
+        ))}
       </div>
     </div>
   </footer>;
