@@ -34,22 +34,22 @@ function Logo({brand}){
   />;
 }
 
-function LogoGroup({hidden=false}){
-  return <div className="tickerGroup" aria-hidden={hidden || undefined}>
-    {brands.map((brand,i)=>
-      <div className="logoItem" key={`${brand.name}-${i}`}>
-        <Logo brand={brand}/>
-      </div>
-    )}
-  </div>;
-}
-
 export default function ManufacturerTicker(){
+  const repeated=[...brands,...brands];
+
   return <section className="logoTicker referenceLogoBar fixedLogoRail seamlessLogoRail" aria-label="CladCan manufacturers and suppliers">
     <div className="tickerTrack seamlessTickerTrack">
-      <LogoGroup/>
-      <LogoGroup hidden/>
+      {repeated.map((brand,i)=>
+        <div
+          className="logoItem seamlessLogoItem"
+          key={`${brand.name}-${i}`}
+          aria-hidden={i>=brands.length || undefined}
+        >
+          <Logo brand={brand}/>
+        </div>
+      )}
     </div>
+
     <style jsx>{`
       .seamlessLogoRail{
         width:100%;
@@ -57,6 +57,7 @@ export default function ManufacturerTicker(){
       }
       .fixedLogoRail .seamlessTickerTrack{
         display:flex !important;
+        align-items:center !important;
         width:max-content !important;
         min-width:max-content !important;
         max-width:none !important;
@@ -65,26 +66,27 @@ export default function ManufacturerTicker(){
         animation:cladcan-logo-scroll 42s linear infinite !important;
         will-change:transform;
       }
-      .tickerGroup{
-        display:flex;
-        flex:none;
-        align-items:center;
-        gap:24px;
-        padding-right:24px;
-      }
-      .tickerGroup :global(.logoItem){
-        flex:0 0 auto;
+      .fixedLogoRail .seamlessTickerTrack :global(.seamlessLogoItem){
+        flex:0 0 160px !important;
+        width:160px !important;
+        margin:0 24px 0 0 !important;
       }
       .seamlessLogoRail:hover .seamlessTickerTrack{
-        animation-play-state:paused;
+        animation-play-state:paused !important;
       }
       @keyframes cladcan-logo-scroll{
         from{transform:translate3d(0,0,0)}
         to{transform:translate3d(-50%,0,0)}
       }
-      @media (max-width:700px){
-        .fixedLogoRail .seamlessTickerTrack{animation-duration:30s !important}
-        .tickerGroup{gap:16px;padding-right:16px}
+      @media (max-width:760px){
+        .fixedLogoRail .seamlessTickerTrack{
+          animation-duration:30s !important;
+        }
+        .fixedLogoRail .seamlessTickerTrack :global(.seamlessLogoItem){
+          flex-basis:130px !important;
+          width:130px !important;
+          margin-right:16px !important;
+        }
       }
       @media (prefers-reduced-motion:reduce){
         .fixedLogoRail .seamlessTickerTrack{
