@@ -71,10 +71,10 @@ export default function HeroSlider(){
 
     <style jsx>{`
       .heroUnifiedCTA{
-        color:#102431;
-        background:rgba(255,255,255,.94);
-        border:1px solid rgba(255,255,255,.94);
-        box-shadow:0 8px 24px rgba(3,18,29,.12);
+        color:#fff;
+        background:transparent;
+        border:1px solid rgba(255,255,255,.7);
+        box-shadow:none;
         transition:background-color .22s ease,border-color .22s ease,color .22s ease,transform .22s ease,box-shadow .22s ease;
       }
       .heroUnifiedCTA:hover,
