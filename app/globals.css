@@ -6286,3 +6286,10 @@ body:not(.home) .siteHeader + main,
   .homeServicesPanel:hover>img,
   .homeServicesPanel:focus-visible>img{transform:scale(1.035)}
 }
+
+
+/* Material Supply image framing */
+.homeServicesPanel:first-child>img{
+  object-fit:cover;
+  object-position:center bottom;
+}
