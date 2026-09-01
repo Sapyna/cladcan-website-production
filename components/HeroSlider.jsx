@@ -54,9 +54,9 @@ export default function HeroSlider(){
         <h1><span>{slide.titleTop}</span><br/>{slide.titleBottom}</h1>
         <p>{slide.copy}</p>
         <div className="heroActions heroReferenceActions">
-          <a className="btn heroPrimaryCTA" href="/contact">Get a Free Quote <span>→</span></a>
-          <a className="btn heroSecondaryCTA" href="tel:+18449243030"><Phone size={18}/> Call +1 (844) 924-3030</a>
-          <a className="btn heroSecondaryCTA" href="/contact">Visit Showroom</a>
+          <a className="btn heroUnifiedCTA" href="/contact">Get a Free Quote <span>→</span></a>
+          <a className="btn heroUnifiedCTA" href="tel:+18449243030"><Phone size={18}/> Call +1 (844) 924-3030</a>
+          <a className="btn heroUnifiedCTA" href="/contact">Visit Showroom</a>
         </div>
       </div>
     </div>
@@ -68,5 +68,31 @@ export default function HeroSlider(){
       </div>
       <button onClick={next} aria-label="Next banner"><ChevronRight size={28}/></button>
     </div>
+
+    <style jsx>{`
+      .heroUnifiedCTA{
+        color:#102431;
+        background:rgba(255,255,255,.94);
+        border:1px solid rgba(255,255,255,.94);
+        box-shadow:0 8px 24px rgba(3,18,29,.12);
+        transition:background-color .22s ease,border-color .22s ease,color .22s ease,transform .22s ease,box-shadow .22s ease;
+      }
+      .heroUnifiedCTA:hover,
+      .heroUnifiedCTA:focus-visible{
+        color:#fff;
+        background:#f52225;
+        border-color:#f52225;
+        transform:translateY(-3px);
+        box-shadow:0 14px 30px rgba(245,34,37,.28);
+      }
+      .heroUnifiedCTA :global(svg){
+        stroke:currentColor;
+      }
+      @media (prefers-reduced-motion:reduce){
+        .heroUnifiedCTA{transition:none}
+        .heroUnifiedCTA:hover,
+        .heroUnifiedCTA:focus-visible{transform:none}
+      }
+    `}</style>
   </section>;
 }
