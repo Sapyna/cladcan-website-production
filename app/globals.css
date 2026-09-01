@@ -5852,3 +5852,188 @@ body:not(.home) .siteHeader + main,
     transition: none;
   }
 }
+
+
+/* ===== v46 — HOMEPAGE SERVICES SPOTLIGHT ===== */
+.homeServicesSpotlight{
+  position:relative;
+  overflow:hidden;
+  background:#f1efe9;
+  border-top:1px solid rgba(20,32,42,.07);
+  border-bottom:1px solid rgba(20,32,42,.07);
+}
+.homeServicesSpotlight:before{
+  content:"";
+  position:absolute;
+  width:520px;
+  height:520px;
+  top:-330px;
+  right:-180px;
+  border:1px solid rgba(172,125,69,.16);
+  border-radius:50%;
+  box-shadow:0 0 0 90px rgba(172,125,69,.035),0 0 0 180px rgba(172,125,69,.025);
+  pointer-events:none;
+}
+.homeServicesSpotlight .sectionTitle{
+  position:relative;
+  z-index:1;
+  margin-bottom:44px;
+}
+.homeServicesSpotlight .sectionTitle h2{
+  max-width:720px;
+}
+.homeServicesGrid{
+  position:relative;
+  z-index:1;
+  gap:16px;
+  align-items:stretch;
+}
+.homeServiceCard{
+  position:relative;
+  min-height:510px;
+  padding:0;
+  overflow:hidden;
+  border:1px solid rgba(13,34,46,.12);
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 12px 34px rgba(8,29,47,.055);
+  isolation:isolate;
+  transition:transform .32s cubic-bezier(.2,.7,.2,1),box-shadow .32s ease,border-color .32s ease;
+}
+.homeServiceCard:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:4px;
+  background:#f52225;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .32s ease;
+}
+.homeServiceMedia{
+  position:relative;
+  height:240px;
+  overflow:hidden;
+  background:#dfe4e6;
+}
+.homeServiceMedia img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  filter:saturate(.88) contrast(1.02);
+  transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .4s ease;
+}
+.homeServiceMediaOverlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(5,24,37,.08) 30%,rgba(5,24,37,.72) 100%);
+}
+.homeServiceNumber{
+  position:absolute;
+  left:22px;
+  bottom:19px;
+  color:#fff;
+  font-size:.78rem;
+  font-weight:900;
+  letter-spacing:.16em;
+}
+.homeServiceIcon{
+  position:absolute;
+  right:18px;
+  top:18px;
+  width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  background:rgba(8,29,47,.74);
+  border:1px solid rgba(255,255,255,.45);
+  border-radius:50%;
+  backdrop-filter:blur(9px);
+  transition:background-color .3s ease,border-color .3s ease,transform .3s ease;
+}
+.homeServiceBody{
+  min-height:270px;
+  padding:25px 25px 27px;
+  display:flex;
+  flex-direction:column;
+}
+.homeServiceBody h3{
+  margin:0 0 13px;
+  font-size:1.32rem;
+  line-height:1.16;
+  letter-spacing:-.025em;
+}
+.homeServiceBody p{
+  margin:0;
+  color:#687984;
+  font-size:.98rem;
+  line-height:1.65;
+}
+.homeServiceLink{
+  margin-top:auto;
+  padding-top:21px;
+  color:#13202a;
+  font-size:.92rem;
+  transition:color .25s ease;
+}
+.homeServiceLink svg{
+  transition:transform .25s ease;
+}
+.homeServiceCard:hover,
+.homeServiceCard:focus-visible{
+  transform:translateY(-8px);
+  border-color:rgba(245,34,37,.34);
+  box-shadow:0 24px 54px rgba(8,29,47,.14);
+}
+.homeServiceCard:hover:after,
+.homeServiceCard:focus-visible:after{
+  transform:scaleX(1);
+}
+.homeServiceCard:hover .homeServiceMedia img,
+.homeServiceCard:focus-visible .homeServiceMedia img{
+  transform:scale(1.045);
+  filter:saturate(1.03) contrast(1.04);
+}
+.homeServiceCard:hover .homeServiceIcon,
+.homeServiceCard:focus-visible .homeServiceIcon{
+  background:#f52225;
+  border-color:#f52225;
+  transform:rotate(-5deg) scale(1.05);
+}
+.homeServiceCard:hover .homeServiceLink,
+.homeServiceCard:focus-visible .homeServiceLink{
+  color:#f52225;
+}
+.homeServiceCard:hover .homeServiceLink svg,
+.homeServiceCard:focus-visible .homeServiceLink svg{
+  transform:translate(3px,-3px);
+}
+@media(max-width:1020px){
+  .homeServicesGrid{grid-template-columns:repeat(2,1fr)}
+  .homeServiceCard{min-height:500px}
+}
+@media(max-width:700px){
+  .homeServicesSpotlight:before{display:none}
+  .homeServicesSpotlight .sectionTitle{margin-bottom:30px}
+  .homeServicesGrid{grid-template-columns:1fr;gap:18px}
+  .homeServiceCard{min-height:0}
+  .homeServiceMedia{height:230px}
+  .homeServiceBody{min-height:245px;padding:23px 22px 25px}
+  .homeServiceBody h3{font-size:1.42rem}
+  .homeServiceBody p{font-size:1rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .homeServiceCard,
+  .homeServiceMedia img,
+  .homeServiceIcon,
+  .homeServiceLink,
+  .homeServiceLink svg,
+  .homeServiceCard:after{transition:none}
+  .homeServiceCard:hover,
+  .homeServiceCard:focus-visible{transform:none}
+}
