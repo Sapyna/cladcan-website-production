@@ -55,17 +55,22 @@ export default function ManufacturerTicker(){
         width:100%;
         overflow:hidden;
       }
-      .seamlessTickerTrack{
-        display:flex;
-        width:max-content;
-        max-width:none;
-        animation:cladcan-logo-scroll 42s linear infinite;
+      .fixedLogoRail .seamlessTickerTrack{
+        display:flex !important;
+        width:max-content !important;
+        min-width:max-content !important;
+        max-width:none !important;
+        gap:0 !important;
+        padding:0 !important;
+        animation:cladcan-logo-scroll 42s linear infinite !important;
         will-change:transform;
       }
       .tickerGroup{
         display:flex;
         flex:none;
         align-items:center;
+        gap:24px;
+        padding-right:24px;
       }
       .tickerGroup :global(.logoItem){
         flex:0 0 auto;
@@ -78,11 +83,12 @@ export default function ManufacturerTicker(){
         to{transform:translate3d(-50%,0,0)}
       }
       @media (max-width:700px){
-        .seamlessTickerTrack{animation-duration:30s}
+        .fixedLogoRail .seamlessTickerTrack{animation-duration:30s !important}
+        .tickerGroup{gap:16px;padding-right:16px}
       }
       @media (prefers-reduced-motion:reduce){
-        .seamlessTickerTrack{
-          animation:none;
+        .fixedLogoRail .seamlessTickerTrack{
+          animation:none !important;
           transform:none;
         }
       }
