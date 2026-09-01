@@ -1,17 +1,11 @@
 import HeroSlider from "../components/HeroSlider";
 import ManufacturerTicker from "../components/ManufacturerTicker";
 import Link from "next/link";
-import { ArrowUpRight, PenTool, HardHat, PackageCheck, Factory, CheckCircle2, MapPin, Layers3, Building2 } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, MapPin, Layers3, Building2 } from "lucide-react";
 import { Visual, SectionTitle } from "@/components/SiteBlocks";
 import GoogleReviews from "@/components/GoogleReviews";
 import BeforeAfter from "@/components/BeforeAfter";
-
-const capabilities=[
-  {n:"01",icon:PackageCheck,title:"Material Supply",copy:"Exterior materials, systems and components sourced and coordinated around project requirements, quantities and schedule.",href:"/services/material-supply",image:"/images/services/service-material-supply.webp",alt:"Exterior cladding materials supplied by CladCan"},
-  {n:"02",icon:Factory,title:"Custom Fabrication",copy:"ACM panels, flashing, Z-bar, hat channel, trim and specialty components fabricated to project-specific requirements.",href:"/services/custom-fabrication",image:"/images/services/service-custom-fabrication.webp",alt:"Custom metal fabrication for exterior building systems"},
-  {n:"03",icon:HardHat,title:"Installation",copy:"Field installation across wall and soffit systems, glazing, roofing and aluminum exterior scopes.",href:"/services/installation",image:"/images/services/service-installation.webp",alt:"CladCan exterior system installation team at work"},
-  {n:"04",icon:PenTool,title:"Design & Permit Support",copy:"Façade design support, constructability coordination, material selection and permit-assistance workflows.",href:"/services/design-permit-support",image:"/images/services/service-design-support.webp",alt:"CladCan design and permit support workflow"},
-];
+import HomeServicesShowcase from "@/components/HomeServicesShowcase";
 
 const systems=[
   {name:"Aluminum Siding & Soffit",label:"ALUMINUM SIDING & SOFFIT",copy:"Solid and woodgrain aluminum systems for durable façades, soffits and architectural accents.",href:"/exterior-systems/aluminum",variant:"graphite"},
@@ -59,26 +53,7 @@ export default function Home(){
     </div>
    </section>
 
-   <section className="section paper homeServicesSpotlight">
-    <div className="wrap">
-      <SectionTitle kicker="OUR SERVICES" title="Support across the exterior scope." copy="Engage CladCan for one part of the work—or coordinate material, fabrication and field execution through a more connected delivery path." link={{label:"View all services",href:"/services"}}/>
-      <div className="capabilityGrid homeServicesGrid">
-        {capabilities.map(({n,icon:Icon,title,copy,href,image,alt})=><Link className="capabilityCard homeServiceCard" href={href} key={title}>
-          <div className="homeServiceMedia">
-            <img src={image} alt={alt}/>
-            <div className="homeServiceMediaOverlay"></div>
-            <span className="homeServiceNumber">{n}</span>
-            <span className="homeServiceIcon"><Icon size={21}/></span>
-          </div>
-          <div className="homeServiceBody">
-            <h3>{title}</h3>
-            <p>{copy}</p>
-            <span className="cardLink homeServiceLink">Explore service <ArrowUpRight size={14}/></span>
-          </div>
-        </Link>)}
-      </div>
-    </div>
-   </section>
+   <HomeServicesShowcase/>
 
    <section className="section">
     <div className="wrap">
