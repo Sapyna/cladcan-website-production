@@ -1,7 +1,23 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
+const systemVisuals={
+  "ALUMINUM SIDING & SOFFIT":"/images/content/aluminum-battens-project.webp",
+  "ACM / ACP":"/images/projects/projects-clinic-hero-final.jpg",
+  "STEEL SIDING & SOFFIT":"/images/content/steel-project.webp",
+  "FIBRE CEMENT":"/images/content/shadowline-project.webp",
+  "INSULATED METAL PANELS":"/images/content/corrugated-commercial.webp",
+  "WPC & COMPOSITE":"/images/content/natural-wood-project.webp"
+};
+
 export function Visual({label="CLADCAN PROJECT IMAGE",variant="metal",ratio="landscape",caption}){
+  const image=systemVisuals[label];
+  if(image){
+    return <div className={`visual visual-${variant} visual-${ratio}`} style={{position:"relative",overflow:"hidden",background:"#e8ebed"}}>
+      <img src={image} alt={label.toLowerCase()} style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"center",display:"block"}}/>
+      <span className="visualLabel" style={{zIndex:2}}>{label}</span>{caption&&<span className="visualCaption" style={{zIndex:2}}>{caption}</span>}
+    </div>;
+  }
   return <div className={`visual visual-${variant} visual-${ratio}`}>
     <div className="visualGrid"></div><span className="visualLabel">{label}</span>{caption&&<span className="visualCaption">{caption}</span>}
   </div>
