@@ -6289,7 +6289,15 @@ body:not(.home) .siteHeader + main,
 
 
 /* Material Supply image framing */
+.homeServicesPanel:first-child{
+  background:#4a4b4b;
+}
 .homeServicesPanel:first-child>img{
-  object-fit:cover;
-  object-position:center bottom;
+  object-fit:contain;
+  object-position:center;
+  transform:none;
+}
+.homeServicesPanel:first-child:hover>img,
+.homeServicesPanel:first-child:focus-visible>img{
+  transform:scale(1.015);
 }
