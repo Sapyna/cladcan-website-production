@@ -6301,3 +6301,161 @@ body:not(.home) .siteHeader + main,
 .homeServicesPanel:first-child:focus-visible>img{
   transform:scale(1.015);
 }
+
+
+/* ===== v48 — TEXT-FIRST CORE SERVICES ===== */
+.homeServicesPanels{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  height:auto;
+  border-bottom:1px solid rgba(255,255,255,.18);
+}
+.homeServicesPanel{
+  flex:none;
+  min-height:360px;
+  border-right:1px solid rgba(255,255,255,.18);
+  border-bottom:1px solid rgba(255,255,255,.18);
+  transition:background-color .3s ease,border-color .3s ease;
+}
+.homeServicesPanel:nth-child(even){border-right:0}
+.homeServicesPanel:nth-child(n+3){border-bottom:0}
+.homeServicesPanel>img{
+  left:auto;
+  width:44%;
+  opacity:.66;
+  filter:saturate(.65) contrast(1.02);
+  transform:scale(1.01);
+  transition:transform .55s cubic-bezier(.2,.76,.16,1),opacity .35s ease,filter .35s ease;
+}
+.homeServicesPanelShade{
+  background:
+    linear-gradient(90deg,#071c29 0%,#071c29 49%,rgba(7,28,41,.92) 61%,rgba(7,28,41,.35) 100%),
+    linear-gradient(180deg,rgba(7,28,41,.12),rgba(7,28,41,.6));
+}
+.homeServicesPanelTop{
+  top:27px;
+  left:30px;
+  right:30px;
+}
+.homeServicesPanelTop svg{
+  margin-left:auto;
+  margin-right:calc(44% + 2px);
+}
+.homeServicesPanelContent{
+  top:92px;
+  left:30px;
+  right:auto;
+  bottom:30px;
+  width:58%;
+  justify-content:flex-start;
+}
+.homeServicesPanelContent>small{
+  margin-bottom:12px;
+}
+.homeServicesPanelContent>strong{
+  font-size:clamp(1.8rem,2.45vw,2.8rem);
+  line-height:1;
+}
+.homeServicesPanelReveal{
+  display:flex;
+  flex-direction:column;
+  grid-template-rows:none;
+  margin-top:20px;
+  opacity:1;
+}
+.homeServicesPanelReveal>span{
+  color:#c8d3d8;
+  font-size:1rem;
+  line-height:1.68;
+}
+.homeServicesPanelReveal>b{
+  margin-top:22px;
+  color:#fff;
+}
+.homeServicesPanel:hover,
+.homeServicesPanel:focus-visible{
+  flex:none;
+  background:#0a2433;
+  border-color:rgba(245,34,37,.45);
+}
+.homeServicesPanel:hover>img,
+.homeServicesPanel:focus-visible>img{
+  opacity:.88;
+  filter:saturate(.9) contrast(1.03);
+  transform:scale(1.045);
+}
+.homeServicesPanel:hover .homeServicesPanelShade,
+.homeServicesPanel:focus-visible .homeServicesPanelShade{
+  background:
+    linear-gradient(90deg,#071c29 0%,#071c29 46%,rgba(7,28,41,.88) 60%,rgba(7,28,41,.22) 100%),
+    linear-gradient(180deg,rgba(7,28,41,.08),rgba(7,28,41,.52));
+}
+.homeServicesPanel:hover .homeServicesPanelReveal,
+.homeServicesPanel:focus-visible .homeServicesPanelReveal{
+  margin-top:20px;
+}
+.homeServicesPanelReveal>b svg{
+  transition:transform .25s ease;
+}
+.homeServicesPanel:hover .homeServicesPanelReveal>b,
+.homeServicesPanel:focus-visible .homeServicesPanelReveal>b{
+  color:#ff292c;
+}
+.homeServicesPanel:hover .homeServicesPanelReveal>b svg,
+.homeServicesPanel:focus-visible .homeServicesPanelReveal>b svg{
+  transform:translate(3px,-3px);
+}
+.homeServicesPanel:first-child>img{
+  object-fit:contain;
+  object-position:center;
+  opacity:.72;
+  transform:none;
+}
+.homeServicesPanel:first-child:hover>img,
+.homeServicesPanel:first-child:focus-visible>img{
+  opacity:.9;
+  transform:scale(1.015);
+}
+@media(max-width:980px){
+  .homeServicesPanels{grid-template-columns:1fr}
+  .homeServicesPanel{
+    min-height:350px;
+    border-right:0;
+    border-bottom:1px solid rgba(255,255,255,.18);
+  }
+  .homeServicesPanel:nth-child(n+3){border-bottom:1px solid rgba(255,255,255,.18)}
+  .homeServicesPanel:last-child{border-bottom:0}
+  .homeServicesPanelContent{width:60%}
+}
+@media(max-width:650px){
+  .homeServicesPanel{
+    min-height:500px;
+  }
+  .homeServicesPanel>img{
+    top:0;
+    right:0;
+    width:100%;
+    height:44%;
+    opacity:.72;
+  }
+  .homeServicesPanelShade{
+    background:linear-gradient(180deg,rgba(7,28,41,.12) 0%,rgba(7,28,41,.84) 39%,#071c29 52%,#071c29 100%);
+  }
+  .homeServicesPanelTop{
+    top:20px;
+    left:22px;
+    right:22px;
+  }
+  .homeServicesPanelTop svg{
+    margin:0 0 0 auto;
+  }
+  .homeServicesPanelContent{
+    top:230px;
+    left:22px;
+    right:22px;
+    bottom:24px;
+    width:auto;
+  }
+  .homeServicesPanelContent>strong{font-size:2rem}
+  .homeServicesPanelReveal>span{font-size:1rem}
+}
