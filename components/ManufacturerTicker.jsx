@@ -29,18 +29,63 @@ function Logo({brand}){
     src={brand.src}
     alt={`${brand.name} logo`}
     loading="eager"
+    draggable="false"
     onError={()=>setFailed(true)}
   />;
 }
 
+function LogoGroup({hidden=false}){
+  return <div className="tickerGroup" aria-hidden={hidden || undefined}>
+    {brands.map((brand,i)=>
+      <div className="logoItem" key={`${brand.name}-${i}`}>
+        <Logo brand={brand}/>
+      </div>
+    )}
+  </div>;
+}
+
 export default function ManufacturerTicker(){
-  return <section className="logoTicker referenceLogoBar fixedLogoRail" aria-label="CladCan manufacturers and suppliers">
-    <div className="tickerTrack">
-      {[...brands,...brands].map((brand,i)=>
-        <div className="logoItem" key={`${brand.name}-${i}`}>
-          <Logo brand={brand}/>
-        </div>
-      )}
+  return <section className="logoTicker referenceLogoBar fixedLogoRail seamlessLogoRail" aria-label="CladCan manufacturers and suppliers">
+    <div className="tickerTrack seamlessTickerTrack">
+      <LogoGroup/>
+      <LogoGroup hidden/>
     </div>
+    <style jsx>{`
+      .seamlessLogoRail{
+        width:100%;
+        overflow:hidden;
+      }
+      .seamlessTickerTrack{
+        display:flex;
+        width:max-content;
+        max-width:none;
+        animation:cladcan-logo-scroll 42s linear infinite;
+        will-change:transform;
+      }
+      .tickerGroup{
+        display:flex;
+        flex:none;
+        align-items:center;
+      }
+      .tickerGroup :global(.logoItem){
+        flex:0 0 auto;
+      }
+      .seamlessLogoRail:hover .seamlessTickerTrack{
+        animation-play-state:paused;
+      }
+      @keyframes cladcan-logo-scroll{
+        from{transform:translate3d(0,0,0)}
+        to{transform:translate3d(-50%,0,0)}
+      }
+      @media (max-width:700px){
+        .seamlessTickerTrack{animation-duration:30s}
+      }
+      @media (prefers-reduced-motion:reduce){
+        .seamlessTickerTrack{
+          animation:none;
+          transform:none;
+        }
+      }
+    `}</style>
   </section>;
 }
