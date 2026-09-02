@@ -2,12 +2,12 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 const systemVisuals={
-  "ALUMINUM SIDING & SOFFIT":"/images/content/aluminum-battens-project.webp",
+  "ALUMINUM SIDING & SOFFIT":"/images/content/system-aluminum.webp",
   "ACM / ACP":"/images/projects/projects-clinic-hero-final.jpg",
-  "STEEL SIDING & SOFFIT":"/images/content/steel-project.webp",
-  "FIBRE CEMENT":"/images/content/shadowline-project.webp",
-  "INSULATED METAL PANELS":"/images/content/corrugated-commercial.webp",
-  "WPC & COMPOSITE":"/images/content/natural-wood-project.webp"
+  "STEEL SIDING & SOFFIT":"/images/content/system-steel.webp",
+  "FIBRE CEMENT":"/images/content/system-fibre-cement.webp",
+  "INSULATED METAL PANELS":"/images/content/system-imp.webp",
+  "WPC & COMPOSITE":"/images/content/system-wpc.webp"
 };
 
 export function Visual({label="CLADCAN PROJECT IMAGE",variant="metal",ratio="landscape",caption}){
