@@ -26,7 +26,7 @@ export default function LongboardPage(){return <main className="fastPlankPage lo
       <p>Designed for both interior and exterior applications, the system complements projects of different scales. Planks are available in 24-foot lengths and can be customized in a pre-fabrication facility or directly on site to suit project requirements.</p>
       <p>For additional design flexibility, the planks can be installed in either a horizontal or vertical orientation.</p>
     </div>
-    <div className="fastPlankIntroImage"><Image src="/images/exterior-systems/longboard/longboard-tongue-groove-aluminum-cladding-project.webp" alt="Longboard Tongue and Groove aluminum cladding installed on a commercial building" fill sizes="(max-width: 900px) 100vw, 44vw"/></div>
+    <div className="fastPlankIntroImage"><Image src="/images/exterior-systems/longboard/longboard-woodgrain-aluminum-soffit-installation.webp" alt="Longboard woodgrain aluminum soffit installation with recessed lighting" fill sizes="(max-width: 900px) 100vw, 44vw"/></div>
   </div></section>
 
   <section className="fastPlankInstall"><div className="wrap fastPlankSplit fastPlankSplitReverse">
