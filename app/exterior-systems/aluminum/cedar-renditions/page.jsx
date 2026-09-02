@@ -60,7 +60,9 @@ export default function CedarRenditionsPage(){return <main className="fastPlankP
   <section className="fastPlankProfiles"><div className="wrap">
     <div className="fastPlankSectionHead"><span className="fastPlankEyebrow">PROFILE OPTIONS</span><h2>A coordinated family for siding and soffit.</h2></div>
     <div className="fastPlankProfileGrid">{profiles.map(profile=><article key={profile.code}><div className="fastPlankProfileBody"><span>{profile.code}</span><h3>{profile.title}</h3><p>{profile.text}</p></div></article>)}</div>
-    <div className="longboardFullDiagram cedarProfileDiagram"><Image src="/images/exterior-systems/cedar-renditions/cedar-renditions-siding-soffit-profiles-accessories.png" alt="Cedar Renditions aluminum siding, soffit, board and batten, trim and accessory profiles" width={1380} height={1798} sizes="(max-width: 760px) 100vw, 72vw"/></div>
+    <figure className="cedarProfileImage">
+      <img src="/images/exterior-systems/cedar-renditions/cedar-renditions-complete-siding-soffit-profile-guide.png" alt="Complete Cedar Renditions aluminum siding, soffit, board and batten, trim and accessory profile guide" width="1380" height="1798" loading="lazy"/>
+    </figure>
   </div></section>
 
   <section className="fastPlankColours"><div className="wrap">
