@@ -8,7 +8,7 @@ const services=[
     eyebrow:"SOURCE & COORDINATE",
     copy:"Exterior materials, systems and components coordinated around project requirements, quantities and schedule.",
     href:"/services/material-supply",
-    image:"/images/services/service-material-supply-framed.svg",
+    image:"/images/services/service-material-supply.webp",
     alt:"Exterior cladding materials supplied by CladCan",
     icon:PackageCheck
   },
