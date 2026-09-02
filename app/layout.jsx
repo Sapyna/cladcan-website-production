@@ -10,6 +10,7 @@ import "./footer-pro.css";
 import "./exterior-system-hero.css";
 import "./fastplank-product.css";
 import "./acm-product.css";
+import "./fibre-cement-product.css";
 import "./sitewide-split-hero.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
