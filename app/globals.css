@@ -6038,6 +6038,47 @@ body:not(.home) .siteHeader + main,
   .homeServiceCard:focus-visible{transform:none}
 }
 
+/* ===== Exterior systems image containment ===== */
+.systemsVisualCard{
+  overflow:hidden!important;
+  isolation:isolate;
+}
+.systemsVisualMedia{
+  position:relative;
+  width:100%;
+  height:250px;
+  min-height:250px;
+  overflow:hidden!important;
+  contain:paint;
+  background:#d9dfe1;
+}
+.systemsVisualMedia .systemsCatalogueImage{
+  position:absolute!important;
+  inset:0!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:100%!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  transform-origin:center center;
+}
+.systemsListThumb{
+  position:relative;
+  overflow:hidden!important;
+  contain:paint;
+}
+.systemsListThumb img{
+  position:absolute!important;
+  inset:0!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:100%!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+}
+
 
 /* ===== v47 — EDITORIAL CORE SERVICES SHOWCASE ===== */
 .homeServicesEditorial{
