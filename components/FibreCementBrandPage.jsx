@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Check, Layers3, ShieldCheck, Wind } from "lucide-react";
 
-export default function FibreCementBrandPage({brand,tagline,intro,hero,featureImage,benefits,products,visuals,profiles,accessories,technology,finishes,applications}){
+export default function FibreCementBrandPage({brand,tagline,intro,hero,featureImage,benefits,products,visuals,profiles,accessories,technology,finishes,applications,manufacturerResources=[]}){
   return <main className="fibreBrandPage">
     <section className="internalHero exteriorSystemDetailHero fibreBrandHero">
       <div className="internalHeroImage exteriorSystemHeroMedia" style={{backgroundImage:`url("${hero}")`}}/>
@@ -31,6 +31,8 @@ export default function FibreCementBrandPage({brand,tagline,intro,hero,featureIm
     <section className="fibreApplications"><div className="wrap"><div className="fibreHead"><span className="fibreEyebrow">APPLICATIONS</span><h2>Built for residential and commercial design.</h2></div><div className="fibreApplicationGrid">{applications.map((item,index)=><article key={item}><span>{String(index+1).padStart(2,"0")}</span><strong>{item}</strong></article>)}</div></div></section>
 
     <section className="fibreInstall"><div className="wrap fibreInstallGrid"><figure><Image src="/images/exterior-systems/fibre-cement/fibre-cement-panel-installation-ontario.webp" alt="Professional installation of fibre cement panels in Ontario" fill sizes="(max-width: 900px) 100vw, 48vw"/></figure><div><span className="fibreEyebrow">SUPPLY & INSTALLATION</span><h2>Details coordinated from substrate to finished edge.</h2><p>CladCan supports material selection, takeoffs, shop-drawing coordination, trims, flashings and professional installation. The selected manufacturer’s current requirements govern fastening, clearances, cutting, sealing and warranty compliance.</p><Link href="/contact" className="fibreTextLink">Discuss your project <ArrowUpRight size={17}/></Link></div></div></section>
+
+    {manufacturerResources.length>0&&<section className="fibreResources"><div className="wrap"><div><span className="fibreEyebrow">MANUFACTURER RESOURCES</span><h2>Verify the current product literature.</h2><p>Collections, colours, dimensions and approvals can change by region. Use the official manufacturer pages below for the current specification and installation documents.</p></div><div className="fibreResourceLinks">{manufacturerResources.map(item=><a key={item.href} href={item.href} target="_blank" rel="noreferrer"><span>{item.label}</span><ArrowUpRight size={18}/></a>)}</div></div></section>}
 
     <section className="fibreCta"><div className="wrap"><span className="fibreEyebrow">SPEAK WITH AN EXPERT</span><h2>Find the right {brand} system for your project.</h2><p>Share your elevations, project type and preferred appearance. We can help coordinate products, samples and installation requirements.</p><Link href="/contact" className="btn internalRedBtn">Start a Conversation <ArrowUpRight size={17}/></Link></div></section>
   </main>

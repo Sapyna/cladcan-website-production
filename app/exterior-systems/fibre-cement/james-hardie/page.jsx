@@ -13,7 +13,7 @@ const data={
     {title:"Noncombustible Cladding",text:"Hardie fibre cement siding is tested as noncombustible cladding; complete wall assembly requirements remain project-specific."},
     {title:"Low Maintenance",text:"Fibre cement resists rot and pest damage while retaining the substantial appearance of traditional siding."},
     {title:"ColorPlus® Technology",text:"Factory-applied finishes are cured for consistent colour, adhesion and resistance to fading, chipping and cracking."},
-    {title:"Long-Term Warranty",text:"Eligible siding products carry a transferable 30-year non-prorated limited substrate warranty; finish terms vary."},
+    {title:"Long-Term Warranty",text:"Eligible siding products carry a 30-year non-prorated limited warranty, while ColorPlus® Technology finishes carry a separate 15-year limited warranty; current terms and eligibility apply."},
     {title:"Complete Exterior Family",text:"Coordinated siding, panels, shingle, trim and soffit support cohesive detailing across the façade."}
   ],
   products:[
@@ -41,15 +41,20 @@ const data={
     {title:"Hardie® Soffit Panels",items:[{label:"Options",value:"Vented and non-vented formats, product-dependent"},{label:"Textures",value:"Smooth and selected wood-textured appearances"},{label:"Application",value:"Eaves, porch ceilings and protected soffit areas"}]}
   ],
   accessories:[
-    {title:"Hardie® Trim Boards",text:"Smooth, Rustic Grain and selected Roughsawn appearances for openings, corners, bands and transitions.",image:"https://www.jameshardie.com/_next/image/?q=75&url=https%3A%2F%2Fimages.ctfassets.net%2Fdzi2asncd44t%2F2YMJ6Kt7cCLuTTU0jpnLA8%2Fbed408c31de80caaa9a44dffd67f271c%2Fhardie-trim-batten-rustic-grain.png&w=384"},
+    {title:"Hardie® Trim Boards",text:"Smooth Grain and Rustic Grain fibre cement trim boards coordinate openings, corners, bands and transitions.",image:"https://www.jameshardie.com/_next/image/?q=75&url=https%3A%2F%2Fimages.ctfassets.net%2Fdzi2asncd44t%2F2YMJ6Kt7cCLuTTU0jpnLA8%2Fbed408c31de80caaa9a44dffd67f271c%2Fhardie-trim-batten-rustic-grain.png&w=384"},
     {title:"Batten Boards",text:"Pair with vertical Hardie® Panel to create board-and-batten and modern farmhouse expressions."},
     {title:"Corners & Openings",text:"Trim widths and build-outs are selected to coordinate siding thickness, window conditions and the intended reveal."},
     {title:"Flashing & Weather Management",text:"Head flashings, kick-out flashings, clearances and drainage interfaces must follow current installation guidance."},
     {title:"Fasteners & Field Finishing",text:"Compatible corrosion-resistant fasteners, cut-edge treatment and touch-up methods are selected for the product and exposure."}
   ],
   technology:{title:"Colour and performance integrated at the factory.",text:"ColorPlus® Technology applies and cures multiple finish coats under controlled conditions. Product selection, fasteners, clearances, flashing and field touch-up must follow current James Hardie documentation.",points:["Factory-applied ColorPlus® finish options","Region-appropriate product selection","Manufacturer-defined installation clearances","Coordinated trim and soffit components"]},
-  finishes:["Statement Collection™ colours","Dream Collection™ colour options","ColorPlus® factory-applied finish","Primed for field-applied paint","Smooth finish","Select Cedarmill® texture","Stucco and Sierra 8 textures","Fine Sand, Mounded Sand and Sea Grass textures"],
-  applications:["Custom homes","Residential renovations","Multi-family developments","Commercial façades","Modern farmhouse elevations","Soffits, gables and accent areas"]
+  finishes:["Statement Collection™ colours available in Canada","ColorPlus® factory-applied finish","Primed for field-applied paint","Smooth finish","Select Cedarmill® texture","Stucco and Sierra 8 textures","Fine Sand, Mounded Sand and Sea Grass textures"],
+  applications:["Custom homes","Residential renovations","Multi-family developments","Commercial façades","Modern farmhouse elevations","Soffits, gables and accent areas"],
+  manufacturerResources:[
+    {label:"James Hardie Canada — Product Catalogue",href:"https://www.jameshardie.ca/products"},
+    {label:"James Hardie Canada — Warranty Information",href:"https://www.jameshardie.ca/product-support/warranty-information"},
+    {label:"James Hardie Canada — Installation Resources",href:"https://www.jameshardie.ca/product-support/resource-center"}
+  ]
 };
 
 export default function JamesHardiePage(){return <FibreCementBrandPage {...data}/>}
