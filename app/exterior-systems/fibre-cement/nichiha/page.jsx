@@ -24,8 +24,24 @@ const data={
     {title:"TuffBlock™ & Concrete Looks",text:"Textured cementitious appearances offering a modern alternative to site-applied stucco aesthetics."},
     {title:"Stone & Brick Collections",text:"Panelized masonry-inspired surfaces designed to coordinate with the AWP installation system."}
   ],
+  profiles:[
+    {title:"AWP 1818",items:[{label:"Nominal format",value:"455 mm high × 1818 mm long"},{label:"Imperial format",value:"17 7/8 in. high × 71 9/16 in. long"},{label:"Typical thickness",value:"16, 18 or 21 mm depending on collection"},{label:"Orientation",value:"Primarily horizontal; verify individual series"}]},
+    {title:"AWP 3030",items:[{label:"Nominal format",value:"455 mm high × 3030 mm long"},{label:"Imperial format",value:"17 7/8 in. high × 119 5/16 in. long"},{label:"Typical thickness",value:"Collection-specific"},{label:"Use",value:"Long-format architectural elevations with fewer vertical joints"}]},
+    {title:"VintageWood™",items:[{label:"Appearance",value:"Woodgrain fibre cement panels"},{label:"Colours",value:"Collection-dependent tones such as Cedar, Bark, Ash, Redwood, Spruce and dark wood looks"},{label:"Formats",value:"AWP 1818 and selected AWP 3030 products"}]},
+    {title:"Dimension Series",items:[{label:"Appearance",value:"Ribbed, recessed and deeply patterned surfaces"},{label:"Panel depth",value:"Varies by series; Novenary features pronounced recessed reveals"},{label:"Orientation",value:"Horizontal, with selected products approved for additional orientations"}]},
+    {title:"Miraia™",items:[{label:"Appearance",value:"High-gloss reflective finish"},{label:"Colours",value:"Onyx, Glacier and Snow"},{label:"Format",value:"AWP 1818, approximately 16 mm thick"},{label:"Trim condition",value:"Specified with compatible metal trim options"}]},
+    {title:"Masonry & Concrete Looks",items:[{label:"Collections",value:"ArchitecturalBlock™, VintageBrick™, SandStone™, TuffBlock™ and related series"},{label:"Textures",value:"Block, brick, stone, stucco and concrete-inspired surfaces"},{label:"Thickness",value:"Typically 16–21 mm depending on collection"}]}
+  ],
+  accessories:[
+    {title:"Ultimate Clip System",text:"Concealed clips engage panel edges, establish alignment and create the built-in rainscreen cavity."},
+    {title:"Starter Track",text:"Sets the base course and supports consistent panel positioning at the bottom of the installation."},
+    {title:"Prefinished Corners",text:"Product-matched corner pieces are available for many horizontal AWP collections; availability varies by series."},
+    {title:"Metal Trim Profiles",text:"Outside corners, inside corners, vertical joints and termination conditions can be completed with compatible metal trims."},
+    {title:"Sealants & Touch-Up Kits",text:"Manufacturer-compatible sealants and touch-up materials complete required joints, penetrations and field corrections."},
+    {title:"NichiTrim™ Boards",text:"Smooth or cedar-textured fibre cement trim in multiple widths, commonly supplied in 10-foot lengths and product-specific thicknesses."}
+  ],
   technology:{title:"A concealed clip system with built-in drainage space.",text:"Nichiha AWP systems use starter tracks, clips and ship-lapped or tongue-and-groove panel edges to align panels and establish the rainscreen cavity. Exact fastening, sealing and substrate requirements vary by series and assembly.",points:["Ultimate Clip concealed attachment","Starter Track base alignment","Ventilated rainscreen cavity","Coordinated corners, trims and sealants"]},
-  finishes:["Woodgrain collections","Concrete and stucco looks","Stone and brick textures","Ribbed and dimensional surfaces","High-gloss Miraia™ finishes","Smooth and custom-colour options"],
+  finishes:["VintageWood™ woodgrain colours","ArchitecturalBlock™: Gray, Mocha and Tuscan","Miraia™: Onyx, Glacier and Snow","Concrete, stucco and TuffBlock™ looks","Stone and VintageBrick™ textures","Ribbed and dimensional surfaces","Matte, semi-gloss and high-gloss finishes","Selected smooth and custom-colour options"],
   applications:["Commercial buildings","Multi-family developments","Custom homes","Hospitality venues","Institutional projects","Interior feature walls"]
 };
 

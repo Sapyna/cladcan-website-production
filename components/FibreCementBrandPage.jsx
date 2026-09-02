@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Check, Layers3, ShieldCheck, Wind } from "lucide-react";
 
-export default function FibreCementBrandPage({brand,tagline,intro,hero,featureImage,benefits,products,technology,finishes,applications}){
+export default function FibreCementBrandPage({brand,tagline,intro,hero,featureImage,benefits,products,profiles,accessories,technology,finishes,applications}){
   return <main className="fibreBrandPage">
     <section className="internalHero exteriorSystemDetailHero fibreBrandHero">
       <div className="internalHeroImage exteriorSystemHeroMedia" style={{backgroundImage:`url("${hero}")`}}/>
@@ -17,6 +17,10 @@ export default function FibreCementBrandPage({brand,tagline,intro,hero,featureIm
     <section className="fibreBenefits"><div className="wrap"><div className="fibreHead"><span className="fibreEyebrow">WHY {brand.toUpperCase()}</span><h2>Designed for lasting exterior performance.</h2></div><div className="fibreBenefitGrid">{benefits.map((item,index)=><article key={item.title}><span>{String(index+1).padStart(2,"0")}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></div></section>
 
     <section className="fibreProducts"><div className="wrap"><div className="fibreHead"><span className="fibreEyebrow">PRODUCT FAMILIES</span><h2>Profiles and panels for distinct architectural directions.</h2></div><div className="fibreProductGrid">{products.map((item,index)=><article key={item.title}><div><span>{String(index+1).padStart(2,"0")}</span><h3>{item.title}</h3></div><p>{item.text}</p></article>)}</div></div></section>
+
+    <section className="fibreProfiles"><div className="wrap"><div className="fibreHead"><span className="fibreEyebrow">PROFILES & PANEL FORMATS</span><h2>Product dimensions organized for specification.</h2><p>Dimensions and availability can vary by collection and market. Final selections should be confirmed against current manufacturer literature before ordering.</p></div><div className="fibreProfileGrid">{profiles.map((group,index)=><article key={group.title}><div className="fibreProfileTitle"><span>{String(index+1).padStart(2,"0")}</span><h3>{group.title}</h3></div><ul>{group.items.map(item=><li key={item.label}><strong>{item.label}</strong><span>{item.value}</span></li>)}</ul></article>)}</div></div></section>
+
+    <section className="fibreAccessories"><div className="wrap fibreAccessoryGrid"><div><span className="fibreEyebrow">TRIMS & ACCESSORIES</span><h2>Details that complete the system.</h2><p>Edges, corners, openings, transitions and terminations are coordinated with compatible components and the selected installation method.</p></div><div className="fibreAccessoryList">{accessories.map((item,index)=><article key={item.title}><span>{String(index+1).padStart(2,"0")}</span><div><h3>{item.title}</h3><p>{item.text}</p></div></article>)}</div></div></section>
 
     <section className="fibreTechnology"><div className="wrap fibreTechGrid"><div><span className="fibreEyebrow">SYSTEM & TECHNOLOGY</span><h2>{technology.title}</h2><p>{technology.text}</p><ul>{technology.points.map(point=><li key={point}><Check size={18}/>{point}</li>)}</ul></div><div className="fibreTechCards"><div><ShieldCheck/><strong>Durable cladding</strong><span>Specified for project conditions</span></div><div><Wind/><strong>Moisture strategy</strong><span>Coordinated wall interfaces</span></div><div><Layers3/><strong>Complete assembly</strong><span>Panels, trims and accessories</span></div></div></div></section>
 
