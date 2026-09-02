@@ -8,5 +8,8 @@
 .longboardFullDiagram,.longboardFinishDiagram{position:relative;min-height:650px;overflow:hidden;border:1px solid #dce2e4;border-radius:16px;background:#fff}
 .longboardFullDiagram img,.longboardFinishDiagram img{object-fit:contain;padding:28px}
 .longboardProductPage .fastPlankIntroImage img{object-position:center}
+.cedarProfileDiagram{width:min(100%,980px);min-height:0;aspect-ratio:1380/1798;margin-inline:auto}.cedarProfileDiagram img{object-fit:contain;padding:18px}
+.cedarBrochure{padding:0 0 110px}.cedarBrochureInner{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:28px;align-items:center;padding:42px 46px;border:1px solid #dce2e4;border-radius:18px;background:#f4f5f3}.cedarBrochureIcon{display:grid;width:62px;height:62px;place-items:center;border-radius:50%;background:#10202b;color:#fff}.cedarBrochure h2{max-width:780px;font-size:clamp(32px,3.2vw,48px)}.cedarBrochure p{max-width:760px;margin:14px 0 0}.cedarBrochure .fastPlankEyebrow{margin-bottom:10px}.cedarBrochure .btn{white-space:nowrap}
 @media(max-width:900px){.longboardTechnicalImage{min-height:540px}.longboardFullDiagram,.longboardFinishDiagram{min-height:520px}}
-@media(max-width:650px){.longboardTechnicalImage{min-height:430px}.longboardFullDiagram,.longboardFinishDiagram{min-height:390px}.longboardFullDiagram img,.longboardFinishDiagram img{padding:14px}}
+@media(max-width:900px){.cedarProfileDiagram{min-height:0}.cedarBrochureInner{grid-template-columns:auto 1fr}.cedarBrochure .btn{grid-column:1/-1;width:100%}}
+@media(max-width:650px){.longboardTechnicalImage{min-height:430px}.longboardFullDiagram,.longboardFinishDiagram{min-height:390px}.longboardFullDiagram img,.longboardFinishDiagram img{padding:14px}.cedarProfileDiagram{min-height:0}.cedarBrochure{padding-bottom:76px}.cedarBrochureInner{grid-template-columns:1fr;padding:30px 24px}.cedarBrochure .btn{grid-column:auto;white-space:normal}.cedarBrochureIcon{width:54px;height:54px}}

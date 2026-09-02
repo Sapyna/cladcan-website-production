@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Download, FileText } from "lucide-react";
 
 export const metadata={
   title:"Cedar Renditions® Aluminum Siding & Soffit | CladCan",
@@ -49,7 +49,7 @@ export default function CedarRenditionsPage(){return <main className="fastPlankP
       <p>The collection captures the warmth and visual depth of stained wood while delivering the resilience of aluminum. It can create a focal point, define an accent area or extend across larger elevations for a cohesive architectural finish.</p>
       <p>Its realistic woodgrain appearance, coordinated profiles and durable coating system make it a practical choice for cost-conscious projects that do not want to compromise on design.</p>
     </div>
-    <div className="fastPlankIntroImage"><Image src="/images/exterior-systems/cedar-renditions/cedar-renditions-aluminum-siding-commercial-facade.webp" alt="Commercial facade clad with Cedar Renditions woodgrain aluminum siding" fill sizes="(max-width: 900px) 100vw, 44vw"/></div>
+    <div className="fastPlankIntroImage"><Image src="/images/exterior-systems/cedar-renditions/modern-ontario-home-woodgrain-aluminum-siding.webp" alt="Modern Ontario home with warm wood-look siding and stone accents" fill sizes="(max-width: 900px) 100vw, 44vw"/></div>
   </div></section>
 
   <section className="fastPlankBenefits"><div className="wrap">
@@ -60,7 +60,7 @@ export default function CedarRenditionsPage(){return <main className="fastPlankP
   <section className="fastPlankProfiles"><div className="wrap">
     <div className="fastPlankSectionHead"><span className="fastPlankEyebrow">PROFILE OPTIONS</span><h2>A coordinated family for siding and soffit.</h2></div>
     <div className="fastPlankProfileGrid">{profiles.map(profile=><article key={profile.code}><div className="fastPlankProfileBody"><span>{profile.code}</span><h3>{profile.title}</h3><p>{profile.text}</p></div></article>)}</div>
-    <div className="longboardFullDiagram"><Image src="/images/exterior-systems/cedar-renditions/cedar-renditions-siding-soffit-profiles-accessories.png" alt="Cedar Renditions aluminum siding, soffit, board and batten, trim and accessory profiles" fill sizes="(max-width: 760px) 100vw, 90vw"/></div>
+    <div className="longboardFullDiagram cedarProfileDiagram"><Image src="/images/exterior-systems/cedar-renditions/cedar-renditions-siding-soffit-profiles-accessories.png" alt="Cedar Renditions aluminum siding, soffit, board and batten, trim and accessory profiles" fill sizes="(max-width: 760px) 100vw, 72vw"/></div>
   </div></section>
 
   <section className="fastPlankColours"><div className="wrap">
@@ -74,6 +74,12 @@ export default function CedarRenditionsPage(){return <main className="fastPlankP
       <div><Image src="/images/exterior-systems/cedar-renditions/cedar-renditions-premium-solid-woodgrain-colours.png" alt="Cedar Renditions premium, solid and traditional aluminum woodgrain colour options" fill sizes="(max-width: 760px) 100vw, 48vw"/></div>
       <div><Image src="/images/exterior-systems/cedar-renditions/cedar-renditions-multitone-woodgrain-finishes.png" alt="Cedar Renditions Riverwood, Timberline, Smokewood and Grey Oak multi-toned finishes" fill sizes="(max-width: 760px) 100vw, 48vw"/></div>
     </div>
+  </div></section>
+
+  <section className="cedarBrochure"><div className="wrap cedarBrochureInner">
+    <div className="cedarBrochureIcon"><FileText size={30}/></div>
+    <div><span className="fastPlankEyebrow">PRODUCT BROCHURE</span><h2>Explore the complete Cedar Renditions® collection.</h2><p>Download the full product brochure for detailed profiles, colour options, accessories, performance information and warranty details.</p></div>
+    <a href="/downloads/cedar-renditions-aluminum-siding-soffit-product-brochure-canada-2024.pdf" download className="btn internalRedBtn">Download Product Brochure <Download size={16}/></a>
   </div></section>
 
   <section className="fastPlankExpert"><div className="wrap fastPlankExpertInner">
