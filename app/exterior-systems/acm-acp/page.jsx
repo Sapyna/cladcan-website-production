@@ -36,18 +36,13 @@ const faqs = [
 export default function AcmAcpPage() {
   return (
     <article className="acmPage">
-      <section className="acmHero">
-        <div className="acmHeroCopy">
-          <p className="acmEyebrow">ALUMINUM COMPOSITE MATERIAL</p>
-          <h1>Precision-built façades with remarkable design freedom.</h1>
-          <p>CladCan supplies, fabricates and installs ACM / ACP systems for architectural façades, building envelopes, feature elements and signage across Ontario.</p>
-          <div className="acmActions">
-            <Link className="acmPrimary" href="/contact">Discuss your project <ArrowUpRight size={18} /></Link>
-            <a className="acmSecondary" href="#applications">Explore applications</a>
-          </div>
-        </div>
-        <div className="acmHeroMedia">
-          <Image src="/images/exterior-systems/acm-acp/acm-aluminum-composite-panel-residential-hero.webp" alt="Contemporary residential building finished with aluminum composite panels" fill priority sizes="(max-width: 900px) 100vw, 52vw" />
+      <section className="internalHero exteriorSystemDetailHero acmStandardHero">
+        <div className="internalHeroImage exteriorSystemHeroMedia acmStandardHeroMedia" style={{backgroundImage:'url("/images/exterior-systems/acm-acp/acm-aluminum-composite-panel-residential-hero.webp")'}} />
+        <div className="wrap internalHeroCopy">
+          <span>ALUMINUM COMPOSITE MATERIAL</span>
+          <h1>ACM / ACP Aluminum Composite Panels</h1>
+          <p>Precision-fabricated architectural panels for contemporary façades, building envelopes, feature elements and signage.</p>
+          <div className="heroActions"><Link href="/contact" className="btn internalRedBtn">Get a Quote →</Link><Link href="/contact" className="btn lineBtn">Request Sample</Link></div>
         </div>
       </section>
 
