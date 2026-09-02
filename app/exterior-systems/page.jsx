@@ -20,7 +20,7 @@ const systems = [
   { number:"10", title:"WPC", subtitle:"Wood Plastic Composite", text:"Composite architectural profiles combining the appearance of wood with reduced maintenance.", href:"/exterior-systems/wpc", image:"/images/exterior-systems/wpc-composite-siding-ontario.jpeg" },
   { number:"11", title:"Trims & Flashings", subtitle:"Custom Fabrication", text:"Custom metal components for openings, corners, transitions, terminations and water management.", href:"/exterior-systems/trims-flashings", image:"/images/exterior-systems/custom-metal-trims-flashings.jpg" },
   { number:"12", title:"Thin Veneer", subtitle:"Siding & Soffit", text:"Lightweight veneer systems delivering the architectural appearance of natural stone and masonry.", href:"/exterior-systems/thin-veneer" },
-  { number:"13", title:"Eavestroughs", subtitle:"& Downpipes", text:"Integrated roof-drainage solutions designed to manage rainwater and protect walls and foundations.", href:"/exterior-systems/eavestroughs-downpipes" },
+  { number:"13", title:"Eavestroughs", subtitle:"& Downpipes", text:"Integrated roof-drainage solutions designed to manage rainwater and protect walls and foundations.", href:"/exterior-systems/eavestroughs-downpipes", image:"/images/exterior-systems/aluminum-eavestrough-downpipe-ontario.jpg" },
 ];
 
 export default function Page() {
