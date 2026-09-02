@@ -18,6 +18,7 @@ const pairs=[
   title:"Schomberg, ON",
   before:"/images/before-after/sideroad-17-schomberg-before.jpg",
   after:"/images/before-after/schomberg-after-v3.jpg",
+  afterFit:"contain",
   note:"Building-envelope preparation to finished ACM cladding"
  },
  {
@@ -51,7 +52,11 @@ function Compare({item}){
     background:"#f2f4f5"
    }}
   >
-   <img src={item.after} alt={`${item.title} after`} style={commonImageStyle}/>
+   <img
+    src={item.after}
+    alt={`${item.title} after`}
+    style={{...commonImageStyle,objectFit:item.afterFit||"cover"}}
+   />
    <img
     src={item.before}
     alt={`${item.title} before`}
