@@ -9,6 +9,12 @@
   overflow:hidden!important;
 }
 
+.aluminumPageHero.exteriorSystemDetailHero{
+  background-size:cover!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+}
+
 .exteriorSystemDetailHero :is(
   .internalHeroCopy,
   .aluminumPageHeroContent,
