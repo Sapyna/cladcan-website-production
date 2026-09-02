@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Check, Layers3, ShieldCheck, Wind } from "lucide-react";
 
-export default function FibreCementBrandPage({brand,tagline,intro,hero,featureImage,benefits,products,visuals,profiles,accessories,technology,finishes,applications,manufacturerResources=[]}){
+export default function FibreCementBrandPage({brand,tagline,intro,hero,featureImage,benefits,products,visuals,profiles,accessories,technology,finishes,applications,manufacturerResources=[],categoryEyebrow="FIBRE CEMENT SIDING & PANELS"}){
   return <main className="fibreBrandPage">
     <section className="internalHero exteriorSystemDetailHero fibreBrandHero">
       <div className="internalHeroImage exteriorSystemHeroMedia" style={{backgroundImage:`url("${hero}")`}}/>
-      <div className="wrap internalHeroCopy"><span>FIBRE CEMENT SIDING & PANELS</span><h1>{brand}</h1><p>{tagline}</p><div className="heroActions"><Link href="/contact" className="btn internalRedBtn">Get a Quote →</Link><Link href="/contact" className="btn lineBtn">Request Sample</Link></div></div>
+      <div className="wrap internalHeroCopy"><span>{categoryEyebrow}</span><h1>{brand}</h1><p>{tagline}</p><div className="heroActions"><Link href="/contact" className="btn internalRedBtn">Get a Quote →</Link><Link href="/contact" className="btn lineBtn">Request Sample</Link></div></div>
     </section>
 
     <section className="fibreIntro"><div className="wrap fibreSplit">

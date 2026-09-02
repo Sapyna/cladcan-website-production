@@ -1,18 +1,4 @@
-import CurrentSitePage from "@/components/CurrentSitePage";
-export const metadata={title:'WPC Beams'+" | CladCan",description:'Explore WPC Beams options, applications, finishes and project requirements. CladCan can coordinate material selection, supply and professional installation based on project-specific requirements.'};
-export default function Page(){
-	return (
-		<CurrentSitePage
-			eyebrow='WPC'
-			title='WPC Beams'
-			intro='Composite beams and sections for screens, pergolas and architectural features where a wood-like aesthetic is desired with reduced maintenance.'
-			overview='WPC beams combine structural composite sections with wood-like finishes for use in screens, pergolas, beam wraps and other architectural features. While they offer improved resistance to moisture and decay versus natural timber, confirm structural use limits and manufacturer guidance for load-bearing conditions.'
-			items={[
-				{title:"Common Uses",text:"Privacy screens, pergola members, decorative beam wraps and modular architectural elements."},
-				{title:"Structural Notes",text:"Verify the product’s structural rating before using as load-bearing framing; many WPC beams are intended for non-structural or limited-load uses."},
-				{title:"Finish & Integration",text:"Coordinate colour, fixing details and end-cap treatments to maintain the intended appearance and to allow for thermal movement."},
-				{title:"CladCan Services",text:"We assist with product selection, confirm suitability for planned uses and prepare coordination drawings for fabrication and installation."},
-			]}
-		/>
-	);
-}
+import FibreCementBrandPage from "@/components/FibreCementBrandPage";
+export const metadata={title:"WPC Beams, Louvers & Privacy Screens | CladCan",description:"Non-structural WPC beams and louvers for screens, façades and sunshades."};
+const data={brand:"WPC Beams & Louvers",categoryEyebrow:"WOOD PLASTIC COMPOSITE",tagline:"Dimensional wood-look profiles for privacy screens, sunshades and architectural accents.",hero:"/images/exterior-systems/wpc/wpc-beams-louvers-modern-home.webp",featureImage:"/images/exterior-systems/wpc/wpc-fluted-siding-modern-facade.webp",intro:{title:"Sophisticated screening with less upkeep.",paragraphs:["WPC beams and louvers bring wood warmth to privacy screens, façade fins and sunshades while resisting moisture and warping.","These are architectural components, not automatically structural framing. Load-bearing use requires product-specific engineering."]},benefits:[{title:"Privacy",text:"Spacing balances screening and visibility."},{title:"Ventilation",text:"Open layouts permit controlled airflow."},{title:"Weather Resistance",text:"Composite profiles reduce rot concerns."},{title:"Architectural Depth",text:"Dimensional members create shadow and rhythm."}],products:[{title:"2 × 2 WPC Beam",text:"Slender square profile for screens."},{title:"2 × 4 WPC Beam",text:"Deeper rectangular profile for bolder fins."}],visuals:[{title:"Architectural Louvers",caption:"Wood-look vertical members on a modern home.",alt:"WPC beams and privacy screen louvers",image:"/images/exterior-systems/wpc/wpc-beams-louvers-modern-home.webp"}],profiles:[{title:"Beam Profiles",items:[{label:"Sizes",value:"2 × 2 in. and 2 × 4 in."},{label:"Length",value:"12 ft"},{label:"Surfaces",value:"Smooth and co-extrusion"},{label:"Use",value:"Non-structural unless specifically engineered"}]}],accessories:[{title:"Mounting Brackets",text:"Attach members to the supporting structure."},{title:"End Caps",text:"Close exposed hollow profile ends."},{title:"Reinforcement",text:"Use only where required by the selected system and engineering."}],technology:{title:"A modular system coordinated around spacing and support.",text:"Span, bracket spacing, wind exposure, movement and substrate attachment must be resolved per project.",points:["2 × 2 and 2 × 4 profiles","12-foot documented lengths","Smooth or co-extruded surfaces","Bracket and cap accessories"]},finishes:["IPE","Ancient Wood","Black","Ash Grey","Teak","Light Walnut","Charcoal","Grey"],applications:["Privacy screens","Façade fins","Sunshades","Pergola accents","Mechanical screening","Decorative partitions"]};
+export default function Page(){return <FibreCementBrandPage {...data}/>}

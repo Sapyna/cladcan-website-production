@@ -1,18 +1,4 @@
-import CurrentSitePage from "@/components/CurrentSitePage";
-export const metadata={title:'Fluted Siding & Soffit'+" | CladCan",description:'Explore Fluted Siding & Soffit options, applications, finishes and project requirements. CladCan can coordinate material selection, supply and professional installation based on project-specific requirements.'};
-export default function Page(){
-	return (
-		<CurrentSitePage
-			eyebrow='WPC'
-			title='Fluted Siding & Soffit'
-			intro='Fluted composite profiles create strong vertical rhythm and refined shadow lines for contemporary façades and sheltered soffits.'
-			overview='Fluted or reeded WPC profiles introduce texture and scale to façades and soffits. These profiles are often used to add tactile depth and to break up large elevations with vertical rhythm. Detailing must account for fastening, junctions with other materials and drainage behind horizontal changes of plane.'
-			items={[
-				{title:"Design Use",text:"Use fluted profiles to add vertical scale or to emphasize transitions and entries on façades."},
-				{title:"Installation Notes",text:"Coordinate clip spacing and fastening patterns with the manufacturer to avoid visible distortion and to preserve the fluted expression."},
-				{title:"Maintenance",text:"WPC profiles reduce the frequency of refinishing compared to natural wood, but periodic cleaning and inspection are recommended."},
-				{title:"CladCan Services",text:"We provide layout advice, sample boards and installation coordination so the fluted expression is delivered on-site as intended."},
-			]}
-		/>
-	);
-}
+import FibreCementBrandPage from "@/components/FibreCementBrandPage";
+export const metadata={title:"WPC Fluted Siding & Soffit | CladCan",description:"WPC fluted siding and soffit panels, profiles, finishes and trims in Ontario."};
+const data={brand:"WPC Fluted Panels",categoryEyebrow:"WOOD PLASTIC COMPOSITE",tagline:"Deep-groove composite panels for contemporary siding, ceilings and sheltered soffits.",hero:"/images/exterior-systems/wpc/wpc-fluted-siding-modern-facade.webp",featureImage:"/images/exterior-systems/wpc/wpc-fluted-panel-exterior-installation.webp",intro:{title:"Sleek rhythm with practical performance.",paragraphs:["Fluted WPC combines wood fibre and thermoplastic material in a moisture-resistant profile with pronounced linear grooves.","It suits feature façades, entrances, ceilings and sheltered soffits where a warm wood look and reduced maintenance are priorities."]},benefits:[{title:"Deep-Groove Texture",text:"Strong shadow lines add depth and rhythm."},{title:"Moisture Resistant",text:"Composite construction resists rot and swelling."},{title:"Low Maintenance",text:"Routine cleaning replaces frequent sanding and staining."},{title:"Flexible Layout",text:"Supports project-approved wall and soffit layouts."}],products:[{title:"Smooth Fluted Panel",text:"A consistent surface for restrained contemporary elevations."},{title:"Co-Extruded Fluted Panel",text:"A capped surface designed for added colour and weather resistance."}],visuals:[{title:"Fluted Façade",caption:"Vertical WPC rhythm paired with metal panels.",alt:"WPC fluted siding modern facade",image:"/images/exterior-systems/wpc/wpc-fluted-siding-modern-facade.webp"},{title:"Installed Texture",caption:"Deep grooves create controlled exterior shadow lines.",alt:"Exterior WPC fluted panel installation",image:"/images/exterior-systems/wpc/wpc-fluted-panel-exterior-installation.webp"}],profiles:[{title:"Fluted Siding & Soffit",items:[{label:"Dimensions",value:"8.6 in. wide × 1 in. deep"},{label:"Lengths",value:"9.5 ft and 12 ft"},{label:"Surfaces",value:"Smooth and co-extrusion"}]}],accessories:[{title:"End Trims",text:"Finish panel ends and terminations."},{title:"Corner Trims",text:"Coordinate inside and outside transitions."},{title:"Mounting Clips",text:"Support concealed, aligned installation where specified."}],technology:{title:"Composite performance behind a wood-inspired surface.",text:"Layout, clip spacing, expansion clearances, drainage and approved exposure must follow current supplier guidance.",points:["Wood fibre and thermoplastic composite","Moisture-resistant profile","Low-maintenance surface","Coordinated clips and trims"]},finishes:["IPE","Ancient Wood","Black","Ash Grey","Teak","Light Walnut","Charcoal","Grey"],applications:["Feature façades","Sheltered soffits","Ceilings","Entrances","Commercial accents","Residential exteriors"]};
+export default function Page(){return <FibreCementBrandPage {...data}/>}
