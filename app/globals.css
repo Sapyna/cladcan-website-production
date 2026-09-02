@@ -6732,3 +6732,159 @@ body:not(.home) .siteHeader + main,
   .systemEditorialCard .visual-system{min-height:220px;flex-basis:220px}
   .systemEditorialText{padding:21px 20px 20px}
 }
+
+
+/* ===== Unified hero CTA system ===== */
+:is(
+  .heroActions,
+  .servicesHeroActions,
+  .systemsPageHeroActions,
+  .aluminumHeroActions,
+  .longboardHeroActions,
+  .applicationHeroActions,
+  .productDetailHeroActions,
+  .serviceV9HeroActions,
+  .contactFinalHeroActions
+)>a{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:10px!important;
+  min-height:56px!important;
+  padding:0 22px!important;
+  border:1px solid rgba(255,255,255,.72)!important;
+  border-radius:7px!important;
+  background:transparent!important;
+  color:#fff!important;
+  box-shadow:none!important;
+  font-family:Arial,Helvetica,sans-serif!important;
+  font-size:15px!important;
+  font-weight:700!important;
+  line-height:1.2!important;
+  text-align:center!important;
+  text-decoration:none!important;
+  transition:
+    background-color .22s ease,
+    border-color .22s ease,
+    color .22s ease,
+    transform .22s ease,
+    box-shadow .22s ease!important;
+}
+:is(
+  .heroActions,
+  .servicesHeroActions,
+  .systemsPageHeroActions,
+  .aluminumHeroActions,
+  .longboardHeroActions,
+  .applicationHeroActions,
+  .productDetailHeroActions,
+  .serviceV9HeroActions,
+  .contactFinalHeroActions
+)>a:hover,
+:is(
+  .heroActions,
+  .servicesHeroActions,
+  .systemsPageHeroActions,
+  .aluminumHeroActions,
+  .longboardHeroActions,
+  .applicationHeroActions,
+  .productDetailHeroActions,
+  .serviceV9HeroActions,
+  .contactFinalHeroActions
+)>a:focus-visible{
+  background:#f52225!important;
+  border-color:#f52225!important;
+  color:#fff!important;
+  transform:translateY(-3px)!important;
+  box-shadow:0 14px 30px rgba(245,34,37,.28)!important;
+  outline:none!important;
+}
+:is(
+  .heroActions,
+  .servicesHeroActions,
+  .systemsPageHeroActions,
+  .aluminumHeroActions,
+  .longboardHeroActions,
+  .applicationHeroActions,
+  .productDetailHeroActions,
+  .serviceV9HeroActions,
+  .contactFinalHeroActions
+)>a svg{
+  flex:none;
+  stroke:currentColor;
+  transition:transform .22s ease;
+}
+:is(
+  .heroActions,
+  .servicesHeroActions,
+  .systemsPageHeroActions,
+  .aluminumHeroActions,
+  .longboardHeroActions,
+  .applicationHeroActions,
+  .productDetailHeroActions,
+  .serviceV9HeroActions,
+  .contactFinalHeroActions
+)>a:hover svg,
+:is(
+  .heroActions,
+  .servicesHeroActions,
+  .systemsPageHeroActions,
+  .aluminumHeroActions,
+  .longboardHeroActions,
+  .applicationHeroActions,
+  .productDetailHeroActions,
+  .serviceV9HeroActions,
+  .contactFinalHeroActions
+)>a:focus-visible svg{
+  transform:translateX(3px);
+}
+@media(prefers-reduced-motion:reduce){
+  :is(
+    .heroActions,
+    .servicesHeroActions,
+    .systemsPageHeroActions,
+    .aluminumHeroActions,
+    .longboardHeroActions,
+    .applicationHeroActions,
+    .productDetailHeroActions,
+    .serviceV9HeroActions,
+    .contactFinalHeroActions
+  )>a,
+  :is(
+    .heroActions,
+    .servicesHeroActions,
+    .systemsPageHeroActions,
+    .aluminumHeroActions,
+    .longboardHeroActions,
+    .applicationHeroActions,
+    .productDetailHeroActions,
+    .serviceV9HeroActions,
+    .contactFinalHeroActions
+  )>a svg{
+    transition:none!important;
+  }
+  :is(
+    .heroActions,
+    .servicesHeroActions,
+    .systemsPageHeroActions,
+    .aluminumHeroActions,
+    .longboardHeroActions,
+    .applicationHeroActions,
+    .productDetailHeroActions,
+    .serviceV9HeroActions,
+    .contactFinalHeroActions
+  )>a:hover,
+  :is(
+    .heroActions,
+    .servicesHeroActions,
+    .systemsPageHeroActions,
+    .aluminumHeroActions,
+    .longboardHeroActions,
+    .applicationHeroActions,
+    .productDetailHeroActions,
+    .serviceV9HeroActions,
+    .contactFinalHeroActions
+  )>a:focus-visible{
+    transform:none!important;
+  }
+}
