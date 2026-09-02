@@ -6565,3 +6565,99 @@ body:not(.home) .siteHeader + main,
     background:linear-gradient(180deg,rgba(255,255,255,.04) 0%,rgba(251,250,248,.76) 39%,#fbfaf8 52%,#fbfaf8 100%);
   }
 }
+
+
+/* ===== v50 — CLEAR SERVICE PHOTOGRAPHY ===== */
+.homeServicesEditorial{
+  background:#e8e1d7;
+}
+.homeServicesEditorial:before{
+  background:
+    radial-gradient(circle at 82% 0%,rgba(173,124,65,.16),transparent 28%),
+    linear-gradient(110deg,rgba(255,255,255,.3),transparent 38%);
+}
+.homeServicesPanels{
+  border-color:#cbd3d6;
+  box-shadow:0 22px 60px rgba(8,29,47,.11);
+}
+.homeServicesPanel{
+  background:#fcfbf8;
+}
+.homeServicesPanel>img{
+  opacity:1;
+  filter:saturate(.92) contrast(1.04);
+}
+.homeServicesPanelShade{
+  background:linear-gradient(
+    90deg,
+    #fcfbf8 0%,
+    #fcfbf8 52%,
+    rgba(252,251,248,.96) 56%,
+    rgba(252,251,248,.48) 61%,
+    rgba(252,251,248,.08) 67%,
+    transparent 73%
+  );
+}
+.homeServicesPanel:hover,
+.homeServicesPanel:focus-visible{
+  background:#fff;
+}
+.homeServicesPanel:hover>img,
+.homeServicesPanel:focus-visible>img{
+  opacity:1;
+  filter:saturate(1.04) contrast(1.04);
+}
+.homeServicesPanel:hover .homeServicesPanelShade,
+.homeServicesPanel:focus-visible .homeServicesPanelShade{
+  background:linear-gradient(
+    90deg,
+    #fff 0%,
+    #fff 50%,
+    rgba(255,255,255,.94) 55%,
+    rgba(255,255,255,.38) 60%,
+    rgba(255,255,255,.05) 66%,
+    transparent 72%
+  );
+}
+.homeServicesPanel:first-child{
+  background:#fcfbf8;
+}
+.homeServicesPanel:first-child>img{
+  object-fit:contain;
+  object-position:center;
+  padding:18px 16px;
+  opacity:1;
+  background:#d9dcda;
+  filter:saturate(.95) contrast(1.04);
+}
+.homeServicesPanel:first-child:hover>img,
+.homeServicesPanel:first-child:focus-visible>img{
+  opacity:1;
+  transform:scale(1.015);
+}
+@media(max-width:650px){
+  .homeServicesPanelShade{
+    background:linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(252,251,248,.05) 28%,
+      rgba(252,251,248,.82) 41%,
+      #fcfbf8 52%,
+      #fcfbf8 100%
+    );
+  }
+  .homeServicesPanel:hover .homeServicesPanelShade,
+  .homeServicesPanel:focus-visible .homeServicesPanelShade{
+    background:linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(255,255,255,.04) 28%,
+      rgba(255,255,255,.8) 41%,
+      #fff 52%,
+      #fff 100%
+    );
+  }
+  .homeServicesPanel:first-child>img{
+    padding:12px;
+  }
+}
