@@ -1,20 +1,38 @@
-import CurrentSitePage from "@/components/CurrentSitePage";
-export const metadata={title:"Architectural Aluminum Battens | CladCan",description:"Aluminium battens for architectural accents, screening and soffit ceilings. Guidance for layout, attachment and finish selection."};
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, Check, MoveHorizontal, MoveVertical, ShieldCheck, Wrench } from "lucide-react";
 
-export default function Page(){
-	return (
-		<CurrentSitePage
-			title={"Architectural Aluminum Battens"}
-			intro={"Slim aluminium battens used to create shadow lines, screening, soffit ceilings and customised façade rhythms."}
-			overview={"Architectural battens are narrow aluminium profiles fastened to a supporting sub-frame to create linear shadow lines, perforated screens or soffit ceilings. They are a cost-effective way to add texture and rhythm to façades, screen services, or provide privacy while allowing airflow. Battens may be through-fastened or clipped depending on the aesthetic and maintenance goals, and should be detailed to avoid trapping moisture behind the finish."}
-			items={[
-				{title:"Common Uses",text:"Feature façades, soffit ceilings, privacy screening, mechanical screening, and decorative accent bands where narrow, repeating elements define the architecture."},
-				{title:"Attachment Options",text:"Battens can be face-fastened where permitted, or mechanically clipped to a sub-frame for a cleaner finish and easier replacement; choice depends on wind loads and the desired sightline."},
-				{title:"Material & Finish",text:"Available in custom colours and mill finishes; coordinate finish choice with adjacent materials to avoid visual mismatch and to simplify future maintenance."},
-				{title:"Design & Drainage",text:"Ensure details allow drying of incidental moisture; avoid continuous sealed cavities and incorporate drainage/weep points at soffit terminations and below horizontal changes in plane."},
-				{title:"Limitations",text:"Very narrow battens can be visually delicate; consider access for cleaning and replacement in exposed or coastal environments."},
-				{title:"How CladCan Helps",text:"We provide layout studies, shop drawing coordination, and on-site support to confirm alignment, fixation and interface details with windows, doors and flashings."},
-			]}
-		/>
-	);
-}
+export const metadata={title:"Architectural Aluminum Battens & Privacy Screens | CladCan",description:"Explore architectural aluminum battens for privacy screens, walls, ceilings and louvers, with flexible brackets, woodgrain finishes and easy installation."};
+
+const benefits=[
+  {title:"Fast Installation",text:"A straightforward batten and bracket system designed for quick, efficient installation."},
+  {title:"Lightweight Construction",text:"Easy to handle, position and cut on site without specialized installation tools."},
+  {title:"Flexible Lengths",text:"Supplied in a standard 16-foot length, with 12-foot and 8-foot options available."},
+  {title:"Zero Maintenance",text:"Durable aluminum performance without the recurring staining or sealing required by natural wood."},
+  {title:"Fire & Corrosion Resistant",text:"A resilient aluminum solution suited to demanding exterior and architectural applications."},
+  {title:"Lifetime Warranty",text:"Backed by a lifetime warranty for long-term confidence in the finished installation."}
+];
+const applications=["Privacy screens","Exterior feature walls","Soffits and ceilings","Architectural louvers","Horizontal wall layouts","Vertical façade layouts"];
+const brackets=[
+  {code:"SM",title:"Surface-Mount Bracket",text:"A streamlined mounting option for controlled batten placement on walls, ceilings and other prepared surfaces."},
+  {code:"CC",title:"Concealed-Connection Bracket",text:"Supports a clean architectural appearance where the connection should remain visually discreet."},
+  {code:"BC",title:"Base-Connection Bracket",text:"Provides a stable attachment solution for floor, ground and other base-mounted batten configurations."}
+];
+
+export default function ArchitecturalBattensPage(){return <main className="fastPlankPage battensPage">
+  <section className="internalHero exteriorSystemDetailHero fastPlankHero"><div className="internalHeroImage exteriorSystemHeroMedia battensHeroMedia" style={{backgroundImage:'url("/images/exterior-systems/architectural-battens/architectural-aluminum-batten-privacy-screen-louver-hero.webp")'}}/><div className="wrap internalHeroCopy"><span>ALUMINUM BATTENS</span><h1>Architectural Aluminum Battens</h1><p>Premium privacy screens, walls, ceilings and louvers with rich woodgrain or solid finishes and flexible installation options.</p><div className="heroActions"><Link href="/contact" className="btn internalRedBtn">Get a Quote →</Link><Link href="/contact" className="btn lineBtn">Request Sample</Link></div></div></section>
+
+  <section className="fastPlankIntro"><div className="wrap fastPlankSplit"><div className="fastPlankCopy"><span className="fastPlankEyebrow">DESIGN WITHOUT LIMITS</span><h2>Architectural freedom. Effortless installation.</h2><p>CladCan’s aluminum battens give architects and designers the freedom to create a wide range of linear architectural forms while combining exceptional performance with straightforward installation.</p><p>Install them horizontally or vertically on walls, suspend them from ceilings, or use them to create privacy screens, louvers and feature elements. The profiles work much like traditional wood planks but require no specialized installation tools.</p><p>Depending on project requirements, battens can be drilled or threaded, with brackets attached from different sides and directions to accommodate the intended layout.</p></div><div className="fastPlankIntroImage battensIntroImage"><Image src="/images/exterior-systems/architectural-battens/woodgrain-aluminum-batten-louver-feature-wall.webp" alt="Woodgrain architectural aluminum battens installed as a residential louver feature wall" fill sizes="(max-width: 900px) 100vw, 44vw"/></div></div></section>
+
+  <section className="fastPlankBenefits"><div className="wrap"><div className="fastPlankSectionHead"><span className="fastPlankEyebrow">BENEFITS</span><h2>Built for creative layouts and efficient installation.</h2></div><div className="fastPlankBenefitGrid">{benefits.map((item,index)=><article key={item.title}><span>{String(index+1).padStart(2,"0")}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></div></section>
+
+  <section className="battensApplications"><div className="wrap battensApplicationsGrid"><div><span className="fastPlankEyebrow">APPLICATIONS</span><h2>One system. Multiple architectural directions.</h2><p>Use the same batten family across walls, ceilings, screens and freestanding features to establish a consistent visual rhythm throughout the project.</p></div><div className="battensApplicationList">{applications.map((item,index)=><div key={item}><span>{String(index+1).padStart(2,"0")}</span><strong>{item}</strong>{index%2===0?<MoveHorizontal size={20}/>:<MoveVertical size={20}/>}</div>)}</div></div></section>
+
+  <section className="battensLengths"><div className="wrap"><div className="fastPlankSectionHead"><span className="fastPlankEyebrow">AVAILABLE SIZES</span><h2>Lengths planned around the project.</h2></div><div className="battensLengthGrid"><article><strong>16′</strong><span>Standard Length</span><p>The standard length supports long, clean runs and reduces unnecessary joints.</p></article><article><strong>12′</strong><span>Available Option</span><p>A practical intermediate length for coordinated elevations and controlled material handling.</p></article><article><strong>8′</strong><span>Available Option</span><p>Suitable for shorter features, tighter access conditions and project-specific layouts.</p></article></div></div></section>
+
+  <section className="battensBrackets"><div className="wrap"><div className="fastPlankSectionHead"><span className="fastPlankEyebrow">BRACKET OPTIONS</span><h2>Reliable attachment, wherever the battens run.</h2><p>Three bracket types support horizontal, vertical, ceiling, wall and ground-mounted configurations while balancing security with a refined finished appearance.</p></div><div className="battensBracketGrid">{brackets.map((item,index)=><article key={item.code}><span>{item.code}</span>{index===0?<Wrench size={25}/>:index===1?<ShieldCheck size={25}/>:<Check size={25}/>}<h3>{item.title}</h3><p>{item.text}</p></article>)}</div></div></section>
+
+  <section className="battensFinishes"><div className="wrap battensFinishesInner"><div><span className="fastPlankEyebrow">TEXTURES & COLOURS</span><h2>Rich woodgrain character or clean solid colour.</h2></div><div><p>Coordinate the batten finish with adjacent cladding, soffit and trim materials. Woodgrain options create warmth and visual depth, while solid colours support crisp contemporary compositions.</p><Link href="/contact" className="battensTextLink">Request Colour Samples <ArrowUpRight size={15}/></Link></div></div></section>
+
+  <section className="fastPlankExpert"><div className="wrap fastPlankExpertInner"><div><span className="fastPlankEyebrow">SPEAK WITH AN EXPERT</span><h2>Plan the right batten layout for your project.</h2><p>Share your drawings, dimensions or inspiration images and CladCan can help coordinate batten direction, lengths, brackets, finishes and installation requirements.</p></div><Link href="/contact" className="btn internalRedBtn">Speak with an Expert <ArrowUpRight size={15}/></Link></div></section>
+</main>}
