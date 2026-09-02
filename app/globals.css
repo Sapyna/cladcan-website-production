@@ -6744,7 +6744,9 @@ body:not(.home) .siteHeader + main,
   .applicationHeroActions,
   .productDetailHeroActions,
   .serviceV9HeroActions,
-  .contactFinalHeroActions
+  .contactFinalHeroActions,
+  .projectsV11HeroGrid>div:last-child,
+  .aboutV8HeroFoot>div
 )>a{
   display:inline-flex!important;
   align-items:center!important;
@@ -6779,7 +6781,9 @@ body:not(.home) .siteHeader + main,
   .applicationHeroActions,
   .productDetailHeroActions,
   .serviceV9HeroActions,
-  .contactFinalHeroActions
+  .contactFinalHeroActions,
+  .projectsV11HeroGrid>div:last-child,
+  .aboutV8HeroFoot>div
 )>a:hover,
 :is(
   .heroActions,
@@ -6790,7 +6794,9 @@ body:not(.home) .siteHeader + main,
   .applicationHeroActions,
   .productDetailHeroActions,
   .serviceV9HeroActions,
-  .contactFinalHeroActions
+  .contactFinalHeroActions,
+  .projectsV11HeroGrid>div:last-child,
+  .aboutV8HeroFoot>div
 )>a:focus-visible{
   background:#f52225!important;
   border-color:#f52225!important;
@@ -6808,7 +6814,9 @@ body:not(.home) .siteHeader + main,
   .applicationHeroActions,
   .productDetailHeroActions,
   .serviceV9HeroActions,
-  .contactFinalHeroActions
+  .contactFinalHeroActions,
+  .projectsV11HeroGrid>div:last-child,
+  .aboutV8HeroFoot>div
 )>a svg{
   flex:none;
   stroke:currentColor;
@@ -6823,7 +6831,9 @@ body:not(.home) .siteHeader + main,
   .applicationHeroActions,
   .productDetailHeroActions,
   .serviceV9HeroActions,
-  .contactFinalHeroActions
+  .contactFinalHeroActions,
+  .projectsV11HeroGrid>div:last-child,
+  .aboutV8HeroFoot>div
 )>a:hover svg,
 :is(
   .heroActions,
@@ -6834,7 +6844,9 @@ body:not(.home) .siteHeader + main,
   .applicationHeroActions,
   .productDetailHeroActions,
   .serviceV9HeroActions,
-  .contactFinalHeroActions
+  .contactFinalHeroActions,
+  .projectsV11HeroGrid>div:last-child,
+  .aboutV8HeroFoot>div
 )>a:focus-visible svg{
   transform:translateX(3px);
 }
@@ -6848,7 +6860,9 @@ body:not(.home) .siteHeader + main,
     .applicationHeroActions,
     .productDetailHeroActions,
     .serviceV9HeroActions,
-    .contactFinalHeroActions
+    .contactFinalHeroActions,
+  .projectsV11HeroGrid>div:last-child,
+  .aboutV8HeroFoot>div
   )>a,
   :is(
     .heroActions,
@@ -6859,7 +6873,9 @@ body:not(.home) .siteHeader + main,
     .applicationHeroActions,
     .productDetailHeroActions,
     .serviceV9HeroActions,
-    .contactFinalHeroActions
+    .contactFinalHeroActions,
+  .projectsV11HeroGrid>div:last-child,
+  .aboutV8HeroFoot>div
   )>a svg{
     transition:none!important;
   }
@@ -6872,7 +6888,9 @@ body:not(.home) .siteHeader + main,
     .applicationHeroActions,
     .productDetailHeroActions,
     .serviceV9HeroActions,
-    .contactFinalHeroActions
+    .contactFinalHeroActions,
+  .projectsV11HeroGrid>div:last-child,
+  .aboutV8HeroFoot>div
   )>a:hover,
   :is(
     .heroActions,
@@ -6883,7 +6901,9 @@ body:not(.home) .siteHeader + main,
     .applicationHeroActions,
     .productDetailHeroActions,
     .serviceV9HeroActions,
-    .contactFinalHeroActions
+    .contactFinalHeroActions,
+  .projectsV11HeroGrid>div:last-child,
+  .aboutV8HeroFoot>div
   )>a:focus-visible{
     transform:none!important;
   }
