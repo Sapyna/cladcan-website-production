@@ -7,7 +7,7 @@ import { getVisuals } from "@/data/visualCatalog";
 export default function ApplicationPage({breadcrumb=[],eyebrow,title,intro,overview,products=[],benefits=[],applications=[],images=[],ctaTitle="Need help selecting the right product?",ctaText="Send us your drawings, elevations or project requirements and our team can help review system options."}) {
   const pageVisuals = images.length ? images : getVisuals(`${eyebrow} ${title}`);
   return <main className="applicationPage">
-    <section className="applicationHero" style={{backgroundImage:`url("${pageVisuals[0]}")`}}><div className="applicationHeroOverlay"/><div className="wrap applicationHeroContent">
+    <section className="applicationHero exteriorSystemDetailHero" style={{backgroundImage:`url("${pageVisuals[0]}")`}}><div className="applicationHeroOverlay"/><div className="wrap applicationHeroContent">
       <span className="applicationEyebrow">{eyebrow}</span><h1>{title}</h1><p>{intro}</p>
       <div className="applicationHeroActions"><a href="#products" className="btn applicationPrimaryBtn">Explore Products <ArrowUpRight size={15}/></a><Link href="/contact" className="btn applicationSecondaryBtn">Request a Sample</Link></div>
     </div></section>

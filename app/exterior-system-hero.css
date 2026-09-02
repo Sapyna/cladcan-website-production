@@ -1,0 +1,115 @@
+/* One visual system for every Exterior Systems detail-page hero. */
+.exteriorSystemDetailHero{
+  --exterior-detail-hero-height:clamp(640px,78svh,760px);
+  width:100%!important;
+  height:var(--exterior-detail-hero-height)!important;
+  min-height:var(--exterior-detail-hero-height)!important;
+  max-height:var(--exterior-detail-hero-height)!important;
+  align-items:stretch!important;
+  overflow:hidden!important;
+}
+
+.exteriorSystemDetailHero :is(
+  .internalHeroCopy,
+  .aluminumPageHeroContent,
+  .longboardHeroContent,
+  .applicationHeroContent,
+  .productDetailHeroContent
+){
+  width:min(100%,760px)!important;
+  max-width:760px!important;
+  height:100%!important;
+  min-height:100%!important;
+  max-height:100%!important;
+  padding:220px 20px 56px clamp(190px,10vw,220px)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-start!important;
+  box-sizing:border-box!important;
+}
+
+.exteriorSystemDetailHero :is(
+  .internalHeroCopy,
+  .aluminumPageHeroContent,
+  .longboardHeroContent,
+  .applicationHeroContent,
+  .productDetailHeroContent
+) > span{
+  margin:0 0 16px!important;
+  color:#d5a15f!important;
+  font-size:11px!important;
+  line-height:1.2!important;
+  font-weight:900!important;
+  letter-spacing:.18em!important;
+  text-transform:uppercase!important;
+}
+
+.exteriorSystemDetailHero h1{
+  width:100%!important;
+  max-width:760px!important;
+  margin:0 0 22px!important;
+  font-family:var(--type-display)!important;
+  font-size:clamp(52px,5.35vw,82px)!important;
+  font-weight:600!important;
+  line-height:.94!important;
+  letter-spacing:-.025em!important;
+  text-wrap:balance;
+}
+
+.exteriorSystemDetailHero :is(
+  .internalHeroCopy,
+  .aluminumPageHeroContent,
+  .longboardHeroContent,
+  .applicationHeroContent,
+  .productDetailHeroContent
+) > p{
+  max-width:680px!important;
+  margin:0!important;
+  color:rgba(232,238,241,.82)!important;
+  font-size:clamp(16px,1.15vw,18px)!important;
+  line-height:1.65!important;
+}
+
+.exteriorSystemDetailHero :is(
+  .heroActions,
+  .aluminumHeroActions,
+  .longboardHeroActions,
+  .applicationHeroActions,
+  .productDetailHeroActions
+){
+  margin-top:28px!important;
+}
+
+@media(max-width:760px){
+  .exteriorSystemDetailHero{
+    --exterior-detail-hero-height:700px;
+  }
+
+  .exteriorSystemDetailHero :is(
+    .internalHeroCopy,
+    .aluminumPageHeroContent,
+    .longboardHeroContent,
+    .applicationHeroContent,
+    .productDetailHeroContent
+  ){
+    width:100%!important;
+    max-width:none!important;
+    padding:168px 22px 38px!important;
+  }
+
+  .exteriorSystemDetailHero h1{
+    font-size:clamp(40px,11vw,56px)!important;
+    line-height:.97!important;
+  }
+
+  .exteriorSystemDetailHero :is(
+    .internalHeroCopy,
+    .aluminumPageHeroContent,
+    .longboardHeroContent,
+    .applicationHeroContent,
+    .productDetailHeroContent
+  ) > span{
+    margin-bottom:13px!important;
+    font-size:10px!important;
+  }
+}

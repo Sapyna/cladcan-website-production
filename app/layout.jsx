@@ -7,6 +7,7 @@ import "./chatbot-polish.css";
 import "./chat-ai-addon.css";
 import "./service-hero-normalize.css";
 import "./footer-pro.css";
+import "./exterior-system-hero.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";

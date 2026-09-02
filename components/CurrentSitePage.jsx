@@ -16,7 +16,7 @@ export default function CurrentSitePage({eyebrow="EXTERIOR SYSTEMS",title,intro,
   ];
 
   return <>
-    <section className="internalHero">
+    <section className="internalHero exteriorSystemDetailHero">
       <div className="internalHeroImage" style={{backgroundImage:`linear-gradient(90deg,rgba(13,18,23,.90),rgba(13,18,23,.40)),url("${heroImage}")`}} />
       <div className="wrap internalHeroCopy"><span>{eyebrow}</span><h1>{title}</h1><p>{intro}</p><div className="heroActions"><Link href="/contact" className="btn internalRedBtn">Get a Quote →</Link><Link href="/contact" className="btn lineBtn">Request Sample</Link></div></div>
     </section>
