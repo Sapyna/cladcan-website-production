@@ -24,6 +24,11 @@ const data={
     {title:"TuffBlock™ & Concrete Looks",text:"Textured cementitious appearances offering a modern alternative to site-applied stucco aesthetics."},
     {title:"Stone & Brick Collections",text:"Panelized masonry-inspired surfaces designed to coordinate with the AWP installation system."}
   ],
+  visuals:[
+    {title:"Miraia™ — Modern Application",caption:"High-gloss architectural wall panels used as a contemporary façade feature.",alt:"Nichiha Miraia high gloss fibre cement architectural wall panels",image:"https://www.nichiha.com/uploads/7-Modern-Homes-Using-Wall-Paneling-Right/image-124.png"},
+    {title:"Architectural Wall Panels",caption:"Panelized fibre cement cladding with controlled joints and concealed attachment.",alt:"Nichiha architectural wall panel exterior application",image:"https://www.nichiha.com/uploads/7-Modern-Homes-Using-Wall-Paneling-Right/image-125.png"},
+    {title:"Mixed Textures",caption:"AWP collections can coordinate wood, smooth and masonry-inspired surfaces.",alt:"Nichiha fibre cement wall panels with mixed architectural textures",image:"https://www.nichiha.com/uploads/7-Modern-Homes-Using-Wall-Paneling-Right/image-126.png"}
+  ],
   profiles:[
     {title:"AWP 1818",items:[{label:"Nominal format",value:"455 mm high × 1818 mm long"},{label:"Imperial format",value:"17 7/8 in. high × 71 9/16 in. long"},{label:"Typical thickness",value:"16, 18 or 21 mm depending on collection"},{label:"Orientation",value:"Primarily horizontal; verify individual series"}]},
     {title:"AWP 3030",items:[{label:"Nominal format",value:"455 mm high × 3030 mm long"},{label:"Imperial format",value:"17 7/8 in. high × 119 5/16 in. long"},{label:"Typical thickness",value:"Collection-specific"},{label:"Use",value:"Long-format architectural elevations with fewer vertical joints"}]},
@@ -35,7 +40,7 @@ const data={
   accessories:[
     {title:"Ultimate Clip System",text:"Concealed clips engage panel edges, establish alignment and create the built-in rainscreen cavity."},
     {title:"Starter Track",text:"Sets the base course and supports consistent panel positioning at the bottom of the installation."},
-    {title:"Prefinished Corners",text:"Product-matched corner pieces are available for many horizontal AWP collections; availability varies by series."},
+    {title:"Prefinished Corners",text:"Product-matched corner pieces are available for many horizontal AWP collections; availability varies by series.",image:"https://www.nichiha.com/uploads/Rectangle-1.jpg"},
     {title:"Metal Trim Profiles",text:"Outside corners, inside corners, vertical joints and termination conditions can be completed with compatible metal trims."},
     {title:"Sealants & Touch-Up Kits",text:"Manufacturer-compatible sealants and touch-up materials complete required joints, penetrations and field corrections."},
     {title:"NichiTrim™ Boards",text:"Smooth or cedar-textured fibre cement trim in multiple widths, commonly supplied in 10-foot lengths and product-specific thicknesses."}

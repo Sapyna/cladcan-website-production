@@ -24,6 +24,14 @@ const data={
     {title:"Hardie® Shingle Siding",text:"Straight-edge and staggered-edge shingle expressions for gables, accents and character-rich elevations."},
     {title:"Hardie® Trim & Soffit",text:"Coordinated boards and soffit products complete openings, corners, rooflines and transitions."}
   ],
+  visuals:[
+    {title:"Select Cedarmill®",caption:"Wood-textured Hardie® Plank lap siding profile.",alt:"James Hardie Plank Select Cedarmill fibre cement siding profile",image:"https://www.jameshardie.com/_next/image/?q=75&url=https%3A%2F%2Fimages.ctfassets.net%2Fdzi2asncd44t%2Fag5a70QVjxrNY7WWcG7zG%2F98d7bc4de314574975b0b0d5c58ae998%2Fhardie-plank-lap-select-cedarmill.png&w=384"},
+    {title:"Smooth",caption:"Clean smooth-face Hardie® Plank lap siding.",alt:"James Hardie Plank smooth fibre cement siding profile",image:"https://www.jameshardie.com/_next/image/?q=75&url=https%3A%2F%2Fimages.ctfassets.net%2Fdzi2asncd44t%2F3DhWzU1S91F1fDpLIMwXpB%2Fc19cabe3ee394163617a0913ddc74f42%2Fhardie-plank-lap-smooth.png&w=384"},
+    {title:"Beaded Cedarmill®",caption:"Beaded lower edge with a wood-textured face.",alt:"James Hardie beaded Select Cedarmill siding profile",image:"https://www.jameshardie.com/_next/image/?q=75&url=https%3A%2F%2Fimages.ctfassets.net%2Fdzi2asncd44t%2F64w8Ckg6SzCgxSoYedyMYm%2F52c6330855540fc0bf047299cdf6d6f1%2Fhardie-plank-lap-beaded-select-cedarmill.png&w=384"},
+    {title:"Beaded Smooth",caption:"Traditional beaded profile with a smooth surface.",alt:"James Hardie beaded smooth lap siding profile",image:"https://www.jameshardie.com/_next/image/?q=75&url=https%3A%2F%2Fimages.ctfassets.net%2Fdzi2asncd44t%2F6igTvamkg00kD33Zapf1WL%2Fffaf100e105f2a30fd5ff91fa7c8df08%2Fhardie-plank-lap-beaded-smooth.png&w=384"},
+    {title:"Custom Colonial Roughsawn",caption:"Traditional profile with a roughsawn texture.",alt:"James Hardie Custom Colonial Roughsawn siding profile",image:"https://www.jameshardie.com/_next/image/?q=75&url=https%3A%2F%2Fimages.ctfassets.net%2Fdzi2asncd44t%2F2qdmKC4Trllz2nrGLOWkeM%2F0f756ac5735058c6084ee4b486b0d759%2Fhardie-plank-lap-custom-colonial-roughsawn.png&w=384"},
+    {title:"Custom Colonial Smooth",caption:"Traditional colonial geometry with a smooth face.",alt:"James Hardie Custom Colonial smooth siding profile",image:"https://www.jameshardie.com/_next/image/?q=75&url=https%3A%2F%2Fimages.ctfassets.net%2Fdzi2asncd44t%2F4vvOKPL9wsWcfcUvtdhVxn%2Fc48e31c5859cd1204333649729b0dbe5%2Fhardie-plank-lap-custom-colonial-smooth.png&w=384"}
+  ],
   profiles:[
     {title:"Hardie® Plank Lap Siding",items:[{label:"Profile options",value:"Select Cedarmill®, Smooth, Beaded and selected traditional profiles"},{label:"Orientation",value:"Horizontal"},{label:"Design role",value:"Primary siding, mixed-material façades and accent areas"}]},
     {title:"Hardie® Artisan® Siding",items:[{label:"Profile options",value:"Lap, V-Groove, Shiplap and Square Channel"},{label:"Typical length",value:"Up to 144 in., depending on profile"},{label:"Typical widths",value:"Approximately 7.25–10.25 in., depending on profile"},{label:"Character",value:"Extra-thick boards with deep architectural shadow lines"}]},
@@ -33,7 +41,7 @@ const data={
     {title:"Hardie® Soffit Panels",items:[{label:"Options",value:"Vented and non-vented formats, product-dependent"},{label:"Textures",value:"Smooth and selected wood-textured appearances"},{label:"Application",value:"Eaves, porch ceilings and protected soffit areas"}]}
   ],
   accessories:[
-    {title:"Hardie® Trim Boards",text:"Smooth, Rustic Grain and selected Roughsawn appearances for openings, corners, bands and transitions."},
+    {title:"Hardie® Trim Boards",text:"Smooth, Rustic Grain and selected Roughsawn appearances for openings, corners, bands and transitions.",image:"https://www.jameshardie.com/_next/image/?q=75&url=https%3A%2F%2Fimages.ctfassets.net%2Fdzi2asncd44t%2F2YMJ6Kt7cCLuTTU0jpnLA8%2Fbed408c31de80caaa9a44dffd67f271c%2Fhardie-trim-batten-rustic-grain.png&w=384"},
     {title:"Batten Boards",text:"Pair with vertical Hardie® Panel to create board-and-batten and modern farmhouse expressions."},
     {title:"Corners & Openings",text:"Trim widths and build-outs are selected to coordinate siding thickness, window conditions and the intended reveal."},
     {title:"Flashing & Weather Management",text:"Head flashings, kick-out flashings, clearances and drainage interfaces must follow current installation guidance."},
