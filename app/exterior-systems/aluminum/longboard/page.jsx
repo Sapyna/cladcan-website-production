@@ -1,14 +1,66 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Check, FileText, Box, Ruler, Download } from "lucide-react";
-import { longboardApplications, longboardFeaturedProducts } from "@/data/longboard";
-import ViewToggleCollection from "@/components/ViewToggleCollection";
-export const metadata={title:"Longboard Aluminum Systems | CladCan",description:"Explore Longboard architectural aluminum cladding, siding, soffit, screens and exterior systems available through CladCan."};
-export default function LongboardPage(){return <main className="longboardPage">
-<section className="longboardHero exteriorSystemDetailHero"><div className="exteriorSystemHeroMedia" style={{backgroundImage:"url('/images/exterior-systems/longboard-architectural-aluminum-siding-soffit-hero.webp')"}}/><div className="longboardHeroOverlay"/><div className="wrap longboardHeroContent"><span className="longboardEyebrow">LONGBOARD ARCHITECTURAL PRODUCTS</span><h1>Architectural aluminum<br/><em>without compromise.</em></h1><p>High-performance aluminum cladding, siding, soffit and architectural systems combining durable exterior performance with extensive design flexibility.</p><div className="longboardHeroActions"><a href="#longboard-systems" className="btn longboardPrimaryBtn">Explore Systems <ArrowUpRight size={15}/></a><Link href="/contact" className="btn longboardSecondaryBtn">Request a Sample</Link></div></div></section>
-<section className="longboardIntro"><div className="wrap longboardIntroGrid"><div><span className="longboardEyebrow dark">LONGBOARD</span><h2>Aluminum engineered<br/>for architecture.</h2></div><div className="longboardIntroCopy"><p>Longboard architectural aluminum systems provide designers, contractors and building owners with a versatile family of exterior products for walls, soffits, siding and architectural features.</p><p>CladCan can coordinate product selection, material supply, fabrication requirements and installation for Longboard exterior systems.</p><div className="longboardChecks"><span><Check size={14}/> Cladding</span><span><Check size={14}/> Siding</span><span><Check size={14}/> Soffit</span><span><Check size={14}/> Screens</span></div></div></div></section>
-<section className="longboardSystems" id="longboard-systems"><div className="wrap"><div className="longboardSectionHeader"><div><span className="longboardEyebrow dark">EXTERIOR SYSTEMS</span><h2>Choose by application.</h2></div><p>Explore Longboard systems based on the part of the building envelope or architectural application you are designing.</p></div><ViewToggleCollection items={longboardApplications.map(item=>({number:item.number,title:item.title,description:item.description,href:item.href,tags:item.products,linkLabel:`Explore ${item.title}`}))} /></div></section>
-<section className="longboardFeatured"><div className="wrap"><div className="longboardSectionHeader"><div><span className="longboardEyebrow dark">FEATURED PRODUCTS</span><h2>Explore the product family.</h2></div><p>Individual products may support multiple applications. Explore product-specific profiles, finishes, specifications and documentation.</p></div><ViewToggleCollection items={longboardFeaturedProducts.map((product,index)=>({number:String(index+1).padStart(2,"0"),title:product.title,subtitle:product.type,description:product.description,href:product.href,linkLabel:"View Product"}))} /></div></section>
-<section className="longboardFinishes"><div className="wrap longboardFinishesGrid"><div><span className="longboardEyebrow">HIGH-PERFORMANCE FINISHES</span><h2>Colour, texture<br/>and lasting performance.</h2></div><div><p>Longboard exterior aluminum products are available in a broad range of architectural finishes, including wood-inspired, solid-colour and specialty options.</p><p>Finish availability varies by product and profile. Contact CladCan to review current colours and samples for your project.</p><Link href="/contact" className="longboardTextLink">Request Finish Samples <ArrowUpRight size={14}/></Link></div></div></section>
-<section className="longboardTechnical"><div className="wrap"><div className="longboardTechnicalHeader"><span className="longboardEyebrow dark">TECHNICAL RESOURCES</span><h2>From design development<br/>to installation.</h2></div><div className="longboardTechnicalGrid"><article><FileText size={24}/><h3>Specifications</h3><p>Product-specific technical and specification information for design and procurement.</p></article><article><Ruler size={24}/><h3>Installation Guides</h3><p>Installation documentation for Longboard exterior systems and applications.</p></article><article><Box size={24}/><h3>Submittal Packages</h3><p>Product information organized for architectural review and project submittals.</p></article><article><Download size={24}/><h3>CAD / BIM</h3><p>Product drawings and digital design resources available for selected systems.</p></article></div></div></section>
-<section className="longboardCTA"><div className="wrap longboardCTAInner"><div><span className="longboardEyebrow dark">LONGBOARD + CLADCAN</span><h2>Specify the right system<br/>for your project.</h2><p>Send us your elevations, drawings or design requirements and our team can help coordinate Longboard system selection, material supply and installation.</p></div><Link href="/contact" className="btn longboardPrimaryBtn">Talk to CladCan <ArrowUpRight size={15}/></Link></div></section>
+import { ArrowUpRight } from "lucide-react";
+
+export const metadata={
+  title:"Longboard Tongue & Groove Aluminum Siding & Soffit | CladCan",
+  description:"Explore Longboard Tongue & Groove aluminum siding and soffit profiles, trims, finishes and system specifications available through CladCan."
+};
+
+export default function LongboardPage(){return <main className="fastPlankPage longboardProductPage">
+  <section className="longboardHero exteriorSystemDetailHero">
+    <div className="exteriorSystemHeroMedia" style={{backgroundImage:"url('/images/exterior-systems/longboard-architectural-aluminum-siding-soffit-hero.webp')"}}/>
+    <div className="wrap longboardHeroContent">
+      <span className="longboardEyebrow">ALUMINUM SIDING & SOFFIT</span>
+      <h1>Longboard® Tongue & Groove</h1>
+      <p>An elegant and adaptable aluminum plank system for architectural cladding, siding and soffit applications.</p>
+      <div className="longboardHeroActions"><Link href="/contact" className="btn longboardPrimaryBtn">Get a Quote <ArrowUpRight size={15}/></Link><Link href="/contact" className="btn longboardSecondaryBtn">Request a Sample</Link></div>
+    </div>
+  </section>
+
+  <section className="fastPlankIntro"><div className="wrap fastPlankSplit">
+    <div className="fastPlankCopy">
+      <span className="fastPlankEyebrow">LONGBOARD® TONGUE & GROOVE</span>
+      <h2>Architectural aluminum for adaptable applications.</h2>
+      <p>The Longboard® Tongue & Groove aluminum plank system offers an elegant and adaptable cladding and soffit solution. Crafted from 100% extruded architectural aluminum, it is lightweight, non-combustible and highly resistant to weather conditions for long-lasting performance.</p>
+      <p>Designed for both interior and exterior applications, the system complements projects of different scales. Planks are available in 24-foot lengths and can be customized in a pre-fabrication facility or directly on site to suit project requirements.</p>
+      <p>For additional design flexibility, the planks can be installed in either a horizontal or vertical orientation.</p>
+    </div>
+    <div className="fastPlankIntroImage"><Image src="/images/exterior-systems/longboard/longboard-tongue-groove-aluminum-cladding-project.webp" alt="Longboard Tongue and Groove aluminum cladding installed on a commercial building" fill sizes="(max-width: 900px) 100vw, 44vw"/></div>
+  </div></section>
+
+  <section className="fastPlankInstall"><div className="wrap fastPlankSplit fastPlankSplitReverse">
+    <div className="longboardTechnicalImage"><Image src="/images/exterior-systems/longboard/longboard-tongue-groove-system-specifications.webp" alt="Longboard Tongue and Groove aluminum cladding system specifications and installation details" fill sizes="(max-width: 900px) 100vw, 48vw"/></div>
+    <div className="fastPlankCopy">
+      <span className="fastPlankEyebrow">SYSTEM DETAILS</span>
+      <h2>Tongue & Groove cladding system.</h2>
+      <p>The system combines extruded aluminum planks with coordinated attachment and finishing components for siding and soffit applications.</p>
+      <p>Its range of plank configurations supports different joint expressions, ventilation requirements and architectural design intents.</p>
+    </div>
+  </div></section>
+
+  <section className="fastPlankProfiles"><div className="wrap">
+    <div className="fastPlankSectionHead"><span className="fastPlankEyebrow">PROFILE COLLECTION</span><h2>Plank profiles for design flexibility.</h2></div>
+    <div className="longboardFullDiagram"><Image src="/images/exterior-systems/longboard/longboard-aluminum-profile-collection.png" alt="Longboard aluminum V-Groove, Smooth, Channel, Perforated, Bevel, Castellation and Quick Screen profiles" fill sizes="(max-width: 760px) 100vw, 90vw"/></div>
+  </div></section>
+
+  <section className="fastPlankTrims"><div className="wrap fastPlankTrimGrid">
+    <div className="fastPlankCopy"><span className="fastPlankEyebrow">TRIM COMPONENTS</span><h2>Coordinated trims that complete the system.</h2><p>Longboard trim components provide coordinated solutions for corners, transitions, terminations and other installation conditions.</p></div>
+    <div className="fastPlankTrimImage"><Image src="/images/exterior-systems/longboard/longboard-aluminum-trim-components.png" alt="Longboard aluminum trim components, dimensions and profile options" fill sizes="(max-width: 900px) 100vw, 56vw"/></div>
+  </div></section>
+
+  <section className="fastPlankColours"><div className="wrap">
+    <div className="fastPlankColourIntro">
+      <span className="fastPlankEyebrow">SUPERIOR FINISHES</span>
+      <h2>Premium finishes for lasting performance.</h2>
+      <p>Longboard cladding products and systems are coated with premium AAMA 2604/2605-certified powder finishes for durability and longevity. The finish range can replicate the appearance of wood, stone, brick, terracotta and aged metals.</p>
+      <p>High-performance coatings provide protection against wear and environmental factors. Advanced pre-treatment processes meet stringent industry standards and are free from chromates, cyanides, phosphates and other EPA/OSHA-regulated metals.</p>
+    </div>
+    <div className="longboardFinishDiagram"><Image src="/images/exterior-systems/longboard/longboard-aluminum-colour-finishes.png" alt="Longboard architectural aluminum woodgrain, solid and specialty colour finishes" fill sizes="(max-width: 760px) 100vw, 90vw"/></div>
+  </div></section>
+
+  <section className="fastPlankExpert"><div className="wrap fastPlankExpertInner">
+    <div><span className="fastPlankEyebrow">SPEAK WITH AN EXPERT</span><h2>Get personalized advice and expert guidance.</h2><p>Talk with CladCan about Longboard profiles, finishes, samples and project requirements.</p></div>
+    <Link href="/contact" className="btn internalRedBtn">Speak with an Expert <ArrowUpRight size={15}/></Link>
+  </div></section>
 </main>}
