@@ -15,6 +15,14 @@
   background-repeat:no-repeat!important;
 }
 
+/* FastPlank's source image is taller than the hero frame. Fit the complete
+ * photo to the fixed hero dimensions without crop, zoom or empty bands. */
+.fastPlankHero .internalHeroImage{
+  background-size:100% 100%,100% 100%!important;
+  background-position:center center,center center!important;
+  background-repeat:no-repeat,no-repeat!important;
+}
+
 .exteriorSystemDetailHero :is(
   .internalHeroCopy,
   .aluminumPageHeroContent,

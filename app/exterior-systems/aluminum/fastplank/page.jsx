@@ -5,6 +5,7 @@ export default function Page(){
 	return (
 		<CurrentSitePage
 			title={"FastPlank\u00ae Superior Siding & Soffit"}
+			heroClassName="fastPlankHero"
 			image="/images/exterior-systems/fastplank-aluminum-siding-soffit-hero.webp"
 			intro={"An aluminium plank cladding and soffit system engineered for straightforward installation, strong visual presence and low ongoing maintenance."}
 			overview={"FastPlank is an interlocking aluminium plank system used for both wall cladding and soffit applications where contractors and designers want a clean, linear appearance with rapid on-site assembly. The system is supplied in long planks that interlock or snap together to reduce visible seams and speed installation. FastPlank is well suited to new construction and re-cladding projects where a lightweight, non-combustible finish is desirable. Designers commonly choose FastPlank where consistent panel runs, narrow reveal patterns or woodgrain-effect finishes are required while retaining an engineered metal substrate."}

@@ -3,7 +3,7 @@ import ViewToggleCollection from "@/components/ViewToggleCollection";
 import SystemVisualGallery from "@/components/SystemVisualGallery";
 import { getVisuals } from "@/data/visualCatalog";
 
-export default function CurrentSitePage({eyebrow="EXTERIOR SYSTEMS",title,intro,image,images=[],overview,items=[],note,decisionSupport=[]}){
+export default function CurrentSitePage({eyebrow="EXTERIOR SYSTEMS",title,intro,image,images=[],overview,items=[],note,decisionSupport=[],heroClassName=""}){
   const pageVisuals = images.length ? images : getVisuals(title);
   const heroImage = image || pageVisuals[0];
   // Note: automated source-pack population removed to avoid injection of raw source content.
@@ -16,7 +16,7 @@ export default function CurrentSitePage({eyebrow="EXTERIOR SYSTEMS",title,intro,
   ];
 
   return <>
-    <section className="internalHero exteriorSystemDetailHero">
+    <section className={`internalHero exteriorSystemDetailHero ${heroClassName}`.trim()}>
       <div className="internalHeroImage" style={{backgroundImage:`linear-gradient(90deg,rgba(13,18,23,.90),rgba(13,18,23,.40)),url("${heroImage}")`}} />
       <div className="wrap internalHeroCopy"><span>{eyebrow}</span><h1>{title}</h1><p>{intro}</p><div className="heroActions"><Link href="/contact" className="btn internalRedBtn">Get a Quote →</Link><Link href="/contact" className="btn lineBtn">Request Sample</Link></div></div>
     </section>
