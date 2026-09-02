@@ -6,7 +6,7 @@ export default function InternalLanding({
 }){
  return <>
   <section className="internalHero">
-    <div className="internalHeroImage" style={{backgroundImage:`linear-gradient(90deg,rgba(13,18,23,.90),rgba(13,18,23,.40)),url("${image}")`}}/>
+    <div className="internalHeroImage" style={{backgroundImage:`url("${image}")`}}/>
     <div className="wrap internalHeroCopy">
       <span>{eyebrow}</span>
       <h1>{title}</h1>

@@ -1,0 +1,176 @@
+/* Final site-wide split hero system. Home is intentionally excluded. */
+:root{
+  --site-hero-height:clamp(640px,78svh,760px);
+  --site-hero-copy:40%;
+  --site-hero-media:60%;
+  --site-hero-navy:#071a29;
+  --site-hero-pad-x:clamp(42px,5.8vw,108px);
+}
+
+:is(
+  .contactFinalHero,.aboutV8Hero,.serviceV9Hero,.servicesHero,.systemsPageHero,
+  .internalHero,.aluminumPageHero,.longboardHero,.applicationHero,.productDetailHero,
+  .projectsV11Hero,.caseV11Hero,.insightsHero,.caseHero,.articleHero,.privacyHero
+){
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  height:var(--site-hero-height)!important;
+  min-height:var(--site-hero-height)!important;
+  max-height:var(--site-hero-height)!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background-color:var(--site-hero-navy)!important;
+  color:#fff!important;
+}
+
+/* Background-based legacy heroes keep their photograph exclusively on the right. */
+:is(.servicesHero,.systemsPageHero,.caseV11Hero,.insightsHero,.caseHero,.privacyHero){
+  background-size:var(--site-hero-media) 100%!important;
+  background-position:right center!important;
+  background-repeat:no-repeat!important;
+}
+
+/* Every real media node occupies the same independent 60% image column. */
+:is(
+  .contactFinalHeroVisual,.aboutV8HeroVisual,.serviceV9HeroMedia,.internalHeroImage,
+  .articleHeroImage,.projectsV11HeroBackdrop,.privacyHeroImage,.exteriorSystemHeroMedia
+){
+  position:absolute!important;
+  inset:0 0 0 var(--site-hero-copy)!important;
+  z-index:0!important;
+  display:block!important;
+  width:var(--site-hero-media)!important;
+  height:100%!important;
+  min-height:0!important;
+  max-height:none!important;
+  margin:0!important;
+  background-size:cover!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+  transform:none!important;
+}
+
+:is(.contactFinalHeroVisual,.serviceV9HeroMedia,.projectsV11HeroBackdrop) img,
+:is(.contactFinalHeroVisual,.serviceV9HeroMedia) > img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  transform:none!important;
+}
+.aboutV8HeroVisual{background-image:url('/images/before-after/gray-lane-barrie-after.jpg')!important}
+.serviceV9HeroMedia>div{display:none!important}
+
+/* Only a narrow seam is shaded; the photograph itself stays clear. */
+:is(
+  .contactFinalHero,.aboutV8Hero,.serviceV9Hero,.servicesHero,.systemsPageHero,
+  .internalHero,.aluminumPageHero,.longboardHero,.applicationHero,.productDetailHero,
+  .projectsV11Hero,.caseV11Hero,.insightsHero,.caseHero,.articleHero,.privacyHero
+)::after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  display:block!important;
+  pointer-events:none!important;
+  background:linear-gradient(90deg,var(--site-hero-navy) 0%,var(--site-hero-navy) 38%,rgba(7,26,41,.74) 40%,rgba(7,26,41,0) 43%)!important;
+}
+
+:is(
+  .servicesHeroShade,.systemsPageHeroShade,.contactFinalHeroShade,.aluminumPageHeroOverlay,
+  .longboardHeroOverlay,.applicationHeroOverlay,.productDetailHeroOverlay
+){display:none!important}
+
+/* Standard text column. */
+:is(
+  .contactFinalHeroInner,.aboutV8HeroInner,.serviceV9HeroGrid,.servicesHeroInner,
+  .systemsPageHeroInner,.internalHeroCopy,.aluminumPageHeroContent,.longboardHeroContent,
+  .applicationHeroContent,.productDetailHeroContent,.articleHeroCopy,.privacyHeroInner
+){
+  position:relative!important;
+  z-index:2!important;
+  box-sizing:border-box!important;
+  width:var(--site-hero-copy)!important;
+  max-width:none!important;
+  height:100%!important;
+  min-height:100%!important;
+  max-height:100%!important;
+  margin:0!important;
+  padding:clamp(170px,22vh,210px) 34px 48px var(--site-hero-pad-x)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-start!important;
+}
+
+/* Wrappers that previously created a second full-width layout. */
+.contactFinalHeroGrid.wrap{
+  display:block!important;width:100%!important;max-width:none!important;height:100%!important;
+  min-height:100%!important;margin:0!important;padding:0!important;
+}
+.aboutV8Hero{display:block!important}
+.serviceV9Hero{display:block!important}
+.serviceV9HeroGrid>div{width:100%!important;max-width:none!important}
+.serviceV9HeroGrid>div+div{margin-top:18px!important;padding:0!important}
+
+:is(.projectsV11Hero,.caseV11Hero,.insightsHero)>.wrap,
+.caseHero>.wrap{
+  position:relative!important;z-index:2!important;width:var(--site-hero-copy)!important;
+  max-width:none!important;height:100%!important;min-height:100%!important;margin:0!important;
+  padding:clamp(170px,22vh,210px) 34px 48px var(--site-hero-pad-x)!important;box-sizing:border-box!important;
+}
+:is(.projectsV11HeroGrid,.caseV11HeroGrid,.insightsHeroGrid){
+  display:flex!important;flex-direction:column!important;justify-content:flex-start!important;
+  width:100%!important;height:auto!important;min-height:0!important;gap:18px!important;
+}
+:is(.projectsV11HeroGrid,.caseV11HeroGrid,.insightsHeroGrid)>div{
+  width:100%!important;max-width:none!important;min-height:0!important;height:auto!important;
+  margin:0!important;padding:0!important;
+}
+.projectsV11Crumb{display:none!important}
+
+:is(
+  .contactFinalHero,.aboutV8Hero,.serviceV9Hero,.servicesHero,.systemsPageHero,
+  .internalHero,.aluminumPageHero,.longboardHero,.applicationHero,.productDetailHero,
+  .projectsV11Hero,.caseV11Hero,.insightsHero,.caseHero,.articleHero,.privacyHero
+) h1{
+  width:100%!important;max-width:560px!important;margin:0 0 20px!important;
+  font-size:clamp(42px,4vw,64px)!important;line-height:.96!important;letter-spacing:-.025em!important;
+}
+
+@media(max-width:760px){
+  :root{--site-hero-height:780px}
+  :is(
+    .contactFinalHeroVisual,.aboutV8HeroVisual,.serviceV9HeroMedia,.internalHeroImage,
+    .articleHeroImage,.projectsV11HeroBackdrop,.privacyHeroImage,.exteriorSystemHeroMedia
+  ){
+    inset:0 0 auto 0!important;width:100%!important;height:40%!important;
+    min-height:0!important;aspect-ratio:auto!important;
+  }
+  :is(.servicesHero,.systemsPageHero,.caseV11Hero,.insightsHero,.caseHero,.privacyHero){
+    background-size:100% 40%!important;background-position:center top!important;
+  }
+  :is(
+    .contactFinalHero,.aboutV8Hero,.serviceV9Hero,.servicesHero,.systemsPageHero,
+    .internalHero,.aluminumPageHero,.longboardHero,.applicationHero,.productDetailHero,
+    .projectsV11Hero,.caseV11Hero,.insightsHero,.caseHero,.articleHero,.privacyHero
+  )::after{
+    background:linear-gradient(180deg,rgba(7,26,41,0) 0%,rgba(7,26,41,0) 36%,rgba(7,26,41,.74) 40%,var(--site-hero-navy) 44%,var(--site-hero-navy) 100%)!important;
+  }
+  :is(
+    .contactFinalHeroInner,.aboutV8HeroInner,.serviceV9HeroGrid,.servicesHeroInner,
+    .systemsPageHeroInner,.internalHeroCopy,.aluminumPageHeroContent,.longboardHeroContent,
+    .applicationHeroContent,.productDetailHeroContent,.articleHeroCopy,.privacyHeroInner
+  ),
+  :is(.projectsV11Hero,.caseV11Hero,.insightsHero)>.wrap,
+  .caseHero>.wrap{
+    width:100%!important;max-width:none!important;height:100%!important;min-height:100%!important;
+    padding:350px 22px 34px!important;
+  }
+  :is(
+    .contactFinalHero,.aboutV8Hero,.serviceV9Hero,.servicesHero,.systemsPageHero,
+    .internalHero,.aluminumPageHero,.longboardHero,.applicationHero,.productDetailHero,
+    .projectsV11Hero,.caseV11Hero,.insightsHero,.caseHero,.articleHero,.privacyHero
+  ) h1{font-size:clamp(38px,10.5vw,50px)!important;line-height:.98!important}
+}
