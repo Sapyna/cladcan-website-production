@@ -33,9 +33,10 @@ const insights=[
 
 function ProjectCard({p,i}){
  return <Link href={p.href} className={(i===0||i===3)?"homeProjectCard homeProjectLead":"homeProjectCard"}>
-   <div className="homeProjectImage" style={{background:"#f3f5f6"}}>
-    <img src={p.image} alt={p.alt} style={{width:"100%",height:"100%",objectFit:p.fit||"cover",objectPosition:"center",display:"block",background:p.fit==="contain"?"#e3e6e5":"transparent"}}/>
-    <span>{p.type}</span>
+   <div className="homeProjectImage" style={{position:"relative",overflow:"hidden",background:"#f3f5f6"}}>
+    {p.fit==="contain"&&<img src={p.image} alt="" aria-hidden="true" style={{position:"absolute",inset:"-20px",width:"calc(100% + 40px)",height:"calc(100% + 40px)",objectFit:"cover",filter:"blur(18px)",transform:"scale(1.08)",opacity:.55}}/>}
+    <img src={p.image} alt={p.alt} style={{position:"relative",zIndex:1,width:"100%",height:"100%",objectFit:p.fit||"cover",objectPosition:"center",display:"block"}}/>
+    <span style={{zIndex:2}}>{p.type}</span>
    </div>
    <div className="homeProjectCopy"><small>{p.location}</small><h3>{p.title}</h3><p>{p.copy}</p><strong>View projects <ArrowUpRight size={13}/></strong></div>
   </Link>;
