@@ -1,12 +1,15 @@
-import CurrentSitePage from "@/components/CurrentSitePage";
-export const metadata={title:"Exposed Fastener Steel Systems | CladCan",description:"Explore exposed-fastener corrugated and ribbed steel siding and soffit profiles."};
-const items=[
- {title:'7/8" Corrugated',href:"/exterior-systems/steel/corrugated",text:"Architectural corrugated steel with exposed fastening for walls, soffits and robust exterior applications."},
- {title:"Century Rib",text:"Exposed-fastener rib profile available for project-specific wall and roof applications."},
- {title:"Ultima",text:"Ribbed exposed-fastener steel profile for economical commercial, agricultural and industrial envelope applications."},
- {title:"Trius",text:"Exposed-fastener steel profile suited to practical wall and roof applications."},
- {title:"Diamond Rib",text:"Ribbed steel profile offering pronounced linear expression and efficient installation."},
- {title:"Nordet 36",text:"Wide-module exposed-fastener profile for large-area cladding and roofing applications."},
- {title:"Optimum Rib",text:"Economical ribbed steel panel option for durable exterior envelope applications."}
-];
-export default function Page(){return <CurrentSitePage eyebrow="STEEL / EXPOSED FASTENER" title="Exposed Fastener Steel" intro="Strong, straightforward and cost-efficient steel systems with visible fastening and a broad selection of corrugated and ribbed profiles." overview="Exposed-fastener systems are commonly selected where durability, installation efficiency and an industrial architectural expression are priorities." items={items}/>;}
+import ProductPage from "@/components/ProductPage";
+export const metadata={title:"Exposed Fastener Steel Siding & Soffit | CladCan",description:"Explore corrugated and ribbed exposed-fastener steel panels for commercial, industrial, agricultural and residential applications."};
+export default function Page(){return <ProductPage
+  eyebrow="STEEL SIDING & SOFFIT"
+  title="Exposed Fastener"
+  subtitle="Direct attachment. Strong profile. Efficient coverage."
+  intro="Exposed-fastener steel panels use colour-matched screws installed through the face of the panel into the supporting substrate. The system offers straightforward installation, economical large-area coverage and a distinct architectural rhythm for walls, roofs, soffits and utility buildings."
+  images={["/images/content/corrugated-commercial.webp","/images/content/corrugated-canopy.webp","/images/content/exposed-fastener-project.webp"]}
+  specs={[{label:"Fastening",value:"Face-fastened with compatible exposed screws"},{label:"Profile families",value:"Corrugated and ribbed steel panels"},{label:"Orientation",value:"Vertical or horizontal, profile and assembly dependent"},{label:"Typical sectors",value:"Commercial, industrial, agricultural and residential"},{label:"Finish options",value:"Standard, custom and wood-look colours, product dependent"},{label:"Coordination",value:"Substrate, laps, fasteners, closures and perimeter trims"}]}
+  benefits={[{title:"Installation efficiency",text:"Direct face fastening supports efficient installation across large wall, roof and soffit areas."},{title:"Economical coverage",text:"Broad panel modules and practical attachment make the system suitable for cost-conscious envelope scopes."},{title:"Profile variety",text:"Corrugated and ribbed patterns offer different depths, shadow lines and architectural expressions."},{title:"Serviceable assembly",text:"Visible fasteners and laps make attachment points straightforward to inspect during maintenance."}]}
+  applications={["Commercial and industrial wall cladding","Agricultural and utility buildings","Residential feature walls and soffits","Canopies and accessory structures","Roofing applications where the selected profile is approved"]}
+  components={[{title:'7/8″ Corrugated',detail:"A flowing exposed-fastener profile valued for its consistent shadow line and architectural versatility."},{title:"Century Rib",detail:"Ribbed steel profile for practical wall and roof applications."},{title:"Ultima",detail:"Economical ribbed profile for commercial, agricultural and industrial envelopes."},{title:"Trius",detail:"Exposed-fastener steel panel suited to wall and roof applications."},{title:"Diamond Rib",detail:"Pronounced rib geometry creates strong linear expression and efficient coverage."},{title:"Nordet 36",detail:"Wide-module profile developed for large cladding and roofing areas."},{title:"Optimum Rib",detail:"Straightforward ribbed steel panel for durable exterior-envelope applications."},{title:"Fasteners & Closures",detail:"Colour-matched screws, sealants and profile-compatible closures complete the assembly."}]}
+  finishes={["Perspectra Plus Series solid colours","Greyscale architectural colours","Wood-look finishes, profile dependent","Galvanized and Galvalume substrates, product dependent","Standard and custom colours"]}
+  relatedProducts={[{type:"STEEL SYSTEM",title:"Hidden Fastener",description:"Concealed attachment for a cleaner uninterrupted appearance.",href:"/exterior-systems/steel/hidden-fastener"},{type:"ATTACHMENT",title:"Thermal Clips",description:"Coordinate thermally improved sub-framing with the selected cladding assembly.",href:"/exterior-systems/steel/thermal-clips"},{type:"CUSTOM METAL",title:"Trims & Flashings",description:"Complete panel edges, openings and transitions.",href:"/exterior-systems/steel/trims-flashings"}]}
+/>}

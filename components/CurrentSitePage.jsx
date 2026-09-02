@@ -30,7 +30,7 @@ export default function CurrentSitePage({eyebrow="EXTERIOR SYSTEMS",title,intro,
           </div>
         ))}
       </div>
-      {items.length>0 && <ViewToggleCollection items={items.map((x,i)=>({number:String(i+1).padStart(2,"0"),title:x.title,subtitle:x.subtitle,description:x.text,href:x.href,linkLabel:x.linkLabel||"View Product"}))} />}
+      {items.length>0 && <ViewToggleCollection items={items.map((x,i)=>({number:String(i+1).padStart(2,"0"),title:x.title,subtitle:x.subtitle,description:x.text,href:x.href,image:x.image,tags:x.tags,linkLabel:x.linkLabel||"View Product"}))} />}
       {note&&<p style={{marginTop:28,maxWidth:900}}>{note}</p>}
     </div></section>
     <SystemVisualGallery title={title} images={pageVisuals} />
