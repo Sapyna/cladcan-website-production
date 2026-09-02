@@ -18,7 +18,7 @@ const systems=[
 
 const featuredProjects=[
   {type:"In Progress",title:"North York",location:"North York, ON",copy:"Residential exterior work in progress with coordinated façade, window and envelope detailing.",image:"/images/projects/in-progress-eglinton.jpg",alt:"Residential exterior cladding project in progress in North York, Ontario",href:"/projects"},
-  {type:"In Progress",title:"Toronto",location:"Toronto, ON",copy:"Active exterior envelope and aluminum composite panel installation documented during construction.",image:"/images/projects/in-progress-adelaide-rd.jpg",alt:"Aluminum composite panel and building envelope project in progress in Toronto, Ontario",href:"/projects"},
+  {type:"In Progress",title:"Toronto",location:"Toronto, ON",copy:"Active exterior envelope and aluminum composite panel installation documented during construction.",image:"/images/projects/in-progress-adelaide-rd.jpg",alt:"Aluminum composite panel and building envelope project in progress in Toronto, Ontario",fit:"contain",href:"/projects"},
   {type:"In Progress",title:"North York",location:"North York, ON",copy:"Current cladding installation showing the building envelope and panel work before final completion.",image:"/images/projects/in-progress-toronto.jpg",alt:"Cladding and building envelope installation in progress in North York, Ontario",href:"/projects"},
   {type:"In Progress",title:"Acton",location:"Acton, ON",copy:"Active CladCan exterior project currently progressing through field installation and envelope work.",image:"/images/projects/cladcan-acton-exterior-cladding-project.jpeg",alt:"CladCan exterior cladding project in progress in Acton, Ontario",href:"/projects"},
   {type:"In Progress",title:"Stratford",location:"Stratford, ON",copy:"Exterior construction in progress with coordinated cladding and building envelope installation.",image:"/images/projects/cladcan-stratford-exterior-cladding-project.jpeg",alt:"CladCan exterior cladding and building envelope project in progress in Stratford, Ontario",href:"/projects"},
@@ -34,7 +34,7 @@ const insights=[
 function ProjectCard({p,i}){
  return <Link href={p.href} className={(i===0||i===3)?"homeProjectCard homeProjectLead":"homeProjectCard"}>
    <div className="homeProjectImage" style={{background:"#f3f5f6"}}>
-    <img src={p.image} alt={p.alt} style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center",display:"block"}}/>
+    <img src={p.image} alt={p.alt} style={{width:"100%",height:"100%",objectFit:p.fit||"cover",objectPosition:"center",display:"block",background:p.fit==="contain"?"#e3e6e5":"transparent"}}/>
     <span>{p.type}</span>
    </div>
    <div className="homeProjectCopy"><small>{p.location}</small><h3>{p.title}</h3><p>{p.copy}</p><strong>View projects <ArrowUpRight size={13}/></strong></div>
