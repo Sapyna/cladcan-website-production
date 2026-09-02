@@ -18,7 +18,7 @@ export default function GoogleReviews(){
     <b>Google Reviews are temporarily unavailable.</b>
     <span>Please visit our Google Business Profile to read current customer feedback.</span>
   </div>;
-  if(data.error) return <div className="reviewStatus"><b>Google Reviews temporarily unavailable.</b><span>Please check back shortly or view our reviews directly on Google.</span></div>;
+  if(data.error && !(data.reviews||[]).length) return <div className="reviewStatus"><b>Google Reviews temporarily unavailable.</b><span>Please check back shortly or view our reviews directly on Google.</span></div>;
 
   const reviews=(data.reviews||[]).filter(r=>Number(r.rating)===5);
   return <div className="googleReviewsBlock">
@@ -33,7 +33,7 @@ export default function GoogleReviews(){
     </div>
     {reviews.length===0?<div className="reviewStatus"><span>No five-star reviews are available to display right now.</span></div>:
     <div className="reviewGrid">
-      {reviews.slice(0,6).map((r,i)=><article className="reviewCard" key={`${r.author_name}-${r.time}-${i}`}>
+      {reviews.map((r,i)=><article className="reviewCard" key={`${r.id||r.author_name}-${r.create_time||r.time||i}`}>
         <div className="reviewStars smallStars">{[1,2,3,4,5].map(j=><Star key={j} size={13} fill="currentColor"/>)}</div>
         <blockquote>“{r.text}”</blockquote>
         <div className="reviewPerson">
