@@ -37,7 +37,7 @@ export default function AcmAcpPage() {
   return (
     <article className="acmPage">
       <section className="internalHero exteriorSystemDetailHero acmStandardHero">
-        <div className="internalHeroImage exteriorSystemHeroMedia acmStandardHeroMedia" style={{backgroundImage:"url('/images/source-library/acm-acp/hero.webp')"}} />
+        <div className="internalHeroImage exteriorSystemHeroMedia acmStandardHeroMedia" style={{backgroundImage:"url('/images/exterior-systems/acm-acp/acm-aluminum-composite-panel-residential-hero.webp')"}} />
         <div className="wrap internalHeroCopy">
           <span>ALUMINUM COMPOSITE MATERIAL</span>
           <h1>ACM / ACP Aluminum Composite Panels</h1>

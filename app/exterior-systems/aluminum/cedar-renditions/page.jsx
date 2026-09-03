@@ -61,7 +61,7 @@ export default function CedarRenditionsPage(){return <main className="fastPlankP
     <div className="fastPlankSectionHead"><span className="fastPlankEyebrow">PROFILE OPTIONS</span><h2>A coordinated family for siding and soffit.</h2></div>
     <div className="fastPlankProfileGrid">{profiles.map(profile=><article key={profile.code}><div className="fastPlankProfileBody"><span>{profile.code}</span><h3>{profile.title}</h3><p>{profile.text}</p></div></article>)}</div>
     <figure className="cedarProfileImage">
-      <img src="/images/exterior-systems/cedar-renditions/cedar-renditions-complete-siding-soffit-profile-guide.png" alt="Complete Cedar Renditions aluminum siding, soffit, board and batten, trim and accessory profile guide" width="1380" height="1798" loading="lazy"/>
+      <img src="/images/exterior-systems/cedar-renditions/cedar-renditions-complete-siding-soffit-profile-guide.webp" alt="Complete Cedar Renditions aluminum siding, soffit, board and batten, trim and accessory profile guide" width="1957" height="2550" loading="lazy"/>
     </figure>
   </div></section>
 

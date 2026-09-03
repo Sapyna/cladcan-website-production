@@ -16,7 +16,7 @@ const exteriorSystems = [
   ["PVC", "/exterior-systems/pvc"],
   ["WPC", "/exterior-systems/wpc"],
   ["Trims & Flashings", "/exterior-systems/trims-flashings"],
-  ["Thin Veneer Siding & Soffit", "/exterior-systems/thin-veneer"],
+  ["Thin Stone & Brick Veneer", "/exterior-systems/thin-veneer"],
   ["Eavestroughs & Downpipes", "/exterior-systems/eavestroughs-downpipes"],
 ];
 

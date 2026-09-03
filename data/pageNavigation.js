@@ -8,7 +8,7 @@ export const ROUTE_LABELS = {
   "pvc":"PVC",
   "wpc":"WPC",
   "trims-flashings":"Trims & Flashings",
-  "thin-veneer":"Thin Veneer",
+  "thin-veneer":"Thin Stone & Brick Veneer",
   "eavestroughs-downpipes":"Eavestroughs & Downpipes",
   "natural-wood":"Natural Wood",
   "architectural-battens":"Architectural Battens",

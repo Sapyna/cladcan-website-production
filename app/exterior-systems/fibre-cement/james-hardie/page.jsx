@@ -5,7 +5,7 @@ export const metadata={title:"James Hardie Fibre Cement Siding & Soffit",descrip
 const data={
   brand:"James Hardie",
   tagline:"Climate-engineered fibre cement siding, panels, trim and soffit with durable factory-finished colour options.",
-  hero:"/images/source-library/fibre-cement/james-hardie/hero.webp",
+  hero:"/images/exterior-systems/fibre-cement/james-hardie-fibre-cement-modern-home-hero.webp",
   featureImage:"/images/source-library/fibre-cement/james-hardie/detail-01.webp",
   intro:{title:"Built to last. Designed to feel at home.",paragraphs:["James Hardie combines fibre cement durability with familiar residential profiles and contemporary panel options. Its collections support traditional lap siding, modern vertical layouts, textured architectural panels and coordinated exterior details.","Products are engineered around regional climate demands and are available in primed or factory-finished configurations. CladCan helps align the chosen profile, finish and installation details with the project’s envelope requirements."]},
   benefits:[

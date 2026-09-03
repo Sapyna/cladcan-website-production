@@ -9,7 +9,7 @@ export const metadata={
 
 export default function LongboardPage(){return <main className="fastPlankPage longboardProductPage">
   <section className="longboardHero exteriorSystemDetailHero">
-    <div className="exteriorSystemHeroMedia" style={{backgroundImage:"url('/images/source-library/aluminum/longboard/hero.webp')"}}/>
+    <div className="exteriorSystemHeroMedia" style={{backgroundImage:"url('/images/exterior-systems/longboard/longboard-tongue-groove-aluminum-cladding-project.webp')"}}/>
     <div className="wrap longboardHeroContent">
       <span className="longboardEyebrow">ALUMINUM SIDING & SOFFIT</span>
       <h1>Longboard® Tongue & Groove</h1>
