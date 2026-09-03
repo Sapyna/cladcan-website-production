@@ -1,12 +1,10 @@
 import CurrentSitePage from "@/components/CurrentSitePage";
 
-export const metadata={title:"Steel Siding & Soffit | CladCan",description:"Explore exposed-fastener, hidden-fastener, thermal clip, trim and flashing systems for steel siding and soffit projects in Ontario."};
+export const metadata={title:"Steel Siding & Soffit | CladCan",description:"Explore exposed-fastener and hidden-fastener steel siding and soffit systems, complete with thermal clips, trims and flashings for Ontario projects."};
 
 const items=[
   {title:"Exposed Fastener",subtitle:"EF STEEL SIDING & SOFFIT",href:"/exterior-systems/steel/exposed-fastener",image:"/images/content/corrugated-commercial.webp",tags:["Corrugated","Ribbed profiles","Visible fasteners"],text:"Cost-efficient steel wall, roof and soffit panels with intentionally visible fasteners, including corrugated and ribbed profiles."},
-  {title:"Hidden Fastener",subtitle:"HF STEEL SIDING & SOFFIT",href:"/exterior-systems/steel/hidden-fastener",image:"/images/content/agway-siding-project.webp",tags:["HF-12","HF-8","Galanta","Stratus"],text:"Concealed-fastener steel profiles create clean architectural lines for siding, fascia, feature walls and soffits."},
-  {title:"Thermal Clips",subtitle:"SUB-FRAMING & ATTACHMENT",href:"/exterior-systems/steel/thermal-clips",image:"/images/exterior-systems/fastplank/fastplank-clip-slide-installation-system.webp",tags:["Thermal separation","Sub-framing","Coordination"],text:"Thermally improved attachment components support exterior cladding while helping reduce direct conductive paths through the wall assembly."},
-  {title:"Trims & Flashings",subtitle:"CUSTOM FORMED METAL",href:"/exterior-systems/steel/trims-flashings",image:"/images/exterior-systems/custom-metal-trims-flashings.jpg",tags:["Corners","Jambs","Coping"],text:"Custom-bent flashings, closures and trims complete corners, openings, transitions, parapets and system terminations."}
+  {title:"Hidden Fastener",subtitle:"HF STEEL SIDING & SOFFIT",href:"/exterior-systems/steel/hidden-fastener",image:"/images/content/agway-siding-project.webp",tags:["HF-12","HF-8","Galanta","Stratus"],text:"Concealed-fastener steel profiles create clean architectural lines for siding, fascia, feature walls and soffits."}
 ];
 
 export default function Page(){return <CurrentSitePage
