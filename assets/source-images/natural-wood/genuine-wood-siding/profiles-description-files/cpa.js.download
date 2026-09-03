@@ -1,0 +1,1671 @@
+
+(function () {
+  window.adlineConfig = {
+    domain: '.maibec.com',
+    serverUrl: 'https://t.adline.com/track.php',
+    trackingUrl: 'https://t.adline.com/stats',
+    clientProdUrl: 'https://prod.adline.com/',
+    customerId: 'LGk5ixWzuNTCG4n0TGbQ',
+    heatmapUrl: 'https://t.adline.com/heatmap',
+    startTime: Date.now(),
+    googlePixelConfig: {
+      google_async_code: "",
+      google_script_code: ""
+    },
+    fbPixelConfig: {
+      facebook_pixel_script_code: "",
+      facebook_pixel_noscript_code: "",
+      domain_validate_facebook_meta: null
+    },
+    duration: {
+      adl_session_id: 30 * 60, // in sec
+      adl: 365 * 24 * 60 * 60, // visitorId in sec
+      lndcAttr: 30 * 24 * 60 * 60, // in sec
+    },
+    generatedElements: new Set(),
+    clickMapMode: false
+  };
+})();
+
+(function urlListener(window) {
+  const location = window.location;
+
+  let oldPathname = location.pathname;
+  let oldURL = location.href;
+
+  setInterval(function () {
+    const newPathname = location.pathname;
+    const newURL = location.href;
+    if (oldPathname !== newPathname) {
+      const event = new CustomEvent('onurlchanged', {
+        detail: {
+          oldURL: oldURL,
+          newURL: newURL,
+        },
+      });
+      window.dispatchEvent(event);
+      oldPathname = newPathname;
+      oldURL = newURL;
+    }
+  }, 300);
+})(window);
+
+(function adlineHelpers(window) {
+
+  function getConversion(value1, value2) {
+    const value = +value2 ? +value1 / +value2 : 0;
+    return value ? (Math.round((value * 10000)) / 100) : value;
+  }
+
+  function getDevice() {
+    const ua = navigator.userAgent;
+    const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua) && 'M';
+    const tablet = /Tablet|iPad/i.test(ua) && 'T';
+    return tablet || mobile || 'D';
+  }
+
+  function getTime() { // in seconds
+    return Math.round(Date.now() / 1000);
+  }
+
+  function getDateToString(sec) {
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const dateObj = new Date(sec * 1000);
+    const month = monthNames[dateObj.getMonth()];
+    const day = dateObj.getDate();
+    const year = dateObj.getFullYear();
+    return day + ' ' + month;
+  }
+
+  function getHeatMapFilter() {
+    const data = sessionStorage.getItem('adl_heat_map');
+    return data && JSON.parse(data);
+  }
+
+  function setCookie(name, value, days = 30) {
+    const date = new Date();
+    date.setTime(date.getTime() + (window.adlineConfig.duration[name] || days * 24 * 60 * 60) * 1000);
+    const expires = date.toUTCString();
+    const data = typeof value === "object" ? JSON.stringify(value) : '' + value;
+    document.cookie = name + '=' + data + '; expires' + expires + '; path=/; domain=' + (window.adlineConfig.domain || '');
+    return data;
+  }
+
+  function getCookie(name, load = false) {
+    const nameEQ = name + '=';
+    const ca = document.cookie.split(';');
+    for (let c of ca) {
+      while (c.charAt(0) === ' ') {
+        c = c.substring(1, c.length);
+      }
+      if (c.indexOf(nameEQ) === 0) {
+        let value = c.substring(nameEQ.length, c.length);
+        try {
+          value = JSON.parse(value);
+        } catch (e) {
+        }
+        if (load) {
+          setCookie(name, value);
+        }
+        return value;
+      }
+    }
+    return null;
+  }
+
+  function deleteCookie(name) {
+    document.cookie = `${name}=;path=/;domain=.${(window.adlineConfig.domain || '')};expires=Thu, 01 Jan 1970 00:00:01 GMT`;
+  }
+
+  function checkStepTransitions() {
+    const filter = getHeatMapFilter();
+    if (filter) {
+      if (filter.cst && filter.cst.length === 1) {
+        sessionStorage.removeItem('adl_heat_map');
+        const el = document.createElement('div');
+        el.className = 'click-map-window-frame';
+        el.innerHTML = `<div class="click-map-window-modal">
+            <h1>Warning</h1>
+            <p>To get more click map pages you need to upgrade your plan.</p>
+            <div class="click-map-actions">
+              <button onclick="window.location.reload()">Cancel</button>
+              <a href="${filter.appsumo ? ('https://' + filter.appsumo) : (window.adlineConfig.clientProdUrl + 'company?upgrade=true') }">Upgrade plan</a>
+            </div>
+          </div>`
+        document.body.appendChild(el);
+      } else {
+        if (filter.cst) {
+          sessionStorage.setItem('adl_heat_map', JSON.stringify({
+            ...filter,
+            cst: filter.cst.slice(1),
+          }))
+        }
+      }
+    }
+  }
+
+  function getTimezoneOffset() {
+    return new Date().getTimezoneOffset() * 60;
+  }
+
+  function ajax(options, callback) {
+    const xHttp = new XMLHttpRequest();
+    xHttp.onreadystatechange = function () {
+      if (xHttp.readyState === 4) {
+        if (callback) {
+          if (xHttp.status === 200) {
+            const response = JSON.parse(xHttp.response);
+            callback(options.objToResponse ? {...response, ...options.objToResponse} : response);
+          } else {
+            callback(null, xHttp.response);
+          }
+        }
+      }
+    };
+
+    xHttp.open(options.method, options.url, true);
+
+    if (options.headers) {
+      for (const headerKey in options.headers) {
+        xHttp.setRequestHeader(headerKey, options.headers[headerKey]);
+      }
+    } else {
+      xHttp.setRequestHeader('Content-type', 'application/json');
+    }
+
+    xHttp.send(options.body || undefined);
+  }
+
+  function sendToServer(body, callback) {
+    if (!body.c || !body.sid) {
+      return;
+    }
+    ajax(
+      {
+        url: window.adlineConfig.serverUrl,
+        body: JSON.stringify(body),
+        method: 'POST',
+      },
+      callback,
+    );
+  }
+
+  function getStatistic(callback) {
+    const body = {
+      customerId: window.adlineConfig.customerId,
+      heatmap: {
+        ...getHeatMapFilter(),
+        url: getUrl()
+      },
+      tz: getTimezoneOffset(),
+    }
+    ajax(
+      {
+        url: window.adlineConfig.heatmapUrl,
+        body: JSON.stringify(body),
+        method: 'POST',
+      },
+      callback,
+    );
+  }
+
+  function getButtonInfo(xpath, callback) {
+    const filter = getHeatMapFilter();
+    const headers = {authorization: 'Bearer ' + filter.token};
+    delete filter.token;
+    const dates = [
+      {
+        startDate: filter.startDate,
+        endDate: filter.endDate,
+      },
+      {
+        startDate: filter.prevStartDate,
+        endDate: filter.prevEndDate
+      }
+    ]
+    const url = getUrlForTrackingInfo();
+    const body = {
+      customerId: window.adlineConfig.customerId,
+      buttonClicks: dates.map(d => ({
+        ...d,
+        xpath,
+        url
+      })),
+      uniqueVisitors: dates,
+      tz: getTimezoneOffset(),
+    }
+    ajax(
+      {
+        url: window.adlineConfig.trackingUrl,
+        body: JSON.stringify(body),
+        method: 'POST',
+        headers
+      },
+      callback
+    );
+  }
+
+  function getPageInfo(callback) {
+    const filter = getHeatMapFilter();
+    const headers = {authorization: 'Bearer ' + filter.token};
+    delete filter.token;
+    const dates = [
+      {
+        startDate: filter.startDate,
+        endDate: filter.endDate,
+      },
+      {
+        startDate: filter.prevStartDate,
+        endDate: filter.prevEndDate
+      }
+    ];
+    const url = getUrlForTrackingInfo();
+    const pageDates = dates.map(d => ({
+      ...d,
+      url
+    }));
+    const body = {
+      customerId: window.adlineConfig.customerId,
+      pageDropoff: pageDates,
+      pagePerformanceAverageTime: pageDates,
+      visits: pageDates,
+      uniqueVisitors: pageDates,
+      tz: getTimezoneOffset(),
+    }
+    ajax(
+      {
+        url: window.adlineConfig.trackingUrl,
+        body: JSON.stringify({
+          tz: getTimezoneOffset(),
+          uniqueVisitors: dates
+        }),
+        method: 'POST',
+        headers,
+      },
+      res => {
+        ajax(
+          {
+            url: window.adlineConfig.trackingUrl,
+            body: JSON.stringify(body),
+            method: 'POST',
+            headers,
+            objToResponse: {
+              allUniqueVisitors: res.uniqueVisitors
+            }
+          },
+          callback
+        )
+      },
+    )
+  }
+
+  function sendBeaconToServer(body) {
+    if (!navigator.sendBeacon || !body.c || !body.sid) {
+      return;
+    }
+    navigator.sendBeacon(
+      window.adlineConfig.serverUrl,
+      JSON.stringify(body)
+    );
+  }
+
+  function generateGuid() {
+    function s4() {
+      return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1);
+    }
+
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+  }
+
+  function getUrl() {
+    return window.location.href;
+  }
+
+  function getUrlForTrackingInfo() {
+    return getUrl().replace(/(^\w+:|^)\/\//, '').replace('www.', '');
+  }
+
+  function getReferrer() {
+    return document.referrer;
+  }
+
+  function getAdId() {
+    return new URL(getUrl()).searchParams.get('_adlineAdId') || null;
+  }
+
+  function getCampaignId() {
+    return new URL(getUrl()).searchParams.get('_campaignId') || null;
+  }
+
+  function getGclid() {
+    return new URL(getUrl()).searchParams.get('gclid') || null;
+  }
+
+  function getFbclid() {
+    return new URL(getUrl()).searchParams.get('fbclid') || null;
+  }
+
+  function getChannelId() {
+    return new URL(getUrl()).searchParams.get('_channelId') || null;
+  }
+
+  function setStartTime() {
+    return window.adlineConfig.startTime = getTime();
+  }
+
+  function getVisitorDuration() {
+    return getTime() - window.adlineConfig.startTime;
+  }
+
+  function getBrowser() {
+    return {
+      d: getDevice(), // M / D / T
+      w: window.screen.width * window.devicePixelRatio,
+      h: window.screen.height * window.devicePixelRatio,
+      ua: navigator.userAgent,
+    };
+  }
+
+  function getSessionId(load = false) {
+    const sessionId = getCookie('adl_session_id', load);
+    if (load) {
+      return sessionId || setSessionId();
+    }
+    return sessionId;
+  }
+
+  function setSessionId() {
+    const sessionId = generateGuid();
+    return setCookie('adl_session_id', sessionId);
+  }
+
+  function getVisitorId(load = false) {
+    const sessionId = getCookie('adl', load);
+    if (load) {
+      return sessionId || setVisitorId();
+    }
+    return sessionId;
+  }
+
+  function setVisitorId() {
+    const visitorId = generateGuid();
+    return setCookie('adl', visitorId);
+  }
+
+  function getInitAttr(load = false) {
+    const lndcAttr = getCookie('lndcAttr', load);
+    if (lndcAttr && typeof lndcAttr === 'string') {
+      return setInitAttr();
+    }
+    return lndcAttr || setInitAttr();
+  }
+
+  function hasReferer() {
+    const refer = getReferrer();
+    if (!refer) {
+      return false;
+    }
+    try {
+      const referrerHost = new URL(refer).hostname;
+      return !referrerHost.includes(window.adlineConfig.domain.replace(/^\./, ''));
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function setInitAttr() {
+    const refer = getReferrer();
+    const campId = getCampaignId();
+    const adId = getAdId();
+
+    let data = {
+      campId,
+      adId,
+      refer,
+      chId: getChannelId(),
+      url: getUrl(),
+      gclid: getGclid(),
+      fbclid: getFbclid()
+    }
+
+    const hasRef = hasReferer();
+    if ((hasRef && campId && adId) || getUrl().includes('utm_source')) {
+      setCookie('lndcAttr', data);
+      return data;
+    } else {
+      if (!getCookie('lndcAttr')) {
+        setCookie('lndcAttr', data);
+        return data;
+      }
+    }
+  }
+
+  function getXPathElement(el) {
+    const stack = [];
+    while (el.parentNode != null) {
+      let sibCount = 1;
+      let sibIndex = 0;
+      for (let i = 0; i < el.parentNode.childNodes.length; i++) {
+        const sib = el.parentNode.childNodes[i];
+        if (sib.nodeName === el.nodeName) {
+          if (sib === el) {
+            sibIndex = sibCount;
+          }
+          sibCount++;
+        }
+      }
+      if (sibCount > 1) {
+        stack.unshift(el.nodeName.toLowerCase() + '[' + sibIndex + ']');
+      } else {
+        stack.unshift(el.nodeName.toLowerCase());
+      }
+      el = el.parentNode;
+    }
+    return '/' + stack.join('/');
+  }
+
+  function getCustomerId() {
+    return window.adlineConfig.customerId;
+  }
+
+  function addDynamicTag(config) {
+    const scriptTag = document.createElement(config.name);
+
+    scriptTag.setAttribute('type', 'text/javascript');
+
+    if (config.async) {
+      scriptTag.async = true;
+    }
+
+    if (config.src) {
+      scriptTag.setAttribute('src', config.src);
+    }
+
+    if (config.content) {
+      const scriptContent = document.createTextNode(config.content);
+      scriptTag.appendChild(scriptContent);
+    }
+
+    document.getElementsByTagName('head')[0].appendChild(scriptTag);
+  }
+
+  function addFacebookMetaTag(config) {
+    const metaTag = document.createElement(config.tag);
+
+    if (config.name) {
+      metaTag.setAttribute('name', config.name);
+    }
+
+    if (config.content) {
+      metaTag.setAttribute('content', config.content);
+    }
+
+    document.getElementsByTagName('head')[0].appendChild(metaTag);
+  }
+
+  function getLoadPayload(url) {
+    return {
+      e: 'l',
+      cid: getCustomerId(),
+      c: getVisitorId(true),
+      sid: getSessionId(true),
+      ts: getTime(),
+      tz: getTimezoneOffset(),
+      meta: getBrowser(),
+      lndcAttr: getInitAttr(true),
+      url: url || getUrl(),
+      refer: getReferrer(),
+      campId: getCampaignId(),
+      gclid: getGclid(),
+      fbclid: getFbclid(),
+      adId: getAdId(),
+      chId: getChannelId()
+    };
+  }
+
+  function getUnloadPayload(url) {
+    return {
+      e: 'u',
+      cid: getCustomerId(),
+      c: getVisitorId(),
+      sid: getSessionId(),
+      ts: getTime(),
+      tz: getTimezoneOffset(),
+      meta: getBrowser(),
+      dur: getVisitorDuration(),
+      lndcAttr: getInitAttr(),
+      url: url || getUrl(),
+      refer: getReferrer(),
+      campId: getCampaignId(),
+      gclid: getGclid(),
+      fbclid: getFbclid(),
+      adId: getAdId(),
+      chId: getChannelId()
+    };
+  }
+
+  function sendLoad(url = null) {
+    if (getHeatMapFilter()) {
+      return;
+    }
+
+    setStartTime();
+    setInitAttr();
+
+    const payload = getLoadPayload(url);
+    sendToServer(payload);
+  }
+
+  function sendUnLoad(url = null) {
+    if (getHeatMapFilter()) {
+      return;
+    }
+
+    const payload = getUnloadPayload(url);
+    sendBeaconToServer(payload);
+  }
+
+  function createElement(tag, clas) {
+    const el = document.createElement(tag);
+    el.className = clas;
+    return el
+  }
+
+  function secondsToStringTime(inputSeconds) {
+    const days = Math.floor(inputSeconds / (60 * 60 * 24));
+    const hour = Math.floor((inputSeconds % (60 * 60 * 24)) / (60 * 60));
+    const minutes = Math.floor(
+      ((inputSeconds % (60 * 60 * 24)) % (60 * 60)) / 60
+    );
+    const seconds = Math.floor(
+      ((inputSeconds % (60 * 60 * 24)) % (60 * 60)) % 60
+    );
+    let ddhhmmss = '';
+    if (days > 0) {
+      ddhhmmss += days + (days === 1 ? ' Day ' : ' Days ');
+    }
+    if (hour > 0) {
+      ddhhmmss += hour + 'h, ';
+    }
+
+    if (minutes > 0) {
+      ddhhmmss += minutes + ' min, ';
+    }
+
+    if (seconds > 0) {
+      ddhhmmss += seconds + ' sec';
+    }
+    return ddhhmmss || '0';
+  }
+
+  function setLoadingHtml() {
+    return '<div style="color: #000; font-size: 14px;">Loading...</div>';
+  }
+
+  window.adlineConfig.helpers = {
+    getUrl: getUrl,
+    getUrlForTrackingInfo: getUrlForTrackingInfo,
+    getSessionId: getSessionId,
+    getVisitorId: getVisitorId,
+    getXPathElement: getXPathElement,
+    getCustomerId: getCustomerId,
+    addDynamicTag: addDynamicTag,
+    addFacebookMetaTag: addFacebookMetaTag,
+    getTime: getTime,
+    getTimezoneOffset: getTimezoneOffset,
+    sendLoad: sendLoad,
+    sendUnLoad: sendUnLoad,
+    getInitAttr: getInitAttr,
+    getCampaignId: getCampaignId,
+    getGclid: getGclid,
+    getFbclid: getFbclid,
+    getAdId: getAdId,
+    getChannelId: getChannelId,
+    sendBeaconToServer: sendBeaconToServer,
+    getStatistic: getStatistic,
+    getButtonInfo: getButtonInfo,
+    getPageInfo: getPageInfo,
+    getConversion: getConversion,
+    getDateToString: getDateToString,
+    getHeatMapFilter: getHeatMapFilter,
+    checkStepTransitions: checkStepTransitions,
+    getBrowser: getBrowser,
+    createElement: createElement,
+    secondsToStringTime: secondsToStringTime,
+    setLoadingHtml: setLoadingHtml,
+  };
+})(window);
+
+(function detectClickMap(window, document) {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('startDate') && urlParams.get('endDate') && urlParams.get('adl_heat_map') && urlParams.get('adl_key')) {
+    sessionStorage.setItem('adl_heat_map', JSON.stringify({
+      startDate: urlParams.get('startDate'),
+      endDate: urlParams.get('endDate'),
+      prevStartDate: urlParams.get('prevStartDate'),
+      prevEndDate: urlParams.get('prevEndDate'),
+      granularity: urlParams.get('granularity'),
+      period: urlParams.get('period'),
+      value: urlParams.get('value'),
+      cst: urlParams.get('cst'),
+      token: urlParams.get('adl_key'),
+      appsumo: urlParams.get('appsumo'),
+    }))
+
+    urlParams.delete('adl_heat_map');
+    urlParams.delete('startDate');
+    urlParams.delete('endDate');
+    urlParams.delete('prevStartDate');
+    urlParams.delete('prevEndDate');
+    urlParams.delete('granularity');
+    urlParams.delete('period');
+    urlParams.delete('value');
+    urlParams.delete('cst');
+    urlParams.delete('adl_key');
+    urlParams.delete('appsumo');
+
+    window.history.replaceState({}, document.title, window.location.pathname + (!!urlParams.toString() ? '?' + urlParams.toString() : ''));
+    window.adlineConfig.clickMapMode = true;
+  } else {
+    if (window.adlineConfig.helpers.getHeatMapFilter()) {
+      window.adlineConfig.clickMapMode = true
+    }
+  }
+})(window, document);
+
+(function runClickMap(window, document) {
+  if (window.adlineConfig.clickMapMode) {
+    (function clickMapStyles(document) {
+      const style = document.createElement('style');
+      style.innerHTML = `.adl-pulse {
+      display: inline-block;
+      text-decoration: none;
+      cursor: pointer;
+      z-index: 1000;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .adl-pulse-content {
+      background: #6F00FF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #FFF;
+      text-align: center;
+      line-height: 20px;
+      font-family: sans-serif;
+      text-transform: uppercase;
+      padding: 5px;
+      animation: animate-adl-pulse 3s linear infinite;
+      opacity: 0.7;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+    .adlmodal-btn, .adlmodal-page {
+      background-color: #FFFFFF;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: -8px 28px 48px 0 rgba(0,0,0,0.19);
+      display: none;
+      position: fixed;
+      z-index: 1500;
+    }
+
+    .adlmodal-btn *, .adlmodal-page * {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      box-sizing: border-box;
+    }
+
+    .adlmodal_title {
+      color: #000;
+      font-weight: 500;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .adlmodal_c {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .adlmodal_c_period {
+      color: #6F00FF;
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+
+    .adlmodal_action {
+      text-align: center;
+      padding-top: 15px;
+    }
+
+    .adlmodal_action a {
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      color: #6F00FF;
+      border: 1px solid #000;
+      border-radius: 4px;
+      padding: 12px 20px;
+    }
+
+    .adlmodal_c_info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    
+    .adlmodal_p_info {
+      display: grid;
+      grid-template-columns: 50px auto;
+      column-gap: 20px;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .adlmodal_p_info > *:first-child {
+      text-align: center;
+    }
+
+    .adlmodal_c_data {
+      margin-left: 20px;
+    }
+
+    .adlmodal_c_value {
+      font-size: 20px;
+      font-weight: 400;
+      color: #000;
+    }
+
+    .adlmodal_c_title {
+      font-size: 14px;
+      color: #000;
+    }
+
+    .adlmodal_f_separator {
+      height: 140px;
+      margin: 0 20px 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .adlmodal_f_separator.page-info-separator {
+      height: 260px;
+    }
+
+    .adlmodal_separator {
+      color: #6F00FF;
+      font-size: 14px;
+      width: 21px;
+      height: 21px;
+      border: 1px solid #6F00FF;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      position: relative;
+    }
+
+    .adlmodal_separator:before,
+    .adlmodal_separator:after {
+      content: '';
+      position: absolute;
+      left: 10px;
+      width: 1px;
+      height: 55px;
+      background-color: #6F00FF;
+    }
+
+    .page-info-separator .adlmodal_separator:before,
+    .page-info-separator .adlmodal_separator:after {
+      height: 115px;
+    }
+
+    .adlmodal_separator:before {
+      bottom: 24px;
+    }
+
+    .adlmodal_separator:after {
+      top: 24px;
+    }
+
+    @keyframes animate-adl-pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(171, 85, 255, 0.7), 0 0 0 0 rgba(171, 85, 255, 0.7);
+      }
+      40% {
+        box-shadow: 0 0 0 15px rgba(255, 109, 74, 0.0), 0 0 0 0 rgba(171, 85, 255, 0.7);
+      }
+      80% {
+        box-shadow: 0 0 0 15px rgba(255, 109, 74, 0.0), 0 0 0 15px rgba(255, 109, 74, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 109, 74, 0.0), 0 0 0 15px rgba(255, 109, 74, 0);
+      }
+    }
+
+    .click-map-window-frame {
+      position: fixed;
+      z-index: 1100;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, .3);
+      box-sizing: border-box;
+    }
+
+    .click-map-window-modal {
+      position: absolute;
+      width: 520px;
+      padding: 40px;
+      border-radius: 12px;
+      background-color: #fff;
+      box-shadow: inset 0 1px 0 rgba(254, 255, 255, 0.6), 0 10px 19px -3px rgba(0, 0, 0, .7), 0 0 0 1px rgb(0, 0, 0, 0);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .click-map-window-modal * {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+    }
+
+    .click-map-window-modal h1 {
+      font-size: 24px;
+      margin-bottom: 30px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .click-map-window-modal p {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .click-map-window-modal .click-map-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .click-map-window-modal button, .click-map-window-modal a {
+      margin: 0 15px;
+      display: inline-block;
+      background-color: transparent;
+      text-decoration: none;
+      font-size: 16px;
+      height: 45px;
+      line-height: 45px;
+      padding: 0 30px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .click-map-window-modal button {
+      background-color: #ffffff;
+      color: #000000;
+      box-shadow: none;
+      border: 1px solid #7e84a3;
+    }
+
+    .click-map-window-modal a {
+      background-color: #6F00FF;
+      color: #ffffff;
+    }
+
+    .frame-info-page-button {
+      background-color: rgba(48, 49, 65, 0.69);
+      padding: 16px;
+      position: fixed;
+      right: 0;
+      top: calc(50% - 25px);
+      z-index: 1100;
+    }
+
+    .info-page-button {
+      display: inline-block;
+      background-color: transparent;
+      text-decoration: none;
+      font-size: 18px;
+      height: 49px;
+      line-height: 49px;
+      padding: 0 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      border: 1px solid #fff;
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+      transition: background-color 0.2s;
+    }
+    .info-page-button:hover {
+      background-color: rgba(48, 49, 65, 0.69);
+    }
+    `;
+      document.head.appendChild(style);
+    })(document);
+
+    (function domChangeEvent(window) {
+      let last = +new Date();
+      let delay = 100; // default delay
+
+      // Manage event queue
+      const stack = [];
+
+      function callback() {
+        const now = +new Date();
+        if (now - last > delay) {
+          for (let i = 0; i < stack.length; i++) {
+            stack[i]();
+          }
+          last = now;
+        }
+      }
+
+      // Public interface
+      const onDomChange = function (fn, newdelay) {
+        if (newdelay) delay = newdelay;
+        stack.push(fn);
+      };
+      const support = {};
+
+      const el = window.document.documentElement;
+      let remain = 3;
+
+      // callback for the tests
+      function decide() {
+        if (support.DOMNodeInserted) {
+          window.addEventListener(
+            'DOMContentLoaded',
+            function () {
+              if (support.DOMSubtreeModified) {
+                // for FF 3+, Chrome
+                el.addEventListener('DOMSubtreeModified', callback, false);
+              } else {
+                // for FF 2, Safari, Opera 9.6+
+                el.addEventListener('DOMNodeInserted', callback, false);
+                el.addEventListener('DOMNodeRemoved', callback, false);
+              }
+            },
+            false
+          );
+        }
+      }
+
+      // checks a particular event
+      function test(event) {
+        el.addEventListener(
+          event,
+          function fn() {
+            support[event] = true;
+            el.removeEventListener(event, fn, false);
+            if (--remain === 0) {
+              decide();
+            }
+          },
+          false
+        );
+      }
+
+      // attach test events
+      if (window.addEventListener) {
+        test('DOMSubtreeModified');
+        test('DOMNodeInserted');
+        test('DOMNodeRemoved');
+      } else {
+        decide();
+      }
+
+      window.onDomChange = onDomChange;
+    })(window);
+
+    (function generateHeatMap(window, document) {
+      const helpers = window.adlineConfig.helpers
+      window.adlineConfig.generatedElements = new Set()
+
+      function getElementByXpath(path) {
+        return document.evaluate(
+          path,
+          document,
+          null,
+          XPathResult.FIRST_ORDERED_NODE_TYPE,
+          null
+        ).singleNodeValue;
+      }
+
+      document.querySelector('html').appendChild(helpers.createElement('div', 'adlmodal-btn'));
+      document.querySelector('html').appendChild(helpers.createElement('div', 'adlmodal-page'));
+
+      const maxSize = 70;
+
+      helpers.getStatistic((res) => {
+        try {
+          const elements = (res.heatmap || []).sort((a, b) => +b.clicks - +a.clicks);
+          const oneItemCost = maxSize / +elements[0].clicks;
+
+          function configurePulse() {
+            elements.forEach((e) => {
+              if (e.xpath && !window.adlineConfig.generatedElements.has(e.xpath)) {
+                const pulse = helpers.createElement('span', 'adl-pulse');
+                const pulseContent = helpers.createElement('span', 'adl-pulse-content');
+
+                pulseContent.setAttribute('data-click', +e.clicks);
+                pulseContent.setAttribute('data-xpath', e.xpath);
+                pulseContent.setAttribute('data-name', e.name);
+                const pulseSize = Math.ceil(oneItemCost * +e.clicks);
+                pulseContent.style.width = pulseSize + 'px';
+                pulseContent.style.height = pulseSize + 'px';
+                pulse.appendChild(pulseContent);
+
+                try {
+                  const elem = getElementByXpath(e.xpath)
+
+                  if (elem) {
+                    window.adlineConfig.generatedElements.add(e.xpath);
+
+                    if (elem.style.position !== 'fixed' && elem.style.position !== 'relative' && elem.style.position !== 'absolute') {
+                      elem.style.position = 'relative';
+                    }
+
+                    elem.appendChild(pulse);
+                  }
+                } catch (e) {
+                  console.log(e);
+                }
+              }
+            });
+          }
+
+          configurePulse();
+          onDomChange(() => {
+            configurePulse();
+          });
+        } catch (e) {
+          console.log(e);
+        }
+      });
+
+      window.addEventListener('onurlchanged', function (e) {
+        window.adlineConfig.generatedElements.clear();
+      });
+
+    })(window, document);
+
+    (function showInfoBubble(window, document) {
+      const helpers = window.adlineConfig.helpers;
+      const filter = helpers.getHeatMapFilter();
+      const currPeriod = `${helpers.getDateToString(filter.startDate)} - ${helpers.getDateToString(filter.endDate)}`
+      const prevPeriod = `${helpers.getDateToString(filter.prevStartDate)} - ${helpers.getDateToString(filter.prevEndDate)}`
+
+      function getButtonInfoTemplate(name, prevClicks, prevConv, currClicks, currConv) {
+        const mouse = `<svg width="37px" height="36px" viewBox="0 0 37 36" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                           xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round"
+                           stroke-linejoin="round">
+                          <g transform="translate(-834.000000, -350.000000)" stroke-width="2">
+                            <g transform="translate(835.000000, 351.000000)">
+                              <polyline stroke="#6F00FF"
+                                        points="21.7807487 29.5891892 23.1925134 28.1621622 28.8395722 34 35 27.772973 29.2245989 22.0648649 33.5882353 17.6540541 11 10 18.5721925 32.8324324"></polyline>
+                              <line x1="10.5" y1="0" x2="10.5" y2="4" stroke="#B1B9D5"></line>
+                              <line x1="3" y1="3" x2="6" y2="6" stroke="#B1B9D5"></line>
+                              <line x1="17" y1="3" x2="14" y2="6" stroke="#B1B9D5"></line>
+                              <line x1="6" y1="14" x2="3" y2="17" stroke="#B1B9D5"></line>
+                              <line x1="0" y1="10.5" x2="4" y2="10.5" stroke="#B1B9D5"></line>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>`;
+        const percent = `<svg width="36px" height="41px" viewBox="0 0 36 41" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                           xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <g transform="translate(-843.000000, -459.000000)" fill="#6F00FF" fill-rule="nonzero">
+                            <g transform="translate(843.003906, 459.037109)">
+                              <path
+                                d="M0,8.11008468 C0,5.79291763 0.700538876,3.86194509 2.10161663,2.31716705 C3.50269438,0.772389017 5.2450603,0 7.3287144,0 C9.43033102,0 11.1726969,0.776879651 12.5558122,2.33063895 C13.9389274,3.88439826 14.630485,5.8557865 14.630485,8.2448037 L14.630485,10.1847575 C14.630485,12.4659995 13.943418,14.3790095 12.5692841,15.9237875 C11.1951501,17.4685656 9.46625609,18.2409546 7.382602,18.2409546 C5.28098537,18.2409546 3.52514755,17.4775468 2.11508853,15.9507313 C0.70502951,14.4239158 0,12.448037 0,10.0230947 L0,8.11008468 Z M1.48190916,10.1847575 C1.48190916,12.0528612 2.01629459,13.6156017 3.08506543,14.8729792 C4.15383628,16.1303567 5.58634847,16.7590454 7.382602,16.7590454 C9.10700539,16.7590454 10.4991019,16.139338 11.5588915,14.899923 C12.618681,13.6605081 13.1485758,12.0438799 13.1485758,10.0500385 L13.1485758,8.11008468 C13.1485758,6.17013087 12.6141904,4.5804465 11.5454196,3.34103156 C10.4766487,2.10161663 9.07108032,1.48190916 7.3287144,1.48190916 C5.62227354,1.48190916 4.22119579,2.10161663 3.12548114,3.34103156 C2.02976649,4.5804465 1.48190916,6.23299974 1.48190916,8.2986913 L1.48190916,10.1847575 Z M20.369515,30.1770593 C20.369515,27.8598922 21.0655633,25.9334103 22.4576597,24.3976135 C23.8497562,22.8618168 25.5876315,22.0939184 27.6712856,22.0939184 C29.7729022,22.0939184 31.5197588,22.8618168 32.9118553,24.3976135 C34.3039518,25.9334103 35,27.9227611 35,30.3656659 L35,32.2786759 C35,34.595843 34.3039518,36.5223249 32.9118553,38.0581216 C31.5197588,39.5939184 29.7908648,40.3618168 27.7251732,40.3618168 C25.6415191,40.3618168 23.8946626,39.598409 22.4846035,38.0715935 C21.0745445,36.544778 20.369515,34.5688992 20.369515,32.1439569 L20.369515,30.1770593 Z M21.8514242,32.2786759 C21.8514242,34.2006672 22.3858096,35.7813703 23.4545804,37.0207852 C24.5233513,38.2602002 25.9468822,38.8799076 27.7251732,38.8799076 C29.4855017,38.8799076 30.8910701,38.2557095 31.9418784,37.0073133 C32.9926867,35.7589171 33.5180908,34.1377983 33.5180908,32.1439569 L33.5180908,30.1770593 C33.5180908,28.1472928 32.9926867,26.5396459 31.9418784,25.3541186 C30.8910701,24.1685912 29.4675391,23.5758276 27.6712856,23.5758276 C25.8929946,23.5758276 24.478445,24.1820631 23.4276366,25.3945343 C22.3768283,26.6070054 21.8514242,28.2371055 21.8514242,30.2848345 L21.8514242,32.2786759 Z M8.2986913,36.2663587 L7.08622017,35.4311008 L26.243264,4.76905312 L27.4557352,5.60431101 L8.2986913,36.2663587 Z"
+                                id="Shape"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>`;
+        return `<div>
+              <div class="adlmodal_title">Button information</div>
+              <div class="adlmodal_c">
+                <div>
+                  <div class="adlmodal_c_period">${prevPeriod}</div>
+                  <div class="adlmodal_c_info">
+                    <div>
+                      ${mouse}
+                    </div>
+                    <div class="adlmodal_c_data">
+                      <div class="adlmodal_c_value">${prevClicks}</div>
+                      <div class="adlmodal_c_title">Clicks</div>
+                    </div>
+                  </div>
+                  <div class="adlmodal_c_info">
+                    <div>
+                      ${percent}
+                    </div>
+                    <div class="adlmodal_c_data">
+                      <div class="adlmodal_c_value">${prevConv}%</div>
+                      <div class="adlmodal_c_title">Conversion rate</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="adlmodal_f_separator">
+                  <div class="adlmodal_separator">
+                    vs
+                  </div>
+                </div>
+
+                <div>
+                  <div class="adlmodal_c_period">${currPeriod}</div>
+                  <div class="adlmodal_c_info">
+                    <div>
+                       ${mouse}
+                    </div>
+                    <div class="adlmodal_c_data">
+                      <div class="adlmodal_c_value">${currClicks}</div>
+                      <div class="adlmodal_c_title">Clicks</div>
+                    </div>
+                  </div>
+                  <div class="adlmodal_c_info">
+                    <div>
+                      ${percent}
+                    </div>
+                    <div class="adlmodal_c_data">
+                      <div class="adlmodal_c_value">${currConv}%</div>
+                      <div class="adlmodal_c_title">Conversion rate</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="adlmodal_action">
+                <a href="${window.adlineConfig.clientProdUrl}tracking/buttons?buttonName=${name}&startDate=${filter.startDate}&endDate=${filter.endDate}&value=${filter.value}&granularity=${filter.granularity}&period=${filter.period}" target="_blank">See more</a>
+              </div>
+            </div>`;
+      }
+
+      function setPreviewPosition(preview, adlPulse) {
+        if (preview) {
+          preview.style.opacity = 0;
+          preview.style.display = 'inline-block';
+
+          const {offsetWidth, offsetHeight} = preview;
+          const {height, width, top, left, right} = adlPulse.getBoundingClientRect();
+
+          preview.style.top = top - offsetHeight - 3 + 'px';
+          preview.style.left = left - offsetWidth / 2 + width / 2 + 'px';
+          preview.style.right = 'auto';
+
+          if ((offsetWidth / 2) > (left + width / 2)) {
+            preview.style.left = '0px';
+          } else if (offsetWidth / 2 + (left + width / 2) > window.innerWidth) {
+            preview.style.left = 'auto';
+            preview.style.right = '0px';
+          }
+
+          if (offsetHeight > top) {
+            preview.style.top = height + top + 3 + 'px';
+          }
+
+          preview.style.opacity = 1;
+        }
+      }
+
+      document.addEventListener('mouseover', (ev) => {
+        let el = ev.target;
+        const adlPulse = el.getAttribute('class') === 'adl-pulse-content' ? el : null
+        if (adlPulse) {
+          const preview = document.querySelector('.adlmodal-btn');
+          const xpath = el.getAttribute('data-xpath');
+          const name = el.getAttribute('data-name');
+
+          setPreviewPosition(preview, adlPulse);
+
+          preview.innerHTML = helpers.setLoadingHtml();
+          setPreviewPosition(preview, adlPulse);
+
+          helpers.getButtonInfo(xpath, (res) => {
+            const currClicks = res.buttonClicks[0] || 0;
+            const currConv = helpers.getConversion(
+              res.buttonClicks[0] || 0,
+              res.uniqueVisitors[0] || 0
+            );
+            const prevClicks = res.buttonClicks[1] || 0;
+            const prevConv = helpers.getConversion(
+              res.buttonClicks[1] || 0,
+              res.uniqueVisitors[1] || 0
+            );
+            preview.innerHTML = getButtonInfoTemplate(name, prevClicks, prevConv, currClicks, currConv);
+            setPreviewPosition(preview, adlPulse);
+          })
+        }
+      })
+
+      document.addEventListener('mouseout', (ev) => {
+        const el = ev.target;
+        const adlPulse = el.getAttribute('class') === 'adl-pulse-content' ? el : null
+        if (adlPulse) {
+          setTimeout(() => {
+            const tooltip = [...document.querySelectorAll(':hover')].filter(n => n.getAttribute('class') === 'adlmodal-btn').length;
+            if (!tooltip) {
+              const preview = document.querySelector('.adlmodal-btn');
+              preview.style.opacity = 0;
+              preview.style.display = 'none';
+            }
+          }, 300)
+        }
+      });
+
+      const tooltipMouseout = () => {
+        try {
+          document.querySelector('.adlmodal-btn').addEventListener('mouseleave', (ev) => {
+            const el = ev.target;
+            el.style.opacity = 0;
+            el.style.display = 'none';
+          });
+        } catch (e) {
+          setTimeout(() => {
+            tooltipMouseout();
+          }, 500)
+        }
+      }
+
+      tooltipMouseout();
+    })(window, document);
+
+    (function showInfoPage(window, document) {
+      const helpers = window.adlineConfig.helpers;
+
+      const el = helpers.createElement('div', 'frame-info-page-button');
+      el.innerHTML = `<div class="info-page-button">Page information</div>`
+      document.querySelector('html').appendChild(el);
+
+      const filter = helpers.getHeatMapFilter();
+      const currPeriod = `${helpers.getDateToString(filter.startDate)} - ${helpers.getDateToString(filter.endDate)}`;
+      const prevPeriod = `${helpers.getDateToString(filter.prevStartDate)} - ${helpers.getDateToString(filter.prevEndDate)}`;
+
+      function getPageInfoTemplate(prevVisits, prevConv, prevDropOff, prevTime, currVisits, currConv, currDropOff, currTime) {
+        const eye = `<svg width="50px" height="27px" viewBox="0 0 50 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g transform="translate(-1321.000000, -248.000000)" fill="#6F00FF" fill-rule="nonzero">
+                                    <g transform="translate(1007.000000, 62.000000)">
+                                        <g transform="translate(314.000000, 186.000000)">
+                                            <path d="M24.75,5.625 C20.4007576,5.625 16.875,9.1507576 16.875,13.5 C16.875,17.8492424 20.4007576,21.375 24.75,21.375 C29.0992424,21.375 32.625,17.8492424 32.625,13.5 C32.625,9.1507576 29.0992424,5.625 24.75,5.625 Z M24.75,19.125 C21.6433983,19.125 19.125,16.6066017 19.125,13.5 C19.125,10.3933983 21.6433983,7.875 24.75,7.875 C27.8566017,7.875 30.375,10.3933983 30.375,13.5 C30.375,16.6066017 27.8566017,19.125 24.75,19.125 L24.75,19.125 Z"></path>
+                                            <path d="M24.75,0 C9.37125,0 0,11.68875 0,13.5 C0,15.31125 9.37125,27 24.75,27 C40.12875,27 49.5,15.31125 49.5,13.5 C49.5,11.68875 40.12875,0 24.75,0 Z M24.75,24.75 C15.9421536,24.6546382 7.67010186,20.5040854 2.32875,13.5 C7.67010186,6.4959146 15.9421536,2.34536179 24.75,2.25 C33.5578464,2.34536179 41.8298981,6.4959146 47.17125,13.5 C41.8298981,20.5040854 33.5578464,24.6546382 24.75,24.75 L24.75,24.75 Z"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>`;
+        const eyeClosed = `<svg width="47px" height="35px" viewBox="0 0 47 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                      <g transform="translate(-1324.000000, -460.000000)" fill="#6F00FF" fill-rule="nonzero">
+                                          <g transform="translate(1007.000000, 62.000000)">
+                                              <g transform="translate(317.000000, 398.000000)">
+                                                  <path d="M44.3239774,16.542298 C42.9925764,14.7385428 41.4482281,13.1221757 39.7422939,11.7254319 C35.537234,8.28242255 30.3569546,6.17571136 24.9680414,5.8837798 C22.3567071,5.74229287 19.6946757,6.02744214 17.069188,6.79361857 L15.5555556,5.21963619 C18.7033898,4.15989801 21.9168894,3.75607332 25.0640063,3.92659775 C30.8507553,4.24010298 36.4060195,6.49624386 40.9084422,10.1827029 C42.9293201,11.8373563 44.7396599,13.7808283 46.2650011,15.9666632 L46.6666667,16.5422925 L46.2650011,17.1179218 C44.7396599,19.3037567 42.9293201,21.2472194 40.9084422,22.901882 C39.3181354,24.2039832 37.5963296,25.3273537 35.779542,26.25 L34.363513,24.7775126 C36.2765754,23.8650268 38.0851703,22.7159399 39.7422497,21.3591586 C41.4481838,19.9624148 42.9925321,18.3460477 44.3239331,16.5422925 L44.3239774,16.542298 Z"></path>
+                                                  <path d="M12.3320439,8.27382285 C10.8888317,8.98226413 9.47085991,9.85114176 8.09377217,10.8908664 C6.10009489,12.3961248 4.19024851,14.2599082 2.41085393,16.5114353 C4.19023965,18.7629623 6.10009489,20.6267458 8.09377217,22.1320041 C13.1406504,25.942501 18.7358423,27.4631055 24.1156626,27.1714918 C25.9782507,27.0705296 27.815917,26.752447 29.5969405,26.2371913 L31.1111111,27.8126219 C28.8867285,28.5508739 26.568378,29.0011747 24.2115781,29.1289457 C18.4205093,29.4428574 12.4044277,27.8111757 6.98715835,23.721003 C4.67898022,21.9783123 2.48133421,19.790353 0.458901761,17.1178661 L0,16.511439 L0.458901761,15.9050118 C2.48133421,13.2325157 4.67898022,11.0445656 6.98715835,9.30187488 C8.26853422,8.33439501 9.58341056,7.50464361 10.9209068,6.80555556 L12.3320882,8.27383022 L12.3320439,8.27382285 Z"></path>
+                                                  <path d="M28.0408728,10.8480073 C29.3371279,12.1442569 30.1388889,13.9349538 30.1388889,15.9127874 C30.1388889,17.1969767 29.8007699,18.4021693 29.2088866,19.4444444 L19.4444444,9.68004317 C20.486715,9.08816146 21.6919216,8.75 22.9761163,8.75 C24.9539224,8.75 26.7446267,9.55175944 28.0408728,10.8480073 Z"></path>
+                                                  <path d="M23.6905412,23.3333333 C21.7127052,23.3333333 19.9220144,22.5315766 18.625778,21.2353331 C17.3295327,19.9390878 16.5277778,18.1483969 16.5277778,16.17057 C16.5277778,14.886385 16.8659292,13.6811963 17.4578089,12.6388889 L27.2222222,22.4032575 C26.1799238,22.995182 24.9747261,23.3333333 23.6905412,23.3333333 Z"></path>
+                                                  <polygon points="8.14635556 0 41.8055556 33.6592 40.4648444 35 6.80555556 1.34071111"></polygon>
+                                              </g>
+                                          </g>
+                                      </g>
+                                  </g>
+                              </svg>`;
+        const percent = `<svg width="35px" height="35px" viewBox="0 0 35 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-1329.000000, -346.000000)" fill="#6F00FF" fill-rule="nonzero">
+                                        <g transform="translate(1007.000000, 62.000000)">
+                                            <path d="M334.747741,296.747741 C331.831519,299.663964 327.103389,299.663964 324.187167,296.747741 C321.270944,293.831519 321.270944,289.103389 324.187167,286.187167 C327.103389,283.270944 331.831519,283.270944 334.747741,286.187167 C337.663964,289.103389 337.663964,293.831519 334.747741,296.747741 Z M332.635626,294.635626 C334.38536,292.885893 334.38536,290.049015 332.635626,288.299282 C330.885893,286.549548 328.049015,286.549548 326.299282,288.299282 C324.549548,290.049015 324.549548,292.885893 326.299282,294.635626 C328.049015,296.38536 330.885893,296.38536 332.635626,294.635626 Z M354.812833,316.812833 C351.896611,319.729056 347.168481,319.729056 344.252259,316.812833 C341.336036,313.896611 341.336036,309.168481 344.252259,306.252259 C347.168481,303.336036 351.896611,303.336036 354.812833,306.252259 C357.729056,309.168481 357.729056,313.896611 354.812833,316.812833 Z M352.700718,314.700718 C354.450452,312.950985 354.450452,310.114107 352.700718,308.364374 C350.950985,306.61464 348.114107,306.61464 346.364374,308.364374 C344.61464,310.114107 344.61464,312.950985 346.364374,314.700718 C348.114107,316.450452 350.950985,316.450452 352.700718,314.700718 Z M327.980031,315.228964 C327.348173,314.698772 327.26552,313.757026 327.796615,313.124092 L348.915224,287.955914 C349.445784,287.323617 350.383705,287.237148 351.019969,287.771036 C351.651827,288.301228 351.73448,289.242974 351.203385,289.875908 L330.084776,315.044086 C329.554216,315.676383 328.616295,315.762852 327.980031,315.228964 Z"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>`;
+        const timer = `<svg width="35px" height="35px" viewBox="0 0 35 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                  <g transform="translate(-1331.000000, -573.000000)" fill="#6F00FF" fill-rule="nonzero">
+                                      <g transform="translate(1007.000000, 62.000000)">
+                                          <g transform="translate(324.000000, 511.000000)">
+                                              <path d="M15.2658333,17.8763148 C15.2903333,17.9066481 15.3241667,17.9334815 15.351,17.9626481 C15.694,18.3919815 16.2108333,18.6708148 16.8,18.6708148 C17.8301667,18.6708148 18.6666667,17.8296481 18.6666667,16.7878148 C18.6666667,16.2348148 18.4251667,15.7436481 18.0518333,15.3994815 C18.0028333,15.3446481 17.9585,15.2886481 17.8861667,15.2338148 L10.3436667,9.44481481 C10.1243333,9.27448148 9.80816667,9.26514815 9.57833333,9.44481481 C9.303,9.65831481 9.25166667,10.0561481 9.46283333,10.3314815 L15.2658333,17.8763148 Z M17.5,0.00414814815 C17.2701667,0.00414814815 16.5596667,-0.00518518519 16.3333333,0.00414814815 L16.3333333,8.17081481 L18.6666667,8.17081481 L18.6666667,2.19164815 C25.9805,2.16131481 32.6666667,8.86381481 32.6666667,17.5041481 C32.6666667,26.3801481 26.3771667,32.6708148 17.5,32.6708148 C8.62166667,32.6708148 2.33333333,26.3801481 2.33333333,17.5041481 C2.33333333,13.0638148 3.717,9.54981481 6.6325,6.63548148 L5.1275,5.12931481 C1.95883333,8.29564815 0,12.6706481 0,17.5041481 C0,27.1676481 7.83416667,35.0018148 17.5,35.0018148 C27.1658333,35.0018148 35,27.1676481 35,17.5041481 C35,7.84064815 27.1658333,0.00414814815 17.5,0.00414814815 Z"></path>
+                                          </g>
+                                      </g>
+                                  </g>
+                              </g>
+                          </svg>`;
+        return `<div>
+             <div class="adlmodal_title">Page information</div>
+             <div class="adlmodal_c">
+               <div>
+                 <div class="adlmodal_c_period">${prevPeriod}</div>
+                 <div class="adlmodal_p_info">
+                   <div>
+                     ${eye}
+                   </div>
+                   <div>
+                     <div class="adlmodal_c_value">${prevVisits}</div>
+                     <div class="adlmodal_c_title">Unique visitors</div>
+                   </div>
+                 </div>
+                 <div class="adlmodal_p_info">
+                   <div>
+                     ${percent}
+                   </div>
+                   <div>
+                     <div class="adlmodal_c_value">${prevConv}%</div>
+                     <div class="adlmodal_c_title">Conversion rate</div>
+                   </div>
+                 </div>
+                 <div class="adlmodal_p_info">
+                   <div>
+                     ${eyeClosed}
+                   </div>
+                   <div>
+                     <div class="adlmodal_c_value">${prevDropOff}%</div>
+                     <div class="adlmodal_c_title">Drop off rate</div>
+                   </div>
+                 </div>
+                 <div class="adlmodal_p_info">
+                   <div>
+                     ${timer}
+                   </div>
+                   <div>
+                     <div class="adlmodal_c_value">${prevTime}</div>
+                     <div class="adlmodal_c_title">Time on page</div>
+                   </div>
+                 </div>
+               </div>
+
+               <div class="adlmodal_f_separator page-info-separator">
+                 <div class="adlmodal_separator">
+                   vs
+                 </div>
+               </div>
+
+               <div>
+                 <div class="adlmodal_c_period">${currPeriod}</div>
+                 <div class="adlmodal_p_info">
+                   <div>
+                     ${eye}
+                   </div>
+                   <div>
+                     <div class="adlmodal_c_value">${currVisits}</div>
+                     <div class="adlmodal_c_title">Unique visitors</div>
+                   </div>
+                 </div>
+                 <div class="adlmodal_p_info">
+                   <div>
+                     ${percent}
+                   </div>
+                   <div>
+                     <div class="adlmodal_c_value">${currConv}%</div>
+                     <div class="adlmodal_c_title">Conversion rate</div>
+                   </div>
+                 </div>
+                 <div class="adlmodal_p_info">
+                   <div>
+                     ${eyeClosed}
+                   </div>
+                   <div>
+                     <div class="adlmodal_c_value">${currDropOff}%</div>
+                     <div class="adlmodal_c_title">Drop off rate</div>
+                   </div>
+                 </div>
+                 <div class="adlmodal_p_info">
+                   <div>
+                     ${timer}
+                   </div>
+                   <div>
+                     <div class="adlmodal_c_value">${currTime}</div>
+                     <div class="adlmodal_c_title">Time on page</div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div class="adlmodal_action">
+               <a href="${window.adlineConfig.clientProdUrl}tracking/pages?pageUrl=${helpers.getUrlForTrackingInfo()}&startDate=${filter.startDate}&endDate=${filter.endDate}&value=${filter.value}&granularity=${filter.granularity}&period=${filter.period}" target="_blank">See more</a>
+             </div>
+           </div>`;
+      }
+
+      function setPreviewPosition(preview) {
+        if (preview) {
+          preview.style.opacity = 0;
+          preview.style.display = 'inline-block';
+
+          const {offsetHeight} = preview;
+          const {height, width, top} = document.querySelector('.frame-info-page-button').getBoundingClientRect();
+          preview.style.right = width + 20 + 'px';
+          const topPoss = (top - offsetHeight / 2) + (height / 2);
+          preview.style.top = (topPoss < 0 ? 0 : (top - offsetHeight / 2) + (height / 2)) + 'px';
+          preview.style.opacity = 1;
+        }
+      }
+
+      let clickPageInfo = false;
+
+      document.addEventListener('click', (ev) => {
+        let el = ev.target;
+        const preview = document.querySelector('.adlmodal-page');
+        if (el.getAttribute('class') === 'info-page-button') {
+          clickPageInfo = true;
+          setPreviewPosition(preview);
+
+          preview.innerHTML = helpers.setLoadingHtml();
+          setPreviewPosition(preview);
+
+          helpers.getPageInfo((res) => {
+            const currVisits = res.uniqueVisitors[0] || 0;
+            const currConv = helpers.getConversion(
+              res.uniqueVisitors[0] || 0,
+              res.allUniqueVisitors[0] || 0
+            );
+            const currDropOff = res.pageDropoff[0] ? (Math.round(res.pageDropoff[0] * 10000) / 100) : 0;
+            const currTime = helpers.secondsToStringTime(res.pagePerformanceAverageTime[0]);
+
+            const prevVisits = res.uniqueVisitors[1] || 0;
+            const prevConv = helpers.getConversion(
+              res.uniqueVisitors[1] || 0,
+              res.allUniqueVisitors[1] || 0
+            );
+            const prevDropOff = res.pageDropoff[1] ? (Math.round(res.pageDropoff[1] * 10000) / 100) : 0;
+            const prevTime = helpers.secondsToStringTime(res.pagePerformanceAverageTime[1]);
+
+            preview.innerHTML = getPageInfoTemplate(prevVisits, prevConv, prevDropOff, prevTime, currVisits, currConv, currDropOff, currTime);
+            setPreviewPosition(preview);
+          })
+        } else {
+          if (clickPageInfo && !document.querySelector('.adlmodal-page').contains(el)) {
+            clickPageInfo = false;
+            preview.style.opacity = 0;
+            preview.style.display = 'none';
+          }
+        }
+      })
+    })(window, document);
+  }
+})(window, document);
+
+(function runTracking(window, document) {
+  if (!window.adlineConfig.clickMapMode) {
+    (function eventListener(window, document) {
+      const helpers = window.adlineConfig.helpers;
+      const EL_TYPE = {
+        BUTTON: 'b',
+        A: 'l',
+        INPUT: 'b',
+        CUSTOM: 'c',
+      };
+      const INPUT_TYPES = ['button', 'submit'];
+
+      function checkElement(el) {
+        let count = 5;
+        let payload = null;
+
+        function getElement(el) {
+          while (count > 0) {
+            let customClick = null;
+            try {
+              customClick = el.getAttribute('data-adline-click');
+            } catch (e) {
+              customClick = null;
+            }
+            if (
+              customClick ||
+              el.tagName === 'BUTTON' ||
+              el.tagName === 'A' ||
+              (el.tagName === 'INPUT' && INPUT_TYPES.includes(el.type))
+            ) {
+              let name = (customClick || el.textContent || el.getAttribute('value') || '').trim();
+
+              let img = '';
+              if (!name) {
+                const innerImg = el.querySelector('img');
+                if (innerImg) {
+                  img = innerImg.getAttribute('src');
+                  if (!img) {
+                    const alt = innerImg.getAttribute('alt');
+                    if (alt) {
+                      name = alt;
+                    }
+                  }
+                }
+              }
+
+              payload = {
+                e: 'c',
+                xpath: helpers.getXPathElement(el),
+                l: el.href || '',
+                t: EL_TYPE[customClick ? 'CUSTOM' : el.tagName],
+                n: name,
+                cid: helpers.getCustomerId(),
+                c: helpers.getVisitorId(),
+                sid: helpers.getSessionId(),
+                ts: helpers.getTime(),
+                meta: helpers.getBrowser(),
+                tz: helpers.getTimezoneOffset(),
+                lndcAttr: helpers.getInitAttr(),
+                url: helpers.getUrl(),
+                campId: helpers.getCampaignId(),
+                gclid: helpers.getGclid(),
+                fbclid: helpers.getFbclid(),
+                adId: helpers.getAdId(),
+                chId: helpers.getChannelId(),
+                img
+              };
+              count = 0;
+            } else if (el.parentNode) {
+              getElement(el.parentNode);
+            } else {
+              count = 0;
+            }
+            --count;
+          }
+        }
+
+        getElement(el);
+        return payload;
+      }
+
+      document.addEventListener('click', function (ev) {
+        const payload = checkElement(ev.target);
+
+        if (payload) {
+          helpers.sendBeaconToServer(payload);
+        }
+      });
+    })(window, document);
+
+    (function addPixelTags(window) {
+      const helpers = window.adlineConfig.helpers;
+
+      const facebook_pixel_script_code = window.adlineConfig.fbPixelConfig.facebook_pixel_script_code;
+      if (facebook_pixel_script_code) {
+        helpers.addDynamicTag({
+          name: 'script',
+          content: facebook_pixel_script_code
+        });
+      }
+
+      const facebook_pixel_noscript_code = window.adlineConfig.fbPixelConfig.facebook_pixel_noscript_code;
+      if (facebook_pixel_noscript_code) {
+        helpers.addDynamicTag({
+          name: 'noscript',
+          content: '<img height="1" width="1" style="display:none" src=" ' + facebook_pixel_noscript_code + '"/>'
+        });
+      }
+
+      const google_async_code = window.adlineConfig.googlePixelConfig.google_async_code
+      if (google_async_code) {
+        helpers.addDynamicTag({
+          name: 'script',
+          async: true,
+          src: google_async_code
+        });
+      }
+
+      const google_script_code = window.adlineConfig.googlePixelConfig.google_script_code
+      if (google_script_code) {
+        helpers.addDynamicTag({
+          name: 'script',
+          content: google_script_code.replace('\\', '') // delete the screenplay symbol
+        });
+      }
+
+      const domain_validate_facebook_meta = window.adlineConfig.fbPixelConfig.domain_validate_facebook_meta;
+      if (domain_validate_facebook_meta)
+        helpers.addFacebookMetaTag({
+          tag: 'meta',
+          name: domain_validate_facebook_meta.name,
+          content: domain_validate_facebook_meta.content
+        });
+    })(window);
+  }
+
+  (function loadListener(window, document) {
+    const helpers = window.adlineConfig.helpers;
+
+    window.addEventListener('load', function () {
+      if (document.visibilityState === 'visible') {
+        helpers.checkStepTransitions();
+        helpers.sendLoad();
+      }
+    });
+  })(window, document);
+
+  (function unloadListener(window, document) {
+    const helpers = window.adlineConfig.helpers;
+
+    document.addEventListener('visibilitychange', function () {
+      const visibilityState = document.visibilityState;
+      if (visibilityState === 'visible') {
+        helpers.sendLoad();
+      } else {
+        helpers.sendUnLoad();
+      }
+    });
+
+    window.addEventListener('onurlchanged', function (e) {
+      helpers.checkStepTransitions();
+      helpers.sendUnLoad(e.detail.oldURL);
+      helpers.sendLoad(e.detail.newURL);
+    });
+  })(window, document);
+
+})(window, document);
+
+
