@@ -1,9 +1,36 @@
 import CurrentSitePage from "@/components/CurrentSitePage";
-export const metadata={title:'PVC'+" | CladCan",description:'uPVC vinyl siding combines cost-effectiveness, durability and low maintenance with a range of profiles for exterior and architectural applications.'};
-const supportingNotes = [
-  {label:"What it is", text:"PVC systems are often selected where a project needs a lower-maintenance, profile-based exterior cladding option with a wide range of finish and panel styles."},
-  {label:"Where it fits", text:"They are commonly used in residential and light commercial work where a cost-conscious system, practical upkeep and visible profile variation are important considerations."},
-  {label:"Selection factors", text:"Thermal movement, fastening strategy, panel expansion and the detailing around openings, corners and trim all shape how successfully a PVC system performs over time."},
-  {label:"How CladCan helps", text:"CladCan can compare product families, coordinate corresponding trims and accessories, and support installation sequencing around the project’s conditions."}
+
+export const metadata = {
+  title: "ChamClad uPVC Cladding, Soffit & Column Wraps | CladCan",
+  description: "Explore ChamClad recycled rigid uPVC flat panels, Shadow Series cladding, soffit and decorative post, beam and column wraps for Ontario projects.",
+};
+
+const decisionSupport = [
+  {label:"Material",text:"Engineered recycled rigid uPVC provides a lightweight, water-resistant and low-maintenance architectural surface for suitable interior and exterior applications."},
+  {label:"Product families",text:"Choose among Classic flat panels, deep-reveal Shadow Series panels, solid and vented soffit, and decorative posts, beams and column wraps."},
+  {label:"Finish direction",text:"Woodgrain, matte, solid, anodized and metallic appearances can coordinate walls, ceilings and accents within one finish family."},
+  {label:"Project coordination",text:"Profile, orientation, thermal movement, fastening, ventilation, trims and terminations should be confirmed before quantities and custom lengths are ordered."},
 ];
-export default function Page(){return <CurrentSitePage title={'PVC'} intro={'PVC systems can be a practical choice for residential and light commercial exteriors where a broad range of profile styles, finish options and lower-maintenance expectations are part of the design brief.'} overview={'PVC siding and soffit products are commonly evaluated alongside other exterior systems for cost, finish range, weather resistance and ease of upkeep. Product selection should consider profile design, substrate compatibility, thermal movement, fastening, and the manufacturer’s installation requirements.'} items={[{title:'uPVC Vinyl Cladding',href:'/exterior-systems/pvc/vinyl-cladding',text:'Profile-based cladding designed for residential and light commercial exterior applications.'},{title:'Wall Cladding Panels',href:'/exterior-systems/pvc/wall-cladding-panels',text:'Panelized options that can support contemporary wall and feature-area expressions.'},{title:'Soffit Panels',href:'/exterior-systems/pvc/soffit-panels',text:'Low-maintenance soffit solutions suited to practical roofline detailing.'},{title:'Profiles & Finishes',href:'/exterior-systems/pvc/profiles-finishes',text:'Alternative profile and finish options that influence visual expression and project coordination.'}]} decisionSupport={supportingNotes} />;}
+
+export default function Page() {
+  return <CurrentSitePage
+    eyebrow="EXTERIOR & INTERIOR SYSTEMS"
+    title="uPVC Architectural Products"
+    intro="Low-maintenance wall panels, soffit and decorative wraps with realistic architectural finishes."
+    overview="ChamClad uPVC products combine engineered recycled rigid PVC profiles with durable decorative films. The system includes four clear product families for walls, ceilings, soffits, posts, beams and columns. Each family has its own profiles, sizes and accessories, while shared finish options make it possible to coordinate multiple surfaces across a project."
+    image="/images/exterior-systems/pvc-siding-soffit-ontario.jpg"
+    images={[
+      "/images/content/pvc-project.webp",
+      "/images/content/shadowline-project.webp",
+      "/images/content/premium-soffit-project.webp",
+    ]}
+    items={[
+      {title:"Classic Flat Panels",href:"/exterior-systems/pvc/flat-panels",image:"/images/content/dual-profile-project.webp",text:"Classic 6-inch dual-profile and seamless panels for exterior walls, interior features and ceilings.",tags:["U-Channel","V-Groove","Seamless"]},
+      {title:"Posts & Beams",href:"/exterior-systems/pvc/posts-beams",image:"/images/content/post-wrap-detail.webp",text:"Quick Click, two-piece column wrap and faux-beam systems for decorative non-load-bearing applications.",tags:["8, 10 & 12 in","Column Wrap","Faux Beam"]},
+      {title:"Shadow Series",href:"/exterior-systems/pvc/shadow-series",image:"/images/content/shadowline-project.webp",text:"Deep black 6-inch, 3-inch and 2-inch reveals create defined modern shadow lines.",tags:["6 in Reveal","3 in Reveal","2 in Reveal"]},
+      {title:"Soffit",href:"/exterior-systems/pvc/soffit",image:"/images/content/premium-soffit-project.webp",text:"Solid, vented and seamless 4-inch, 6-inch and 12-inch panels for rooflines and ceilings.",tags:["Solid","Vented","Ceiling"]},
+    ]}
+    decisionSupport={decisionSupport}
+    note="Product dimensions, finish availability, lead times and installation requirements should be confirmed against current ChamClad technical documents before ordering."
+  />;
+}
