@@ -39,7 +39,8 @@ export default function Page() {
         {
           title: "Cedar",
           subtitle: "SIDING, SOFFIT & BOARDS",
-          image: "/images/exterior-systems/natural-wood/cedar/western-red-cedar-1x8-channel-siding.webp",
+          href: "/exterior-systems/natural-wood/cedar",
+          image: "/images/exterior-systems/natural-wood/cedar/western-red-cedar-soffit-modern-home-hero.webp",
           tags: ["Western red cedar", "T&G", "Channel & nickel gap"],
           text: "Naturally expressive cedar profiles for siding, soffit, ceilings and exterior architectural details.",
         },
