@@ -1,9 +1,20 @@
 import CurrentSitePage from "@/components/CurrentSitePage";
-export const metadata={title:'Stucco Siding (EIFS)'+" | CladCan",description:'EIFS, often called synthetic stucco, is a non-load-bearing exterior cladding system combining continuous insulation with a reinforced finish layer for energy efficiency and design flexibility.'};
-const supportingNotes = [
-  {label:"What it is", text:"EIFS is a non-load-bearing exterior cladding assembly that combines insulation, a reinforced base coat and finish layer to provide a continuous-insulation exterior with a range of finish textures."},
-  {label:"Where it fits", text:"EIFS is often used on residential and commercial façades where design flexibility, a smooth finish and a continuous insulation layer are important to the architectural intent."},
-  {label:"Selection factors", text:"Drainage strategy, substrate conditions, movement joints, façade detailing and finish compatibility all have a major impact on system performance."},
-  {label:"How CladCan helps", text:"CladCan can coordinate system selection, accessory planning and installation sequencing with the actual project assembly and conditions."}
-];
-export default function Page(){return <CurrentSitePage title={'Stucco Siding (EIFS)'} intro={'EIFS, often called synthetic stucco, is a non-load-bearing exterior cladding system combining continuous insulation with a reinforced finish layer for energy efficiency and design flexibility.'} overview={'EIFS assemblies are often considered for projects that need a continuous insulation layer and a wide range of finish textures, but success depends on how the wall assembly is detailed and installed.'} items={[{title:'EIFS Assemblies',href:'/exterior-systems/stucco-eifs/eifs-assemblies',text:'Continuous-insulation façade assemblies coordinated for envelope performance.'},{title:'Architectural Finishes',href:'/exterior-systems/stucco-eifs/architectural-finishes',text:'A broad range of textures and finish possibilities for residential and commercial design.'},{title:'DuROCK & Sto Systems',href:'/exterior-systems/stucco-eifs/durock-sto',text:"System sourcing and product coordination with established EIFS suppliers such as DuROCK and Sto."}]} decisionSupport={supportingNotes} />;}
+
+export const metadata = {
+  title: "EIFS Stucco Systems Toronto | Sto & DuROCK | CladCan",
+  description: "Explore EIFS stucco systems from Sto and DuROCK for continuous insulation, drainage, air and moisture control, architectural finishes and retrofit projects.",
+};
+
+export default function Page() {
+  return <CurrentSitePage
+    title="EIFS Stucco Systems"
+    intro="Continuous exterior insulation, drainage and reinforced architectural finishes for efficient, durable building envelopes."
+    overview="EIFS is a non-load-bearing exterior cladding assembly that combines insulation, air and moisture control, reinforcing mesh, base coat and a textured finish. Sto and DuROCK are two separate manufacturers offering comparable EIFS system families, so CladCan presents them together while coordinating the exact tested assembly for each project."
+    image="/images/stucco-eifs/eifs-stucco-modern-building-hero.webp"
+    items={[
+      {title:"Sto & DuROCK EIFS Systems",href:"/exterior-systems/stucco-eifs/durock-sto",text:"Compare leading StoTherm ci, InsulROCK and PUCCS system options in one complete product page."},
+      {title:"EIFS Assemblies",href:"/exterior-systems/stucco-eifs/eifs-assemblies",text:"Understand the coordinated layers that provide drainage, insulation, reinforcement and exterior protection."},
+      {title:"Architectural Finishes",href:"/exterior-systems/stucco-eifs/architectural-finishes",text:"Explore textures, colours, reveals, curves and specialty finish possibilities for residential and commercial design."},
+    ]}
+  />;
+}
