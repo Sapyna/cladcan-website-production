@@ -15,11 +15,7 @@ export default function Page() {
       title="Charred Wood"
       subtitle="Burned to endure. Built to inspire."
       intro="Charred wood siding and soffit combine the expressive grain of real wood with a controlled surface-burning process inspired by the Japanese tradition of Yakisugi, often called Shou Sugi Ban. The result ranges from softly smoked and brushed boards to deeply carbonized black textures for façades, soffits and architectural features."
-      images={[
-        `${root}/black-charred-wood-siding-modern-home.webp`,
-        `${root}/charred-wood-siding-texture.webp`,
-        `${root}/brushed-charred-wood-siding-detail.webp`,
-      ]}
+      images={["/images/source-library/natural-wood/charred-wood/hero.webp","/images/source-library/natural-wood/charred-wood/detail-01.webp","/images/source-library/natural-wood/charred-wood/detail-02.webp"]}
       specs={[
         { label: "Material", value: "Project-selected natural wood species" },
         { label: "Process", value: "Controlled burn, brushing or rinsing, then protective oil as specified" },

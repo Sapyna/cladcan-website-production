@@ -3,6 +3,8 @@ export const metadata={title:'Natural Wood Siding'+" | CladCan",description:'Exp
 export default function Page(){
 	return (
 		<CurrentSitePage
+  image="/images/source-library/natural-wood/siding/hero.webp"
+  images={["/images/source-library/natural-wood/siding/hero.webp","/images/source-library/natural-wood/siding/detail-01.webp","/images/source-library/natural-wood/siding/detail-02.webp"]}
 			eyebrow='NATURAL WOOD'
 			title='Natural Wood Siding'
 			intro='Premium natural wood siding selected for warmth, texture and an authentic material expression.'

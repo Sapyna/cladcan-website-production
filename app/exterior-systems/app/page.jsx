@@ -6,7 +6,7 @@ const root="/images/exterior-systems/app";
 export default function Page(){return <CurrentSitePage
   eyebrow="ARCHITECTURAL ALUMINUM" title="Aluminum Plate Panels & Planks"
   image={`${root}/aluminum-plate-panel-app-01-photo-1.webp`}
-  images={[`${root}/aluminum-plate-panel-app-01-photo-1.webp`,`${root}/aluminum-plate-board-plank-app-12-app-16-photo-1.webp`,`${root}/aluminum-plate-panel-app-01-photo-2.webp`]}
+  images={["/images/source-library/app/hero.webp","/images/source-library/app/detail-01.webp","/images/source-library/app/detail-02.webp"]}
   intro="High-performance aluminum plate panels and linear planks for drained, back-ventilated rainscreen systems and architectural feature applications."
   overview="APP systems combine premium 5000-series aluminum, precise fabrication and durable architectural finishes. Select between concealed or visible panel attachment, then coordinate panel dimensions, joints, sub-framing, thermal movement, colour and project-specific details as one complete façade assembly."
   decisionSupport={[{label:"Choose the format",text:"Large-format APP-01, APP-02 and APP-03 panels create modular façades; APP-12 and APP-16 planks produce a continuous linear expression."},{label:"Choose the fastening",text:"APP-01 and APP-02 conceal attachment, APP-03 expresses visible fasteners, and APP-12/16 use concealed plank fastening."},{label:"Coordinate movement",text:"Panel dimensions, bracket selection, joint width and perimeter supports must respond to thermal movement and design pressure."},{label:"Specify the finish",text:"AAMA 2604 and 2605 powder-coat options support custom colours, specialty effects and long-term exterior performance."}]}

@@ -3,6 +3,8 @@ export const metadata={title:'Natural Wood Soffit'+" | CladCan",description:'Exp
 export default function Page(){
 	return (
 		<CurrentSitePage
+  image="/images/source-library/natural-wood/soffit/hero.webp"
+  images={["/images/source-library/natural-wood/soffit/hero.webp","/images/source-library/natural-wood/soffit/detail-01.webp","/images/source-library/natural-wood/soffit/detail-02.webp"]}
 			eyebrow='NATURAL WOOD'
 			title='Natural Wood Soffit'
 			intro='Wood soffits deliver warmth and refined detail to eaves and covered ceilings where they are protected from direct weather.'

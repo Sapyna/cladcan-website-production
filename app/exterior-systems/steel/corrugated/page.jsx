@@ -3,6 +3,8 @@ export const metadata={title:'Corrugated Siding & Soffit (7/8")'+" | CladCan",de
 export default function Page(){
 	return (
 		<CurrentSitePage
+  image="/images/source-library/steel/corrugated/hero.webp"
+  images={["/images/source-library/steel/corrugated/hero.webp","/images/source-library/steel/corrugated/detail-01.webp","/images/source-library/steel/corrugated/detail-02.webp"]}
 			eyebrow='STEEL'
 			title='Corrugated Siding & Soffit (7/8")'
 			intro='Corrugated steel profiles provide a rhythmic, textured exterior with a long-standing industrial and architectural pedigree.'

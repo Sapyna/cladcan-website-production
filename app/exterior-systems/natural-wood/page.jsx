@@ -13,12 +13,8 @@ export default function Page() {
     <CurrentSitePage
       eyebrow="NATURAL WOOD SIDING & SOFFIT"
       title="Natural Wood"
-      image="/images/exterior-systems/natural-wood-siding-soffit-ontario.webp"
-      images={[
-        "/images/exterior-systems/natural-wood-siding-soffit-ontario.webp",
-        `${boardRoot}/white-board-and-batten-wood-siding-home.webp`,
-        "/images/content/charred-wood-project.webp",
-      ]}
+      image="/images/source-library/natural-wood/hero.webp"
+      images={["/images/source-library/natural-wood/hero.webp","/images/source-library/natural-wood/detail-01.webp","/images/source-library/natural-wood/detail-02.webp"]}
       intro="Real and engineered wood exterior systems with authentic grain, dimensional depth and profiles for siding, soffit and architectural features."
       overview="CladCan’s wood collection ranges from genuine cedar and factory-finished wood siding to engineered products and charred finishes. Select the material family and profile together, then coordinate exposure, moisture management, ventilation, finish, fastening and long-term maintenance as one complete exterior assembly."
       decisionSupport={[

@@ -15,11 +15,7 @@ export default function Page() {
       title="Engineered Wood Siding"
       subtitle="Authentic woodgrain character with factory-controlled performance."
       intro="Maibec CanExel engineered wood siding uses a high-density fibre substrate, embossed woodgrain and a multi-layer factory-applied thermoset finish. The collection includes contemporary vertical and horizontal profiles, traditional lap siding and reverse board-and-batten expressions for Canadian residential and light-commercial exteriors."
-      images={[
-        `${root}/canexel-engineered-wood-siding-home.webp`,
-        `${root}/canexel-vstyle-white-engineered-siding.webp`,
-        `${root}/canexel-engineered-wood-siding-colour-example.webp`,
-      ]}
+      images={["/images/source-library/natural-wood/engineered-wood/hero.webp","/images/source-library/natural-wood/engineered-wood/detail-01.webp","/images/source-library/natural-wood/engineered-wood/detail-02.webp"]}
       specs={[
         { label: "Manufacturer", value: "Maibec CanExel" },
         { label: "Core material", value: "High-density fibre engineered wood" },

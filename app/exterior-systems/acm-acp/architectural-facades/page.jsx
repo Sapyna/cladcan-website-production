@@ -3,6 +3,8 @@ export const metadata={title:'Architectural Façades'+" | CladCan",description:'
 export default function Page(){
 	return (
 		<CurrentSitePage
+  image="/images/source-library/acm-acp/architectural-facades/hero.webp"
+  images={["/images/source-library/acm-acp/architectural-facades/hero.webp","/images/source-library/acm-acp/architectural-facades/detail-01.webp","/images/source-library/acm-acp/architectural-facades/detail-02.webp"]}
 			eyebrow='ACM ACP'
 			title='Architectural Façades'
 			intro='ACM and ACP cladding systems enable crisp, contemporary façades with thin, stable panel faces and a wide range of finishes.'

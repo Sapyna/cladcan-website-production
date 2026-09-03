@@ -3,6 +3,8 @@ export const metadata={title:'Siding & Panels'+" | CladCan",description:'Explore
 export default function Page(){
 	return (
 		<CurrentSitePage
+  image="/images/source-library/fibre-cement/siding-panels/hero.webp"
+  images={["/images/source-library/fibre-cement/siding-panels/hero.webp","/images/source-library/fibre-cement/siding-panels/detail-01.webp","/images/source-library/fibre-cement/siding-panels/detail-02.webp"]}
 			eyebrow='FIBRE CEMENT'
 			title='Siding & Panels'
 			intro='Fibre-cement siding and panels provide durable, low-maintenance cladding with a range of textures and profiles.'

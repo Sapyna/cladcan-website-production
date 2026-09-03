@@ -15,11 +15,7 @@ export default function Page() {
       title="Cedar"
       subtitle="Natural warmth for siding, soffit and architectural woodwork."
       intro="Cedar brings unmistakable grain, warmth and natural variation to exterior walls, soffits, ceilings and architectural details. CladCan coordinates tongue-and-groove, channel, nickel-gap and dressed-board options in clear and tight-knot appearances, with profile and finish selection matched to the project’s exposure and design intent."
-      images={[
-        `${root}/western-red-cedar-soffit-modern-home-hero.webp`,
-        `${root}/cedar-soffit-acm-fascia-residential-project.webp`,
-        `${root}/western-red-cedar-soffit-grain-detail.webp`,
-      ]}
+      images={["/images/source-library/natural-wood/cedar/hero.webp","/images/source-library/natural-wood/cedar/detail-01.webp","/images/source-library/natural-wood/cedar/detail-02.webp"]}
       specs={[
         { label: "Material family", value: "Western red cedar and project-specified cedar boards" },
         { label: "Available appearances", value: "Clear and tight-knot grades, subject to supplier availability" },

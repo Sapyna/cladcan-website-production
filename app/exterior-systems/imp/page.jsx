@@ -12,7 +12,7 @@ export default function Page(){return <ProductPage
   title="Insulated Metal Panels"
   subtitle="Insulation, weather control and exterior finish in one coordinated panel."
   intro="Insulated Metal Panels (IMPs) are factory-made envelope components with metal facings bonded to a rigid insulation core. A single panel can provide exterior finish, continuous insulation and coordinated air, water and vapour control, helping teams enclose commercial, industrial, agricultural and temperature-controlled buildings quickly and consistently."
-  images={[`${imageRoot}/insulated-metal-panel-commercial-facade-detail.webp`,`${imageRoot}/norbec-insulated-metal-panel-commercial-building.webp`,`${imageRoot}/insulated-metal-panel-wall-system-render.webp`,`${imageRoot}/norbec-insulated-metal-panel-joint-render.webp`]}
+  images={["/images/source-library/imp/hero.webp","/images/source-library/imp/detail-01.webp","/images/source-library/imp/detail-02.webp"]}
   specs={[
     {label:"System type",value:"Factory-insulated metal wall and roof panels"},
     {label:"Core options",value:"PIR / PUR foam or mineral wool, product dependent"},

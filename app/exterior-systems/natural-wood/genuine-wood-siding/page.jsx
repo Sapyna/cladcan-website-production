@@ -15,11 +15,7 @@ export default function Page() {
       title="Genuine Wood Siding"
       subtitle="Authentic grain, flexible profiles and factory-applied colour."
       intro="Genuine wood siding brings warm tone, tactile grain and natural variation to the building envelope. Maibec’s profile range can be installed horizontally or vertically, combined with shingles or contrasting materials, and finished in solid colours or Natural Tones to suit traditional and contemporary architecture."
-      images={[
-        `${root}/maibec-genuine-wood-siding-home.webp`,
-        `${root}/maibec-genuine-wood-siding-detail.webp`,
-        `${root}/maibec-natural-stain-siding-detail.webp`,
-      ]}
+      images={["/images/source-library/natural-wood/genuine-wood-siding/hero.webp","/images/source-library/natural-wood/genuine-wood-siding/detail-01.webp","/images/source-library/natural-wood/genuine-wood-siding/detail-02.webp"]}
       specs={[
         { label: "Profile family", value: "Rabbeted bevel, Modern, Contemporary, Channel, Cove and V-Joint" },
         { label: "Nominal widths", value: "4, 6 and 8 in, depending on profile" },

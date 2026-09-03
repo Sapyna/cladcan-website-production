@@ -3,6 +3,8 @@ export const metadata={title:'Colours & Finishes'+" | CladCan",description:'Expl
 export default function Page(){
 	return (
 		<CurrentSitePage
+  image="/images/source-library/acm-acp/colours-finishes/hero.webp"
+  images={["/images/source-library/acm-acp/colours-finishes/hero.webp","/images/source-library/acm-acp/colours-finishes/detail-01.webp","/images/source-library/acm-acp/colours-finishes/detail-02.webp"]}
 			eyebrow='ACM ACP'
 			title='Colours & Finishes'
 			intro='ACM finishes range from solid coil coatings to metallic, anodized and woodgrain effects — choose finishes compatible with long-term exposure and maintenance expectations.'

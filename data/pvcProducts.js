@@ -26,7 +26,7 @@ export const pvcProducts = {
       title: "Classic Flat Panels",
       subtitle: "Clean lines with flexible wall and ceiling applications.",
       intro: "ChamClad recycled rigid uPVC flat panels provide low-maintenance cladding for exterior walls, ceilings and interior feature areas. The Classic 6-inch dual-profile panel creates either a U-Channel or V-Groove appearance, while seamless panels support a quieter, broader surface.",
-      images: ["/images/exterior-systems/pvc/flat-panels/upvc-dual-profile-cladding-project.webp","/images/exterior-systems/pvc/flat-panels/upvc-u-channel-panel-profile.webp","/images/exterior-systems/pvc/flat-panels/upvc-v-groove-panel-profile.webp"],
+      images: ["/images/source-library/pvc/flat-panels/hero.webp","/images/source-library/pvc/flat-panels/detail-01.webp","/images/source-library/pvc/flat-panels/detail-02.webp"],
       applicationLinks: pvcNav,
       specs: [
         {label:"Primary material",value:"Engineered recycled rigid uPVC"},
@@ -110,7 +110,7 @@ export const pvcProducts = {
       title:"Posts, Beams & Column Wraps",
       subtitle:"Decorative, non-load-bearing wraps with trimless options.",
       intro:"ChamClad post, beam and column products create the appearance of finished timber, cedar, metal or solid architectural elements without introducing a structural cladding load. Quick Click components, two-piece column wraps and faux beams are designed for decorative interior and exterior applications.",
-      images:["/images/content/post-wrap-detail.webp","/images/content/premium-soffit-project.webp","/images/content/pvc-detail.webp"],
+      images:["/images/source-library/pvc/posts-beams/hero.webp","/images/source-library/pvc/posts-beams/detail-01.webp","/images/source-library/pvc/posts-beams/detail-02.webp"],
       applicationLinks:pvcNav,
       specs:[
         {label:"Function",value:"Decorative, non-load-bearing wrap"},
@@ -174,7 +174,7 @@ export const pvcProducts = {
       title:"Shadow Series Wall Panels",
       subtitle:"Deep, defined reveals for modern linear façades.",
       intro:"ChamClad Shadowline panels reinterpret narrow wood slats in engineered recycled rigid uPVC. Square edges and a deep black groove create pronounced shadow lines, while compatible profile widths can be combined for custom rhythms across exterior or interior feature surfaces.",
-      images:["/images/exterior-systems/pvc/shadow-series/upvc-shadow-series-house.webp","/images/exterior-systems/pvc/shadow-series/upvc-shadowline-cladding-project.webp","/images/exterior-systems/pvc/shadow-series/six-inch-single-reveal-profile.webp"],
+      images:["/images/source-library/pvc/shadow-series/hero.webp","/images/source-library/pvc/shadow-series/detail-01.webp","/images/source-library/pvc/shadow-series/detail-02.webp"],
       applicationLinks:pvcNav,
       specs:[
         {label:"Material",value:"Engineered recycled rigid uPVC"},
@@ -257,7 +257,7 @@ export const pvcProducts = {
       title:"Soffit & Ceiling Panels",
       subtitle:"Solid, vented and seamless profiles for clean overhead finishes.",
       intro:"ChamClad uPVC soffit panels combine coordinated architectural finishes with solid and vented profiles for entrances, overhangs, covered patios and roofline ceilings. Four- and six-inch panels provide U-Channel or V-Groove character, while the twelve-inch panel creates a broader seamless appearance.",
-      images:["/images/exterior-systems/pvc/soffit/upvc-soffit-installation-project.webp","/images/content/premium-soffit-project.webp","/images/exterior-systems/pvc/soffit/six-inch-vented-soffit-panel.webp"],
+      images:["/images/source-library/pvc/soffit/hero.webp","/images/source-library/pvc/soffit/detail-01.webp","/images/source-library/pvc/soffit/detail-02.webp"],
       applicationLinks:pvcNav,
       specs:[
         {label:"Material",value:"Engineered recycled rigid uPVC"},

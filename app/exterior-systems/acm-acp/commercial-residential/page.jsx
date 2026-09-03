@@ -3,6 +3,8 @@ export const metadata={title:'Commercial & Residential'+" | CladCan",description
 export default function Page(){
 	return (
 		<CurrentSitePage
+  image="/images/source-library/acm-acp/commercial-residential/hero.webp"
+  images={["/images/source-library/acm-acp/commercial-residential/hero.webp","/images/source-library/acm-acp/commercial-residential/detail-01.webp","/images/source-library/acm-acp/commercial-residential/detail-02.webp"]}
 			eyebrow='ACM ACP'
 			title='Commercial & Residential'
 			intro='ACM and ACP panels are specified across commercial and high-end residential projects when a lightweight, high-quality façade is desired.'

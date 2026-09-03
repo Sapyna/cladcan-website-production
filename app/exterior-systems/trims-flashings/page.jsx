@@ -15,11 +15,7 @@ export default function Page() {
       title="Trims & Flashings"
       subtitle="The details that complete and protect the building envelope."
       intro="CladCan supplies and fabricates standard and project-specific metal trims and flashings for commercial, industrial, institutional, agricultural and residential construction. Profiles are coordinated around the cladding system, openings, transitions, drainage paths and the architectural intent—down to the last detail."
-      images={[
-        `${imageRoot}/custom-metal-trims-flashings-fabrication.webp`,
-        `${imageRoot}/architectural-steel-trims-flashings.webp`,
-        `${imageRoot}/steel-trims-flashings-press-brake-fabrication.webp`,
-      ]}
+      images={["/images/source-library/trims-flashings/hero.webp","/images/source-library/trims-flashings/detail-01.webp","/images/source-library/trims-flashings/detail-02.webp"]}
       specs={[
         { label: "Product scope", value: "Standard profiles and custom brake-formed shapes" },
         { label: "Typical materials", value: "Pre-painted steel, aluminum and compatible specialty sheet metals" },

@@ -16,11 +16,7 @@ export default function Page() {
       title="Board & Batten"
       subtitle="A timeless vertical profile, reimagined for modern exteriors."
       intro="Board and batten siding pairs wide vertical boards with narrower battens that cover or express the joints. The result is a strong architectural rhythm with the warmth and grain of wood—equally suited to farmhouse-inspired homes, contemporary façades and carefully detailed accent areas."
-      images={[
-        `${root}/white-board-and-batten-wood-siding-home.webp`,
-        `${root}/grey-board-and-batten-wood-siding-building.webp`,
-        `${root}/modern-white-board-and-batten-siding.webp`,
-      ]}
+      images={["/images/source-library/natural-wood/board-and-batten/hero.webp","/images/source-library/natural-wood/board-and-batten/detail-01.webp","/images/source-library/natural-wood/board-and-batten/detail-02.webp"]}
       specs={[
         { label: "Natural-wood species", value: "Spruce–Pine–Fir (SPF), sound tight knot" },
         { label: "Natural-wood board", value: "10 in nominal; 5/8 × 9 in actual" },

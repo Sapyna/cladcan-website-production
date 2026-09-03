@@ -10,8 +10,8 @@ const items=[
 export default function Page(){return <CurrentSitePage
   eyebrow="STEEL EXTERIOR SYSTEMS"
   title="Steel Siding & Soffit"
-  image="/images/exterior-systems/steel-siding-soffit-ontario-v2.jpg"
-  images={["/images/exterior-systems/steel-siding-soffit-ontario-v2.jpg","/images/content/agway-siding-project.webp","/images/content/corrugated-commercial.webp"]}
+  image="/images/source-library/steel/hero.webp"
+  images={["/images/source-library/steel/hero.webp","/images/source-library/steel/detail-01.webp","/images/source-library/steel/detail-02.webp"]}
   intro="Durable steel cladding systems for residential, commercial, industrial and institutional walls, soffits and architectural accents."
   overview="Steel siding and soffit combine long service life, low maintenance and broad profile flexibility. Select the fastening strategy first, then coordinate the panel profile, finish, thermal attachment, trims and transitions as one complete exterior system."
   items={items}

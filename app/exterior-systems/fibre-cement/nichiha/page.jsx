@@ -5,8 +5,8 @@ export const metadata={title:"Nichiha Architectural Fibre Cement Panels",descrip
 const data={
   brand:"Nichiha",
   tagline:"Architectural wall panels that combine expressive textures, concealed attachment and integrated rainscreen performance.",
-  hero:"/images/exterior-systems/fibre-cement/nichiha-architectural-wall-panel-hero.webp",
-  featureImage:"/images/exterior-systems/fibre-cement/architectural-fibre-cement-rainscreen-cladding.webp",
+  hero:"/images/source-library/fibre-cement/nichiha/hero.webp",
+  featureImage:"/images/source-library/fibre-cement/nichiha/detail-01.webp",
   intro:{title:"Where building technology meets architectural expression.",paragraphs:["Nichiha Architectural Wall Panels give designers a broad material vocabulary—from wood and concrete to stone, brick, block, ribbed and high-gloss surfaces. The panelized system creates refined commercial and residential façades with fewer visible fasteners.","Integrated rainscreen geometry and purpose-designed clips help manage drainage, ventilation and panel alignment. CladCan coordinates the selected collection, layout, corners, trims and substrate interfaces for the project."]},
   benefits:[
     {title:"Integrated Rainscreen",text:"Panel and clip geometry creates a ventilated drainage cavity behind the finished cladding."},

@@ -3,6 +3,8 @@ export const metadata={title:'Architectural Accents'+" | CladCan",description:'E
 export default function Page(){
 	return (
 		<CurrentSitePage
+  image="/images/source-library/natural-wood/architectural-accents/hero.webp"
+  images={["/images/source-library/natural-wood/architectural-accents/hero.webp","/images/source-library/natural-wood/architectural-accents/detail-01.webp","/images/source-library/natural-wood/architectural-accents/detail-02.webp"]}
 			eyebrow='NATURAL WOOD'
 			title='Architectural Accents'
 			intro='Natural wood accents add tactility and human scale to façades — from entries and columns to screening and feature panels.'

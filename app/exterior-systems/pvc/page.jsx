@@ -18,12 +18,8 @@ export default function Page() {
     title="uPVC Architectural Products"
     intro="Low-maintenance wall panels, soffit and decorative wraps with realistic architectural finishes."
     overview="ChamClad uPVC products combine engineered recycled rigid PVC profiles with durable decorative films. The system includes four clear product families for walls, ceilings, soffits, posts, beams and columns. Each family has its own profiles, sizes and accessories, while shared finish options make it possible to coordinate multiple surfaces across a project."
-    image="/images/exterior-systems/pvc-siding-soffit-ontario.jpg"
-    images={[
-      "/images/content/pvc-project.webp",
-      "/images/content/shadowline-project.webp",
-      "/images/content/premium-soffit-project.webp",
-    ]}
+    image="/images/source-library/pvc/hero.webp"
+    images={["/images/source-library/pvc/hero.webp","/images/source-library/pvc/detail-01.webp","/images/source-library/pvc/detail-02.webp"]}
     items={[
       {title:"Classic Flat Panels",href:"/exterior-systems/pvc/flat-panels",image:"/images/exterior-systems/pvc/flat-panels/upvc-dual-profile-cladding-project.webp",text:"Classic 6-inch dual-profile and seamless panels for exterior walls, interior features and ceilings.",tags:["U-Channel","V-Groove","Seamless"]},
       {title:"Posts & Beams",href:"/exterior-systems/pvc/posts-beams",image:"/images/content/post-wrap-detail.webp",text:"Quick Click, two-piece column wrap and faux-beam systems for decorative non-load-bearing applications.",tags:["8, 10 & 12 in","Column Wrap","Faux Beam"]},

@@ -3,6 +3,8 @@ export const metadata={title:'Fabrication & Installation'+" | CladCan",descripti
 export default function Page(){
 	return (
 		<CurrentSitePage
+  image="/images/source-library/acm-acp/fabrication-installation/hero.webp"
+  images={["/images/source-library/acm-acp/fabrication-installation/hero.webp","/images/source-library/acm-acp/fabrication-installation/detail-01.webp","/images/source-library/acm-acp/fabrication-installation/detail-02.webp"]}
 			eyebrow='ACM ACP'
 			title='Fabrication & Installation'
 			intro='Panel fabrication and precise installation are essential to realise the planned visual effect and to protect finishes.'

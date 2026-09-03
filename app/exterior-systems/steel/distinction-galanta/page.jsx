@@ -3,6 +3,8 @@ export const metadata={title:'Distinction & Galanta'+" | CladCan",description:'E
 export default function Page(){
 	return (
 		<CurrentSitePage
+  image="/images/source-library/steel/distinction-galanta/hero.webp"
+  images={["/images/source-library/steel/distinction-galanta/hero.webp","/images/source-library/steel/distinction-galanta/detail-01.webp","/images/source-library/steel/distinction-galanta/detail-02.webp"]}
 			eyebrow='STEEL'
 			title='Distinction & Galanta'
 			intro='Hidden-fastener steel siding families that combine textural detail with clean, uninterrupted exterior surfaces.'

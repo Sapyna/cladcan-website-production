@@ -32,7 +32,7 @@ const profiles=[
 
 export default function CedarRenditionsPage(){return <main className="fastPlankPage cedarRenditionsPage">
   <section className="internalHero exteriorSystemDetailHero fastPlankHero">
-    <div className="internalHeroImage exteriorSystemHeroMedia" style={{backgroundImage:'url("/images/exterior-systems/cedar-renditions/cedar-renditions-woodgrain-aluminum-siding-soffit-hero.webp")'}}/>
+    <div className="internalHeroImage exteriorSystemHeroMedia" style={{backgroundImage:"url('/images/source-library/aluminum/cedar-renditions/hero.webp')"}}/>
     <div className="wrap internalHeroCopy">
       <span>ALUMINUM SIDING & SOFFIT</span>
       <h1>Cedar Renditions® Siding & Soffit</h1>
