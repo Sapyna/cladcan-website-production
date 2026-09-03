@@ -47,14 +47,16 @@ export default function Page() {
         {
           title: "Charred Wood",
           subtitle: "SHOU SUGI BAN",
-          image: "/images/content/charred-wood-project.webp",
+          href: "/exterior-systems/natural-wood/charred-wood",
+          image: "/images/exterior-systems/natural-wood/charred-wood/black-charred-wood-siding-modern-home.webp",
           tags: ["Charred finish", "Textured surface", "Architectural accent"],
           text: "Deeply textured charred wood creates a dramatic exterior finish rooted in traditional preservation techniques.",
         },
         {
           title: "Engineered Wood",
           subtitle: "LOW-MAINTENANCE WOOD LOOK",
-          image: "/images/content/engineered-wood-project.webp",
+          href: "/exterior-systems/natural-wood/engineered-wood",
+          image: "/images/exterior-systems/natural-wood/engineered-wood/canexel-engineered-wood-siding-home.webp",
           tags: ["Stable substrate", "Factory finish", "Canadian climate"],
           text: "Engineered siding combines a genuine wood appearance with controlled dimensions, durable coatings and practical maintenance.",
         },
