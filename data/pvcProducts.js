@@ -26,11 +26,12 @@ export const pvcProducts = {
       title: "Classic Flat Panels",
       subtitle: "Clean lines with flexible wall and ceiling applications.",
       intro: "ChamClad recycled rigid uPVC flat panels provide low-maintenance cladding for exterior walls, ceilings and interior feature areas. The Classic 6-inch dual-profile panel creates either a U-Channel or V-Groove appearance, while seamless panels support a quieter, broader surface.",
-      images: ["/images/content/dual-profile-project.webp","/images/content/dual-profile-detail.webp","/images/content/pvc-project.webp"],
+      images: ["/images/exterior-systems/pvc/flat-panels/upvc-dual-profile-cladding-project.webp","/images/exterior-systems/pvc/flat-panels/upvc-u-channel-panel-profile.webp","/images/exterior-systems/pvc/flat-panels/upvc-v-groove-panel-profile.webp"],
       applicationLinks: pvcNav,
       specs: [
         {label:"Primary material",value:"Engineered recycled rigid uPVC"},
         {label:"Classic profile",value:"6 in tongue-and-groove dual profile"},
+        {label:"Profile dimensions",value:"6 in wide x 1/2 in thick"},
         {label:"Profile options",value:"U-Channel or V-Groove from one panel"},
         {label:"Orientation",value:"Horizontal, vertical or diagonal"},
         {label:"Standard lengths",value:"12 ft, 16 ft, 20 ft and 30 ft, profile dependent"},
@@ -42,7 +43,11 @@ export const pvcProducts = {
         {title:"Low-maintenance surface",text:"Rigid uPVC does not require the routine staining associated with natural wood and resists water absorption, bacteria and mould."},
         {title:"Interior and exterior use",text:"Selected profiles can coordinate exterior cladding with protected ceilings and durable interior feature applications."},
       ],
-      applications: ["Residential exterior walls","Commercial feature façades","Interior accent walls","Porch and covered ceilings","Renovations and additions","Decorative post, beam and column wrap configurations"],
+      applications: ["Residential exterior walls","Commercial and industrial feature façades","Interior accent walls","Porch and covered ceilings","Renovations and additions","Decorative post, beam and column wrap configurations"],
+      featureImages:[
+        {src:"/images/exterior-systems/pvc/flat-panels/upvc-u-channel-panel-profile.webp",alt:"Six-inch recycled rigid uPVC panel configured as a U-Channel profile",caption:"U-Channel profile: stop the stacker connection at its first position."},
+        {src:"/images/exterior-systems/pvc/flat-panels/upvc-v-groove-panel-profile.webp",alt:"Six-inch recycled rigid uPVC panel configured as a V-Groove profile",caption:"V-Groove profile: seat the panel to the second stop with a non-marking rubber mallet."},
+      ],
       components: [
         {title:"6 in Classic wall panel",detail:"Tongue-and-groove panel installed to create either a U-Channel or V-Groove appearance."},
         {title:"12 in seamless panel",detail:"Broad panel for clean wall, ceiling and selected wrap applications where fewer visible grooves are preferred."},
@@ -60,8 +65,25 @@ export const pvcProducts = {
           {title:"V-Groove",text:"A tighter groove for a more continuous linear surface."},
           {title:"Planning",text:"Confirm the selected stop, orientation and trim package before installation begins so the entire elevation remains consistent."},
         ],
-        images:[{src:"/images/content/dual-profile-detail.webp",alt:"ChamClad style dual-profile uPVC panel detail",caption:"One interlocking panel can create two distinct joint expressions."}],
+        images:[
+          {src:"/images/exterior-systems/pvc/flat-panels/upvc-six-inch-dual-panel-profile.webp",alt:"Six-inch dual-profile recycled rigid uPVC cladding panel",caption:"The 6-inch by 1/2-inch panel is available in standard and project-specific lengths."},
+          {src:"/images/exterior-systems/pvc/flat-panels/upvc-wall-cladding-assembly-diagram.webp",alt:"uPVC wall cladding installation assembly with trims and substrate",caption:"Coordinate the substrate, starter, fastening, corners and perimeter trims as one installation."},
+        ],
         resource:{label:"ChamClad Classic Wall Panel",href:"https://chamclad.com/cladding/6-wall-panel/"},
+      },{
+        eyebrow:"TRIMS & FINISHES",
+        title:"Complete the panel field with compatible accessories.",
+        text:"Starter, outside corner, inside corner, J and H trims resolve panel edges and transitions. Finish selections include realistic woodgrains and solid colours; many use layered film technology with a PVDF top layer for UV resistance and colour stability.",
+        facts:[
+          {title:"Woodgrain range",text:"Embossed textures and high pattern variation reduce repetition and create a more natural appearance."},
+          {title:"Solid colours",text:"Neutral and dark solid finishes support contemporary exterior and interior palettes."},
+          {title:"Heat reflection",text:"Selected films use heat-reflective technology to limit surface heat buildup; confirm the current finish specification."},
+        ],
+        images:[
+          {src:"/images/exterior-systems/pvc/flat-panels/upvc-cladding-trim-accessories.webp",alt:"Starter corner J and H trims for uPVC cladding panels",caption:"Use the trim family specified for the panel, corner and transition condition."},
+          {src:"/images/exterior-systems/pvc/flat-panels/upvc-dual-panel-woodgrain-finishes.webp",alt:"Woodgrain finish options for six-inch dual-profile uPVC panels",caption:"Woodgrain finish availability should be confirmed from the current catalogue."},
+          {src:"/images/exterior-systems/pvc/flat-panels/upvc-dual-panel-solid-colours.webp",alt:"Solid colour options for six-inch dual-profile uPVC panels",caption:"Review physical samples in exterior light before final approval."},
+        ],
       }],
       finishes: sharedFinishes,
       resources: [
@@ -152,12 +174,12 @@ export const pvcProducts = {
       title:"Shadow Series Wall Panels",
       subtitle:"Deep, defined reveals for modern linear façades.",
       intro:"ChamClad Shadowline panels reinterpret narrow wood slats in engineered recycled rigid uPVC. Square edges and a deep black groove create pronounced shadow lines, while compatible profile widths can be combined for custom rhythms across exterior or interior feature surfaces.",
-      images:["/images/content/shadowline-project.webp","/images/content/shadowline-detail.webp","/images/content/pvc-project.webp"],
+      images:["/images/exterior-systems/pvc/shadow-series/upvc-shadow-series-house.webp","/images/exterior-systems/pvc/shadow-series/upvc-shadowline-cladding-project.webp","/images/exterior-systems/pvc/shadow-series/six-inch-single-reveal-profile.webp"],
       applicationLinks:pvcNav,
       specs:[
         {label:"Material",value:"Engineered recycled rigid uPVC"},
         {label:"6 in panel",value:"Single 6 in reveal or two 3 in reveals"},
-        {label:"12 in panel",value:"Six 2 in reveals"},
+        {label:"12 in panels",value:"Six 2 in reveals or a single seamless reveal"},
         {label:"Groove depth",value:"Approximately 1/4 in (6.35 mm)"},
         {label:"Orientation",value:"Horizontal or vertical; profile combinations permitted"},
         {label:"Lengths",value:"12 ft, 16 ft, 20 ft and custom lengths, profile dependent"},
@@ -168,12 +190,17 @@ export const pvcProducts = {
         {title:"Board-and-batten option",text:"Vertical installation and selected seamless-panel combinations can create a contemporary board-and-batten expression."},
         {title:"Wood look without staining",text:"Realistic films and embossed textures provide a timber-inspired appearance with lower routine maintenance."},
       ],
-      applications:["Contemporary residential façades","Commercial feature walls","Vertical board-and-batten expressions","Horizontal linear cladding","Interior feature walls","Soffit and wall transitions with compatible products"],
+      applications:["Contemporary residential façades","Commercial and industrial feature walls","Vertical board-and-batten expressions","Horizontal linear cladding","Interior feature walls","Soffit and wall transitions with compatible products"],
+      featureImages:[
+        {src:"/images/exterior-systems/pvc/shadow-series/six-inch-single-reveal-profile.webp",alt:"Six-inch Shadow Series uPVC panel with one reveal",caption:"6-inch panel with a single 6-inch reveal."},
+        {src:"/images/exterior-systems/pvc/shadow-series/six-inch-double-three-inch-reveal-profile.webp",alt:"Six-inch Shadow Series uPVC panel with two three-inch reveals",caption:"6-inch panel divided into two 3-inch reveals."},
+        {src:"/images/exterior-systems/pvc/shadow-series/twelve-inch-six-two-inch-reveal-profile.webp",alt:"Twelve-inch Shadow Series uPVC panel with six two-inch reveals",caption:"12-inch panel with six narrow 2-inch reveals."},
+      ],
       components:[
         {title:"6 in panel with 6 in reveal",detail:"One broad reveal across the panel face for a calm linear rhythm."},
         {title:"6 in panel with two 3 in reveals",detail:"Divided face for a narrower slat appearance."},
         {title:"12 in panel with six 2 in reveals",detail:"Dense linear pattern with multiple deep grooves across a wider plank."},
-        {title:"12 in seamless Shadowline panel",detail:"Broad companion panel that can be positioned to show or conceal the adjacent black joint."},
+        {title:"12 in single-reveal panel",detail:"Broad 12-inch by 1/2-inch companion panel in 12-foot and 16-foot lengths for a clean seamless field."},
         {title:"Starter",detail:"Sets the first course and alignment for the interlocking panel field."},
         {title:"Corner, J and H trims",detail:"Resolve perimeters, corners, openings and material transitions."},
       ],
@@ -186,8 +213,24 @@ export const pvcProducts = {
           {title:"3 in reveals",text:"Two equal reveals increase line frequency while maintaining a six-inch panel module."},
           {title:"2 in reveals",text:"Six narrow reveals across the twelve-inch panel create the strongest slat-like appearance."},
         ],
-        images:[{src:"/images/content/shadowline-detail.webp",alt:"Deep black reveal in a Shadowline style uPVC cladding panel",caption:"The deep groove and black pigment create a consistent shadow line."}],
+        images:[
+          {src:"/images/exterior-systems/pvc/shadow-series/twelve-inch-single-reveal-profile.webp",alt:"Twelve-inch single-reveal recycled rigid uPVC Shadow Series panel",caption:"The 12-inch single-reveal panel can create a broad uninterrupted surface."},
+          {src:"/images/exterior-systems/pvc/shadow-series/upvc-shadow-series-trims.webp",alt:"Trim accessories for Shadow Series uPVC wall panels",caption:"Starter, corner, J and H trims complete openings, edges and transitions."},
+        ],
         resource:{label:"ChamClad Shadowline Panel",href:"https://chamclad.com/cladding/3-shadowline-panel/"},
+      },{
+        eyebrow:"FINISH COLLECTION",
+        title:"Woodgrain depth and coordinated solid colours.",
+        text:"Shadow Series profiles are available in woodgrain and solid finishes selected to reinforce the slat-like geometry. Embossing, high pattern variation and UV-resistant film technology help the surface read as an architectural material rather than a repeated print.",
+        facts:[
+          {title:"Woodgrain",text:"Finish availability varies by profile, so confirm the selected colour against the exact reveal configuration."},
+          {title:"Solid colours",text:"Dark grooves and coordinated solid faces create pronounced linear contrast."},
+          {title:"Sample approval",text:"Review full-size physical samples because groove depth, orientation and sunlight change the perceived colour."},
+        ],
+        images:[
+          {src:"/images/exterior-systems/pvc/shadow-series/shadow-panel-woodgrain-finishes.webp",alt:"Woodgrain finish options for Shadow Series uPVC cladding",caption:"Representative woodgrain options from the supplied product document."},
+          {src:"/images/exterior-systems/pvc/shadow-series/shadow-panel-solid-colours.webp",alt:"Solid colour options for Shadow Series uPVC cladding",caption:"Representative solid finishes from the supplied product document."},
+        ],
       }],
       finishes:sharedFinishes,
       resources:[
@@ -214,10 +257,11 @@ export const pvcProducts = {
       title:"Soffit & Ceiling Panels",
       subtitle:"Solid, vented and seamless profiles for clean overhead finishes.",
       intro:"ChamClad uPVC soffit panels combine coordinated architectural finishes with solid and vented profiles for entrances, overhangs, covered patios and roofline ceilings. Four- and six-inch panels provide U-Channel or V-Groove character, while the twelve-inch panel creates a broader seamless appearance.",
-      images:["/images/content/premium-soffit-project.webp","/images/content/premium-soffit-ceiling.webp","/images/content/pvc-detail.webp"],
+      images:["/images/exterior-systems/pvc/soffit/upvc-soffit-installation-project.webp","/images/content/premium-soffit-project.webp","/images/exterior-systems/pvc/soffit/six-inch-vented-soffit-panel.webp"],
       applicationLinks:pvcNav,
       specs:[
         {label:"Material",value:"Engineered recycled rigid uPVC"},
+        {label:"Profile thickness",value:"1/2 in for the documented 4 in and 6 in profiles"},
         {label:"Panel widths",value:"4 in, 6 in and 12 in"},
         {label:"Ventilation",value:"Solid and vented options; profile dependent"},
         {label:"4 in lengths",value:"12 ft and 20 ft"},
@@ -230,7 +274,12 @@ export const pvcProducts = {
         {title:"Moisture-resistant material",text:"Rigid uPVC does not absorb water and resists bacteria and mould in appropriately detailed applications."},
         {title:"Coordinated finishes",text:"Woodgrain, solid, anodized and metallic looks can align soffits with wall panels, fascia and wrapped columns."},
       ],
-      applications:["Residential roofline soffits","Grand entrances and canopies","Covered patios and porches","Commercial overhangs","Multi-family exterior ceilings","Selected interior wall and ceiling applications"],
+      applications:["Residential roofline soffits","Grand entrances and canopies","Covered patios and porches","Commercial and multi-family overhangs","Curved walls and barrel or radius ceilings with flexible solid panels","Selected interior wall and ceiling applications"],
+      featureImages:[
+        {src:"/images/exterior-systems/pvc/soffit/four-inch-solid-soffit-panel.webp",alt:"Four-inch solid rigid uPVC soffit panel",caption:"4-inch solid soffit panel in 12-foot and 20-foot lengths."},
+        {src:"/images/exterior-systems/pvc/soffit/four-inch-vented-soffit-panel.webp",alt:"Four-inch fully perforated rigid uPVC soffit panel",caption:"4-inch vented panel aligns with the matching solid profile."},
+        {src:"/images/exterior-systems/pvc/soffit/six-inch-vented-soffit-panel.webp",alt:"Six-inch fully perforated rigid uPVC soffit panel",caption:"6-inch full-width venting creates a cleaner, less visible intake pattern."},
+      ],
       components:[
         {title:"4 in solid soffit panel",detail:"Traditional narrow panel available in 12 ft and 20 ft lengths."},
         {title:"4 in vented soffit panel",detail:"Matching vented profile for locations requiring distributed airflow."},
@@ -248,8 +297,25 @@ export const pvcProducts = {
           {title:"6 in vented",text:"Provides a cleaner full-width vent pattern within the six-inch panel family."},
           {title:"12 in seamless",text:"Requires a separately coordinated vent strip wherever the roof or ceiling assembly needs intake ventilation."},
         ],
-        images:[{src:"/images/content/premium-soffit-ceiling.webp",alt:"Woodgrain uPVC soffit and ceiling panel installation",caption:"Vented and solid panels should be laid out together with fascia, lighting and roof ventilation."}],
+        images:[
+          {src:"/images/exterior-systems/pvc/soffit/six-inch-solid-soffit-panel.webp",alt:"Six-inch solid rigid uPVC soffit and ceiling panel",caption:"The solid 6-inch profile is available in multiple standard and custom lengths."},
+          {src:"/images/exterior-systems/pvc/soffit/upvc-soffit-trim-accessories.webp",alt:"Starter corner J and H trims for uPVC soffit panels",caption:"Coordinate perimeter trims with fascia, walls, lighting and material transitions."},
+        ],
         resource:{label:"ChamClad Soffit Collection",href:"https://chamclad.com/products/soffit/"},
+      },{
+        eyebrow:"FINISH OPTIONS",
+        title:"Coordinate solid and vented panels in one finish family.",
+        text:"The supplied finish charts show woodgrain and solid options across the soffit profiles. Because not every finish is necessarily available on every profile or lead time, the current catalogue and a physical sample remain the final selection source.",
+        facts:[
+          {title:"Solid panels",text:"Woodgrain finishes can carry a warm ceiling expression through entrances, patios and overhangs."},
+          {title:"Vented panels",text:"Perforations remain visible at close range; colour and pattern should be reviewed on the actual vented profile."},
+          {title:"Flexible solids",text:"Selected 4-inch and 6-inch solid flexible panels allow curved walls, barrel ceilings and radius applications."},
+        ],
+        images:[
+          {src:"/images/exterior-systems/pvc/soffit/solid-soffit-woodgrain-finishes.webp",alt:"Woodgrain finish options for four-inch and six-inch solid uPVC soffit panels",caption:"Representative solid-panel woodgrain finishes from the supplied document."},
+          {src:"/images/exterior-systems/pvc/soffit/four-inch-vented-soffit-finishes.webp",alt:"Woodgrain finish options for four-inch vented uPVC soffit panels",caption:"Representative 4-inch vented-panel finishes."},
+          {src:"/images/exterior-systems/pvc/soffit/six-inch-vented-soffit-solid-colours.webp",alt:"Solid colour options for six-inch vented uPVC soffit panels",caption:"Representative solid colours for the 6-inch vented profile."},
+        ],
       }],
       finishes:sharedFinishes,
       resources:[

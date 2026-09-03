@@ -25,10 +25,10 @@ export default function Page() {
       "/images/content/premium-soffit-project.webp",
     ]}
     items={[
-      {title:"Classic Flat Panels",href:"/exterior-systems/pvc/flat-panels",image:"/images/content/dual-profile-project.webp",text:"Classic 6-inch dual-profile and seamless panels for exterior walls, interior features and ceilings.",tags:["U-Channel","V-Groove","Seamless"]},
+      {title:"Classic Flat Panels",href:"/exterior-systems/pvc/flat-panels",image:"/images/exterior-systems/pvc/flat-panels/upvc-dual-profile-cladding-project.webp",text:"Classic 6-inch dual-profile and seamless panels for exterior walls, interior features and ceilings.",tags:["U-Channel","V-Groove","Seamless"]},
       {title:"Posts & Beams",href:"/exterior-systems/pvc/posts-beams",image:"/images/content/post-wrap-detail.webp",text:"Quick Click, two-piece column wrap and faux-beam systems for decorative non-load-bearing applications.",tags:["8, 10 & 12 in","Column Wrap","Faux Beam"]},
-      {title:"Shadow Series",href:"/exterior-systems/pvc/shadow-series",image:"/images/content/shadowline-project.webp",text:"Deep black 6-inch, 3-inch and 2-inch reveals create defined modern shadow lines.",tags:["6 in Reveal","3 in Reveal","2 in Reveal"]},
-      {title:"Soffit",href:"/exterior-systems/pvc/soffit",image:"/images/content/premium-soffit-project.webp",text:"Solid, vented and seamless 4-inch, 6-inch and 12-inch panels for rooflines and ceilings.",tags:["Solid","Vented","Ceiling"]},
+      {title:"Shadow Series",href:"/exterior-systems/pvc/shadow-series",image:"/images/exterior-systems/pvc/shadow-series/upvc-shadow-series-house.webp",text:"Deep black 6-inch, 3-inch and 2-inch reveals create defined modern shadow lines.",tags:["6 in Reveal","3 in Reveal","2 in Reveal"]},
+      {title:"Soffit",href:"/exterior-systems/pvc/soffit",image:"/images/exterior-systems/pvc/soffit/upvc-soffit-installation-project.webp",text:"Solid, vented and seamless 4-inch, 6-inch and 12-inch panels for rooflines and ceilings.",tags:["Solid","Vented","Ceiling"]},
     ]}
     decisionSupport={decisionSupport}
     note="Product dimensions, finish availability, lead times and installation requirements should be confirmed against current ChamClad technical documents before ordering."
