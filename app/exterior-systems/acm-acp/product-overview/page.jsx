@@ -13,8 +13,8 @@ const sectionLinks = [
   { number: "01", label: "Description", id: "description", icon: Layers3 },
   { number: "02", label: "Applications", id: "applications", icon: Building2 },
   { number: "03", label: "Benefits", id: "features", icon: ShieldCheck },
-  { number: "04", label: "Profiles", id: "profiles", icon: PanelsTopLeft },
-  { number: "05", label: "Trims", id: "trims", icon: Wrench },
+  { number: "04", label: "Systems", id: "profiles", icon: PanelsTopLeft },
+  { number: "05", label: "Components", id: "trims", icon: Wrench },
   { number: "06", label: "Finishes", id: "finishes", icon: Palette },
 ];
 
@@ -34,20 +34,20 @@ const benefits = [
   { title: "Broad selection", text: "Multiple core, size, coating and finish options allow the system to be specified around the project.", icon: Palette },
 ];
 
-const profiles = [
-  ["01", "Route & Return Cassette", "The panel perimeter is routed and folded to create a cassette with concealed attachment and defined open or sealed joints."],
-  ["02", "Face-Fastened Panel", "Flat or formed panels are secured with compatible exposed fasteners for an efficient and visually disciplined assembly."],
-  ["03", "Flat Sheet & Direct Fix", "Unformed sheet can serve selected soffit, lining, signage and feature applications when the substrate and detailing allow."],
-  ["04", "Custom Formed Elements", "Corners, column covers, fascia, canopies, reveals and dimensional features can be fabricated to project geometry."],
+const attachmentSystems = [
+  { title: "Dry Reveal", text: "A four-sided route-and-return panel with a reveal-joint spline and no exposed sealant or fasteners.", image: "/images/exterior-systems/acm-acp/attachment-systems/dry-reveal-route-return-acm-project.jpg" },
+  { title: "EasyFix", text: "A two-sided route-and-return assembly using 135° and 90° folds with an open joint.", image: "/images/exterior-systems/acm-acp/attachment-systems/easyfix-acm-project.jpg" },
+  { title: "FaceFastened", text: "Flat ACM panels attached to extruded aluminum rails with purpose-designed, colour-coated screws.", image: "/images/exterior-systems/acm-acp/attachment-systems/face-fastened-acm-project.jpg" },
+  { title: "Wet Seal", text: "A four-sided route-and-return panel with continuous backer rod and silicone-sealed joints.", image: "/images/exterior-systems/acm-acp/attachment-systems/wet-seal-route-return-acm-project.jpg" },
 ];
 
-const trims = [
-  { title: "Outside corners", image: "/images/exterior-systems/trims-flashings/steel-trim-inside-outside-corner-profiles.webp" },
-  { title: "Inside corners", image: "/images/exterior-systems/steel/steel-siding-and-soffit-standard-custom-flashing-trims-outside-inside-corner.webp" },
-  { title: "Joint and reveal trims", image: "/images/exterior-systems/trims-flashings/steel-trims-flashings-standard-profile-legend.webp" },
-  { title: "J channels and terminations", image: "/images/exterior-systems/trims-flashings/steel-trim-hip-endwall-j-trim-sliding-door-profiles.webp" },
-  { title: "Starter and base trims", image: "/images/exterior-systems/trims-flashings/steel-trim-soffit-gable-eaves-starter-profiles.webp" },
-  { title: "Head, sill and drip flashings", image: "/images/exterior-systems/trims-flashings/steel-trim-drip-base-gable-divider-profiles.webp" },
+const systemComponents = [
+  ["Attachment rails", "Extruded aluminum rails support and align panels in systems such as FaceFastened."],
+  ["Reveal-joint spline", "A spline creates the defined open joint used in a Dry Reveal assembly."],
+  ["Colour-coated fasteners", "Purpose-designed screws secure FaceFastened panels and may match or contrast with the panel face."],
+  ["Backer rod & sealant", "Continuous foam backer rod and compatible silicone form the sealed joint in a Wet Seal system."],
+  ["Folded panel returns", "Routed panel edges are folded to create two-sided or four-sided returns, depending on the system."],
+  ["Edge treatments", "Hemmed edges, exposed edges and system-specific end extrusions complete selected terminations."],
 ];
 
 const finishes = [
@@ -72,7 +72,7 @@ export default function AcmProductOverviewPage() {
         <div className={styles.heroContent}>
           <p className={styles.eyebrow}>ACM / ACP · PRODUCT OVERVIEW</p>
           <h1>One panel.<br />A complete architectural system.</h1>
-          <p className={styles.heroLead}>Understand the material, its applications, profiles, trims and finishes—all in one concise product page.</p>
+          <p className={styles.heroLead}>Understand the material, its applications, attachment systems, components and finishes—all in one concise product page.</p>
           <a className={styles.explore} href="#description">Explore the system <ArrowDown size={18} /></a>
         </div>
       </section>
@@ -114,13 +114,14 @@ export default function AcmProductOverviewPage() {
       </section>
 
       <section className={`${styles.section} ${styles.profilesSection}`} id="profiles">
-        <header className={styles.sectionHeader}><SectionMarker number="04" icon={PanelsTopLeft} /><div><p className={styles.eyebrowDark}>PANEL CONFIGURATIONS</p><div className={styles.sectionTitle}>Profiles</div><h2>Four common ways to shape the panel language.</h2></div><p>The appropriate profile depends on panel layout, joint expression, attachment strategy, exposure and the supporting wall assembly.</p></header>
-        <div className={styles.profileLayout}><div className={styles.profileImage}><Image src="/images/exterior-systems/acm-acp/cnc-fabrication-aluminum-composite-panels.webp" alt="ACM panels being precisely routed for formed profiles" fill sizes="(max-width: 900px) 100vw, 44vw" /></div><div className={styles.profileList}>{profiles.map(([number, title, text]) => <article key={title}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></div>
+        <header className={styles.sectionHeader}><SectionMarker number="04" icon={PanelsTopLeft} /><div><p className={styles.eyebrowDark}>DOCUMENTED ACM ASSEMBLIES</p><div className={styles.sectionTitle}>Attachment Systems</div><h2>Four real systems, each with a distinct joint and attachment strategy.</h2></div><p>These examples are documented ALUCOBOND systems. Equivalent assemblies and names vary by manufacturer, fabricator and project requirements.</p></header>
+        <div className={enhanced.systemGrid}>{attachmentSystems.map((system, index) => <article key={system.title}><div className={enhanced.systemImage}><Image src={system.image} alt={`${system.title} ACM attachment system project example`} fill sizes="(max-width: 760px) 100vw, 50vw" /></div><div className={enhanced.systemCopy}><span>{String(index + 1).padStart(2, "0")}</span><h3>{system.title}</h3><p>{system.text}</p></div></article>)}</div>
+        <p className={enhanced.sourceNote}>System names and descriptions are based on current ALUCOBOND technical system information. Final selection and detailing must be verified for the specified manufacturer and project.</p>
       </section>
 
       <section className={`${styles.section} ${styles.trimsSection}`} id="trims">
-        <header className={styles.sectionHeader}><SectionMarker number="05" icon={Wrench} dark /><div><p className={styles.eyebrowLight}>EDGES &amp; TRANSITIONS</p><div className={`${styles.sectionTitle} ${styles.sectionTitleLight}`}>Trims</div><h2>The details that complete every edge and transition.</h2></div><p>Trims close, protect and visually organize the panel assembly. They may be extruded or custom fabricated to match the selected system, panel depth and project conditions.</p></header>
-        <div className={`${styles.trimBoard} ${enhanced.trimBoard}`}>{trims.map((trim, index) => <article key={trim.title}><div className={enhanced.trimImage}><Image src={trim.image} alt={`${trim.title} metal trim profile examples`} fill sizes="(max-width: 760px) 100vw, 33vw" /></div><div className={enhanced.trimCaption}><span>{String(index + 1).padStart(2, "0")}</span><strong>{trim.title}</strong></div></article>)}</div>
+        <header className={styles.sectionHeader}><SectionMarker number="05" icon={Wrench} dark /><div><p className={styles.eyebrowLight}>SYSTEM-SPECIFIC DETAILS</p><div className={`${styles.sectionTitle} ${styles.sectionTitleLight}`}>Components &amp; Edges</div><h2>The attachment system determines the components—not a universal trim catalogue.</h2></div><p>ACM manufacturers may supply material while qualified fabricators design and produce the attachment system and accessories. Components must be coordinated with the selected assembly.</p></header>
+        <div className={enhanced.componentLayout}><div className={enhanced.componentImage}><Image src="/images/exterior-systems/acm-acp/cnc-fabrication-aluminum-composite-panels.webp" alt="Precision routing and fabrication of ACM panel returns and edges" fill sizes="(max-width: 900px) 100vw, 42vw" /></div><div className={enhanced.componentGrid}>{systemComponents.map(([title, text], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></div>
       </section>
 
       <section className={`${styles.section} ${styles.finishesSection}`} id="finishes">
