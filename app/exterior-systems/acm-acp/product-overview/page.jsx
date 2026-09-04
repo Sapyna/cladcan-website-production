@@ -66,50 +66,49 @@ export default function AcmProductOverviewPage() {
       </nav>
 
       <section className={`${styles.section} ${styles.description}`} id="description">
-        <div className={styles.sectionNumber}>01</div>
-        <div className={styles.descriptionCopy}>
-          <div className={styles.sectionTitle}>Description</div>
-          <p className={styles.eyebrowDark}>PRODUCT DESCRIPTION</p>
-          <h2>A flat, rigid panel built for precise architectural expression.</h2>
+        <header className={styles.sectionHeader}>
+          <div className={styles.sectionNumber}>01</div>
+          <div><p className={styles.eyebrowDark}>PRODUCT OVERVIEW</p><div className={styles.sectionTitle}>Description</div><h2>A flat, rigid panel built for precise architectural expression.</h2></div>
+          <p>ACM combines a lightweight composite construction with the precision and finish control required for contemporary exterior design.</p>
+        </header>
+        <div className={styles.descriptionBody}>
+          <div className={styles.descriptionCopy}>
           <p>Aluminum Composite Material, also known as Aluminum Composite Panel, is made from two aluminum skins bonded to a core. This layered construction produces a lightweight, dimensionally stable sheet that can be accurately cut, routed, folded and formed.</p>
           <p>ACM is used as part of a coordinated exterior assembly. Panel type, core, coating, subframing, attachment and joint design are selected around the building, applicable code requirements and the intended appearance.</p>
           <div className={styles.brandLine}>ALPOLIC · ALUBOND · ALUCOIL · LARSON · REYNOBOND · ALUCOBOND · ALCOTEX · ALFREX</div>
-        </div>
-        <div className={styles.descriptionVisual}>
-          <Image src="/images/exterior-systems/acm-acp/aluminum-composite-panel-layer-construction.webp" alt="Construction layers of an aluminum composite material panel" fill sizes="(max-width: 900px) 100vw, 42vw" />
-          <span><Layers3 size={18} /> Aluminum skin · Bonded core · Aluminum skin</span>
+          </div>
+          <div className={styles.descriptionVisual}>
+            <Image src="/images/exterior-systems/acm-acp/aluminum-composite-panel-layer-construction.webp" alt="Construction layers of an aluminum composite material panel" fill sizes="(max-width: 900px) 100vw, 42vw" />
+            <span><Layers3 size={18} /> Aluminum skin · Bonded core · Aluminum skin</span>
+          </div>
         </div>
       </section>
 
       <section className={`${styles.section} ${styles.applicationSection}`} id="applications">
-        <div className={styles.sectionTitle}>Applications</div>
-        <header className={styles.sectionHeader}><div className={styles.sectionNumber}>02</div><div><p className={styles.eyebrowDark}>WHERE ACM WORKS</p><h2>Designed to move across building types.</h2></div><p>From a small architectural accent to a complete building envelope, ACM can support varied scales and design languages.</p></header>
+        <header className={styles.sectionHeader}><div className={styles.sectionNumber}>02</div><div><p className={styles.eyebrowDark}>WHERE ACM WORKS</p><div className={styles.sectionTitle}>Applications</div><h2>Designed to move across building types.</h2></div><p>From a small architectural accent to a complete building envelope, ACM can support varied scales and design languages.</p></header>
         <div className={styles.applicationGrid}>
           {applications.map(({ title, text, image, icon: Icon }) => <article key={title} className={styles.applicationCard}><div className={styles.applicationImage}><Image src={image} alt={`${title} application of ACM panels`} fill sizes="(max-width: 700px) 100vw, 50vw" /></div><div><Icon size={22} /><h3>{title}</h3><p>{text}</p></div></article>)}
         </div>
       </section>
 
       <section className={`${styles.section} ${styles.benefitsSection}`} id="features">
-        <div className={`${styles.sectionTitle} ${styles.sectionTitleLight}`}>Features &amp; Benefits</div>
-        <header className={styles.sectionHeader}><div className={styles.sectionNumber}>03</div><div><p className={styles.eyebrowLight}>WHY CHOOSE ACM</p><h2>Performance with room to create.</h2></div><p>ACM balances practical project delivery with a broad visual vocabulary for contemporary façades.</p></header>
+        <header className={styles.sectionHeader}><div className={styles.sectionNumber}>03</div><div><p className={styles.eyebrowLight}>WHY CHOOSE ACM</p><div className={`${styles.sectionTitle} ${styles.sectionTitleLight}`}>Features &amp; Benefits</div><h2>Performance with room to create.</h2></div><p>ACM balances practical project delivery with a broad visual vocabulary for contemporary façades.</p></header>
         <div className={styles.benefitGrid}>{benefits.map(({ title, text, icon: Icon }, index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><Icon size={27} /><h3>{title}</h3><p>{text}</p></article>)}</div>
         <p className={styles.note}>Core composition, fire performance, dimensions, coatings and warranties are manufacturer and assembly specific and must be confirmed for each project.</p>
       </section>
 
       <section className={`${styles.section} ${styles.profilesSection}`} id="profiles">
-        <div className={styles.sectionTitle}>Profiles</div>
-        <header className={styles.sectionHeader}><div className={styles.sectionNumber}>04</div><div><p className={styles.eyebrowDark}>PANEL CONFIGURATIONS</p><h2>Four common ways to shape the panel language.</h2></div><p>The appropriate profile depends on panel layout, joint expression, attachment strategy, exposure and the supporting wall assembly.</p></header>
+        <header className={styles.sectionHeader}><div className={styles.sectionNumber}>04</div><div><p className={styles.eyebrowDark}>PANEL CONFIGURATIONS</p><div className={styles.sectionTitle}>Profiles</div><h2>Four common ways to shape the panel language.</h2></div><p>The appropriate profile depends on panel layout, joint expression, attachment strategy, exposure and the supporting wall assembly.</p></header>
         <div className={styles.profileLayout}><div className={styles.profileImage}><Image src="/images/exterior-systems/acm-acp/cnc-fabrication-aluminum-composite-panels.webp" alt="ACM panels being precisely routed for formed profiles" fill sizes="(max-width: 900px) 100vw, 44vw" /></div><div className={styles.profileList}>{profiles.map(([number, title, text]) => <article key={title}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></div>
       </section>
 
       <section className={`${styles.section} ${styles.trimsSection}`} id="trims">
-        <div className={styles.trimIntro}><div className={`${styles.sectionTitle} ${styles.sectionTitleLight}`}>Trims</div><div className={styles.sectionNumber}>05</div><p className={styles.eyebrowLight}>EDGES &amp; TRANSITIONS</p><h2>The details that complete every edge and transition.</h2><p>Trims close, protect and visually organize the panel assembly. They may be extruded or custom fabricated to match the selected system, panel depth and project conditions.</p></div>
+        <header className={styles.sectionHeader}><div className={styles.sectionNumber}>05</div><div><p className={styles.eyebrowLight}>EDGES &amp; TRANSITIONS</p><div className={`${styles.sectionTitle} ${styles.sectionTitleLight}`}>Trims</div><h2>The details that complete every edge and transition.</h2></div><p>Trims close, protect and visually organize the panel assembly. They may be extruded or custom fabricated to match the selected system, panel depth and project conditions.</p></header>
         <div className={styles.trimBoard}>{trims.map((trim, index) => <div key={trim}><span>{String(index + 1).padStart(2, "0")}</span><PanelsTopLeft size={22} /><strong>{trim}</strong></div>)}</div>
       </section>
 
       <section className={`${styles.section} ${styles.finishesSection}`} id="finishes">
-        <div className={styles.sectionTitle}>Finishes</div>
-        <header className={styles.sectionHeader}><div className={styles.sectionNumber}>06</div><div><p className={styles.eyebrowDark}>SURFACE OPTIONS</p><h2>Colour, texture and reflectivity define the final surface.</h2></div><p>Finish availability, sheet direction, batch consistency, minimum quantities and warranty should be confirmed before fabrication.</p></header>
+        <header className={styles.sectionHeader}><div className={styles.sectionNumber}>06</div><div><p className={styles.eyebrowDark}>SURFACE OPTIONS</p><div className={styles.sectionTitle}>Finishes</div><h2>Colour, texture and reflectivity define the final surface.</h2></div><p>Finish availability, sheet direction, batch consistency, minimum quantities and warranty should be confirmed before fabrication.</p></header>
         <div className={styles.finishLayout}><div className={styles.finishImage}><Image src="/images/exterior-systems/acm-acp/acm-panel-colours-finishes-samples.webp" alt="Architectural ACM colour and finish samples" fill sizes="(max-width: 900px) 100vw, 46vw" /></div><div className={styles.finishList}>{finishes.map(([title, text]) => <article key={title}><Check size={18} /><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></div>
         <div className={styles.finishCta}><div><p className={styles.eyebrowLight}>PROJECT SPECIFIC</p><h2>Need a panel, trim or finish recommendation?</h2></div><Link href="/contact">Discuss your project <ArrowUpRight size={18} /></Link></div>
       </section>
