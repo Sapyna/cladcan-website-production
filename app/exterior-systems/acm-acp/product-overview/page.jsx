@@ -66,7 +66,7 @@ function SectionMarker({ number, icon: Icon, dark = false }) {
 export default function AcmProductOverviewPage() {
   return (
     <article className={styles.page}>
-      <section className={styles.hero}>
+      <section className={`${styles.hero} ${enhanced.hero}`}>
         <Image className={styles.heroImage} src="/images/exterior-systems/acm-acp/public-infrastructure-acm-panel-application.webp" alt="Contemporary building façade finished with aluminum composite panels" fill priority sizes="100vw" />
         <div className={styles.heroShade} />
         <div className={styles.heroContent}>

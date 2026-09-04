@@ -1,3 +1,5 @@
+.hero h1{max-width:780px!important;font-size:clamp(3rem,5.2vw,5.6rem)!important;line-height:.95!important;letter-spacing:-.055em!important;margin-bottom:24px!important}
+.hero>div:last-child{padding-top:clamp(70px,7vw,105px)!important;padding-bottom:clamp(64px,7vw,105px)!important}
 .sectionNav a{min-height:76px!important;padding:13px 18px!important;display:grid!important;grid-template-columns:22px 28px 1fr!important;align-items:center!important;font-size:.88rem!important}
 .sectionNav a>svg{color:#a7682e}
 .sectionNav a>span{color:#9a6a3d;font-size:.7rem;letter-spacing:.1em;margin:0}
@@ -14,4 +16,4 @@
 .trimCaption span{font-size:.72rem;color:#a7682e;font-weight:800;letter-spacing:.12em}
 .trimCaption strong{font-size:1rem;line-height:1.35}
 @media(max-width:1050px){.sectionNav a{grid-template-columns:20px 1fr!important}.sectionNav a>span{display:none}}
-@media(max-width:760px){.sectionNav a{min-height:66px!important;grid-template-columns:24px 1fr!important}.sectionMarker{width:52px;height:68px;margin-bottom:8px}.trimBoard{grid-template-columns:1fr!important}}
+@media(max-width:760px){.hero h1{max-width:560px!important;font-size:clamp(2.7rem,11.5vw,4.2rem)!important;line-height:.98!important}.hero>div:last-child{padding-top:90px!important;padding-bottom:64px!important}.sectionNav a{min-height:66px!important;grid-template-columns:24px 1fr!important}.sectionMarker{width:52px;height:68px;margin-bottom:8px}.trimBoard{grid-template-columns:1fr!important}}
