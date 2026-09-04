@@ -1,0 +1,17 @@
+.sectionNav a{min-height:76px!important;padding:13px 18px!important;display:grid!important;grid-template-columns:22px 28px 1fr!important;align-items:center!important;font-size:.88rem!important}
+.sectionNav a>svg{color:#a7682e}
+.sectionNav a>span{color:#9a6a3d;font-size:.7rem;letter-spacing:.1em;margin:0}
+.sectionNav a>strong{font-weight:700}
+.sectionMarker{width:54px;height:74px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#a7682e;background:#f2eee8;border:1px solid #dfd4c8}
+.sectionMarker span{font-size:.68rem;font-weight:800;letter-spacing:.12em}
+.sectionMarkerDark{color:#e0a461;background:#203b49;border-color:#3d5663}
+.trimBoard{gap:1px!important;background:#3d5562!important;border:1px solid #3d5562!important}
+.trimBoard article{min-width:0;background:#f5f6f4;color:#102633}
+.trimImage{position:relative;aspect-ratio:4/3;background:#fff;overflow:hidden}
+.trimImage img{object-fit:contain;padding:20px;transition:transform .35s ease}
+.trimBoard article:hover .trimImage img{transform:scale(1.035)}
+.trimCaption{min-height:96px;padding:20px 22px;display:flex;align-items:center;gap:18px}
+.trimCaption span{font-size:.72rem;color:#a7682e;font-weight:800;letter-spacing:.12em}
+.trimCaption strong{font-size:1rem;line-height:1.35}
+@media(max-width:1050px){.sectionNav a{grid-template-columns:20px 1fr!important}.sectionNav a>span{display:none}}
+@media(max-width:760px){.sectionNav a{min-height:66px!important;grid-template-columns:24px 1fr!important}.sectionMarker{width:52px;height:68px;margin-bottom:8px}.trimBoard{grid-template-columns:1fr!important}}
