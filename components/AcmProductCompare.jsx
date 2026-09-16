@@ -51,10 +51,10 @@ const projects = [
 function Panel({active}){
   if(active==="overview") return <div className={styles.overviewGrid}><div><p className={styles.kicker}>PRODUCT OVERVIEW</p><h2>A flat, rigid panel built for precise architectural expression.</h2><p>Aluminum Composite Material combines two aluminum skins with a bonded core to create a lightweight, dimensionally stable panel that can be cut, routed, folded and formed for contemporary façades.</p><p>Panel type, core, coating, subframing, attachment and joint design are coordinated around the project, code requirements and intended appearance.</p><div className={styles.brandLine}>ALPOLIC · ALUBOND · ALUCOIL · LARSON · REYNOBOND · ALUCOBOND · ALCOTEX · ALFREX</div></div><div className={styles.figure}><Image src="/images/exterior-systems/acm-acp/aluminum-composite-panel-layer-construction.webp" alt="ACM panel layer construction" fill sizes="45vw" /></div></div>;
   if(active==="applications") return <div><p className={styles.kicker}>WHERE ACM WORKS</p><h2>One material, multiple building types.</h2><div className={styles.imageGrid}>{applications.map(([title,text,image])=><article key={title}><div className={styles.cardImage}><Image src={image} alt={title} fill sizes="35vw" /></div><div className={styles.cardCopy}><h3>{title}</h3><p>{text}</p></div></article>)}</div></div>;
-  if(active==="benefits") return <div><p className={styles.kicker}>WHY CHOOSE ACM</p><h2>Performance with room to create.</h2><div className={styles.featureGrid}>{benefits.map((item,i)=><article key={item}><span>{String(i+1).padStart(2,"0")}</span><Check size={20}/><h3>{item}</h3></article>)}</div></div>;
+  if(active==="benefits") return <div className={styles.benefitsPanel}><p className={styles.kicker}>WHY CHOOSE ACM</p><h2>Performance with room to create.</h2><div className={styles.featureGrid}>{benefits.map((item,i)=><article key={item}><span>{String(i+1).padStart(2,"0")}</span><Check size={20}/><h3>{item}</h3></article>)}</div></div>;
   if(active==="systems") return <div><p className={styles.kicker}>ATTACHMENT SYSTEMS</p><h2>Different joint strategies for different project needs.</h2><div className={styles.systemGrid}>{systems.map(([title,text,image])=><article key={title}><div className={styles.systemImage}><Image src={image} alt={title} fill sizes="35vw" /></div><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></div>;
   if(active==="components") return <div><p className={styles.kicker}>SYSTEM COMPONENTS</p><h2>The assembly determines the details.</h2><div className={styles.componentGrid}><div className={styles.figure}><Image src="/images/exterior-systems/acm-acp/cnc-fabrication-aluminum-composite-panels.webp" alt="ACM fabrication" fill sizes="40vw" /></div><div>{components.map((item,i)=><div className={styles.componentItem} key={item}><span>{String(i+1).padStart(2,"0")}</span><strong>{item}</strong></div>)}</div></div></div>;
-  if(active==="finishes") return <div><p className={styles.kicker}>COLOURS & FINISHES</p><h2>A finish for every architectural direction.</h2><div className={styles.finishGrid}>{finishGroups.map(([title,colors])=><article key={title}><h3>{title}</h3><div className={styles.swatches}>{colors.map((color,i)=><span key={i} style={{background:color}} />)}</div></article>)}</div></div>;
+  if(active==="finishes") return <div className={styles.finishesPanel}><p className={styles.kicker}>COLOURS & FINISHES</p><h2>A finish for every architectural direction.</h2><div className={styles.finishGrid}>{finishGroups.map(([title,colors])=><article key={title}><h3>{title}</h3><div className={styles.swatches}>{colors.map((color,i)=><span key={i} style={{background:color}} />)}</div></article>)}</div></div>;
   return <div><p className={styles.kicker}>COMPLETED PROJECTS</p><h2>See ACM in completed CladCan work.</h2><p className={styles.projectsIntro}>Project records below are existing CladCan case studies identified as using ACM. Verified project photography can replace the graphic placeholders as the project library is completed.</p><div className={styles.projectGrid}>{projects.map((project,i)=><Link className={styles.projectCard} href={project.href} key={project.title}><div className={`${styles.projectVisual} ${styles[`projectVisual${i+1}`]}`}><span>ACM PROJECT</span><strong>{String(i+1).padStart(2,"0")}</strong></div><div className={styles.projectCopy}><small>{project.meta}</small><h3>{project.title}</h3><p>{project.text}</p><span>View project <ArrowUpRight size={15}/></span></div></Link>)}</div></div>;
 }
 
@@ -70,13 +70,13 @@ function TabMenu({active,setActive,side,menuRef,dockMode,dockStyle}){
   return <aside ref={menuRef} style={dockStyle} className={`${styles.tabs} ${dock.menu} ${side==="right"?styles.tabsRight:""} ${dockClass}`} aria-label="ACM product sections">{tabs.map(({id,number,label,icon:Icon})=><button key={id} className={active===id?styles.active:""} onClick={()=>setActive(id)}><span>{number}</span><Icon size={18}/><strong>{label}</strong></button>)}</aside>;
 }
 
-function Tabbed({side="left",reversed=false}){
+function Tabbed({side="left",reversed=false,theme="default"}){
   const [active,setActive]=useState("overview");
   const workspaceRef=useRef(null);
   const slotRef=useRef(null);
   const menuRef=useRef(null);
   const [dockState,setDockState]=useState({mode:"normal",left:0,width:0});
-  const label=reversed?"CONCEPT D · LEFT TABS · REVERSED HERO":side==="right"?"CONCEPT C · RIGHT TABS":"CONCEPT B · LEFT TABS";
+  const label=theme==="architectural-stone"?"COLOR STUDY · ARCHITECTURAL STONE":reversed?"CONCEPT D · LEFT TABS · REVERSED HERO":side==="right"?"CONCEPT C · RIGHT TABS":"CONCEPT B · LEFT TABS";
 
   useEffect(()=>{
     const TOP=92;
@@ -107,17 +107,18 @@ function Tabbed({side="left",reversed=false}){
 
   const dockStyle=dockState.mode==="fixed"?{left:`${dockState.left}px`,width:`${dockState.width}px`}:dockState.mode==="bottom"?{width:"100%"}:undefined;
   const menu=<TabMenu active={active} setActive={setActive} side={side} menuRef={menuRef} dockMode={dockState.mode} dockStyle={dockStyle}/>;
+  const themeClass=theme==="architectural-stone"?styles.architecturalStone:"";
 
-  return <article className={styles.page}><Hero reversed={reversed} label={label}/><section ref={workspaceRef} className={`${styles.workspace} ${side==="right"?styles.workspaceRight:""}`}>{side==="left"&&<div ref={slotRef} className={dock.slot}>{menu}</div>}<main className={styles.panel}><Panel active={active}/></main>{side==="right"&&<div ref={slotRef} className={dock.slot}>{menu}</div>}</section></article>;
+  return <article className={`${styles.page} ${themeClass}`}><Hero reversed={reversed} label={label}/><section ref={workspaceRef} className={`${styles.workspace} ${side==="right"?styles.workspaceRight:""}`}>{side==="left"&&<div ref={slotRef} className={dock.slot}>{menu}</div>}<main className={`${styles.panel} ${active==="benefits"?styles.panelBenefits:""} ${active==="finishes"?styles.panelFinishes:""}`}><Panel active={active}/></main>{side==="right"&&<div ref={slotRef} className={dock.slot}>{menu}</div>}</section></article>;
 }
 
 function Horizontal(){
   return <article className={styles.page}><Hero label="CONCEPT A · HORIZONTAL NAVIGATION"/><nav className={styles.horizontalNav}>{tabs.map(({id,number,label,icon:Icon})=><a href={`#compare-${id}`} key={id}><Icon size={17}/><span>{number}</span><strong>{label}</strong></a>)}</nav><main className={styles.longform}>{tabs.map(({id,number,label})=><section id={`compare-${id}`} className={styles.longSection} key={id}><div className={styles.longHead}><span>{number}</span><strong>{label}</strong></div><Panel active={id}/></section>)}</main></article>;
 }
 
-export default function AcmProductCompare({variant}){
+export default function AcmProductCompare({variant,theme="default"}){
   if(variant==="horizontal") return <Horizontal/>;
-  if(variant==="right") return <Tabbed side="right"/>;
-  if(variant==="left-reversed") return <Tabbed side="left" reversed/>;
-  return <Tabbed side="left"/>;
+  if(variant==="right") return <Tabbed side="right" theme={theme}/>;
+  if(variant==="left-reversed") return <Tabbed side="left" reversed theme={theme}/>;
+  return <Tabbed side="left" theme={theme}/>;
 }
