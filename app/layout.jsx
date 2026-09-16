@@ -12,6 +12,7 @@ import "./fastplank-product.css";
 import "./acm-product.css";
 import "./fibre-cement-product.css";
 import "./sitewide-split-hero.css";
+import "./quick-contact-rail-compact.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
