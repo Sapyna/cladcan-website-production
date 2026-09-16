@@ -66,14 +66,22 @@ function SectionMarker({ number, icon: Icon, dark = false }) {
 export default function AcmProductOverviewPage() {
   return (
     <article className={styles.page}>
-      <section className={`${styles.hero} ${enhanced.hero}`}>
-        <Image className={styles.heroImage} src="/images/exterior-systems/acm-acp/public-infrastructure-acm-panel-application.webp" alt="Contemporary building façade finished with aluminum composite panels" fill priority sizes="100vw" />
-        <div className={styles.heroShade} />
-        <div className={styles.heroContent}>
-          <p className={styles.eyebrow}>ACM / ACP · PRODUCT OVERVIEW</p>
-          <h1>One panel.<br />A complete architectural system.</h1>
-          <p className={styles.heroLead}>Understand the material, its applications, attachment systems, components and finishes—all in one concise product page.</p>
-          <a className={styles.explore} href="#description">Explore the system <ArrowDown size={18} /></a>
+      <section className={styles.hero}>
+        <div className={styles.heroCopy}>
+          <div className={styles.heroCopyInner}>
+            <p className={styles.eyebrow}>ALUMINUM COMPOSITE MATERIAL</p>
+            <h1>ACM Panels</h1>
+            <p className={styles.heroStatement}>Architectural freedom.<br />Engineered performance.</p>
+            <p className={styles.heroLead}>A lightweight, precise and highly adaptable façade material for contemporary residential, commercial and institutional architecture.</p>
+            <div className={styles.heroActions}>
+              <Link className={styles.heroPrimary} href="/contact">Request a Quote <ArrowUpRight size={17} /></Link>
+              <a className={styles.explore} href="#description">Explore ACM <ArrowDown size={17} /></a>
+            </div>
+          </div>
+        </div>
+        <div className={styles.heroMedia}>
+          <Image className={styles.heroImage} src="/images/exterior-systems/acm-acp/public-infrastructure-acm-panel-application.webp" alt="Contemporary building façade finished with aluminum composite panels" fill priority sizes="(max-width: 820px) 100vw, 58vw" />
+          <div className={styles.heroCaption}><span>ACM / ACP</span><strong>Architectural façade systems</strong></div>
         </div>
       </section>
 
