@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Building2, Check, FolderKanban, Layers3, Palette, PanelsTopLeft, ShieldCheck, Wrench } from "lucide-react";
 import styles from "./AcmProductCompare.module.css";
+import dock from "./AcmStickyMenu.module.css";
 
 const tabs = [
   { id:"overview", number:"01", label:"Overview", icon:Layers3 },
@@ -64,14 +65,50 @@ function Hero({reversed=false,label}){
   </section>;
 }
 
-function TabMenu({active,setActive,side}){
-  return <aside className={`${styles.tabs} ${side==="right"?styles.tabsRight:""}`} aria-label="ACM product sections">{tabs.map(({id,number,label,icon:Icon})=><button key={id} className={active===id?styles.active:""} onClick={()=>setActive(id)}><span>{number}</span><Icon size={18}/><strong>{label}</strong></button>)}</aside>;
+function TabMenu({active,setActive,side,menuRef,dockMode,dockStyle}){
+  const dockClass=dockMode==="fixed"?dock.fixed:dockMode==="bottom"?dock.bottom:"";
+  return <aside ref={menuRef} style={dockStyle} className={`${styles.tabs} ${dock.menu} ${side==="right"?styles.tabsRight:""} ${dockClass}`} aria-label="ACM product sections">{tabs.map(({id,number,label,icon:Icon})=><button key={id} className={active===id?styles.active:""} onClick={()=>setActive(id)}><span>{number}</span><Icon size={18}/><strong>{label}</strong></button>)}</aside>;
 }
 
 function Tabbed({side="left",reversed=false}){
   const [active,setActive]=useState("overview");
+  const workspaceRef=useRef(null);
+  const slotRef=useRef(null);
+  const menuRef=useRef(null);
+  const [dockState,setDockState]=useState({mode:"normal",left:0,width:0});
   const label=reversed?"CONCEPT D · LEFT TABS · REVERSED HERO":side==="right"?"CONCEPT C · RIGHT TABS":"CONCEPT B · LEFT TABS";
-  return <article className={styles.page}><Hero reversed={reversed} label={label}/><section className={`${styles.workspace} ${side==="right"?styles.workspaceRight:""}`}>{side==="left"&&<TabMenu active={active} setActive={setActive} side="left"/>}<main className={styles.panel}><Panel active={active}/></main>{side==="right"&&<TabMenu active={active} setActive={setActive} side="right"/>}</section></article>;
+
+  useEffect(()=>{
+    const TOP=92;
+    const updateDock=()=>{
+      if(!workspaceRef.current || !slotRef.current || !menuRef.current || window.innerWidth<=760){
+        setDockState({mode:"normal",left:0,width:0});
+        return;
+      }
+      const workspaceRect=workspaceRef.current.getBoundingClientRect();
+      const slotRect=slotRef.current.getBoundingClientRect();
+      const menuHeight=menuRef.current.offsetHeight;
+      if(workspaceRect.top>=TOP){
+        setDockState({mode:"normal",left:0,width:slotRect.width});
+      }else if(workspaceRect.bottom<=TOP+menuHeight){
+        setDockState({mode:"bottom",left:0,width:slotRect.width});
+      }else{
+        setDockState({mode:"fixed",left:slotRect.left,width:slotRect.width});
+      }
+    };
+    updateDock();
+    window.addEventListener("scroll",updateDock,{passive:true});
+    window.addEventListener("resize",updateDock);
+    return ()=>{
+      window.removeEventListener("scroll",updateDock);
+      window.removeEventListener("resize",updateDock);
+    };
+  },[active,side]);
+
+  const dockStyle=dockState.mode==="fixed"?{left:`${dockState.left}px`,width:`${dockState.width}px`}:dockState.mode==="bottom"?{width:"100%"}:undefined;
+  const menu=<TabMenu active={active} setActive={setActive} side={side} menuRef={menuRef} dockMode={dockState.mode} dockStyle={dockStyle}/>;
+
+  return <article className={styles.page}><Hero reversed={reversed} label={label}/><section ref={workspaceRef} className={`${styles.workspace} ${side==="right"?styles.workspaceRight:""}`}>{side==="left"&&<div ref={slotRef} className={dock.slot}>{menu}</div>}<main className={styles.panel}><Panel active={active}/></main>{side==="right"&&<div ref={slotRef} className={dock.slot}>{menu}</div>}</section></article>;
 }
 
 function Horizontal(){
