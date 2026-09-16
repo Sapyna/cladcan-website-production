@@ -51,12 +51,12 @@ const systemComponents = [
 ];
 
 const finishes = [
-  ["Solid Colours", "Clean, consistent colours for broad façade areas and coordinated architectural elements."],
-  ["Metallic & Mica", "Light-responsive surfaces that add depth and a premium architectural character."],
-  ["Brushed & Anodized Looks", "Metal-inspired finishes with directional texture and a contemporary technical expression."],
-  ["Woodgrain", "Warm natural appearances paired with the dimensional stability and workability of ACM."],
-  ["Stone & Textured", "Patterned and tactile options for feature zones, entrances and material transitions."],
-  ["Custom Matching", "Project-specific colour development may be available subject to manufacturer quantities and approvals."],
+  { title:"Solid Colours", text:"Clean, consistent colours for broad façade areas and coordinated architectural elements.", swatches:[["White","solidWhite"],["Black","solidBlack"],["Charcoal","solidCharcoal"],["Silver Grey","solidSilver"],["Champagne","solidChampagne"],["Red","solidRed"]] },
+  { title:"Metallic & Mica", text:"Light-responsive surfaces that add depth and a premium architectural character.", swatches:[["Silver Metallic","metalSilver"],["Gunmetal","metalGunmetal"],["Bronze Metallic","metalBronze"],["Champagne Mica","metalChampagne"],["Copper Mica","metalCopper"],["Blue Metallic","metalBlue"]] },
+  { title:"Brushed & Anodized Looks", text:"Metal-inspired finishes with directional texture and a contemporary technical expression.", swatches:[["Clear Anodized","brushClear"],["Champagne","brushChampagne"],["Bronze","brushBronze"],["Black","brushBlack"],["Stainless Look","brushSteel"],["Graphite","brushGraphite"]] },
+  { title:"Woodgrain", text:"Warm natural appearances paired with the dimensional stability and workability of ACM.", swatches:[["Cedar","woodCedar"],["Oak","woodOak"],["Walnut","woodWalnut"],["Teak","woodTeak"],["Driftwood","woodDrift"],["Ebony","woodEbony"]] },
+  { title:"Stone & Textured", text:"Patterned and tactile options for feature zones, entrances and material transitions.", swatches:[["Concrete","stoneConcrete"],["Limestone","stoneLimestone"],["Granite","stoneGranite"],["Marble","stoneMarble"],["Slate","stoneSlate"],["Sand","stoneSand"]] },
+  { title:"Custom Matching", text:"Project-specific colour development may be available subject to manufacturer quantities and approvals.", swatches:[["Your Colour","customSpectrum"],["Brand Match","customNavy"],["Project Specific","customGreen"],["Signature Colour","customRust"],["Any RAL","customGrey"],["More Options","customMore"]] },
 ];
 
 function SectionMarker({ number, icon: Icon, dark = false }) {
@@ -134,7 +134,7 @@ export default function AcmProductOverviewPage() {
 
       <section className={`${styles.section} ${styles.finishesSection}`} id="finishes">
         <header className={styles.sectionHeader}><SectionMarker number="06" icon={Palette} /><div><p className={styles.eyebrowDark}>SURFACE OPTIONS</p><div className={styles.sectionTitle}>Finishes</div><h2>Colour, texture and reflectivity define the final surface.</h2></div><p>Finish availability, sheet direction, batch consistency, minimum quantities and warranty should be confirmed before fabrication.</p></header>
-        <div className={styles.finishLayout}><div className={styles.finishImage}><Image src="/images/exterior-systems/acm-acp/acm-panel-colours-finishes-samples.webp" alt="Architectural ACM colour and finish samples" fill sizes="(max-width: 900px) 100vw, 46vw" /></div><div className={styles.finishList}>{finishes.map(([title, text]) => <article key={title}><Check size={18} /><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></div>
+        <div className={styles.finishShowcase}>{finishes.map(({title,text,swatches}) => <article className={styles.finishCard} key={title}><div className={styles.finishCardHead}><Check size={18} /><div><h3>{title}</h3><p>{text}</p></div></div><div className={styles.swatchRow}>{swatches.map(([name,variant]) => <div className={styles.swatchItem} key={name}><span className={`${styles.swatch} ${styles[variant]}`} title={name} aria-label={name}></span><small>{name}</small></div>)}</div></article>)}</div>
         <div className={styles.finishCta}><div><p className={styles.eyebrowLight}>PROJECT SPECIFIC</p><h2>Need a panel, trim or finish recommendation?</h2></div><Link href="/contact">Discuss your project <ArrowUpRight size={18} /></Link></div>
       </section>
     </article>
