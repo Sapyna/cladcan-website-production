@@ -1,30 +1,38 @@
 @media (min-width: 901px){
   .quickRail{
-    width:64px;
-    gap:12px;
-    padding:14px 7px 16px;
-    border-radius:0 22px 22px 0;
+    width:64px !important;
+    min-width:64px !important;
+    max-width:64px !important;
+    gap:12px !important;
+    padding:14px 7px 16px !important;
+    border-radius:0 22px 22px 0 !important;
   }
 
   .quickRailAction,
   .quickRailToggle{
-    width:50px;
-    height:50px;
+    width:50px !important;
+    height:50px !important;
+    min-width:50px !important;
+    min-height:50px !important;
   }
 
   .quickRailAction svg,
   .quickRailToggle svg{
-    width:24px;
-    height:24px;
+    width:24px !important;
+    height:24px !important;
   }
 
   .quickRailCollapsed{
-    width:48px;
-    padding:10px 4px;
+    width:48px !important;
+    min-width:48px !important;
+    max-width:48px !important;
+    padding:10px 4px !important;
   }
 
   .quickRailCollapsed .quickRailToggle{
-    width:40px;
-    height:40px;
+    width:40px !important;
+    height:40px !important;
+    min-width:40px !important;
+    min-height:40px !important;
   }
 }
