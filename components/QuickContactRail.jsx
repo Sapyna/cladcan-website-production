@@ -12,38 +12,80 @@ function WhatsAppIcon(){
 export default function QuickContactRail(){
   const [collapsed,setCollapsed] = useState(false);
 
-  return <div className={`quickRail ${collapsed ? "quickRailCollapsed" : ""}`} aria-label="Quick contact tools">
-    <button className="quickRailToggle" onClick={()=>setCollapsed(!collapsed)} aria-label={collapsed ? "Open quick contact tools" : "Collapse quick contact tools"}>
-      {collapsed ? <ChevronRight size={27}/> : <ChevronLeft size={27}/>}
-    </button>
+  return <>
+    <style>{`
+      @media (min-width: 901px){
+        .quickRail.quickRailCompact{
+          width:60px !important;
+          min-width:60px !important;
+          max-width:60px !important;
+          gap:9px !important;
+          padding:11px 8px 12px !important;
+          border-radius:0 18px 18px 0 !important;
+        }
+        .quickRail.quickRailCompact .quickRailToggle,
+        .quickRail.quickRailCompact .quickRailAction{
+          width:44px !important;
+          height:44px !important;
+          min-width:44px !important;
+          min-height:44px !important;
+        }
+        .quickRail.quickRailCompact .quickRailToggle svg,
+        .quickRail.quickRailCompact .quickRailAction svg{
+          width:21px !important;
+          height:21px !important;
+        }
+        .quickRail.quickRailCompact .quickRailAction span{
+          left:52px !important;
+        }
+        .quickRail.quickRailCompact.quickRailCollapsed{
+          width:44px !important;
+          min-width:44px !important;
+          max-width:44px !important;
+          padding:8px 4px !important;
+        }
+        .quickRail.quickRailCompact.quickRailCollapsed .quickRailToggle{
+          width:36px !important;
+          height:36px !important;
+          min-width:36px !important;
+          min-height:36px !important;
+        }
+      }
+    `}</style>
 
-    {!collapsed && <>
-      <a className="quickRailAction quickPhone" href="tel:+18449243030" aria-label="Call CladCan">
-        <Phone size={29}/>
-        <span>Call</span>
-      </a>
+    <div className={`quickRail quickRailCompact ${collapsed ? "quickRailCollapsed" : ""}`} aria-label="Quick contact tools">
+      <button className="quickRailToggle" onClick={()=>setCollapsed(!collapsed)} aria-label={collapsed ? "Open quick contact tools" : "Collapse quick contact tools"}>
+        {collapsed ? <ChevronRight size={27}/> : <ChevronLeft size={27}/>}
+      </button>
 
-      <a
-        className="quickRailAction quickWhatsapp"
-        href="https://wa.me/18449243030"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Message CladCan on WhatsApp"
-      >
-        <WhatsAppIcon/>
-        <span>WhatsApp</span>
-      </a>
+      {!collapsed && <>
+        <a className="quickRailAction quickPhone" href="tel:+18449243030" aria-label="Call CladCan">
+          <Phone size={29}/>
+          <span>Call</span>
+        </a>
 
-      <a
-        className="quickRailAction quickLocation"
-        href="https://www.google.com/maps/search/?api=1&query=5000+Dufferin+St+Unit+K+North+York+ON+M3H+5T5"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Open CladCan location"
-      >
-        <MapPin size={29}/>
-        <span>Location</span>
-      </a>
-    </>}
-  </div>;
+        <a
+          className="quickRailAction quickWhatsapp"
+          href="https://wa.me/18449243030"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Message CladCan on WhatsApp"
+        >
+          <WhatsAppIcon/>
+          <span>WhatsApp</span>
+        </a>
+
+        <a
+          className="quickRailAction quickLocation"
+          href="https://www.google.com/maps/search/?api=1&query=5000+Dufferin+St+Unit+K+North+York+ON+M3H+5T5"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Open CladCan location"
+        >
+          <MapPin size={29}/>
+          <span>Location</span>
+        </a>
+      </>}
+    </div>
+  </>;
 }
