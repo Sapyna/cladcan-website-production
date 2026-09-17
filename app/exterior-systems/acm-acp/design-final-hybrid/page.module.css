@@ -144,7 +144,6 @@
   color:#8f5f2f!important;
 }
 
-/* Force Benefits heading to use the same dark heading colour as the other tabs. */
 .page [class*="panelBenefits"] h2,
 .page [class*="panelBenefits"] [class*="benefitsPanel"] > h2{
   color:#102633!important;
@@ -223,7 +222,7 @@
   line-height:1.62!important;
 }
 
-/* Systems: replace broken base64-JPEG assets with valid local SVG schematics */
+/* Systems: valid local SVG schematics */
 .page [class*="systemGrid"] [class*="systemImage"]{
   min-height:0!important;
   aspect-ratio:5 / 3;
@@ -241,18 +240,149 @@
 .page [class*="systemGrid"] article:nth-child(1) [class*="systemImage"]{
   background-image:url('/images/exterior-systems/acm-acp/attachment-systems/dry-reveal-acm-system.svg')!important;
 }
-
 .page [class*="systemGrid"] article:nth-child(2) [class*="systemImage"]{
   background-image:url('/images/exterior-systems/acm-acp/attachment-systems/wet-seal-acm-system.svg')!important;
 }
-
 .page [class*="systemGrid"] article:nth-child(3) [class*="systemImage"]{
   background-image:url('/images/exterior-systems/acm-acp/attachment-systems/face-fastened-acm-system.svg')!important;
 }
-
 .page [class*="systemGrid"] article:nth-child(4) [class*="systemImage"]{
   background-image:url('/images/exterior-systems/acm-acp/attachment-systems/easyfix-acm-system.svg')!important;
 }
+
+/* Finishes: real sample reference + finish-specific surface character */
+.page [class*="panelFinishes"]{
+  background:#f3efe8!important;
+}
+
+.page [class*="panelFinishes"] [class*="finishGrid"]{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:14px!important;
+  border:0!important;
+  margin-top:34px!important;
+}
+
+.page [class*="panelFinishes"] [class*="finishGrid"]::before{
+  content:"";
+  grid-column:1/-1;
+  min-height:260px;
+  margin-bottom:4px;
+  border:1px solid #d7dedf;
+  border-radius:14px;
+  background:#fff url('/images/exterior-systems/acm-acp/acm-panel-colours-finishes-samples.webp') center/contain no-repeat;
+}
+
+.page [class*="panelFinishes"] [class*="finishGrid"] article{
+  padding:23px 24px 25px!important;
+  border:1px solid #d7dedf!important;
+  border-radius:14px;
+  background:rgba(255,255,255,.72)!important;
+}
+
+.page [class*="panelFinishes"] [class*="finishGrid"] h3{
+  margin-bottom:19px!important;
+  color:#102633!important;
+}
+
+.page [class*="panelFinishes"] [class*="swatches"]{
+  display:flex!important;
+  gap:13px!important;
+  flex-wrap:wrap!important;
+  align-items:center;
+}
+
+.page [class*="panelFinishes"] [class*="swatches"] > span{
+  position:relative;
+  width:54px!important;
+  height:54px!important;
+  border-radius:50%!important;
+  border:1px solid rgba(16,38,51,.18)!important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.25),0 3px 9px rgba(7,26,41,.08)!important;
+  background-size:cover!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  cursor:help;
+}
+
+.page [class*="panelFinishes"] [class*="swatches"] > span::after{
+  content:attr(aria-label);
+  position:absolute;
+  z-index:5;
+  left:50%;
+  bottom:calc(100% + 9px);
+  transform:translateX(-50%) translateY(4px);
+  width:max-content;
+  max-width:190px;
+  padding:7px 9px;
+  border-radius:7px;
+  background:#071a29;
+  color:#fff;
+  font-size:.65rem;
+  line-height:1.3;
+  text-align:center;
+  opacity:0;
+  pointer-events:none;
+  transition:.18s ease;
+  box-shadow:0 8px 22px rgba(7,26,41,.18);
+}
+
+.page [class*="panelFinishes"] [class*="swatches"] > span:hover{
+  transform:translateY(-2px) scale(1.06)!important;
+}
+
+.page [class*="panelFinishes"] [class*="swatches"] > span:hover::after{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* 01 — Solid & matte: intentionally flat, low-reflectance surfaces */
+.page [class*="finishGrid"] article:nth-of-type(1) [class*="swatches"] span:nth-child(1){background:#f2f0e9!important}
+.page [class*="finishGrid"] article:nth-of-type(1) [class*="swatches"] span:nth-child(2){background:#cbb997!important}
+.page [class*="finishGrid"] article:nth-of-type(1) [class*="swatches"] span:nth-child(3){background:#777c79!important}
+.page [class*="finishGrid"] article:nth-of-type(1) [class*="swatches"] span:nth-child(4){background:#596456!important}
+.page [class*="finishGrid"] article:nth-of-type(1) [class*="swatches"] span:nth-child(5){background:#985b47!important}
+.page [class*="finishGrid"] article:nth-of-type(1) [class*="swatches"] span:nth-child(6){background:#252829!important}
+
+/* 02 — Metallic & mica: directional light response + fine particulate character */
+.page [class*="finishGrid"] article:nth-of-type(2) [class*="swatches"] span:nth-child(1){background:linear-gradient(135deg,#f4f5f5 0%,#bbc1c4 34%,#8f989d 52%,#dfe2e3 77%,#a9b0b4 100%)!important}
+.page [class*="finishGrid"] article:nth-of-type(2) [class*="swatches"] span:nth-child(2){background:radial-gradient(circle at 28% 22%,rgba(255,255,255,.85) 0 2%,transparent 3%),radial-gradient(circle at 66% 62%,rgba(255,255,255,.5) 0 1.6%,transparent 2.6%),linear-gradient(135deg,#dedbd4,#aaa89f 48%,#d7d3ca)!important}
+.page [class*="finishGrid"] article:nth-of-type(2) [class*="swatches"] span:nth-child(3){background:linear-gradient(135deg,#eee6d6 0%,#cbb792 38%,#a99170 55%,#e1d3bb 100%)!important}
+.page [class*="finishGrid"] article:nth-of-type(2) [class*="swatches"] span:nth-child(4){background:linear-gradient(135deg,#c7cccf 0%,#858d91 44%,#656d72 57%,#bcc2c5 100%)!important}
+.page [class*="finishGrid"] article:nth-of-type(2) [class*="swatches"] span:nth-child(5){background:radial-gradient(circle at 24% 20%,rgba(255,239,224,.55) 0 2%,transparent 3%),linear-gradient(135deg,#d49b78,#a96749 48%,#844b37 65%,#d7a181)!important}
+.page [class*="finishGrid"] article:nth-of-type(2) [class*="swatches"] span:nth-child(6){background:radial-gradient(circle at 26% 24%,rgba(255,255,255,.5) 0 1.8%,transparent 2.8%),linear-gradient(135deg,#8c9294,#596164 52%,#737b7e)!important}
+
+/* 03 — Anodized & brushed: fine linear grain is part of the visual identity */
+.page [class*="finishGrid"] article:nth-of-type(3) [class*="swatches"] span:nth-child(1){background:repeating-linear-gradient(90deg,#e0e2e1 0 2px,#c8cccb 2px 4px,#eef0ef 4px 6px)!important}
+.page [class*="finishGrid"] article:nth-of-type(3) [class*="swatches"] span:nth-child(2){background:repeating-linear-gradient(90deg,#ebe6dc 0 2px,#d2c7b6 2px 4px,#f1ece3 4px 6px)!important}
+.page [class*="finishGrid"] article:nth-of-type(3) [class*="swatches"] span:nth-child(3){background:repeating-linear-gradient(90deg,#d6bd9e 0 2px,#bb9a75 2px 4px,#e3cbb0 4px 6px)!important}
+.page [class*="finishGrid"] article:nth-of-type(3) [class*="swatches"] span:nth-child(4){background:repeating-linear-gradient(90deg,#b08a69 0 2px,#8f6c50 2px 4px,#c09b79 4px 6px)!important}
+.page [class*="finishGrid"] article:nth-of-type(3) [class*="swatches"] span:nth-child(5){background:repeating-linear-gradient(90deg,#80644f 0 2px,#60493a 2px 4px,#92735a 4px 6px)!important}
+.page [class*="finishGrid"] article:nth-of-type(3) [class*="swatches"] span:nth-child(6){background:repeating-linear-gradient(90deg,#565b5e 0 2px,#3d4245 2px 4px,#6c7376 4px 6px)!important}
+
+/* 04 — Timber: real CladCan sample texture for Maple/Teak + woodgrain-style previews for remaining families */
+.page [class*="finishGrid"] article:nth-of-type(4) [class*="swatches"] span:nth-child(1){background-image:url('/images/exterior-systems/acm-acp/finishes/maple.webp')!important}
+.page [class*="finishGrid"] article:nth-of-type(4) [class*="swatches"] span:nth-child(2){background-image:url('/images/exterior-systems/acm-acp/finishes/teak.webp')!important}
+.page [class*="finishGrid"] article:nth-of-type(4) [class*="swatches"] span:nth-child(3){background:repeating-linear-gradient(100deg,#6c4934 0 5px,#77523b 5px 9px,#4f3428 9px 12px,#825b40 12px 16px)!important}
+.page [class*="finishGrid"] article:nth-of-type(4) [class*="swatches"] span:nth-child(4){background:repeating-linear-gradient(96deg,#7f4b3d 0 4px,#925b49 4px 8px,#64372f 8px 11px,#a16952 11px 15px)!important}
+.page [class*="finishGrid"] article:nth-of-type(4) [class*="swatches"] span:nth-child(5){background:repeating-linear-gradient(94deg,#c4a46e 0 3px,#d0b57f 3px 7px,#aa8955 7px 10px,#d8bd88 10px 14px)!important}
+.page [class*="finishGrid"] article:nth-of-type(4) [class*="swatches"] span:nth-child(6){background:repeating-linear-gradient(96deg,#d8c19a 0 4px,#c7aa7e 4px 8px,#e5d0ab 8px 12px,#b99568 12px 15px)!important}
+
+/* 05 — Stone / textured / pattern */
+.page [class*="finishGrid"] article:nth-of-type(5) [class*="swatches"] span:nth-child(1){background:radial-gradient(circle at 24% 22%,#787b7a 0 4%,transparent 5%),radial-gradient(circle at 68% 60%,#b9b9b5 0 3%,transparent 4%),linear-gradient(135deg,#444748,#242627)!important}
+.page [class*="finishGrid"] article:nth-of-type(5) [class*="swatches"] span:nth-child(2){background:repeating-linear-gradient(90deg,#c4c6c5 0 1px,#9fa3a4 1px 3px,#d6d8d7 3px 5px)!important}
+.page [class*="finishGrid"] article:nth-of-type(5) [class*="swatches"] span:nth-child(3){background:radial-gradient(circle at 20% 28%,rgba(100,45,30,.55) 0 8%,transparent 9%),radial-gradient(circle at 66% 63%,rgba(225,156,107,.35) 0 11%,transparent 12%),linear-gradient(135deg,#985c42,#6e4335)!important}
+.page [class*="finishGrid"] article:nth-of-type(5) [class*="swatches"] span:nth-child(4){background:repeating-linear-gradient(135deg,#ddd8cc 0 5px,#cfc7b7 5px 8px,#e8e3d9 8px 12px)!important}
+.page [class*="finishGrid"] article:nth-of-type(5) [class*="swatches"] span:nth-child(5){background:linear-gradient(135deg,#aeb6b6 0%,#7d898a 38%,#9ea8a8 62%,#737d7e 100%)!important}
+.page [class*="finishGrid"] article:nth-of-type(5) [class*="swatches"] span:nth-child(6){background:repeating-linear-gradient(135deg,#626769 0 4px,#4d5254 4px 8px,#73787a 8px 11px)!important}
+
+/* 06 — Brand / custom colour examples */
+.page [class*="finishGrid"] article:nth-of-type(6) [class*="swatches"] span:nth-child(1){background:#2f5f84!important}
+.page [class*="finishGrid"] article:nth-of-type(6) [class*="swatches"] span:nth-child(2){background:#496b58!important}
+.page [class*="finishGrid"] article:nth-of-type(6) [class*="swatches"] span:nth-child(3){background:#c97948!important}
+.page [class*="finishGrid"] article:nth-of-type(6) [class*="swatches"] span:nth-child(4){background:#9d3438!important}
+.page [class*="finishGrid"] article:nth-of-type(6) [class*="swatches"] span:nth-child(5){background:#665474!important}
+.page [class*="finishGrid"] article:nth-of-type(6) [class*="swatches"] span:nth-child(6){background:#c3a044!important}
 
 @media(max-width:1120px){
   .page [class*="overviewGrid"]{
@@ -296,5 +426,15 @@
   .page [class*="panelBenefits"] [class*="featureGrid"] article{
     min-height:0!important;
     padding:21px!important;
+  }
+  .page [class*="panelFinishes"] [class*="finishGrid"]{
+    grid-template-columns:1fr!important;
+  }
+  .page [class*="panelFinishes"] [class*="finishGrid"]::before{
+    min-height:210px;
+  }
+  .page [class*="panelFinishes"] [class*="swatches"] > span{
+    width:48px!important;
+    height:48px!important;
   }
 }
