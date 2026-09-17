@@ -51,9 +51,8 @@ export default function Page(){
         transform:translateY(-1px)!important;
       }
 
-      /* Use the actual computed Overview h2 typography as the master for every tab. */
-      [class*="overviewGrid"] h2,
-      [class*="panel"] > div > h2{
+      /* Final ACM tab heading master: every tab uses the approved Overview typography. */
+      html body .${styles.page} main[class*="panel"] h2{
         max-width:620px!important;
         margin:0 0 24px!important;
         font-family:var(--type-display)!important;
@@ -71,8 +70,7 @@ export default function Page(){
           padding:13px 18px!important;
           border-radius:9px!important;
         }
-        [class*="overviewGrid"] h2,
-        [class*="panel"] > div > h2{
+        html body .${styles.page} main[class*="panel"] h2{
           max-width:540px!important;
           font-size:clamp(1.65rem,7vw,2.15rem)!important;
           line-height:1.16!important;
