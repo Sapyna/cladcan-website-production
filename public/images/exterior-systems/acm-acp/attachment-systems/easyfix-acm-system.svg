@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">ALUCOBOND EasyFix attachment system schematic</title>
+  <desc id="desc">Conceptual schematic based on the published EasyFix concept, showing two-sided route-and-return folds engaging dedicated clips or rails.</desc>
+  <rect width="1200" height="720" fill="#f5f6f4"/>
+  <text x="72" y="92" fill="#8f5f2f" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" letter-spacing="4">ALUCOBOND EASYFIX</text>
+  <text x="72" y="142" fill="#102633" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700">Two-sided route-and-return attachment concept</text>
+  <g transform="translate(92 206)">
+    <rect x="666" y="16" width="52" height="410" rx="4" fill="#c9d0d2"/>
+    <rect x="574" y="44" width="30" height="354" fill="#66757d"/>
+    <path d="M120 74 H432 V192 L390 226 H120 Z" fill="#c3c9cc" stroke="#586a74" stroke-width="3"/>
+    <path d="M120 270 H390 L432 304 V422 H120 Z" fill="#b5bec2" stroke="#586a74" stroke-width="3"/>
+    <path d="M390 226 l58 -46 28 30 -55 46z" fill="#c79a5d" stroke="#8f5f2f" stroke-width="2"/>
+    <path d="M390 270 l58 46 28 -30 -55 -46z" fill="#c79a5d" stroke="#8f5f2f" stroke-width="2"/>
+    <path d="M448 180 h94 v28 h-70 l-24 18z" fill="#34434b"/>
+    <path d="M448 316 h94 v-28 h-70 l-24 -18z" fill="#34434b"/>
+    <line x1="542" y1="194" x2="574" y2="194" stroke="#586a74" stroke-width="8"/>
+    <line x1="542" y1="302" x2="574" y2="302" stroke="#586a74" stroke-width="8"/>
+    <rect x="432" y="226" width="72" height="44" fill="#071a29"/>
+    <text x="12" y="220" fill="#102633" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="700">ALUCOBOND PLUS panel</text>
+    <line x1="212" y1="210" x2="348" y2="150" stroke="#8c989e" stroke-width="2"/>
+    <text x="744" y="146" fill="#102633" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="700">Dedicated clip / rail</text>
+    <line x1="730" y1="138" x2="522" y2="194" stroke="#8c989e" stroke-width="2"/>
+    <text x="744" y="258" fill="#102633" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="700">Two routed return edges</text>
+    <line x1="730" y1="250" x2="466" y2="220" stroke="#8c989e" stroke-width="2"/>
+    <text x="744" y="368" fill="#102633" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="700">Open joint</text>
+    <line x1="730" y1="360" x2="490" y2="248" stroke="#8c989e" stroke-width="2"/>
+    <text x="744" y="414" fill="#5d707b" font-family="Arial,Helvetica,sans-serif" font-size="18">Concept reflects the published EasyFix clip/rail approach</text>
+  </g>
+  <text x="72" y="670" fill="#6c7c85" font-family="Arial,Helvetica,sans-serif" font-size="17">Conceptual schematic based on ALUCOBOND EasyFix published system information; use current manufacturer details for design and installation.</text>
+</svg>
