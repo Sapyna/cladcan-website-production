@@ -1,0 +1,1 @@
+ACM finish texture assets used by the Final Hybrid product page. Woodgrain texture crops are derived from CladCan sample photographs supplied for the project and are displayed as representative visual samples only.
