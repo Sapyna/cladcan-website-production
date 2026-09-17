@@ -129,6 +129,93 @@
   line-height:1.55!important;
 }
 
+/* Benefits: light architectural card system */
+.page [class*="panelBenefits"]{
+  background:#f5f6f4!important;
+  color:#102633!important;
+}
+
+.page [class*="panelBenefits"] [class*="benefitsPanel"]{
+  max-width:1120px;
+}
+
+.page [class*="panelBenefits"] [class*="kicker"]{
+  color:#8f5f2f!important;
+}
+
+.page [class*="panelBenefits"] [class*="benefitsPanel"] > h2,
+.page [class*="panelBenefits"] [class*="featureGrid"] h3{
+  color:#102633!important;
+}
+
+.page [class*="panelBenefits"] [class*="featureGrid"]{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:16px!important;
+  margin-top:34px!important;
+  border:0!important;
+  background:transparent!important;
+}
+
+.page [class*="panelBenefits"] [class*="featureGrid"] article{
+  min-height:210px!important;
+  padding:24px 24px 22px!important;
+  border:1px solid #d7dedf!important;
+  border-radius:14px;
+  background:#fff!important;
+  display:grid!important;
+  grid-template-columns:1fr auto;
+  grid-template-areas:
+    "number icon"
+    "title title"
+    "copy copy";
+  align-content:start;
+  box-shadow:0 8px 24px rgba(7,26,41,.035);
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+
+.page [class*="panelBenefits"] [class*="featureGrid"] article:hover{
+  transform:translateY(-2px);
+  border-color:#c8d1d3!important;
+  box-shadow:0 14px 30px rgba(7,26,41,.07);
+}
+
+.page [class*="panelBenefits"] [class*="featureGrid"] article > span{
+  grid-area:number;
+  align-self:center;
+  color:#8f5f2f!important;
+  font-size:.66rem!important;
+  font-weight:800;
+  letter-spacing:.14em;
+}
+
+.page [class*="panelBenefits"] [class*="featureGrid"] article > svg{
+  grid-area:icon;
+  width:34px!important;
+  height:34px!important;
+  margin:0!important;
+  padding:8px;
+  border-radius:999px;
+  background:#f3efe8;
+  color:#8f5f2f!important;
+}
+
+.page [class*="panelBenefits"] [class*="featureGrid"] article > h3{
+  grid-area:title;
+  margin:24px 0 9px!important;
+  font-size:1.02rem!important;
+  line-height:1.28!important;
+}
+
+.page [class*="panelBenefits"] [class*="featureGrid"] article > p{
+  grid-area:copy;
+  max-width:470px;
+  margin:0!important;
+  color:#5d707b!important;
+  font-size:.9rem!important;
+  line-height:1.62!important;
+}
+
 @media(max-width:1120px){
   .page [class*="overviewGrid"]{
     grid-template-columns:1fr;
@@ -163,5 +250,13 @@
   }
   .page [class*="overviewGrid"] [class*="figure"]{
     min-height:300px;
+  }
+  .page [class*="panelBenefits"] [class*="featureGrid"]{
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+  }
+  .page [class*="panelBenefits"] [class*="featureGrid"] article{
+    min-height:0!important;
+    padding:21px!important;
   }
 }
