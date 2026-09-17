@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Wet Seal ACM attachment system schematic</title>
+  <desc id="desc">Conceptual section showing route-and-return ACM panels with backer rod and sealant at the panel joint, concealed attachment and supporting rails.</desc>
+  <rect width="1200" height="720" fill="#f5f6f4"/>
+  <text x="72" y="92" fill="#8f5f2f" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" letter-spacing="4">WET SEAL</text>
+  <text x="72" y="142" fill="#102633" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700">Sealed-joint route-and-return concept</text>
+  <g transform="translate(92 212)">
+    <rect x="650" y="6" width="54" height="400" rx="4" fill="#c9d0d2"/>
+    <rect x="570" y="30" width="28" height="350" fill="#839099"/>
+    <path d="M116 64 H430 V210 H392 V102 H116 Z" fill="#c2c8cb" stroke="#586a74" stroke-width="3"/>
+    <path d="M116 250 H392 V360 H430 V508 H116 Z" fill="#b3bcc0" stroke="#586a74" stroke-width="3"/>
+    <line x1="430" y1="210" x2="492" y2="210" stroke="#586a74" stroke-width="8"/>
+    <line x1="430" y1="250" x2="492" y2="250" stroke="#586a74" stroke-width="8"/>
+    <circle cx="452" cy="230" r="18" fill="#323f46"/>
+    <path d="M430 220 Q452 205 474 220 V240 Q452 253 430 240 Z" fill="#8f5f2f" opacity=".95"/>
+    <path d="M392 190 h84 v24 h-52 v-10 h-32z" fill="#c79a5d"/>
+    <path d="M392 246 h84 v24 h-52 v10 h-32z" fill="#c79a5d"/>
+    <line x1="492" y1="120" x2="570" y2="120" stroke="#586a74" stroke-width="8"/>
+    <line x1="492" y1="326" x2="570" y2="326" stroke="#586a74" stroke-width="8"/>
+    <text x="12" y="230" fill="#102633" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="700">ACM cassette</text>
+    <line x1="146" y1="220" x2="360" y2="150" stroke="#8c989e" stroke-width="2"/>
+    <text x="730" y="150" fill="#102633" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="700">Backer rod + sealant</text>
+    <line x1="716" y1="142" x2="474" y2="230" stroke="#8c989e" stroke-width="2"/>
+    <text x="730" y="262" fill="#102633" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="700">Concealed attachment</text>
+    <line x1="716" y1="254" x2="476" y2="204" stroke="#8c989e" stroke-width="2"/>
+    <text x="730" y="372" fill="#5d707b" font-family="Arial,Helvetica,sans-serif" font-size="18">Continuous sealed joint between panels</text>
+  </g>
+  <text x="72" y="670" fill="#6c7c85" font-family="Arial,Helvetica,sans-serif" font-size="17">Conceptual schematic — final sealant, attachment and wall build-up are project- and manufacturer-specific.</text>
+</svg>
