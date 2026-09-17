@@ -9,32 +9,32 @@
 }
 
 .page [class*="overviewGrid"] h2{
-  max-width:760px!important;
-  margin:0 0 26px!important;
-  font-size:clamp(2.15rem,2.75vw,3.15rem)!important;
-  line-height:1.08!important;
-  letter-spacing:-.035em!important;
-  font-weight:760;
+  max-width:620px!important;
+  margin:0 0 24px!important;
+  font-size:clamp(1.7rem,2.15vw,2.45rem)!important;
+  line-height:1.16!important;
+  letter-spacing:-.025em!important;
+  font-weight:720;
   text-wrap:balance;
 }
 
 .page [class*="overviewGrid"] > div:first-child > p:not([class*="kicker"]):not([class*="scopeNote"]){
-  max-width:680px!important;
-  margin:0 0 18px;
-  font-size:1rem;
-  line-height:1.74;
+  max-width:660px!important;
+  margin:0 0 17px;
+  font-size:.98rem;
+  line-height:1.72;
   color:#5d707b;
 }
 
 .page [class*="scopeNote"]{
-  max-width:680px!important;
-  margin:30px 0 0!important;
-  padding:18px 20px 18px 22px;
+  max-width:660px!important;
+  margin:28px 0 0!important;
+  padding:17px 19px 17px 21px;
   border-left:3px solid #c79a5d;
   background:#f5f6f4;
   color:#4f626d!important;
-  font-size:.95rem;
-  line-height:1.65!important;
+  font-size:.93rem;
+  line-height:1.62!important;
 }
 
 .page [class*="scopeNote"] strong{
@@ -43,17 +43,17 @@
 }
 
 .page [class*="overviewGrid"] [class*="brandLine"]{
-  max-width:680px;
-  margin-top:26px;
-  padding-top:18px;
-  font-size:.68rem;
-  line-height:1.8;
-  letter-spacing:.055em;
+  max-width:660px;
+  margin-top:24px;
+  padding-top:17px;
+  font-size:.66rem;
+  line-height:1.75;
+  letter-spacing:.05em;
 }
 
 .page [class*="overviewGrid"] [class*="figure"]{
-  min-height:420px;
-  margin-top:34px;
+  min-height:405px;
+  margin-top:24px;
   border:1px solid #e1e6e7;
   background:#f1f4f4;
 }
@@ -65,29 +65,30 @@
 @media(max-width:1120px){
   .page [class*="overviewGrid"]{
     grid-template-columns:1fr;
-    gap:38px;
+    gap:36px;
   }
   .page [class*="overviewGrid"] [class*="figure"]{
     margin-top:0;
-    min-height:380px;
+    min-height:370px;
   }
 }
 
 @media(max-width:760px){
   .page [class*="overviewGrid"] h2{
-    font-size:clamp(2rem,9vw,2.7rem)!important;
-    line-height:1.08!important;
-    margin-bottom:22px!important;
+    max-width:540px!important;
+    font-size:clamp(1.65rem,7vw,2.15rem)!important;
+    line-height:1.16!important;
+    margin-bottom:20px!important;
   }
   .page [class*="overviewGrid"] > div:first-child > p:not([class*="kicker"]):not([class*="scopeNote"]){
-    font-size:.96rem;
-    line-height:1.7;
+    font-size:.94rem;
+    line-height:1.68;
   }
   .page [class*="scopeNote"]{
-    margin-top:24px!important;
-    padding:16px 17px 16px 19px;
+    margin-top:22px!important;
+    padding:15px 16px 15px 18px;
   }
   .page [class*="overviewGrid"] [class*="figure"]{
-    min-height:310px;
+    min-height:300px;
   }
 }
