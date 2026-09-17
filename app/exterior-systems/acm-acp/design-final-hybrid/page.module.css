@@ -62,6 +62,73 @@
   padding:34px!important;
 }
 
+/* Shared typography rhythm for all non-overview tabs */
+.page [class*="panel"] > div > h2{
+  max-width:620px!important;
+  margin:0 0 22px!important;
+  font-size:clamp(1.7rem,2.15vw,2.45rem)!important;
+  line-height:1.16!important;
+  letter-spacing:-.025em!important;
+  font-weight:720!important;
+  text-wrap:balance;
+}
+
+.page [class*="panel"] > div > [class*="sectionNote"],
+.page [class*="panel"] > div > [class*="projectsIntro"],
+.page [class*="panel"] > div > [class*="referenceNote"]{
+  max-width:660px!important;
+  font-size:.98rem!important;
+  line-height:1.7!important;
+  color:#5d707b!important;
+}
+
+.page [class*="panel"] > div > [class*="sectionNote"]{
+  margin:0 0 30px!important;
+}
+
+.page [class*="panel"] > div > [class*="projectsIntro"]{
+  margin:0 0 30px!important;
+}
+
+.page [class*="panel"] > div > [class*="referenceNote"]{
+  margin:24px 0 0!important;
+  padding-top:18px;
+  border-top:1px solid #d7dedf;
+  font-size:.88rem!important;
+  line-height:1.62!important;
+}
+
+.page [class*="panel"] [class*="featureGrid"] h3,
+.page [class*="panel"] [class*="cardCopy"] h3,
+.page [class*="panel"] [class*="systemGrid"] h3,
+.page [class*="panel"] [class*="finishGrid"] h3,
+.page [class*="panel"] [class*="projectCopy"] h3{
+  letter-spacing:-.015em;
+  line-height:1.25;
+  font-weight:720;
+}
+
+.page [class*="panel"] [class*="featureGrid"] p,
+.page [class*="panel"] [class*="cardCopy"] p,
+.page [class*="panel"] [class*="systemGrid"] p,
+.page [class*="panel"] [class*="projectCopy"] p{
+  font-size:.9rem!important;
+  line-height:1.62!important;
+}
+
+.page [class*="panel"] [class*="componentItem"] strong{
+  font-size:.94rem!important;
+  line-height:1.3;
+  font-weight:720;
+  letter-spacing:-.01em;
+}
+
+.page [class*="panel"] [class*="componentItem"] p{
+  margin:5px 0 0!important;
+  font-size:.86rem!important;
+  line-height:1.55!important;
+}
+
 @media(max-width:1120px){
   .page [class*="overviewGrid"]{
     grid-template-columns:1fr;
@@ -74,7 +141,8 @@
 }
 
 @media(max-width:760px){
-  .page [class*="overviewGrid"] h2{
+  .page [class*="overviewGrid"] h2,
+  .page [class*="panel"] > div > h2{
     max-width:540px!important;
     font-size:clamp(1.65rem,7vw,2.15rem)!important;
     line-height:1.16!important;
@@ -83,6 +151,11 @@
   .page [class*="overviewGrid"] > div:first-child > p:not([class*="kicker"]):not([class*="scopeNote"]){
     font-size:.94rem;
     line-height:1.68;
+  }
+  .page [class*="panel"] > div > [class*="sectionNote"],
+  .page [class*="panel"] > div > [class*="projectsIntro"]{
+    font-size:.94rem!important;
+    line-height:1.66!important;
   }
   .page [class*="scopeNote"]{
     margin-top:22px!important;
