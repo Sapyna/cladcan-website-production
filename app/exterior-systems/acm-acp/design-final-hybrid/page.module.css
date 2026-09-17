@@ -223,6 +223,37 @@
   line-height:1.62!important;
 }
 
+/* Systems: replace broken base64-JPEG assets with valid local SVG schematics */
+.page [class*="systemGrid"] [class*="systemImage"]{
+  min-height:0!important;
+  aspect-ratio:5 / 3;
+  background-color:#f5f6f4!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:contain!important;
+  border-bottom:1px solid #d7dedf;
+}
+
+.page [class*="systemGrid"] [class*="systemImage"] img{
+  display:none!important;
+}
+
+.page [class*="systemGrid"] article:nth-child(1) [class*="systemImage"]{
+  background-image:url('/images/exterior-systems/acm-acp/attachment-systems/dry-reveal-acm-system.svg')!important;
+}
+
+.page [class*="systemGrid"] article:nth-child(2) [class*="systemImage"]{
+  background-image:url('/images/exterior-systems/acm-acp/attachment-systems/wet-seal-acm-system.svg')!important;
+}
+
+.page [class*="systemGrid"] article:nth-child(3) [class*="systemImage"]{
+  background-image:url('/images/exterior-systems/acm-acp/attachment-systems/face-fastened-acm-system.svg')!important;
+}
+
+.page [class*="systemGrid"] article:nth-child(4) [class*="systemImage"]{
+  background-image:url('/images/exterior-systems/acm-acp/attachment-systems/easyfix-acm-system.svg')!important;
+}
+
 @media(max-width:1120px){
   .page [class*="overviewGrid"]{
     grid-template-columns:1fr;
