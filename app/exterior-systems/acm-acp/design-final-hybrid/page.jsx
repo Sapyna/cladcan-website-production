@@ -1,4 +1,5 @@
 import AcmProductCompare from "@/components/AcmProductCompare";
+import styles from "./page.module.css";
 
 export const metadata = {
   title: "ACM / ACP Aluminum Composite Panels | CladCan",
@@ -6,5 +7,5 @@ export const metadata = {
 };
 
 export default function Page(){
-  return <AcmProductCompare variant="left" theme="architectural-stone" />;
+  return <div className={styles.page}><AcmProductCompare variant="left" theme="architectural-stone" /></div>;
 }
