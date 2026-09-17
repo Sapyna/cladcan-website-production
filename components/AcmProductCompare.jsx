@@ -49,56 +49,56 @@ const components = [
   ["Fasteners, flashings & closures","Colour-matched screws or rivets plus perimeter flashings, closures and transition details as required by the assembly."],
 ];
 
-// Screen approximations of current, named ALUCOBOND / ALPOLIC finishes.
-// Final specification must always be confirmed from the current manufacturer sample.
+// Generic finish families grounded in current manufacturer finish libraries.
+// Swatches are representative digital previews, not exact manufacturer colour matches.
 const finishGroups = [
   ["Solid & Matte",[
-    {name:"ALPOLIC Cloud White Matte",color:"#e8e7e1"},
-    {name:"ALUCOBOND Ecru",color:"#c9b996"},
-    {name:"ALPOLIC River Rock Grey",color:"#777c79"},
-    {name:"ALPOLIC Olive Green Matte",color:"#596456"},
-    {name:"ALPOLIC Terra Cotta",color:"#9a5745"},
-    {name:"ALPOLIC Slate Black",color:"#252829"},
+    {name:"Warm White",color:"#f2f0e9"},
+    {name:"Soft Beige",color:"#cbb997"},
+    {name:"Medium Grey",color:"#777c79"},
+    {name:"Muted Green",color:"#596456"},
+    {name:"Terracotta",color:"#985b47"},
+    {name:"Charcoal Black",color:"#252829"},
   ]],
   ["Metallic & Mica",[
-    {name:"ALPOLIC Metallic Silver",color:"#c2c5c3"},
-    {name:"ALPOLIC Mica Platinum",color:"#b4b1aa"},
-    {name:"ALPOLIC Metallic Champagne",color:"#b7a382"},
-    {name:"ALPOLIC Metallic Pewter",color:"#777975"},
-    {name:"ALPOLIC Metallic Copper",color:"#9a654b"},
-    {name:"ALPOLIC Mica Grey",color:"#606669"},
+    {name:"Silver Metallic",color:"#c2c5c3"},
+    {name:"Platinum Mica",color:"#b4b1aa"},
+    {name:"Champagne Metallic",color:"#b7a382"},
+    {name:"Pewter Metallic",color:"#777975"},
+    {name:"Copper Metallic",color:"#9a654b"},
+    {name:"Graphite Mica",color:"#606669"},
   ]],
   ["Anodized & Brushed",[
-    {name:"ALPOLIC Clear Anodized",color:"#c7c9c6"},
-    {name:"ALPOLIC Frost Anodized",color:"#d8d5cc"},
-    {name:"ALPOLIC Champagne Anodized",color:"#b5a27f"},
-    {name:"ALPOLIC Light Bronze Anodized",color:"#967b5e"},
-    {name:"ALPOLIC Medium Bronze Anodized",color:"#705a46"},
-    {name:"ALPOLIC Dark Bronze Anodized",color:"#493c33"},
+    {name:"Clear Anodized",color:"#c7c9c6"},
+    {name:"Frost Anodized",color:"#d8d5cc"},
+    {name:"Champagne Anodized",color:"#b5a27f"},
+    {name:"Light Bronze Anodized",color:"#967b5e"},
+    {name:"Medium Bronze Anodized",color:"#705a46"},
+    {name:"Dark Bronze Anodized",color:"#493c33"},
   ]],
   ["Timber / Woodgrain",[
-    {name:"ALPOLIC Maple",color:"#c7a276"},
-    {name:"ALPOLIC Teak",color:"#a8754a"},
-    {name:"ALPOLIC Walnut",color:"#684a35"},
-    {name:"ALPOLIC Mahogany",color:"#75483b"},
-    {name:"ALPOLIC Harvest Trail Bamboo",color:"#bea06a"},
-    {name:"ALPOLIC Japanese Birch",color:"#d0b88c"},
+    {name:"Maple",color:"#c7a276"},
+    {name:"Teak",color:"#a8754a"},
+    {name:"Walnut",color:"#684a35"},
+    {name:"Mahogany",color:"#75483b"},
+    {name:"Light Timber",color:"#bea06a"},
+    {name:"Birch / Pale Timber",color:"#d0b88c"},
   ]],
   ["Stone, Textured & Pattern",[
-    {name:"ALPOLIC Black Granite",color:"#343638"},
-    {name:"ALPOLIC Brushed Metal",color:"#aaa9a3"},
-    {name:"ALPOLIC Rusted Steel",color:"#8b5947"},
-    {name:"ALPOLIC Arctic Linen",color:"#d7d1c5"},
-    {name:"ALUCOBOND Zinc",color:"#7b8381"},
-    {name:"ALUCOBOND Basalt Gray",color:"#4e5353"},
+    {name:"Black Granite",color:"#343638"},
+    {name:"Brushed Metal",color:"#aaa9a3"},
+    {name:"Rusted Steel",color:"#8b5947"},
+    {name:"Light Stone",color:"#d7d1c5"},
+    {name:"Zinc",color:"#7b8381"},
+    {name:"Basalt / Slate",color:"#4e5353"},
   ]],
-  ["Custom / Brand Colours",[
-    {name:"ALUCOBOND Ultramarine Blue",color:"#29577d"},
-    {name:"ALUCOBOND Network Green",color:"#4b6b58"},
-    {name:"ALUCOBOND Pastel Orange",color:"#c57c48"},
-    {name:"ALUCOBOND Patriot Red",color:"#9b3036"},
-    {name:"ALUCOBOND Just Purple",color:"#62536f"},
-    {name:"ALUCOBOND Tuscan Sun",color:"#c6a145"},
+  ["Custom Colour",[
+    {name:"Deep Blue",color:"#29577d"},
+    {name:"Forest Green",color:"#4b6b58"},
+    {name:"Burnt Orange",color:"#c57c48"},
+    {name:"Architectural Red",color:"#9b3036"},
+    {name:"Deep Purple",color:"#62536f"},
+    {name:"Warm Gold",color:"#c6a145"},
   ]],
 ];
 
@@ -114,7 +114,7 @@ function Panel({active}){
   if(active==="benefits") return <div className={styles.benefitsPanel}><p className={styles.kicker}>WHY CHOOSE ACM</p><h2>Performance, fabrication freedom and a controlled architectural finish.</h2><div className={styles.featureGrid}>{benefits.map(([title,text],i)=><article key={title}><span>{String(i+1).padStart(2,"0")}</span><Check size={20}/><h3>{title}</h3><p>{text}</p></article>)}</div></div>;
   if(active==="systems") return <div><p className={styles.kicker}>ATTACHMENT SYSTEMS</p><h2>Joint and attachment strategy are part of the façade design.</h2><p className={styles.sectionNote}>The system must be coordinated with the selected ACM manufacturer, substrate, wall assembly, drainage strategy, thermal movement, wind loads and applicable project requirements.</p><div className={styles.systemGrid}>{systems.map(([title,text,image])=><article key={title}><div className={styles.systemImage}><Image src={image} alt={`${title} ACM attachment system`} fill sizes="35vw" unoptimized /></div><div><h3>{title}</h3><p>{text}</p></div></article>)}</div><p className={styles.referenceNote}>System names such as ALUCOBOND EasyFix® are manufacturer-specific. They are shown only where they correspond to an actual published ACM system.</p></div>;
   if(active==="components") return <div><p className={styles.kicker}>SYSTEM COMPONENTS</p><h2>The panel is only one part of the complete façade assembly.</h2><p className={styles.sectionNote}>Not every ACM system uses every component below. Components are selected to suit the approved panel system, joint type, wall build-up and manufacturer details.</p><div className={styles.componentGrid}><div className={styles.figure}><Image src="/images/exterior-systems/acm-acp/cnc-fabrication-aluminum-composite-panels.webp" alt="CNC fabrication of aluminum composite panels" fill sizes="40vw" /></div><div>{components.map(([title,text],i)=><div className={styles.componentItem} key={title}><span>{String(i+1).padStart(2,"0")}</span><div><strong>{title}</strong><p>{text}</p></div></div>)}</div></div></div>;
-  if(active==="finishes") return <div className={styles.finishesPanel}><p className={styles.kicker}>COLOURS & FINISHES</p><h2>From quiet architectural neutrals to branded and specialty surfaces.</h2><p className={styles.sectionNote}>Current ACM manufacturers offer extensive finish libraries, including solid, matte, metallic, mica, anodized, timber, stone, textured and specialty collections. Custom colour matching is available on selected products and quantities.</p><div className={styles.finishGrid}>{finishGroups.map(([title,colors])=><article key={title}><h3>{title}</h3><div className={styles.swatches}>{colors.map(({name,color})=><span key={name} title={name} aria-label={name} style={{background:color}} />)}</div></article>)}</div><p className={styles.referenceNote}>These digital swatches are screen approximations of named manufacturer finish families and are intended for visual reference only. Final colour, gloss, texture, coating system, availability and warranty must be confirmed from the selected manufacturer’s current colour chart and physical sample.</p></div>;
+  if(active==="finishes") return <div className={styles.finishesPanel}><p className={styles.kicker}>COLOURS & FINISHES</p><h2>From quiet architectural neutrals to metallic, timber and specialty surfaces.</h2><p className={styles.sectionNote}>ACM finish libraries commonly include solid and matte colours, metallic and mica coatings, anodized looks, timber / woodgrain, stone and textured patterns, plus project-specific custom colours.</p><div className={styles.finishGrid}>{finishGroups.map(([title,colors])=><article key={title}><h3>{title}</h3><div className={styles.swatches}>{colors.map(({name,color})=><span key={name} title={name} aria-label={name} style={{background:color}} />)}</div></article>)}</div><p className={styles.referenceNote}>The finish families shown here are generic visual references based on categories commonly published by ACM manufacturers such as ALPOLIC and ALUCOBOND. Digital colour and texture can vary by screen; final selection should always be confirmed using the selected manufacturer’s current colour chart and a physical sample.</p></div>;
   return <div><p className={styles.kicker}>COMPLETED PROJECTS</p><h2>ACM in completed CladCan work.</h2><p className={styles.projectsIntro}>These links point to existing CladCan project records identified as ACM or ACM-combination work. Project-specific products, quantities and performance claims are only added when supported by verified project information.</p><div className={styles.projectGrid}>{projects.map((project,i)=><Link className={styles.projectCard} href={project.href} key={project.title}><div className={`${styles.projectVisual} ${styles[`projectVisual${i+1}`]}`}><span>ACM PROJECT</span><strong>{String(i+1).padStart(2,"0")}</strong></div><div className={styles.projectCopy}><small>{project.meta}</small><h3>{project.title}</h3><p>{project.text}</p><span>View project <ArrowUpRight size={15}/></span></div></Link>)}</div></div>;
 }
 
