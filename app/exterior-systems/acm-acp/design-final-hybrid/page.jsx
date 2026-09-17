@@ -63,6 +63,32 @@ export default function Page(){
         text-wrap:balance!important;
       }
 
+      /* Finishes: strong material inspection hover without reflowing the grid. */
+      html body .${styles.page} [class*="panelFinishes"] [class*="finishGrid"] article,
+      html body .${styles.page} [class*="panelFinishes"] [class*="swatches"]{
+        overflow:visible!important;
+      }
+      html body .${styles.page} [class*="panelFinishes"] [class*="swatches"] > span{
+        position:relative!important;
+        z-index:1;
+        transform:scale(1);
+        transform-origin:center;
+        transition:transform .2s ease,box-shadow .2s ease,z-index 0s!important;
+      }
+      html body .${styles.page} [class*="panelFinishes"] [class*="swatches"] > span:hover{
+        z-index:30!important;
+        transform:scale(2)!important;
+        box-shadow:0 14px 32px rgba(7,26,41,.28),0 0 0 2px rgba(255,255,255,.9)!important;
+      }
+      html body .${styles.page} [class*="panelFinishes"] [class*="swatches"] > span::after{
+        transform:translateX(-50%) translateY(4px) scale(.5)!important;
+        transform-origin:center bottom!important;
+      }
+      html body .${styles.page} [class*="panelFinishes"] [class*="swatches"] > span:hover::after{
+        opacity:1!important;
+        transform:translateX(-50%) translateY(-6px) scale(.5)!important;
+      }
+
       @media(max-width:760px){
         .pageBreadcrumbInner{min-height:44px!important;}
         [class*="heroCopy"] > a{
