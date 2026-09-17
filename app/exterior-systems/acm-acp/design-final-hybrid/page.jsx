@@ -51,12 +51,30 @@ export default function Page(){
         transform:translateY(-1px)!important;
       }
 
+      /* Preserve the original Overview heading exactly; copy that typography only to the other tabs. */
+      [class*="panel"] > div:not([class*="overviewGrid"]) > h2{
+        max-width:620px!important;
+        margin:0 0 24px!important;
+        font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+        font-size:clamp(1.7rem,2.15vw,2.45rem)!important;
+        line-height:1.16!important;
+        letter-spacing:-.025em!important;
+        font-weight:720!important;
+        text-wrap:balance!important;
+      }
+
       @media(max-width:760px){
         .pageBreadcrumbInner{min-height:44px!important;}
         [class*="heroCopy"] > a{
           min-height:48px!important;
           padding:13px 18px!important;
           border-radius:9px!important;
+        }
+        [class*="panel"] > div:not([class*="overviewGrid"]) > h2{
+          max-width:540px!important;
+          font-size:clamp(1.65rem,7vw,2.15rem)!important;
+          line-height:1.16!important;
+          margin-bottom:20px!important;
         }
       }
     `}</style>
