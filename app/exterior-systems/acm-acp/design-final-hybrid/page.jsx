@@ -24,7 +24,7 @@ export default function Page(){
         min-height:52px!important;
       }
 
-      /* Match the established hero CTA language: lightly rounded outline, red on hover. */
+      /* Match the established product-page CTA language: lightly rounded outline, red on hover, no text-link underline. */
       [class*="heroCopy"] > a{
         min-height:52px!important;
         padding:14px 22px!important;
@@ -35,12 +35,19 @@ export default function Page(){
         font-size:.9rem!important;
         font-weight:800!important;
         box-shadow:none!important;
+        text-decoration:none!important;
+        text-decoration-line:none!important;
+        text-decoration-color:transparent!important;
         transition:background .18s ease,border-color .18s ease,transform .18s ease!important;
       }
-      [class*="heroCopy"] > a:hover{
+      [class*="heroCopy"] > a:hover,
+      [class*="heroCopy"] > a:focus-visible{
         background:#d61f24!important;
         border-color:#d61f24!important;
         color:#fff!important;
+        text-decoration:none!important;
+        text-decoration-line:none!important;
+        text-decoration-color:transparent!important;
         transform:translateY(-1px)!important;
       }
 
