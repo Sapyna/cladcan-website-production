@@ -137,13 +137,20 @@
 
 .page [class*="panelBenefits"] [class*="benefitsPanel"]{
   max-width:1120px;
+  color:#102633!important;
 }
 
 .page [class*="panelBenefits"] [class*="kicker"]{
   color:#8f5f2f!important;
 }
 
-.page [class*="panelBenefits"] [class*="benefitsPanel"] > h2,
+/* Force Benefits heading to use the same dark heading colour as the other tabs. */
+.page [class*="panelBenefits"] h2,
+.page [class*="panelBenefits"] [class*="benefitsPanel"] > h2{
+  color:#102633!important;
+  -webkit-text-fill-color:#102633!important;
+}
+
 .page [class*="panelBenefits"] [class*="featureGrid"] h3{
   color:#102633!important;
 }
