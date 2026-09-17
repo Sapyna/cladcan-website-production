@@ -49,56 +49,56 @@ const components = [
   ["Fasteners, flashings & closures","Colour-matched screws or rivets plus perimeter flashings, closures and transition details as required by the assembly."],
 ];
 
-// Generic finish families grounded in current manufacturer finish libraries.
-// Swatches are representative digital previews, not exact manufacturer colour matches.
+// Finish names and visual references are grounded in ALPOLIC's current official stock colour chart
+// and published finish collections. Digital previews follow the manufacturer chart; physical samples govern final selection.
 const finishGroups = [
   ["Solid & Matte",[
-    {name:"Warm White",color:"#f2f0e9"},
-    {name:"Soft Beige",color:"#cbb997"},
-    {name:"Medium Grey",color:"#777c79"},
-    {name:"Muted Green",color:"#596456"},
-    {name:"Terracotta",color:"#985b47"},
-    {name:"Charcoal Black",color:"#252829"},
+    {name:"Bone White · BNT",sample:"#e7e3d9"},
+    {name:"Aluminum Grey · AGT",sample:"#a0a6a3"},
+    {name:"River Rock Grey · RRM",sample:"#8c918d"},
+    {name:"Slate Black · BSM",sample:"#4a4a48"},
+    {name:"Bronze · JBR",sample:"#332d24"},
+    {name:"Terra Cotta · TRM",sample:"#b66d58"},
   ]],
   ["Metallic & Mica",[
-    {name:"Silver Metallic",color:"#c2c5c3"},
-    {name:"Platinum Mica",color:"#b4b1aa"},
-    {name:"Champagne Metallic",color:"#b7a382"},
-    {name:"Pewter Metallic",color:"#777975"},
-    {name:"Copper Metallic",color:"#9a654b"},
-    {name:"Graphite Mica",color:"#606669"},
+    {name:"Metallic Silver · SMX",sample:"linear-gradient(135deg,#b6bbb8 0%,#a5aaa7 48%,#c6cac7 100%)"},
+    {name:"Mica Platinum · OPT",sample:"linear-gradient(135deg,#b7b8b5 0%,#9fa09e 52%,#c3c4c1 100%)"},
+    {name:"Metallic Champagne · CMX",sample:"linear-gradient(135deg,#b9b6ad 0%,#a8a59e 50%,#c5c1b6 100%)"},
+    {name:"Metallic Pewter · PEX",sample:"linear-gradient(135deg,#a09b95 0%,#8c8883 52%,#aaa59f 100%)"},
+    {name:"Mica Champagne · MCU",sample:"linear-gradient(135deg,#a99282 0%,#958071 50%,#b09c8b 100%)"},
+    {name:"Mica Grey · MFS",sample:"linear-gradient(135deg,#85817c 0%,#74716d 50%,#908c86 100%)"},
   ]],
-  ["Anodized & Brushed",[
-    {name:"Clear Anodized",color:"#c7c9c6"},
-    {name:"Frost Anodized",color:"#d8d5cc"},
-    {name:"Champagne Anodized",color:"#b5a27f"},
-    {name:"Light Bronze Anodized",color:"#967b5e"},
-    {name:"Medium Bronze Anodized",color:"#705a46"},
-    {name:"Dark Bronze Anodized",color:"#493c33"},
+  ["Anodized & Natural Metal",[
+    {name:"Clear Anodized · CLR",sample:"linear-gradient(135deg,#aeb8b5 0%,#9ca6a3 50%,#bbc3c0 100%)"},
+    {name:"Mica Anodic Clear · MNC",sample:"linear-gradient(135deg,#b1b2b0 0%,#a1a2a0 50%,#bebfbc 100%)"},
+    {name:"Stainless · 4HL",sample:"repeating-linear-gradient(90deg,#99948e 0 2px,#aaa59f 2px 4px,#8e8984 4px 6px)"},
+    {name:"Quartz Zinc · AZZ",sample:"linear-gradient(135deg,#969590 0%,#868580 50%,#a4a39d 100%)"},
+    {name:"Copper · C12",sample:"linear-gradient(135deg,#b96a3d 0%,#9f552d 50%,#ca7b4b 100%)"},
+    {name:"Metallic Bronze · MBX",sample:"linear-gradient(135deg,#a18c78 0%,#8f7b69 50%,#ad9986 100%)"},
   ]],
   ["Timber / Woodgrain",[
-    {name:"Maple",color:"#c7a276"},
-    {name:"Teak",color:"#a8754a"},
-    {name:"Walnut",color:"#684a35"},
-    {name:"Mahogany",color:"#75483b"},
-    {name:"Light Timber",color:"#bea06a"},
-    {name:"Birch / Pale Timber",color:"#d0b88c"},
+    {name:"Maple · MPL",sample:"repeating-linear-gradient(92deg,#dfa56f 0 7px,#ca8957 7px 10px,#e7b17a 10px 16px,#b87449 16px 18px)"},
+    {name:"Teak · QBB",sample:"repeating-linear-gradient(92deg,#a66a2f 0 6px,#7d491f 6px 9px,#b87a38 9px 15px,#633817 15px 18px)"},
+    {name:"Walnut · WLN",sample:"repeating-linear-gradient(94deg,#b47743 0 5px,#92562e 5px 8px,#c0834c 8px 13px,#75431f 13px 16px)"},
+    {name:"Mahogany · QAE",sample:"repeating-linear-gradient(93deg,#8d3f30 0 6px,#6d2c22 6px 9px,#9d4a37 9px 14px,#5e251f 14px 17px)"},
+    {name:"Japanese Birch · QJB",sample:"repeating-linear-gradient(94deg,#e3c8a5 0 7px,#d5b58d 7px 10px,#ecd2b1 10px 16px,#cba67d 16px 18px)"},
+    {name:"Harvest Trail Bamboo · QCP",sample:"repeating-linear-gradient(90deg,#d39a45 0 5px,#b87529 5px 8px,#e0aa58 8px 14px,#995e21 14px 17px)"},
   ]],
-  ["Stone, Textured & Pattern",[
-    {name:"Black Granite",color:"#343638"},
-    {name:"Brushed Metal",color:"#aaa9a3"},
-    {name:"Rusted Steel",color:"#8b5947"},
-    {name:"Light Stone",color:"#d7d1c5"},
-    {name:"Zinc",color:"#7b8381"},
-    {name:"Basalt / Slate",color:"#4e5353"},
+  ["Pattern & Specialty",[
+    {name:"Black Granite · LBG",sample:"radial-gradient(circle at 24% 26%,#8a8b87 0 3%,transparent 4%),radial-gradient(circle at 68% 62%,#bbb9b3 0 2.5%,transparent 3.5%),linear-gradient(135deg,#4b4c4a,#272826)"},
+    {name:"Rusted Steel · QCO",sample:"radial-gradient(circle at 25% 30%,rgba(120,61,35,.55) 0 12%,transparent 13%),radial-gradient(circle at 70% 60%,rgba(210,130,75,.5) 0 15%,transparent 16%),linear-gradient(135deg,#b96e42,#8c4d31)"},
+    {name:"Brushed Metal · FZZ",sample:"repeating-linear-gradient(90deg,#bebfbc 0 1px,#9fa19f 1px 3px,#d0d1ce 3px 5px)"},
+    {name:"Arctic Linen · QEN",sample:"repeating-linear-gradient(135deg,#ddd8ce 0 5px,#cec7ba 5px 8px,#e8e3da 8px 12px)"},
+    {name:"Zebrawood · QBT",sample:"repeating-linear-gradient(92deg,#4c2e1c 0 5px,#2f1c12 5px 8px,#6b4227 8px 12px,#20120c 12px 15px)"},
+    {name:"Rio Aleon · QAW",sample:"repeating-linear-gradient(94deg,#8a4d27 0 6px,#5f301b 6px 9px,#9e5d32 9px 14px,#3f2115 14px 17px)"},
   ]],
-  ["Custom Colour",[
-    {name:"Deep Blue",color:"#29577d"},
-    {name:"Forest Green",color:"#4b6b58"},
-    {name:"Burnt Orange",color:"#c57c48"},
-    {name:"Architectural Red",color:"#9b3036"},
-    {name:"Deep Purple",color:"#62536f"},
-    {name:"Warm Gold",color:"#c6a145"},
+  ["Accent Solids",[
+    {name:"Red · TOR",sample:"#bf2026"},
+    {name:"Green · BGN",sample:"#0d9448"},
+    {name:"Blue · HYB",sample:"#174e82"},
+    {name:"Yellow · BYL",sample:"#f4c917"},
+    {name:"Charcoal · CNC",sample:"#394043"},
+    {name:"Black · TOB",sample:"#15191b"},
   ]],
 ];
 
@@ -114,7 +114,7 @@ function Panel({active}){
   if(active==="benefits") return <div className={styles.benefitsPanel}><p className={styles.kicker}>WHY CHOOSE ACM</p><h2>Performance, fabrication freedom and a controlled architectural finish.</h2><div className={styles.featureGrid}>{benefits.map(([title,text],i)=><article key={title}><span>{String(i+1).padStart(2,"0")}</span><Check size={20}/><h3>{title}</h3><p>{text}</p></article>)}</div></div>;
   if(active==="systems") return <div><p className={styles.kicker}>ATTACHMENT SYSTEMS</p><h2>Joint and attachment strategy are part of the façade design.</h2><p className={styles.sectionNote}>The system must be coordinated with the selected ACM manufacturer, substrate, wall assembly, drainage strategy, thermal movement, wind loads and applicable project requirements.</p><div className={styles.systemGrid}>{systems.map(([title,text,image])=><article key={title}><div className={styles.systemImage}><Image src={image} alt={`${title} ACM attachment system`} fill sizes="35vw" unoptimized /></div><div><h3>{title}</h3><p>{text}</p></div></article>)}</div><p className={styles.referenceNote}>System names such as ALUCOBOND EasyFix® are manufacturer-specific. They are shown only where they correspond to an actual published ACM system.</p></div>;
   if(active==="components") return <div><p className={styles.kicker}>SYSTEM COMPONENTS</p><h2>The panel is only one part of the complete façade assembly.</h2><p className={styles.sectionNote}>Not every ACM system uses every component below. Components are selected to suit the approved panel system, joint type, wall build-up and manufacturer details.</p><div className={styles.componentGrid}><div className={styles.figure}><Image src="/images/exterior-systems/acm-acp/cnc-fabrication-aluminum-composite-panels.webp" alt="CNC fabrication of aluminum composite panels" fill sizes="40vw" /></div><div>{components.map(([title,text],i)=><div className={styles.componentItem} key={title}><span>{String(i+1).padStart(2,"0")}</span><div><strong>{title}</strong><p>{text}</p></div></div>)}</div></div></div>;
-  if(active==="finishes") return <div className={styles.finishesPanel}><p className={styles.kicker}>COLOURS & FINISHES</p><h2>From quiet architectural neutrals to metallic, timber and specialty surfaces.</h2><p className={styles.sectionNote}>ACM finish libraries commonly include solid and matte colours, metallic and mica coatings, anodized looks, timber / woodgrain, stone and textured patterns, plus project-specific custom colours.</p><div className={styles.finishGrid}>{finishGroups.map(([title,colors])=><article key={title}><h3>{title}</h3><div className={styles.swatches}>{colors.map(({name,color})=><span key={name} title={name} aria-label={name} style={{background:color}} />)}</div></article>)}</div><p className={styles.referenceNote}>The finish families shown here are generic visual references based on categories commonly published by ACM manufacturers such as ALPOLIC and ALUCOBOND. Digital colour and texture can vary by screen; final selection should always be confirmed using the selected manufacturer’s current colour chart and a physical sample.</p></div>;
+  if(active==="finishes") return <div className={styles.finishesPanel}><p className={styles.kicker}>COLOURS & FINISHES</p><h2>Finish families grounded in current manufacturer colour charts.</h2><p className={styles.sectionNote}>The swatches below use finish names and visual references from ALPOLIC's current published stock colour chart and finish collections. They are shown as digital references only; final colour, gloss, directionality and texture must be approved from the selected manufacturer's current physical sample.</p><div className={styles.finishGrid}>{finishGroups.map(([title,colors])=><article key={title}><h3>{title}</h3><div className={styles.swatches}>{colors.map(({name,sample})=><span key={name} title={name} aria-label={name} style={{"--swatch":sample}} />)}</div></article>)}</div><p className={styles.referenceNote}>Source basis: current ALPOLIC stock colour chart and published finish collections. Screen rendering can never replace a physical sample, especially for metallic, mica, anodized and patterned finishes.</p></div>;
   return <div><p className={styles.kicker}>COMPLETED PROJECTS</p><h2>ACM in completed CladCan work.</h2><p className={styles.projectsIntro}>These links point to existing CladCan project records identified as ACM or ACM-combination work. Project-specific products, quantities and performance claims are only added when supported by verified project information.</p><div className={styles.projectGrid}>{projects.map((project,i)=><Link className={styles.projectCard} href={project.href} key={project.title}><div className={`${styles.projectVisual} ${styles[`projectVisual${i+1}`]}`}><span>ACM PROJECT</span><strong>{String(i+1).padStart(2,"0")}</strong></div><div className={styles.projectCopy}><small>{project.meta}</small><h3>{project.title}</h3><p>{project.text}</p><span>View project <ArrowUpRight size={15}/></span></div></Link>)}</div></div>;
 }
 
