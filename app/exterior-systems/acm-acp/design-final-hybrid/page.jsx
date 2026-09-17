@@ -63,7 +63,12 @@ export default function Page(){
         text-wrap:balance!important;
       }
 
-      /* Finishes: strong material inspection hover without reflowing the grid. */
+      /* Finishes: only the supplier-grounded swatch definitions from the component are rendered. */
+      html body .${styles.page} [class*="panelFinishes"] [class*="finishGrid"]::before{
+        content:none!important;
+        display:none!important;
+        background:none!important;
+      }
       html body .${styles.page} [class*="panelFinishes"] [class*="finishGrid"] article,
       html body .${styles.page} [class*="panelFinishes"] [class*="swatches"]{
         overflow:visible!important;
@@ -71,6 +76,10 @@ export default function Page(){
       html body .${styles.page} [class*="panelFinishes"] [class*="swatches"] > span{
         position:relative!important;
         z-index:1;
+        background:var(--swatch)!important;
+        background-size:cover!important;
+        background-position:center!important;
+        background-repeat:no-repeat!important;
         transform:scale(1);
         transform-origin:center;
         transition:transform .2s ease,box-shadow .2s ease,z-index 0s!important;
