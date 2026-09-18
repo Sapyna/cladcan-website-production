@@ -1,6 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import ProductTabbedPage from "@/components/ProductTabbedPage";
 
 export const metadata={title:"FastPlank® Premium Aluminum Siding & Soffit | CladCan",description:"FastPlank aluminum siding and soffit: installation, performance, profiles, trims and colour options."};
 
@@ -14,25 +12,54 @@ const benefits=[
 ];
 
 const profiles=[
-  {code:"P 44 V",title:"V-Notch™ 4-inch Plank",image:"/images/exterior-systems/fastplank/fastplank-p44v-4-inch-v-notch-plank.webp",alt:"FastPlank P44V 4-inch V-Notch aluminum plank profile",description:"A narrower plank (4 in / 10.16 cm) with the standard V-Notch contour to create a well-connected cladding profile.",details:["Quantity per bundle: 10","Length: 16 ft (192 in) / 4.8768 m (487.68 cm)"]},
-  {code:"P 46 V",title:"V-Notch™ 6-inch Plank",image:"/images/exterior-systems/fastplank/fastplank-p46v-6-inch-v-notch-plank.webp",alt:"FastPlank P46V 6-inch V-Notch aluminum plank profile",description:"A broad plank featuring the standard V-shaped notch contour to create a well-connected cladding profile.",details:["Quantity per bundle: 6","Length: 16 ft (192 in) / 4.8768 m (487.68 cm)"]},
-  {code:"P 47 V",title:"V-Notch™ 4-inch Perforated Soffit Plank",image:"/images/exterior-systems/fastplank/fastplank-p47v-perforated-soffit-plank.webp",alt:"FastPlank P47V perforated aluminum soffit plank profile",description:"A perforated plank for soffit applications, with the standard V-shaped notch contour to create a well-connected profile.",details:["Quantity per bundle: 10","Length: 16 ft (192 in) / 4.8768 m (487.68 cm)","Net free air space: 7.7 in²/lin ft or 163.3 cm²/lin m"]}
+  {title:"P 44 V · V-Notch™ 4-inch Plank",items:[{label:"Bundle",value:"10 planks"},{label:"Length",value:"16 ft (192 in) / 4.8768 m"},{label:"Use",value:"Narrow siding or soffit plank with V-Notch contour"}]},
+  {title:"P 46 V · V-Notch™ 6-inch Plank",items:[{label:"Bundle",value:"6 planks"},{label:"Length",value:"16 ft (192 in) / 4.8768 m"},{label:"Use",value:"Broader siding or soffit plank with V-Notch contour"}]},
+  {title:"P 47 V · 4-inch Perforated Soffit Plank",items:[{label:"Bundle",value:"10 planks"},{label:"Length",value:"16 ft (192 in) / 4.8768 m"},{label:"Net free air",value:"7.7 in²/lin ft or 163.3 cm²/lin m"}]}
 ];
 
-export default function Page(){return <main className="fastPlankPage">
-  <section className="internalHero exteriorSystemDetailHero fastPlankHero"><div className="internalHeroImage exteriorSystemHeroMedia" style={{backgroundImage:"url('/images/source-library/aluminum/fastplank/hero.webp')"}}/><div className="wrap internalHeroCopy"><span>ALUMINUM SIDING & SOFFIT</span><h1>FastPlank® Premium Siding & Soffit</h1><p>A sophisticated aluminum plank system designed for streamlined installation, refined curb appeal and long-term exterior durability.</p><div className="heroActions"><Link href="/contact" className="btn internalRedBtn">Get a Quote →</Link><Link href="/contact" className="btn lineBtn">Request Sample</Link></div></div></section>
-
-  <section className="fastPlankIntro"><div className="wrap fastPlankSplit"><div className="fastPlankCopy"><span className="fastPlankEyebrow">FASTPLANK® SYSTEMS</span><h2>Premium aluminum siding and soffit.</h2><p>FastPlank® Systems offers a sophisticated and efficient aluminum plank siding solution designed to minimize lead time, streamline installation, enhance curb appeal and provide long-term durability for building exteriors.</p><p>Combining the timeless beauty of wood with the resilience of aluminum, FastPlank® eliminates concerns about weathering and deterioration, ensuring a pristine, low-maintenance finish for years to come.</p><p>Elevate your building’s facade with FastPlank®, creating a striking architectural statement with lasting value and refined aesthetics. Ideal as a replacement for fibre cement, vinyl or wood siding—or as an accent feature—FastPlank® installs effortlessly. Its innovative design accommodates natural expansion and contraction, preventing gapping and buckling for a seamless, polished appearance.</p></div><div className="fastPlankIntroImage"><Image src="/images/exterior-systems/fastplank/fastplank-aluminum-soffit-installation.webp" alt="FastPlank woodgrain aluminum soffit installation" fill sizes="(max-width: 900px) 100vw, 44vw"/></div></div></section>
-
-  <section className="fastPlankInstall"><div className="wrap fastPlankSplit fastPlankSplitReverse"><div className="fastPlankInstallImage"><Image src="/images/exterior-systems/fastplank/fastplank-clip-slide-installation-system.webp" alt="FastPlank Clip and Slide aluminum plank attachment system" fill sizes="(max-width: 900px) 100vw, 38vw"/></div><div className="fastPlankCopy"><span className="fastPlankEyebrow">INSTALLATION</span><h2>Fast and simple installation.</h2><p>FastPlank® siding is designed for quick, hassle-free installation—no special tools or advanced skills required. Its innovative two-piece system uses a patented snap-together design to boost job-site efficiency, save on labour and deliver faster project completion.</p><p>The Clip & Slide™ attachment system makes the process even easier. Install the backplates, then snap the planks into place every 16 to 32 inches.</p><p>The 16-foot planks are lightweight, strong and easy to handle. Made from extruded aluminum, they cut cleanly and dust-free using a non-ferrous carbide blade.</p></div></div></section>
-
-  <section className="fastPlankBenefits"><div className="wrap"><div className="fastPlankSectionHead"><span className="fastPlankEyebrow">PERFORMANCE</span><h2>Patented innovation that safeguards your investment.</h2></div><div className="fastPlankBenefitGrid">{benefits.map((item,index)=><article key={item.title}><span>{String(index+1).padStart(2,"0")}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></div></section>
-
-  <section className="fastPlankProfiles"><div className="wrap"><div className="fastPlankSectionHead"><span className="fastPlankEyebrow">PROFILE OPTIONS</span><h2>Planks for siding and soffit applications.</h2></div><div className="fastPlankProfileGrid">{profiles.map(profile=><article key={profile.code}><div className="fastPlankProfileImage"><Image src={profile.image} alt={profile.alt} fill sizes="(max-width: 760px) 100vw, 30vw"/></div><div className="fastPlankProfileBody"><span>{profile.code}</span><h3>{profile.title}</h3><p>{profile.description}</p><ul>{profile.details.map(detail=><li key={detail}>{detail}</li>)}</ul><p className="fastPlankColourNote">Available in woodgrain patterns and solid colours, or in a custom colour through the ColorMatch® program.</p></div></article>)}</div></div></section>
-
-  <section className="fastPlankTrims"><div className="wrap fastPlankTrimGrid"><div className="fastPlankCopy"><span className="fastPlankEyebrow">TRIM COMPONENTS</span><h2>Profiles that complete the system.</h2></div><div className="fastPlankTrimImage"><Image src="/images/exterior-systems/fastplank/fastplank-trim-components.webp" alt="FastPlank aluminum trim components and clips" fill sizes="(max-width: 900px) 100vw, 56vw"/></div></div></section>
-
-  <section className="fastPlankColours"><div className="wrap"><div className="fastPlankColourIntro"><span className="fastPlankEyebrow">FASTPLANK® COLOUR OPTIONS</span><h2>Solid colours, realistic woodgrains and ColorMatch®.</h2><p>Select from a range of standard colours, realistic woodgrain finishes, or create a custom solid colour using the ColorMatch® system.</p><p>Every FastPlank® finish is built for long-term performance—durable, maintenance-free and backed by a 20-year finish warranty and a 50-year product warranty.</p></div><div className="fastPlankColourGrid"><div><Image src="/images/exterior-systems/fastplank/fastplank-solid-woodgrain-colours.webp" alt="FastPlank stock solid and woodgrain aluminum colour options" fill sizes="(max-width: 760px) 100vw, 48vw"/></div><div><Image src="/images/exterior-systems/fastplank/fastplank-special-order-woodgrain-colours.webp" alt="FastPlank special-order woodgrain aluminum finishes" fill sizes="(max-width: 760px) 100vw, 48vw"/></div></div></div></section>
-
-  <section className="fastPlankExpert"><div className="wrap fastPlankExpertInner"><div><span className="fastPlankEyebrow">SPEAK WITH AN EXPERT</span><h2>Get personalized advice and expert guidance.</h2><p>Achieve your project goals with confidence.</p></div><Link href="/contact" className="btn internalRedBtn">Speak with an Expert <ArrowUpRight size={15}/></Link></div></section>
-</main>}
+export default function Page(){
+  return <ProductTabbedPage
+    eyebrow="ALUMINUM SIDING & SOFFIT"
+    title="FastPlank® Premium Siding & Soffit"
+    subtitle="Premium aluminum siding and soffit with an integrated rainscreen."
+    intro="FastPlank® Systems offers a sophisticated aluminum plank siding solution designed to streamline installation, enhance curb appeal and provide long-term durability. The system combines the visual warmth of wood-inspired finishes with lightweight extruded aluminum and a pressure-equalized rainscreen design."
+    heroImage="/images/source-library/aluminum/fastplank/hero.webp"
+    images={[
+      "/images/source-library/aluminum/fastplank/hero.webp",
+      "/images/exterior-systems/fastplank/fastplank-aluminum-soffit-installation.webp",
+      "/images/exterior-systems/fastplank/fastplank-clip-slide-installation-system.webp",
+      "/images/exterior-systems/fastplank/fastplank-trim-components.webp",
+      "/images/exterior-systems/fastplank/fastplank-solid-woodgrain-colours.webp",
+      "/images/exterior-systems/fastplank/fastplank-special-order-woodgrain-colours.webp"
+    ]}
+    manufacturer="FastPlank Systems"
+    specs={[
+      {label:"Material",value:"6063 T6 extruded aluminum"},
+      {label:"Standard length",value:"16 ft / 4.8768 m"},
+      {label:"Attachment",value:"Patented Clip & Slide™ system"},
+      {label:"Rainscreen",value:"Pressure-equalized system with 3/8-inch air cavity"},
+      {label:"Finish warranty",value:"20 years"},
+      {label:"Product warranty",value:"50 years"}
+    ]}
+    applications={["Exterior siding","Soffits and covered ceilings","Residential façades","Commercial façades","Mixed-material feature walls","Replacement for selected wood, vinyl or fibre-cement applications"]}
+    benefits={benefits}
+    profiles={profiles}
+    components={[
+      {title:"Clip & Slide™ Backplates",detail:"Backplates are installed first, followed by snap-in planks at coordinated spacing."},
+      {title:"Plank Profiles",detail:"P 44 V, P 46 V and perforated P 47 V profiles support siding and soffit layouts."},
+      {title:"Trim Components",detail:"Coordinated aluminum trims complete corners, transitions, openings and terminations."}
+    ]}
+    technicalSections={[
+      {eyebrow:"INSTALLATION",title:"Fast and simple installation.",text:"FastPlank® uses a patented two-piece snap-together system intended to improve job-site efficiency. Backplates are installed first and the lightweight planks snap into place. Extruded aluminum cuts cleanly with an appropriate non-ferrous carbide blade.",images:[{src:"/images/exterior-systems/fastplank/fastplank-clip-slide-installation-system.webp",alt:"FastPlank Clip and Slide aluminum plank attachment system",caption:"Clip & Slide™ attachment system."}]},
+      {eyebrow:"TRIM COMPONENTS",title:"Profiles that complete the system.",text:"Matching trim components coordinate corners, edges, transitions and termination conditions around the plank system.",images:[{src:"/images/exterior-systems/fastplank/fastplank-trim-components.webp",alt:"FastPlank aluminum trim components and clips",caption:"FastPlank trim and attachment components."}]}
+    ]}
+    finishes={["Standard solid colours","Stock woodgrain finishes","Special-order woodgrain finishes","ColorMatch® custom solid colours","Powder-coated exterior finish"]}
+    visuals={[
+      {image:"/images/exterior-systems/fastplank/fastplank-aluminum-soffit-installation.webp",title:"Installed Soffit",caption:"Woodgrain aluminum soffit application.",alt:"FastPlank woodgrain aluminum soffit installation"},
+      {image:"/images/exterior-systems/fastplank/fastplank-solid-woodgrain-colours.webp",title:"Stock Colours",caption:"FastPlank solid and woodgrain colour options.",alt:"FastPlank stock solid and woodgrain aluminum colour options"},
+      {image:"/images/exterior-systems/fastplank/fastplank-special-order-woodgrain-colours.webp",title:"Special-Order Woodgrain",caption:"Additional woodgrain finish options.",alt:"FastPlank special-order woodgrain aluminum finishes"}
+    ]}
+    ctaTitle="Considering FastPlank® for your project?"
+    ctaText="Share your elevations, siding or soffit scope and preferred finish. CladCan can help coordinate profiles, trims, samples, quantities and installation requirements."
+  />;
+}
