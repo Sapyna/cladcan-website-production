@@ -1,0 +1,22 @@
+name: Validate product page migration
+
+on:
+  push:
+    branches:
+      - design-system-v1-acm
+    paths:
+      - .github/workflows/validate-product-pages.yml
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design-system-v1-acm
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
