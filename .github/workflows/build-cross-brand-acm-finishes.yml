@@ -1,0 +1,133 @@
+name: Build cross-brand ACM finish swatches
+
+on:
+  push:
+    branches:
+      - design-system-v1-acm
+    paths:
+      - .github/workflows/build-cross-brand-acm-finishes.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design-system-v1-acm
+          fetch-depth: 0
+
+      - name: Install tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          python -m pip install --upgrade pillow
+
+      - name: Download official manufacturer sources
+        run: |
+          set -euxo pipefail
+          mkdir -p /tmp/acm/alfrex /tmp/acm/alucoil /tmp/acm/direct
+          curl -fL --retry 4 "https://alfrexusa.com/storage/F-01-Alfrex-Standard-Product-Finishes.pdf" -o /tmp/acm/alfrex.pdf
+          curl -fL --retry 4 "https://alucoil.com/wp-content/uploads/2024/04/CARTA_COLOR_ALUCOIL.pdf" -o /tmp/acm/alucoil.pdf
+
+          # ALUCOBOND official sample images
+          curl -fL --retry 4 "https://cdn.3acompositesusa.com/images_samples/Pure%20White%20%28RVW%29_rgb.jpg" -o /tmp/acm/direct/alucobond-pure-white.jpg
+          curl -fL --retry 4 "https://cdn.3acompositesusa.com/images_samples/Silver%20Metallic_rgb.jpg" -o /tmp/acm/direct/alucobond-silver-metallic.jpg
+          curl -fL --retry 4 "https://cdn.3acompositesusa.com/images_samples/Anodized_Clear_rgb.jpg" -o /tmp/acm/direct/alucobond-clear-anodized.jpg
+          curl -fL --retry 4 "https://cdn.3acompositesusa.com/images_samples/Zinc-rgb.jpg" -o /tmp/acm/direct/alucobond-zinc.jpg
+          curl -fL --retry 4 "https://cdn.3acompositesusa.com/images_samples/Rustic-walnut-rgb.jpg" -o /tmp/acm/direct/alucobond-rustic-walnut.jpg
+          curl -fL --retry 4 "https://cdn.3acompositesusa.com/images_samples/Chestnut-rgb.jpg" -o /tmp/acm/direct/alucobond-chestnut.jpg
+          curl -fL --retry 4 "https://cdn.3acompositesusa.com/images_samples/Ecru%20144dpi-01-03.jpg" -o /tmp/acm/direct/alucobond-ecru.jpg
+          curl -fL --retry 4 "https://cdn.3acompositesusa.com/images_samples/Flint%20144dpi-05-11.jpg" -o /tmp/acm/direct/alucobond-flint.jpg
+          curl -fL --retry 4 "https://cdn.3acompositesusa.com/images_samples/Rusted%20Metal-b-rgb.jpg" -o /tmp/acm/direct/alucobond-rusted-metal.jpg
+
+          # ALUBOND Canada official finish images
+          curl -fL --retry 4 "https://alubond.com/wp-content/uploads/2022/04/stone_alubond_alg-206_travertine.jpg" -o /tmp/acm/direct/alubond-travertine.jpg
+          curl -fL --retry 4 "https://alubond.com/wp-content/uploads/2022/04/stone_alubond_alg-202_granitonero.jpg" -o /tmp/acm/direct/alubond-granito-nero.jpg
+          curl -fL --retry 4 "https://alubond.com/wp-content/uploads/2022/04/stone_alubond_alg-205_biancocarrara.jpg" -o /tmp/acm/direct/alubond-bianco-carrara.jpg
+          curl -fL --retry 4 "https://alubond.com/wp-content/uploads/2022/04/prismetic_alubond_alp505_greysparkle.jpg" -o /tmp/acm/direct/alubond-grey-sparkle.jpg
+          curl -fL --retry 4 "https://alubond.com/wp-content/uploads/2022/04/prismetic_alubond_alp503_silversparkle.jpg" -o /tmp/acm/direct/alubond-silver-sparkle.jpg
+
+      - name: Render official PDF pages
+        run: |
+          pdftoppm -f 2 -l 4 -png -r 144 /tmp/acm/alfrex.pdf /tmp/acm/alfrex/page
+          pdftoppm -f 2 -l 4 -png -r 144 /tmp/acm/alucoil.pdf /tmp/acm/alucoil/page
+
+      - name: Build exact swatch assets
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageOps
+
+          out=Path("public/images/exterior-systems/acm-acp/finishes/market")
+          out.mkdir(parents=True,exist_ok=True)
+
+          def crop_norm(src, box, dest):
+              im=Image.open(src).convert("RGB")
+              w,h=im.size
+              x1,y1,x2,y2=box
+              crop=im.crop((round(x1*w),round(y1*h),round(x2*w),round(y2*h)))
+              crop=ImageOps.fit(crop,(512,512),method=Image.Resampling.LANCZOS)
+              crop.save(out/dest,"WEBP",quality=94,method=6)
+
+          def square(src,dest):
+              im=Image.open(src).convert("RGB")
+              im=ImageOps.fit(im,(512,512),method=Image.Resampling.LANCZOS)
+              im.save(out/dest,"WEBP",quality=94,method=6)
+
+          # ALFREX — direct crops from official standard product finishes PDF
+          crop_norm("/tmp/acm/alfrex/page-2.png",(0.064,0.161,0.235,0.282),"alfrex-classic-white.webp")
+          crop_norm("/tmp/acm/alfrex/page-2.png",(0.255,0.161,0.425,0.282),"alfrex-bone-white.webp")
+          crop_norm("/tmp/acm/alfrex/page-2.png",(0.444,0.524,0.616,0.644),"alfrex-charcoal.webp")
+          crop_norm("/tmp/acm/alfrex/page-3.png",(0.064,0.342,0.235,0.463),"alfrex-anodic-clear-mica.webp")
+          crop_norm("/tmp/acm/alfrex/page-3.png",(0.826,0.342,0.996,0.463),"alfrex-pewter-mica.webp")
+          crop_norm("/tmp/acm/alfrex/page-4.png",(0.064,0.090,0.235,0.211),"alfrex-bright-silver-metallic.webp")
+          crop_norm("/tmp/acm/alfrex/page-4.png",(0.445,0.090,0.616,0.211),"alfrex-pex-pewter-metallic.webp")
+          crop_norm("/tmp/acm/alfrex/page-4.png",(0.255,0.516,0.425,0.635),"alfrex-faux-zinc.webp")
+          crop_norm("/tmp/acm/alfrex/page-4.png",(0.635,0.516,0.806,0.635),"alfrex-tile-corten.webp")
+          crop_norm("/tmp/acm/alfrex/page-4.png",(0.064,0.756,0.235,0.876),"alfrex-teak.webp")
+          crop_norm("/tmp/acm/alfrex/page-4.png",(0.255,0.756,0.425,0.876),"alfrex-golden-oak.webp")
+          crop_norm("/tmp/acm/alfrex/page-4.png",(0.445,0.756,0.616,0.876),"alfrex-dark-walnut.webp")
+
+          # ALUCOIL / LARSON — direct crops from official 2026 colour chart
+          crop_norm("/tmp/acm/alucoil/page-2.png",(0.296,0.249,0.487,0.350),"alucoil-pure-white.webp")
+          crop_norm("/tmp/acm/alucoil/page-2.png",(0.727,0.394,0.918,0.494),"alucoil-anthracite-grey.webp")
+          crop_norm("/tmp/acm/alucoil/page-3.png",(0.297,0.123,0.487,0.224),"alucoil-silver-metallic.webp")
+          crop_norm("/tmp/acm/alucoil/page-3.png",(0.512,0.123,0.702,0.224),"alucoil-champagne-metallic.webp")
+          crop_norm("/tmp/acm/alucoil/page-3.png",(0.297,0.264,0.487,0.365),"alucoil-bronze-metallic.webp")
+          crop_norm("/tmp/acm/alucoil/page-4.png",(0.083,0.137,0.273,0.238),"alucoil-textured-pure-white.webp")
+          crop_norm("/tmp/acm/alucoil/page-4.png",(0.727,0.137,0.918,0.238),"alucoil-textured-anthracite.webp")
+          crop_norm("/tmp/acm/alucoil/page-4.png",(0.512,0.451,0.702,0.552),"alucoil-anodic-brushed-matt.webp")
+          crop_norm("/tmp/acm/alucoil/page-4.png",(0.727,0.451,0.918,0.552),"alucoil-real-anodized-natural.webp")
+
+          # Direct official manufacturer sample images
+          for filename in [
+              "alucobond-pure-white","alucobond-silver-metallic","alucobond-clear-anodized","alucobond-zinc",
+              "alucobond-rustic-walnut","alucobond-chestnut","alucobond-ecru","alucobond-flint","alucobond-rusted-metal",
+              "alubond-travertine","alubond-granito-nero","alubond-bianco-carrara","alubond-grey-sparkle","alubond-silver-sparkle"
+          ]:
+              square(f"/tmp/acm/direct/{filename}.jpg",f"{filename}.webp")
+
+          (out/"SOURCES.txt").write_text("""Cross-brand ACM finish swatches
+ALFREX: https://alfrexusa.com/storage/F-01-Alfrex-Standard-Product-Finishes.pdf
+ALUCOIL/LARSON: https://alucoil.com/wp-content/uploads/2024/04/CARTA_COLOR_ALUCOIL.pdf
+ALUCOBOND: https://www.alucobondusa.com/samples-and-finishes.html and official cdn.3acompositesusa.com sample images
+ALUBOND Canada: https://alubond.com/canada-colours-and-finishes/
+ALPOLIC assets are stored separately under finishes/official-alpolic and come from the official ALPOLIC stock color chart.
+All digital representations require final physical sample approval.
+""",encoding="utf-8")
+          PY
+
+      - name: Commit generated assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/images/exterior-systems/acm-acp/finishes/market/
+          if git diff --cached --quiet; then
+            echo "No asset changes"
+          else
+            git commit -m "Add cross-brand official ACM finish swatches"
+            git push origin HEAD:design-system-v1-acm
+          fi
