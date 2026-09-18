@@ -49,35 +49,67 @@ const components = [
   ["Fasteners, flashings & closures","Colour-matched screws or rivets plus perimeter flashings, closures and transition details as required by the assembly."],
 ];
 
-// VERIFIED ALPOLIC SWATCHES ONLY.
-// Every image below is a direct crop from the official ALPOLIC 2024 Stock Color Chart.
-// No invented HEX values, generated woodgrain, or unrelated sample photos are used.
+// CROSS-BRAND ACM FINISH LIBRARY.
+// Categories reflect finish families that recur across major ACM/MCM manufacturers.
+// Each circle below is an exact supplier example taken from a current official manufacturer chart/sample.
+// We do not claim the same exact finish name exists at every manufacturer.
 const finishGroups = [
-  ["Architectural Neutrals & Metallics",[
-    {name:"SMX Metallic Silver",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/smx-metallic-silver.webp"},
-    {name:"MFS Mica Grey",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/mfs-mica-grey.webp"},
-    {name:"RRM River Rock Grey",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/rrm-river-rock-grey.webp"},
-    {name:"BSM Slate Black",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/bsm-slate-black.webp"},
-  ],"https://alpolic-americas.com/wp-content/uploads/2023/04/2024-Stock-Color-Chart-WebCard-Combined-compressed.pdf"],
-  ["Light, Anodized & Bronze",[
-    {name:"CLR Clear Anodized",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/clr-clear-anodized.webp"},
-    {name:"BNT Bone White",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/bnt-bone-white.webp"},
-    {name:"CMX Metallic Champagne",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/cmx-metallic-champagne.webp"},
-    {name:"MBX Metallic Bronze",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/mbx-metallic-bronze.webp"},
-  ],"https://alpolic-americas.com/wp-content/uploads/2023/04/2024-Stock-Color-Chart-WebCard-Combined-compressed.pdf"],
-  ["Timber & Pattern",[
-    {name:"QBB Teak",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/qbb-teak.webp"},
-    {name:"MPL Maple",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/mpl-maple.webp"},
-    {name:"WLN Walnut",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/wln-walnut.webp"},
-    {name:"QAE Mahogany",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/qae-mahogany.webp"},
-    {name:"QCP Harvest Trail Bamboo",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/qcp-ht-bamboo.webp"},
-    {name:"QJB Japanese Birch",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/qjb-japanese-birch.webp"},
-    {name:"QBV Oriental Cane",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/qbv-oriental-cane.webp"},
-    {name:"QWP Wild Plum",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/qwp-wild-plum.webp"},
-    {name:"QAW Rio Aleon",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/qaw-rio-aleon.webp"},
-    {name:"QBT Zebrawood",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/qbt-zebrawood.webp"},
-    {name:"QCO Rusted Steel",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/qco-rusted-steel.webp"},
-  ],"https://alpolic-americas.com/wp-content/uploads/2023/04/2024-Stock-Color-Chart-WebCard-Combined-compressed.pdf"],
+  ["Solid & Neutral",[
+    {brand:"ALFREX",name:"Classic White",image:"/images/exterior-systems/acm-acp/finishes/market/alfrex-classic-white.webp"},
+    {brand:"ALUCOIL / LARSON",name:"Pure White 9010",image:"/images/exterior-systems/acm-acp/finishes/market/alucoil-pure-white.webp"},
+    {brand:"ALUCOBOND",name:"Pure White · RVW",image:"/images/exterior-systems/acm-acp/finishes/market/alucobond-pure-white.webp"},
+    {brand:"ALPOLIC",name:"River Rock Grey · RRM",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/rrm-river-rock-grey.webp"},
+    {brand:"ALUCOIL / LARSON",name:"Anthracite Grey 7016",image:"/images/exterior-systems/acm-acp/finishes/market/alucoil-anthracite-grey.webp"},
+    {brand:"ALFREX",name:"Charcoal",image:"/images/exterior-systems/acm-acp/finishes/market/alfrex-charcoal.webp"},
+  ]],
+  ["Metallic & Mica",[
+    {brand:"ALFREX",name:"Bright Silver Metallic",image:"/images/exterior-systems/acm-acp/finishes/market/alfrex-bright-silver-metallic.webp"},
+    {brand:"ALUCOIL / LARSON",name:"Silver Metallic",image:"/images/exterior-systems/acm-acp/finishes/market/alucoil-silver-metallic.webp"},
+    {brand:"ALUCOBOND",name:"Silver Metallic",image:"/images/exterior-systems/acm-acp/finishes/market/alucobond-silver-metallic.webp"},
+    {brand:"ALUCOIL / LARSON",name:"Champagne Metallic",image:"/images/exterior-systems/acm-acp/finishes/market/alucoil-champagne-metallic.webp"},
+    {brand:"ALFREX",name:"PEX Pewter Metallic",image:"/images/exterior-systems/acm-acp/finishes/market/alfrex-pex-pewter-metallic.webp"},
+    {brand:"ALPOLIC",name:"Mica Grey · MFS",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/mfs-mica-grey.webp"},
+  ]],
+  ["Anodized & Natural Metal",[
+    {brand:"ALUCOBOND",name:"Clear Anodized",image:"/images/exterior-systems/acm-acp/finishes/market/alucobond-clear-anodized.webp"},
+    {brand:"ALUCOIL / LARSON",name:"Anodic Brushed Matt",image:"/images/exterior-systems/acm-acp/finishes/market/alucoil-anodic-brushed-matt.webp"},
+    {brand:"ALUCOIL / LARSON",name:"Real Anodized Natural",image:"/images/exterior-systems/acm-acp/finishes/market/alucoil-real-anodized-natural.webp"},
+    {brand:"ALFREX",name:"Anodic Clear Mica",image:"/images/exterior-systems/acm-acp/finishes/market/alfrex-anodic-clear-mica.webp"},
+    {brand:"ALFREX",name:"Faux Zinc",image:"/images/exterior-systems/acm-acp/finishes/market/alfrex-faux-zinc.webp"},
+    {brand:"ALUCOBOND",name:"Zinc",image:"/images/exterior-systems/acm-acp/finishes/market/alucobond-zinc.webp"},
+  ]],
+  ["Woodgrain",[
+    {brand:"ALPOLIC",name:"Maple · MPL",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/mpl-maple.webp"},
+    {brand:"ALPOLIC",name:"Teak · QBB",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/qbb-teak.webp"},
+    {brand:"ALFREX",name:"Golden Oak",image:"/images/exterior-systems/acm-acp/finishes/market/alfrex-golden-oak.webp"},
+    {brand:"ALFREX",name:"Dark Walnut",image:"/images/exterior-systems/acm-acp/finishes/market/alfrex-dark-walnut.webp"},
+    {brand:"ALUCOBOND",name:"Rustic Walnut",image:"/images/exterior-systems/acm-acp/finishes/market/alucobond-rustic-walnut.webp"},
+    {brand:"ALUCOBOND",name:"Chestnut",image:"/images/exterior-systems/acm-acp/finishes/market/alucobond-chestnut.webp"},
+  ]],
+  ["Stone, Corten & Natural Pattern",[
+    {brand:"ALUBOND Canada",name:"Travertine · ALG-206",image:"/images/exterior-systems/acm-acp/finishes/market/alubond-travertine.webp"},
+    {brand:"ALUBOND Canada",name:"Granito Nero · ALG-202",image:"/images/exterior-systems/acm-acp/finishes/market/alubond-granito-nero.webp"},
+    {brand:"ALUBOND Canada",name:"Bianco Carrara · ALG-205",image:"/images/exterior-systems/acm-acp/finishes/market/alubond-bianco-carrara.webp"},
+    {brand:"ALFREX",name:"Tile Corten",image:"/images/exterior-systems/acm-acp/finishes/market/alfrex-tile-corten.webp"},
+    {brand:"ALUCOBOND",name:"Rusted Metal",image:"/images/exterior-systems/acm-acp/finishes/market/alucobond-rusted-metal.webp"},
+    {brand:"ALPOLIC",name:"Rusted Steel · QCO",image:"/images/exterior-systems/acm-acp/finishes/official-alpolic/qco-rusted-steel.webp"},
+  ]],
+  ["Matte, Textured & Specialty",[
+    {brand:"ALUCOBOND",name:"Ecru",image:"/images/exterior-systems/acm-acp/finishes/market/alucobond-ecru.webp"},
+    {brand:"ALUCOBOND",name:"Flint",image:"/images/exterior-systems/acm-acp/finishes/market/alucobond-flint.webp"},
+    {brand:"ALUCOIL / LARSON",name:"Textured Fine Pure White 9010",image:"/images/exterior-systems/acm-acp/finishes/market/alucoil-textured-pure-white.webp"},
+    {brand:"ALUCOIL / LARSON",name:"Textured Fine Anthracite Grey 7016",image:"/images/exterior-systems/acm-acp/finishes/market/alucoil-textured-anthracite.webp"},
+    {brand:"ALUBOND Canada",name:"Grey Sparkle · ALP-505",image:"/images/exterior-systems/acm-acp/finishes/market/alubond-grey-sparkle.webp"},
+    {brand:"ALUBOND Canada",name:"Silver Sparkle · ALP-503",image:"/images/exterior-systems/acm-acp/finishes/market/alubond-silver-sparkle.webp"},
+  ]],
+];
+
+const finishSources = [
+  ["ALPOLIC","https://alpolic-americas.com/products/finishes/"],
+  ["ALUCOBOND","https://www.alucobondusa.com/samples-and-finishes.html"],
+  ["ALFREX","https://alfrexusa.com/finishes/"],
+  ["ALUCOIL / LARSON","https://alucoil.com/wp-content/uploads/2024/04/CARTA_COLOR_ALUCOIL.pdf"],
+  ["ALUBOND Canada","https://alubond.com/canada-colours-and-finishes/"],
 ];
 const projects = [
   {title:"Luxclad ACM Façade", meta:"Richmond Hill, ON · Commercial", text:"CladCan project record featuring ACM façade work with clean contemporary panel geometry.", href:"/projects/luxclad-richmond-hill"},
@@ -91,7 +123,7 @@ function Panel({active}){
   if(active==="benefits") return <div className={styles.benefitsPanel}><p className={styles.kicker}>WHY CHOOSE ACM</p><h2>Performance, fabrication freedom and a controlled architectural finish.</h2><div className={styles.featureGrid}>{benefits.map(([title,text],i)=><article key={title}><span>{String(i+1).padStart(2,"0")}</span><Check size={20}/><h3>{title}</h3><p>{text}</p></article>)}</div></div>;
   if(active==="systems") return <div><p className={styles.kicker}>ATTACHMENT SYSTEMS</p><h2>Joint and attachment strategy are part of the façade design.</h2><p className={styles.sectionNote}>The system must be coordinated with the selected ACM manufacturer, substrate, wall assembly, drainage strategy, thermal movement, wind loads and applicable project requirements.</p><div className={styles.systemGrid}>{systems.map(([title,text,image])=><article key={title}><div className={styles.systemImage}><Image src={image} alt={`${title} ACM attachment system`} fill sizes="35vw" unoptimized /></div><div><h3>{title}</h3><p>{text}</p></div></article>)}</div><p className={styles.referenceNote}>System names such as ALUCOBOND EasyFix® are manufacturer-specific. They are shown only where they correspond to an actual published ACM system.</p></div>;
   if(active==="components") return <div><p className={styles.kicker}>SYSTEM COMPONENTS</p><h2>The panel is only one part of the complete façade assembly.</h2><p className={styles.sectionNote}>Not every ACM system uses every component below. Components are selected to suit the approved panel system, joint type, wall build-up and manufacturer details.</p><div className={styles.componentGrid}><div className={styles.figure}><Image src="/images/exterior-systems/acm-acp/cnc-fabrication-aluminum-composite-panels.webp" alt="CNC fabrication of aluminum composite panels" fill sizes="40vw" /></div><div>{components.map(([title,text],i)=><div className={styles.componentItem} key={title}><span>{String(i+1).padStart(2,"0")}</span><div><strong>{title}</strong><p>{text}</p></div></div>)}</div></div></div>;
-  if(active==="finishes") return <div className={styles.finishesPanel}><p className={styles.kicker}>COLOURS & FINISHES</p><h2>Verified manufacturer finishes, shown as physical-style swatches.</h2><p className={styles.sectionNote}>Every swatch below is a direct crop from ALPOLIC's official 2024 Stock Color Chart. No locally invented colour or woodgrain is used. Hover a swatch to inspect it at approximately twice its normal size.</p><div className={styles.finishGrid}>{finishGroups.map(([title,colors,source])=><article key={title}><h3>{title}</h3><div className={styles.swatches}>{colors.map(({name,image})=><span key={name} title={name} aria-label={name} style={{backgroundImage:`url(${image})`}} />)}</div><a href={source} target="_blank" rel="noreferrer">View official ALPOLIC source <ArrowUpRight size={14}/></a></article>)}</div><p className={styles.referenceNote}>The swatch images shown here are direct crops from the manufacturer chart. ALPOLIC notes that printed and digital reproduction can still differ from the coated material, so final project selection must be confirmed with a current physical sample.</p></div>;
+  if(active==="finishes") return <div className={styles.finishesPanel}><p className={styles.kicker}>COLOURS & FINISHES</p><h2>Shared finish families across leading ACM manufacturers.</h2><p className={styles.sectionNote}>Across major ACM manufacturers, the recurring finish families are solids and neutrals, metallic and mica, anodized and natural metal, woodgrain, stone and natural patterns, and matte or textured specialties. The circles below are exact supplier examples selected from current standard, stock or featured ranges and grouped by shared visual family rather than by brand.</p><div className={styles.finishGrid}>{finishGroups.map(([title,colors])=><article key={title}><h3>{title}</h3><div className={styles.swatches}>{colors.map(({brand,name,image})=><span key={`${brand}-${name}`} title={`${brand} · ${name}`} aria-label={`${brand} · ${name}`} style={{backgroundImage:`url(${image})`}} />)}</div></article>)}</div><div className="acmFinishSources"><span>Manufacturer sources:</span>{finishSources.map(([brand,href])=><a key={brand} href={href} target="_blank" rel="noreferrer">{brand}<ArrowUpRight size={12}/></a>)}</div><p className={styles.referenceNote}>Each circle is labeled with its manufacturer and exact finish name. These examples represent recurring market finish families; they do not imply that one identical finish name is stocked by every manufacturer. Final colour, gloss and texture should be confirmed from the selected manufacturer's current chart and physical sample.</p></div>;
   return <div><p className={styles.kicker}>COMPLETED PROJECTS</p><h2>ACM in completed CladCan work.</h2><p className={styles.projectsIntro}>These links point to existing CladCan project records identified as ACM or ACM-combination work. Project-specific products, quantities and performance claims are only added when supported by verified project information.</p><div className={styles.projectGrid}>{projects.map((project,i)=><Link className={styles.projectCard} href={project.href} key={project.title}><div className={`${styles.projectVisual} ${styles[`projectVisual${i+1}`]}`}><span>ACM PROJECT</span><strong>{String(i+1).padStart(2,"0")}</strong></div><div className={styles.projectCopy}><small>{project.meta}</small><h3>{project.title}</h3><p>{project.text}</p><span>View project <ArrowUpRight size={15}/></span></div></Link>)}</div></div>;
 }
 
