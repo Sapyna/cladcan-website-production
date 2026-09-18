@@ -1,0 +1,4 @@
+Source: ALPOLIC 2024 Stock Color Chart
+Official manufacturer PDF: https://alpolic-americas.com/wp-content/uploads/2023/04/2024-Stock-Color-Chart-WebCard-Combined-compressed.pdf
+Assets in this directory are direct crops of the printed swatch rectangles in that manufacturer chart.
+Physical samples remain the final authority for colour and texture.
