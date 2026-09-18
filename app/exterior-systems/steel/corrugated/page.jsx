@@ -1,24 +1,24 @@
-import ProductPage from "@/components/ProductPage";
-export const metadata={title:'Corrugated Siding & Soffit (7/8") | CladCan',description:"7/8-inch corrugated steel siding and soffit for durable industrial, commercial and architectural applications."};
-export default function Page(){return <ProductPage
-  eyebrow="STEEL SIDING & SOFFIT"
-  title={'Corrugated Siding & Soffit (7/8")'}
-  subtitle="Rhythmic corrugated steel with durable exterior performance."
-  intro='Corrugated 7/8-inch steel combines a classic corrugated silhouette with modern exterior finishes for walls, soffits and feature panels. The repeating geometry creates strong shadow lines and structural depth, while face-fastened installation supports straightforward field assembly.'
+import CurrentSitePage from "@/components/CurrentSitePage";
+export const metadata={title:'Corrugated Siding & Soffit (7/8")'+" | CladCan",description:'Explore Corrugated Siding & Soffit (7/8") options, applications, finishes and project requirements. CladCan can coordinate material selection, supply and professional installation based on project-specific requirements.'};
+export default function Page(){
+	return (
+		<CurrentSitePage
+  image="/images/source-library/steel/corrugated/hero.webp"
   images={["/images/source-library/steel/corrugated/hero.webp","/images/source-library/steel/corrugated/detail-01.webp","/images/source-library/steel/corrugated/detail-02.webp"]}
-  benefits={[
-    {title:"Proven profile",text:"Corrugated geometry provides a familiar durable expression used across industrial and architectural projects."},
-    {title:"Strong shadow lines",text:"The repeating curved profile creates depth and visual rhythm across long elevations."},
-    {title:"Direct attachment",text:"Face-fastened systems support straightforward installation to a compatible subframe or purlin system."},
-    {title:"Broad finish range",text:"Prefinished steel colours and specialty coatings can support utilitarian or design-forward applications."}
-  ]}
-  applications={["Industrial buildings","Agricultural buildings","Commercial façades","Contemporary residential projects","Soffits","Architectural accent walls"]}
-  components={[
-    {title:"7/8-inch Corrugated Panels",detail:"Primary profiled steel sheets installed in the approved orientation and span."},
-    {title:"Exposed Fasteners",detail:"Compatible corrosion-resistant fasteners secure panels to the supporting structure."},
-    {title:"Trims & Flashings",detail:"Eaves, corners, openings and transitions are coordinated for drainage and weather protection."}
-  ]}
-  finishes={["Coil-coated solid colours","Metallic and architectural neutrals, supplier dependent","Specialty coatings","Project-selected corrosion-resistant finish systems"]}
-  ctaTitle="Considering corrugated steel for your project?"
-  ctaText="Send drawings or elevations and CladCan can help confirm profile, finish, trims and installation details."
-/>}
+			eyebrow='STEEL'
+			title='Corrugated Siding & Soffit (7/8")'
+			intro='Corrugated steel profiles provide a rhythmic, textured exterior with a long-standing industrial and architectural pedigree.'
+			overview='Corrugated 7/8" steel combines a classic corrugated silhouette with modern finishes suitable for walls, soffits and feature panels. The profile’s undulating geometry creates strong shadow lines and structural depth, making it a durable option for industrial, agricultural and design-forward residential projects. Corrugated panels are typically face-fixed and are valued for straightforward installation and robust performance in exposed conditions.'
+			items={[
+				{title:"Typical Applications",text:"Agricultural and industrial buildings, commercial façades, contemporary residential projects seeking an industrial expression, soffits and accent walls."},
+				{title:"Appearance & Finishes",text:"Available in coil-coated solid colours and speciality coatings; finishes influence long-term colour stability and should be selected based on exposure and matching to adjacent materials."},
+				{title:"Attachment & Installation",text:"Most corrugated profiles are face-fastened to purlins or a sub-frame; fastener selection and sealing at penetrations are critical to avoid leaks and galvanic corrosion."},
+				{title:"Drainage & Flashing",text:"Detail transitions carefully at eaves, heads and intersections with windows and doors; provide clear drainage paths behind horizontal laps and at terminations."},
+				{title:"Durability Considerations",text:"Corrugated steel is resilient but can be susceptible to denting in high-impact zones; consider panel orientation and support spacing for large, exposed façades."},
+				{title:"CladCan Services",text:"We offer system selection advice, sample provision, supply coordination, shop drawing preparation and installation oversight to ensure durable terminations and weatherproof interfaces."},
+			]}
+			ctaTitle="Considering corrugated steel for your project?"
+			ctaText="Send drawings or elevations and CladCan will help confirm profile, finish and installation details suitable for your site and performance needs."
+		/>
+	);
+}
