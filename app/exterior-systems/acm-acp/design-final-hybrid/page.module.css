@@ -342,7 +342,7 @@
   transform:translateX(-50%) translateY(-6px) scale(.5);
 }
 
-.page [class*="panelFinishes"] [class*="finishSource"]{
+.page [class*="panelFinishes"] .acmFinishSource{
   display:inline-block;
   margin-top:20px;
   color:#596c77;
@@ -353,7 +353,7 @@
   border-bottom:1px solid rgba(89,108,119,.35);
 }
 
-.page [class*="panelFinishes"] [class*="finishSource"]:hover{
+.page [class*="panelFinishes"] .acmFinishSource:hover{
   color:#d61f24;
   border-bottom-color:#d61f24;
 }
