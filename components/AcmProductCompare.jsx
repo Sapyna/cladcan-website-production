@@ -49,35 +49,27 @@ const components = [
   ["Fasteners, flashings & closures","Colour-matched screws or rivets plus perimeter flashings, closures and transition details as required by the assembly."],
 ];
 
-// VERIFIED ALPOLIC FINISHES ONLY.
-// Names/codes are taken from the official manufacturer charts linked with each group.
-// The digital swatch previews are derived from those charts; physical samples remain the final authority.
-const finishGroups = [
-  ["Stock Neutrals & Metallics",[
-    {name:"SMX Metallic Silver",sample:"#a9aeaa"},
-    {name:"OPT Mica Platinum",sample:"#a7a8a4"},
-    {name:"MFS Mica Grey",sample:"#76716d"},
-    {name:"PEX Metallic Pewter",sample:"#948b86"},
-    {name:"RRM River Rock Grey",sample:"#81837e"},
-    {name:"BSM Slate Black",sample:"#373736"},
-  ],"ALPOLIC Stock Color Chart · May 2026","https://alpolic-americas.com/wp-content/uploads/2026/05/ALPOLIC-Stock-Color-Chart-05.13.26.pdf"],
-  ["Anodized",[
-    {name:"CLR Clear",sample:"linear-gradient(135deg,#d9d8d5 0%,#bfc0bf 44%,#efefef 100%)"},
-    {name:"FSR Frost",sample:"linear-gradient(135deg,#e8e3da 0%,#d8d3ca 52%,#f0ece4 100%)"},
-    {name:"CMR Champagne",sample:"linear-gradient(135deg,#c7b9a8 0%,#a99784 52%,#d2c6b7 100%)"},
-    {name:"LBR Light Bronze",sample:"linear-gradient(135deg,#bd8c4f 0%,#9d6f39 55%,#cb9d5c 100%)"},
-    {name:"MBR Medium Bronze",sample:"linear-gradient(135deg,#81512b 0%,#5e3419 56%,#93613a 100%)"},
-    {name:"DBR Dark Bronze",sample:"linear-gradient(135deg,#60453b 0%,#3f2d27 55%,#706058 100%)"},
-  ],"ALPOLIC Anodized Color Chart","https://alpolic-americas.com/wp-content/uploads/2021/08/Alpolic-Anodized-Color-Chart.pdf"],
-  ["Timber & Pattern",[
-    {name:"QBB Teak",sample:"repeating-linear-gradient(90deg,#60401f 0 8px,#563617 8px 13px,#73502a 13px 21px,#432912 21px 26px,#694720 26px 34px)"},
-    {name:"MPL Maple",sample:"repeating-linear-gradient(92deg,#c88269 0 10px,#cb8770 10px 15px,#bf745d 15px 23px,#d08e77 23px 31px)"},
-    {name:"WLN Walnut",sample:"repeating-linear-gradient(92deg,#9a6045 0 9px,#844932 9px 15px,#a6674d 15px 24px,#75402d 24px 30px)"},
-    {name:"QAE Mahogany",sample:"repeating-linear-gradient(90deg,#7f2117 0 8px,#68140f 8px 14px,#91291d 14px 22px,#59110d 22px 29px)"},
-    {name:"QCP HT Bamboo",sample:"repeating-linear-gradient(90deg,#bc853f 0 6px,#a76b2d 6px 10px,#c7924a 10px 17px,#956028 17px 22px)"},
-    {name:"FZZ Brushed Metal",sample:"repeating-linear-gradient(90deg,#d0d1cf 0 1px,#afb1af 1px 3px,#e1e2e0 3px 5px,#b9bbb9 5px 7px)"},
-    {name:"QCO Rusted Steel",sample:"radial-gradient(circle at 28% 30%,rgba(110,54,28,.55) 0 12%,transparent 13%),radial-gradient(circle at 70% 66%,rgba(210,116,57,.42) 0 16%,transparent 17%),linear-gradient(135deg,#b56633,#8d4727)"},
-  ],"ALPOLIC Pattern Series Color Chart","https://alpolic-americas.com/wp-content/uploads/2021/08/ALPOLIC-Pattern-Series-Color-Chart.pdf"],
+// Official manufacturer-hosted finish charts only.
+// These PDFs remain the visual authority; no locally invented swatch images or colours are used.
+const finishCharts = [
+  {
+    title:"Stock Colours & Metallics",
+    note:"Current ALPOLIC stock colour chart. The embedded view opens on the swatch page.",
+    href:"https://alpolic-americas.com/wp-content/uploads/2026/05/ALPOLIC-Stock-Color-Chart-05.13.26.pdf#page=4&view=FitH",
+    openHref:"https://alpolic-americas.com/wp-content/uploads/2026/05/ALPOLIC-Stock-Color-Chart-05.13.26.pdf"
+  },
+  {
+    title:"Anodized Series",
+    note:"Official ALPOLIC anodized chart including Clear, Frost, Champagne and Bronze finishes.",
+    href:"https://alpolic-americas.com/wp-content/uploads/2021/08/Alpolic-Anodized-Color-Chart.pdf#page=1&view=FitH",
+    openHref:"https://alpolic-americas.com/wp-content/uploads/2021/08/Alpolic-Anodized-Color-Chart.pdf"
+  },
+  {
+    title:"Timber & Pattern Series",
+    note:"Official ALPOLIC Pattern Series chart including QBB Teak, MPL Maple, Walnut, Mahogany, Bamboo, Brushed Metal and Rusted Steel.",
+    href:"https://alpolic-americas.com/wp-content/uploads/2021/08/ALPOLIC-Pattern-Series-Color-Chart.pdf#page=1&view=FitH",
+    openHref:"https://alpolic-americas.com/wp-content/uploads/2021/08/ALPOLIC-Pattern-Series-Color-Chart.pdf"
+  }
 ];
 const projects = [
   {title:"Luxclad ACM Façade", meta:"Richmond Hill, ON · Commercial", text:"CladCan project record featuring ACM façade work with clean contemporary panel geometry.", href:"/projects/luxclad-richmond-hill"},
@@ -91,7 +83,7 @@ function Panel({active}){
   if(active==="benefits") return <div className={styles.benefitsPanel}><p className={styles.kicker}>WHY CHOOSE ACM</p><h2>Performance, fabrication freedom and a controlled architectural finish.</h2><div className={styles.featureGrid}>{benefits.map(([title,text],i)=><article key={title}><span>{String(i+1).padStart(2,"0")}</span><Check size={20}/><h3>{title}</h3><p>{text}</p></article>)}</div></div>;
   if(active==="systems") return <div><p className={styles.kicker}>ATTACHMENT SYSTEMS</p><h2>Joint and attachment strategy are part of the façade design.</h2><p className={styles.sectionNote}>The system must be coordinated with the selected ACM manufacturer, substrate, wall assembly, drainage strategy, thermal movement, wind loads and applicable project requirements.</p><div className={styles.systemGrid}>{systems.map(([title,text,image])=><article key={title}><div className={styles.systemImage}><Image src={image} alt={`${title} ACM attachment system`} fill sizes="35vw" unoptimized /></div><div><h3>{title}</h3><p>{text}</p></div></article>)}</div><p className={styles.referenceNote}>System names such as ALUCOBOND EasyFix® are manufacturer-specific. They are shown only where they correspond to an actual published ACM system.</p></div>;
   if(active==="components") return <div><p className={styles.kicker}>SYSTEM COMPONENTS</p><h2>The panel is only one part of the complete façade assembly.</h2><p className={styles.sectionNote}>Not every ACM system uses every component below. Components are selected to suit the approved panel system, joint type, wall build-up and manufacturer details.</p><div className={styles.componentGrid}><div className={styles.figure}><Image src="/images/exterior-systems/acm-acp/cnc-fabrication-aluminum-composite-panels.webp" alt="CNC fabrication of aluminum composite panels" fill sizes="40vw" /></div><div>{components.map(([title,text],i)=><div className={styles.componentItem} key={title}><span>{String(i+1).padStart(2,"0")}</span><div><strong>{title}</strong><p>{text}</p></div></div>)}</div></div></div>;
-  if(active==="finishes") return <div className={styles.finishesPanel}><p className={styles.kicker}>COLOURS & FINISHES</p><h2>Finish families grounded in current manufacturer colour charts.</h2><p className={styles.sectionNote}>The swatches below use finish names and visual references from ALPOLIC's current published stock colour chart and finish collections. They are shown as digital references only; final colour, gloss, directionality and texture must be approved from the selected manufacturer's current physical sample.</p><div className={styles.finishGrid}>{finishGroups.map(([title,colors,source,href])=><article key={title}><h3>{title}</h3><div className={styles.swatches}>{colors.map(({name,sample})=><span key={name} title={name} aria-label={name} style={{"--swatch":sample}} />)}</div><a className="acmFinishSource" href={href} target="_blank" rel="noreferrer">Source: {source}</a></article>)}</div><p className={styles.referenceNote}>Only finishes that can be traced to the official ALPOLIC charts above are shown. Screen previews are for navigation; final colour, gloss, directionality and texture must be confirmed from the current manufacturer chart and physical sample.</p></div>;
+  if(active==="finishes") return <div className={styles.finishesPanel}><p className={styles.kicker}>COLOURS & FINISHES</p><h2>Verified manufacturer finishes, shown from the source.</h2><p className={styles.sectionNote}>To avoid inaccurate colour or texture reproductions, this section displays the official manufacturer-hosted ALPOLIC colour charts directly. Maple, Teak, metallic, anodized and other finishes below are therefore shown from the supplier source rather than recreated as local swatches.</p><div className="acmOfficialFinishCharts">{finishCharts.map(({title,note,href,openHref})=><article className="acmOfficialFinishCard" key={title}><div className="acmOfficialFinishHead"><h3>{title}</h3><p>{note}</p></div><iframe className="acmOfficialFinishFrame" src={href} title={title} loading="lazy" /><a className="acmFinishSource" href={openHref} target="_blank" rel="noreferrer">Open official ALPOLIC chart <ArrowUpRight size={14}/></a></article>)}</div><p className={styles.referenceNote}>These charts are hosted by ALPOLIC and are the visual source used for this page. Screen and PDF reproduction can still differ from coated material, so final project selection must be approved against a current physical manufacturer sample.</p></div>;
   return <div><p className={styles.kicker}>COMPLETED PROJECTS</p><h2>ACM in completed CladCan work.</h2><p className={styles.projectsIntro}>These links point to existing CladCan project records identified as ACM or ACM-combination work. Project-specific products, quantities and performance claims are only added when supported by verified project information.</p><div className={styles.projectGrid}>{projects.map((project,i)=><Link className={styles.projectCard} href={project.href} key={project.title}><div className={`${styles.projectVisual} ${styles[`projectVisual${i+1}`]}`}><span>ACM PROJECT</span><strong>{String(i+1).padStart(2,"0")}</strong></div><div className={styles.projectCopy}><small>{project.meta}</small><h3>{project.title}</h3><p>{project.text}</p><span>View project <ArrowUpRight size={15}/></span></div></Link>)}</div></div>;
 }
 
