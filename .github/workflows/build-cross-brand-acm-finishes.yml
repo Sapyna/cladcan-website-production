@@ -110,14 +110,16 @@ jobs:
           ]:
               square(f"/tmp/acm/direct/{filename}.jpg",f"{filename}.webp")
 
-          (out/"SOURCES.txt").write_text("""Cross-brand ACM finish swatches
-ALFREX: https://alfrexusa.com/storage/F-01-Alfrex-Standard-Product-Finishes.pdf
-ALUCOIL/LARSON: https://alucoil.com/wp-content/uploads/2024/04/CARTA_COLOR_ALUCOIL.pdf
-ALUCOBOND: https://www.alucobondusa.com/samples-and-finishes.html and official cdn.3acompositesusa.com sample images
-ALUBOND Canada: https://alubond.com/canada-colours-and-finishes/
-ALPOLIC assets are stored separately under finishes/official-alpolic and come from the official ALPOLIC stock color chart.
-All digital representations require final physical sample approval.
-""",encoding="utf-8")
+          (out/"SOURCES.txt").write_text(
+              "Cross-brand ACM finish swatches\\n"
+              "ALFREX: https://alfrexusa.com/storage/F-01-Alfrex-Standard-Product-Finishes.pdf\\n"
+              "ALUCOIL/LARSON: https://alucoil.com/wp-content/uploads/2024/04/CARTA_COLOR_ALUCOIL.pdf\\n"
+              "ALUCOBOND: https://www.alucobondusa.com/samples-and-finishes.html and official cdn.3acompositesusa.com sample images\\n"
+              "ALUBOND Canada: https://alubond.com/canada-colours-and-finishes/\\n"
+              "ALPOLIC assets are stored separately under finishes/official-alpolic and come from the official ALPOLIC stock color chart.\\n"
+              "All digital representations require final physical sample approval.\\n",
+              encoding="utf-8"
+          )
           PY
 
       - name: Commit generated assets
