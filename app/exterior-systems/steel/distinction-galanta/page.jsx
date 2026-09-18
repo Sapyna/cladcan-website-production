@@ -1,21 +1,24 @@
-import CurrentSitePage from "@/components/CurrentSitePage";
-export const metadata={title:'Distinction & Galanta'+" | CladCan",description:'Explore Distinction & Galanta options, applications, finishes and project requirements. CladCan can coordinate material selection, supply and professional installation based on project-specific requirements.'};
-export default function Page(){
-	return (
-		<CurrentSitePage
-  image="/images/source-library/steel/distinction-galanta/hero.webp"
+import ProductPage from "@/components/ProductPage";
+export const metadata={title:"Distinction & Galanta Steel Siding | CladCan",description:"Hidden-fastener steel siding families with clean surfaces, wood-inspired finishes and coordinated exterior details."};
+export default function Page(){return <ProductPage
+  eyebrow="STEEL SIDING & SOFFIT"
+  title="Distinction & Galanta"
+  subtitle="Hidden-fastener steel siding with refined uninterrupted surfaces."
+  intro="Distinction and Galanta are concealed-fastener steel siding directions designed to reduce visible fixings while supporting clean contemporary exterior surfaces. Wood-inspired and solid-colour finishes allow the systems to combine a refined appearance with durable steel performance."
   images={["/images/source-library/steel/distinction-galanta/hero.webp","/images/source-library/steel/distinction-galanta/detail-01.webp","/images/source-library/steel/distinction-galanta/detail-02.webp"]}
-			eyebrow='STEEL'
-			title='Distinction & Galanta'
-			intro='Hidden-fastener steel siding families that combine textural detail with clean, uninterrupted exterior surfaces.'
-			overview='Distinction and Galanta are concealed-fastener steel siding systems engineered to present a smooth, uninterrupted exterior surface while offering textured or wood-inspired finishes. Concealed fasteners reduce the visual impact of fixings and simplify cleaning and maintenance. These systems are selected when a refined, contemporary façade is required without visible screw lines.'
-			items={[
-				{title:"Appearance & Finishes",text:"Wood-inspired and solid-colour finishes replicate timber character with the durability of steel. Confirm finish and coating types for specific environments, especially coastal exposures."},
-				{title:"Application",text:"Suitable for residential façades, commercial fronts and feature walls where a continuous surface is preferred and fastener concealment improves aesthetics and longevity."},
-				{title:"Detailing",text:"Concealed systems require careful edge detailing and interlock designs to manage water shedding and allow for thermal movement; shop drawings are recommended."},
-				{title:"Limitations",text:"Hidden-fastener systems can be more sensitive to substrate flatness and tolerances; verify substrate preparation and fastener schedules for long runs."},
-				{title:"CladCan Assistance",text:"We provide sample boards, coordinate manufacturer submittals, prepare shop drawings for trim and penetrations and support installer selection and oversight."},
-			]}
-		/>
-	);
-}
+  benefits={[
+    {title:"Concealed attachment",text:"Hidden fasteners preserve uninterrupted panel lines and reduce visible screw heads."},
+    {title:"Wood-inspired options",text:"Selected finishes provide a warmer wood-like appearance with steel durability."},
+    {title:"Clean detailing",text:"Coordinated edges, interlocks and trims support refined corners and transitions."},
+    {title:"Low-maintenance metal",text:"Prefinished steel reduces the recurring refinishing associated with many natural materials."}
+  ]}
+  applications={["Residential façades","Commercial storefronts","Feature walls","Vertical or horizontal exterior layouts, product dependent","Soffit and fascia conditions where approved","Mixed-material façades"]}
+  components={[
+    {title:"Concealed-Fastener Panels",detail:"Interlocking or hidden-attachment steel profiles form the primary exterior surface."},
+    {title:"Matching Accessories",detail:"Corners, starters, channels and terminations coordinate with the selected system."},
+    {title:"Subframe & Fasteners",detail:"Attachment spacing and substrate flatness are coordinated with current product requirements."}
+  ]}
+  finishes={["Solid architectural colours","Wood-inspired steel finishes","Dark neutral colours","Project-specific coating options"]}
+  ctaTitle="Considering Distinction or Galanta?"
+  ctaText="Share elevations and finish direction. CladCan can help coordinate system selection, samples, trims and installation planning."
+/>}
