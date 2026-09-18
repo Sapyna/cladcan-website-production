@@ -309,6 +309,20 @@
   transition:transform .2s ease,box-shadow .2s ease!important;
 }
 
+.page [class*="panelFinishes"] [class*="swatches"] > span > img{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  display:block;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  object-fit:cover;
+  object-position:center;
+  border-radius:inherit;
+  pointer-events:none;
+}
+
 .page [class*="panelFinishes"] [class*="swatches"] > span::after{
   content:attr(aria-label);
   position:absolute;
