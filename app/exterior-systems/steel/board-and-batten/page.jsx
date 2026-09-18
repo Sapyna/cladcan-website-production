@@ -1,22 +1,24 @@
-import CurrentSitePage from "@/components/CurrentSitePage";
-export const metadata={title:'Board & Batten Steel Siding'+" | CladCan",description:'Explore Board & Batten Steel Siding options, applications, finishes and project requirements. CladCan can coordinate material selection, supply and professional installation based on project-specific requirements.'};
-export default function Page(){
-	return (
-		<CurrentSitePage
-  image="/images/source-library/steel/board-and-batten/hero.webp"
+import ProductPage from "@/components/ProductPage";
+export const metadata={title:"Board & Batten Steel Siding | CladCan",description:"Steel board-and-batten siding with vertical rhythm, durable coatings and coordinated trims."};
+export default function Page(){return <ProductPage
+  eyebrow="STEEL SIDING & SOFFIT"
+  title="Board & Batten Steel Siding"
+  subtitle="A durable steel interpretation of classic vertical siding."
+  intro="Board-and-batten steel siding recreates the vertical rhythm of traditional timber cladding using prefinished steel panels and battens. It is selected where the project needs a pronounced vertical expression with the durability and lower maintenance of metal."
   images={["/images/source-library/steel/board-and-batten/hero.webp","/images/source-library/steel/board-and-batten/detail-01.webp","/images/source-library/steel/board-and-batten/detail-02.webp"]}
-			eyebrow='STEEL'
-			title='Board & Batten Steel Siding'
-			intro='A steel interpretation of the classic board-and-batten aesthetic, tailored for durable exterior performance.'
-			overview='Board & batten steel siding recreates the vertical rhythm of traditional timber cladding using steel panels and battens. The system is selected where the desired visual language benefits from vertical expression but the project requires the durability and low-maintenance of metal. Panels and battens are detailed to accommodate thermal movement, fastener spacing and secure transitions to openings and terminations.'
-			items={[
-				{title:"Applications",text:"Residential façades, agricultural and light-industrial buildings, feature walls and recladding projects where a vertical, textured exterior is desired."},
-				{title:"Finish & Material",text:"Available in coated steel finishes chosen for colour stability and corrosion resistance. Confirm finish suitability for coastal or high-abrasion sites with the supplier."},
-				{title:"Detailing & Movement",text:"Ensure battens and panels allow for thermal expansion; use compatible trims at corners, windows and penetrations to reduce water ingress and stress at fasteners."},
-				{title:"Substrate & Support",text:"Typically fixed to a continuous sheathing and support furring or a purlin/sub-frame designed for the panel loads and spacing requirements."},
-				{title:"Limitations",text:"Steel can dent under impact and may require sacrificial design elements in high-contact areas; assess access for maintenance and the potential for galvanic interactions with adjacent metals."},
-				{title:"CladCan Services",text:"We provide detailing review, sample coordination, supply and installer matching to ensure the completed assembly meets aesthetic and performance expectations."},
-			]}
-		/>
-	);
-}
+  benefits={[
+    {title:"Vertical expression",text:"Raised battens and vertical panels create strong shadow lines and familiar board-and-batten proportions."},
+    {title:"Durable steel",text:"Prefinished steel provides weather resistance and lower routine maintenance than many natural materials."},
+    {title:"Coordinated trims",text:"Corners, openings and terminations can be completed with compatible formed-metal details."},
+    {title:"Broad application",text:"The visual language works across residential, agricultural and selected commercial façades."}
+  ]}
+  applications={["Residential façades","Agricultural buildings","Light-industrial buildings","Feature walls","Recladding projects","Vertical accent elevations"]}
+  components={[
+    {title:"Steel Panels",detail:"Vertical panels establish the primary exterior surface."},
+    {title:"Batten Profiles",detail:"Raised battens create depth and reinforce the vertical rhythm."},
+    {title:"Trims & Flashings",detail:"Compatible formed-metal details coordinate corners, openings and transitions."}
+  ]}
+  finishes={["Coil-coated solid colours","Dark architectural neutrals","Selected textured coatings","Wood-inspired options where available","Project-specific coastal coatings where specified"]}
+  ctaTitle="Considering steel board and batten?"
+  ctaText="Share drawings and preferred colour direction. CladCan can help coordinate profile, trims, samples, quantities and installation requirements."
+/>}
