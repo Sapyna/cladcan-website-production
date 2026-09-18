@@ -250,112 +250,92 @@
   background-image:url('/images/exterior-systems/acm-acp/attachment-systems/easyfix-acm-system.svg')!important;
 }
 
-/* Finishes: verified manufacturer-chart previews only */
+/* Finishes: official manufacturer charts only — no reconstructed swatches */
 .page [class*="panelFinishes"]{
   background:#f3efe8!important;
 }
 
-.page [class*="panelFinishes"] [class*="finishGrid"]{
-  display:grid!important;
-  grid-template-columns:repeat(2,minmax(0,1fr))!important;
-  gap:14px!important;
-  border:0!important;
-  margin-top:34px!important;
+.page .acmOfficialFinishCharts{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  margin-top:34px;
 }
 
-.page [class*="panelFinishes"] [class*="finishGrid"]::before{
-  display:none!important;
-  content:none!important;
-}
-
-.page [class*="panelFinishes"] [class*="finishGrid"] article{
-  padding:23px 24px 25px!important;
-  border:1px solid #d7dedf!important;
+.page .acmOfficialFinishCard{
+  min-width:0;
+  padding:20px;
+  border:1px solid #d7dedf;
   border-radius:14px;
-  background:rgba(255,255,255,.78)!important;
-  overflow:visible!important;
+  background:rgba(255,255,255,.84);
+  box-shadow:0 8px 24px rgba(7,26,41,.035);
 }
 
-.page [class*="panelFinishes"] [class*="finishGrid"] h3{
-  margin-bottom:19px!important;
+.page .acmOfficialFinishCard:last-child{
+  grid-column:1 / -1;
+}
+
+.page .acmOfficialFinishHead{
+  margin-bottom:15px;
+}
+
+.page .acmOfficialFinishHead h3{
+  margin:0 0 7px!important;
   color:#102633!important;
-}
-
-.page [class*="panelFinishes"] [class*="swatches"]{
-  display:flex!important;
-  gap:14px!important;
-  flex-wrap:wrap!important;
-  align-items:center;
-  overflow:visible!important;
-  min-height:62px;
-}
-
-.page [class*="panelFinishes"] [class*="swatches"] > span{
-  position:relative;
-  z-index:1;
-  width:54px!important;
-  height:54px!important;
-  flex:0 0 54px;
-  border-radius:50%!important;
-  border:1px solid rgba(16,38,51,.18)!important;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.25),0 3px 9px rgba(7,26,41,.08)!important;
-  background:var(--swatch)!important;
-  background-size:cover!important;
-  background-position:center!important;
-  background-repeat:no-repeat!important;
-  cursor:help;
-  transform-origin:center;
-  transition:transform .2s ease,box-shadow .2s ease!important;
-}
-
-.page [class*="panelFinishes"] [class*="swatches"] > span::after{
-  content:attr(aria-label);
-  position:absolute;
-  z-index:50;
-  left:50%;
-  bottom:calc(100% + 9px);
-  transform:translateX(-50%) translateY(4px) scale(.5);
-  transform-origin:center bottom;
-  width:max-content;
-  max-width:220px;
-  padding:7px 9px;
-  border-radius:7px;
-  background:#071a29;
-  color:#fff;
-  font-size:.65rem;
+  font-size:1rem!important;
   line-height:1.3;
-  text-align:center;
-  opacity:0;
-  pointer-events:none;
-  transition:.18s ease;
-  box-shadow:0 8px 22px rgba(7,26,41,.18);
 }
 
-.page [class*="panelFinishes"] [class*="swatches"] > span:hover{
-  z-index:40!important;
-  transform:scale(2)!important;
-  box-shadow:0 16px 36px rgba(7,26,41,.30),0 0 0 2px rgba(255,255,255,.92)!important;
+.page .acmOfficialFinishHead p{
+  max-width:650px;
+  margin:0!important;
+  color:#596c77!important;
+  font-size:.84rem!important;
+  line-height:1.55!important;
 }
 
-.page [class*="panelFinishes"] [class*="swatches"] > span:hover::after{
-  opacity:1;
-  transform:translateX(-50%) translateY(-6px) scale(.5);
+.page .acmOfficialFinishFrame{
+  display:block;
+  width:100%;
+  height:460px;
+  border:1px solid #d7dedf;
+  border-radius:10px;
+  background:#fff;
 }
 
-.page [class*="panelFinishes"] .acmFinishSource{
-  display:inline-block;
-  margin-top:20px;
-  color:#596c77;
-  font-size:.72rem;
-  line-height:1.45;
-  font-weight:650;
+.page .acmOfficialFinishCard:last-child .acmOfficialFinishFrame{
+  height:620px;
+}
+
+.page .acmFinishSource{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-top:14px;
+  color:#102633;
+  font-size:.75rem;
+  line-height:1.4;
+  font-weight:700;
   text-decoration:none;
-  border-bottom:1px solid rgba(89,108,119,.35);
+  border-bottom:1px solid rgba(16,38,51,.3);
 }
 
-.page [class*="panelFinishes"] .acmFinishSource:hover{
+.page .acmFinishSource:hover{
   color:#d61f24;
   border-bottom-color:#d61f24;
+}
+
+@media(max-width:900px){
+  .page .acmOfficialFinishCharts{
+    grid-template-columns:1fr;
+  }
+  .page .acmOfficialFinishCard:last-child{
+    grid-column:auto;
+  }
+  .page .acmOfficialFinishFrame,
+  .page .acmOfficialFinishCard:last-child .acmOfficialFinishFrame{
+    height:480px;
+  }
 }
 
 @media(max-width:1120px){
