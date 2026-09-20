@@ -439,3 +439,35 @@
   .heroActions a,.galleryMedia img,.expand,.relatedLinks a{transition:none}
   .heroActions a:hover,.galleryItem:hover .galleryMedia img{transform:none}
 }
+
+
+/* Simplified project gallery layout: no numbered case-study sections. */
+.galleryToolbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:30px;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--project-line);
+}
+.galleryToolbar .galleryFilters{
+  margin:0;
+  padding:0;
+  border-bottom:0;
+}
+.galleryToolbar .galleryMeta{
+  flex:0 0 auto;
+  padding-bottom:0;
+}
+@media(max-width:760px){
+  .galleryToolbar{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:14px;
+    margin-bottom:24px;
+  }
+  .galleryToolbar .galleryFilters{
+    width:100%;
+  }
+}
