@@ -29,7 +29,7 @@ const projects=[
     image:"/images/projects/gray-lane-barrie/gray-lane-barrie-acm-stucco-dekko-residence-front-wide.webp",
     href:"/projects/gray-lane-barrie",
     summary:"A contemporary Barrie residence combining ACM panels, stucco and Dekko cladding with crisp panel geometry and contrasting exterior finishes.",
-    photoCount:12,
+    photoCount:14,
     videoCount:1
   },
   {
