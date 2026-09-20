@@ -20,7 +20,6 @@ export default function ProjectShowcase({
   summary,
   facts=[],
   images=[],
-  related=[],
 }) {
   const [activeImage,setActiveImage]=useState(null);
   const [galleryFilter,setGalleryFilter]=useState("All");
@@ -102,41 +101,22 @@ export default function ProjectShowcase({
       </div>
     </section>
 
-    <section className={styles.overview} id="project-overview">
-      <div className="wrap">
-        <div className={styles.sectionHeading}>
-          <div className={styles.sectionMarker}><span>01</span><i/></div>
-          <div>
-            <p>PROJECT OVERVIEW</p>
-            <h2>{title}</h2>
-          </div>
-          <p className={styles.sectionIntro}>{summary}</p>
-        </div>
-      </div>
-    </section>
-
     <section className={styles.gallery} id="project-gallery">
       <div className="wrap">
-        <div className={styles.galleryHeading}>
-          <div className={styles.sectionMarker}><span>02</span><i/></div>
-          <div>
-            <p>PROJECT PHOTOGRAPHY</p>
-            <h2>From concept to completed façade.</h2>
-          </div>
+        <div className={styles.galleryToolbar}>
+          {galleryFilters.length>0 && <div className={styles.galleryFilters} role="group" aria-label="Filter project photography">
+            {galleryFilters.map((filter)=><button
+              type="button"
+              key={filter}
+              className={galleryFilter===filter?styles.galleryFilterActive:""}
+              onClick={()=>setGalleryFilter(filter)}
+            >{filter}</button>)}
+          </div>}
           <div className={styles.galleryMeta}>
             <Images size={16}/>
-            <span>{photoCount} verified {photoCount===1?"photo":"photos"}{videoCount>0?` · ${videoCount} ${videoCount===1?"video":"videos"}`:""}</span>
+            <span>{photoCount} {photoCount===1?"photo":"photos"}{videoCount>0?` · ${videoCount} ${videoCount===1?"video":"videos"}`:""}</span>
           </div>
         </div>
-
-        {galleryFilters.length>0 && <div className={styles.galleryFilters} role="group" aria-label="Filter project photography">
-          {galleryFilters.map((filter)=><button
-            type="button"
-            key={filter}
-            className={galleryFilter===filter?styles.galleryFilterActive:""}
-            onClick={()=>setGalleryFilter(filter)}
-          >{filter}</button>)}
-        </div>}
 
         <div className={[
           styles.galleryGrid,
@@ -183,23 +163,6 @@ export default function ProjectShowcase({
         </div>
       </div>
     </section>
-
-    {related.length>0 && <section className={styles.related}>
-      <div className="wrap">
-        <div className={styles.sectionHeading}>
-          <div className={styles.sectionMarker}><span>03</span><i/></div>
-          <div>
-            <p>RELATED TO THIS PROJECT</p>
-            <h2>Systems & services.</h2>
-          </div>
-          <div className={styles.relatedLinks}>
-            {related.map((item)=><Link href={item.href} key={item.href}>
-              <span>{item.label}</span><ArrowUpRight size={16}/>
-            </Link>)}
-          </div>
-        </div>
-      </div>
-    </section>}
 
     <section className={styles.returnStrip}>
       <div className="wrap">
