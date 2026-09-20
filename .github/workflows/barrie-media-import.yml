@@ -5,7 +5,7 @@ on:
     branches:
       - design-system-v1-acm
     paths:
-      - '.tmp-barrie/**'
+      - '.tmp-barrie/rear.part04'
 
 permissions:
   contents: write
