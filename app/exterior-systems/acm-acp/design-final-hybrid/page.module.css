@@ -298,8 +298,8 @@
   height:54px!important;
   flex:0 0 54px;
   border-radius:50%!important;
-  border:1px solid rgba(16,38,51,.20)!important;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.25),0 3px 9px rgba(7,26,41,.10)!important;
+  border:0!important;
+  box-shadow:0 3px 9px rgba(7,26,41,.10)!important;
   background-size:cover!important;
   background-position:center!important;
   background-repeat:no-repeat!important;
@@ -311,7 +311,7 @@
 
 .page [class*="panelFinishes"] [class*="swatches"] > span > i{
   position:absolute;
-  inset:0;
+  inset:-1px;
   z-index:1;
   display:block;
   overflow:hidden;
@@ -357,7 +357,7 @@
 .page [class*="panelFinishes"] [class*="swatches"] > span:hover{
   z-index:50!important;
   transform:scale(2)!important;
-  box-shadow:0 16px 36px rgba(7,26,41,.30),0 0 0 2px rgba(255,255,255,.92)!important;
+  box-shadow:0 16px 36px rgba(7,26,41,.30)!important;
 }
 
 .page [class*="panelFinishes"] [class*="swatches"] > span:hover::after{
