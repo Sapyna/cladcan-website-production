@@ -51,3 +51,42 @@
 
 @media(max-width:1120px){.tabs{flex-basis:220px}.tabs button{grid-template-columns:26px 22px 1fr;padding:15px 13px}.overviewGrid,.componentGrid{grid-template-columns:1fr}.figure{min-height:390px}.featureGrid{grid-template-columns:repeat(2,1fr)}.projectGrid{grid-template-columns:1fr 1fr}.horizontalNav{overflow:auto;display:flex}.horizontalNav a{min-width:175px}}
 @media(max-width:760px){.hero,.heroReversed{grid-template-columns:1fr;min-height:0}.heroCopy,.heroReversed .heroCopy{grid-column:1;grid-row:1;padding:54px 22px}.heroMedia,.heroReversed .heroMedia{grid-column:1;grid-row:2;min-height:350px}.workspace,.workspaceRight{display:flex;flex-direction:column;border:0}.tabs,.tabsRight{order:0;position:-webkit-sticky!important;position:sticky!important;top:64px;z-index:30;display:flex;flex:0 0 auto;width:100%;overflow-x:auto;overflow-y:hidden;max-height:none;height:auto;padding:0;border:0;border-bottom:1px solid var(--line);background:#fff}.workspaceRight .panel{order:1}.tabs button{min-width:150px;grid-template-columns:25px 1fr;border-right:1px solid var(--line);border-bottom:0;padding:14px}.tabs button svg{display:none}.tabs button:first-child{border-top:0}.tabs button.active,.tabsRight button.active{box-shadow:inset 0 -3px 0 var(--red)}.panel{order:1;width:100%;padding:48px 20px 78px;min-height:0}.imageGrid,.systemGrid,.finishGrid,.projectGrid{grid-template-columns:1fr}.featureGrid{grid-template-columns:1fr}.cardImage,.systemImage{min-height:220px}.figure{min-height:330px}.swatches span{width:42px;height:42px}.horizontalNav{top:64px}.longSection{padding:52px 20px 68px}.projectVisual{height:190px}.architecturalStone .tabs{background:#fff}}
+
+
+/* Benefits content layout — panel shell remains shared with all tabs */
+.benefitsVisual{
+  position:relative;
+  width:100%;
+  min-height:320px;
+  margin:34px 0 36px;
+  overflow:hidden;
+  background:#eef1f1;
+}
+.benefitsVisual img{object-fit:cover}
+.benefitRows{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  border-top:1px solid var(--line);
+}
+.benefitRow{
+  display:grid;
+  grid-template-columns:42px minmax(0,1fr) 28px;
+  gap:14px;
+  align-items:start;
+  padding:22px 18px 22px 0;
+  border-bottom:1px solid var(--line);
+}
+.benefitRow:nth-child(odd){border-right:1px solid var(--line);padding-right:22px}
+.benefitRow:nth-child(even){padding-left:22px}
+.benefitRow>span{font-size:.68rem;letter-spacing:.12em;color:var(--warm);font-weight:800}
+.benefitRow h3{font-size:1rem;margin:0 0 7px}
+.benefitRow p{font-size:.88rem;line-height:1.6;margin:0}
+.benefitRow>svg{color:var(--warm)}
+@media(max-width:760px){
+  .benefitsVisual{min-height:240px;margin:28px 0 30px}
+  .benefitRows{grid-template-columns:1fr}
+  .benefitRow,.benefitRow:nth-child(odd),.benefitRow:nth-child(even){
+    border-right:0;
+    padding:18px 0;
+  }
+}
