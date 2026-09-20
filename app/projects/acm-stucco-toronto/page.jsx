@@ -1,4 +1,29 @@
-import Link from "next/link";
-import Image from "next/image";
-export const metadata={title:'ACM Façade'+" | CladCan Projects",description:'A Toronto ACM façade featuring clean panel geometry and a contemporary exterior expression.'};
-export default function Page(){return <><section className="caseV11Hero"><div className="wrap"><div className="projectsV11Crumb"><Link href="/">Home</Link><span>/</span><Link href="/projects">Projects</Link><span>/</span><span>ACM Façade</span></div><div className="caseV11HeroGrid"><div><span className="eyebrow">CASE STUDY · COMMERCIAL</span><h1>ACM Façade</h1></div><p>A Toronto ACM façade featuring clean panel geometry and a contemporary exterior expression.</p></div></div></section><div className="caseV11Media"><Image src="/images/projects/toronto-acm-facade-project.webp" alt="Toronto ACM façade project" fill priority sizes="100vw" /></div><section className="caseV11Facts"><div className="wrap"><div><span>Location</span><b>Toronto, ON</b></div><div><span>Project type</span><b>Commercial</b></div><div><span>Systems</span><b>ACM Panel</b></div><div><span>Delivery</span><b>CladCan project</b></div></div></section><section className="caseV11Narrative"><div className="wrap"><div><span className="eyebrow">PROJECT OVERVIEW</span><h2>Show the work, without inventing the story.</h2></div><div><p>A Toronto ACM façade featuring clean panel geometry and a contemporary exterior expression.</p><p>This case-study structure intentionally separates verified project information from details that still need confirmation. Scope, products, quantities, schedule, client information and technical performance claims should only be added when supported by project records.</p></div></div></section><section className="caseV11Gallery"><div className="wrap"><span className="eyebrow">PROJECT GALLERY</span><h2 className="caseV11SectionTitle">Photography reserved for verified project assets.</h2><div className="caseV11GalleryGrid"><div><div className="projectV11Placeholder">PROJECT DETAIL</div></div><div><div className="projectV11Placeholder">PROJECT DETAIL</div></div><div className="wide"><div className="projectV11Placeholder">WIDE ELEVATION</div></div></div></div></section><section className="caseV11Related"><div className="wrap"><span className="eyebrow">CONNECTED TO THE WORK</span><h2>Related systems & services.</h2><div className="caseV11RelatedLinks"><Link href="/exterior-systems/acm-acp">ACM / ACP ↗</Link><Link href="/services/installation">Installation ↗</Link></div></div></section><section className="projectsV11CTA"><div className="wrap"><span className="eyebrow">START A PROJECT</span><h2>Planning something similar?</h2><p>Send drawings, photos or the tender package and tell us where the project stands.</p><Link href="/contact">Start a project <span>↗</span></Link></div></section></>}
+import ProjectShowcase from "../../../components/ProjectShowcase";
+
+export const metadata={
+  title:"ACM Façade | CladCan Projects",
+  description:"A Toronto ACM façade featuring clean panel geometry and a contemporary exterior expression."
+};
+
+export default function Page(){
+  return <ProjectShowcase
+    title="ACM Façade"
+    eyebrow="COMPLETED PROJECT · COMMERCIAL"
+    summary="A Toronto ACM façade project featuring clean panel geometry and a contemporary exterior expression."
+    facts={[
+      {label:"Location",value:"Toronto, ON"},
+      {label:"Project type",value:"Commercial"},
+      {label:"Systems",value:"ACM Panel"},
+      {label:"Delivery",value:"CladCan project"},
+    ]}
+    images={[
+      {src:"/images/projects/toronto-acm-facade-project.webp",alt:"Toronto ACM façade project",caption:"ACM façade · Toronto"},
+    ]}
+    related={[
+      {label:"ACM / ACP",href:"/exterior-systems/acm-acp"},
+      {label:"Installation",href:"/services/installation"},
+    ]}
+    previous={{title:"Luxclad ACM Façade",href:"/projects/luxclad-richmond-hill"}}
+    next={{title:"ACM + Cedar Soffit & Fascia",href:"/projects/acm-cedar-soffit-fascia"}}
+  />;
+}
