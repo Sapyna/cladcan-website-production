@@ -129,124 +129,98 @@
   line-height:1.55!important;
 }
 
-/* Benefits: standard tab layout with a wide project image */
-.page [class*="panelBenefits"]{
-  background:#f5f6f4!important;
-  color:#102633!important;
-}
-
-.page [class*="panelBenefits"] [class*="benefitsPanel"]{
-  max-width:1120px;
-  color:#102633!important;
-}
-
-.page [class*="panelBenefits"] [class*="kicker"]{
-  color:#8f5f2f!important;
-}
-
-.page [class*="panelBenefits"] h2,
-.page [class*="panelBenefits"] [class*="benefitsPanel"] > h2{
-  color:#102633!important;
-  -webkit-text-fill-color:#102633!important;
-}
-
-.page [class*="panelBenefits"] [class*="benefitsBanner"]{
+/* Benefits: same panel shell as every other tab; only the content is redesigned */
+.page [class*="benefitsVisual"]{
   position:relative;
   width:100%;
   aspect-ratio:16 / 6;
   min-height:280px;
-  margin:30px 0 34px!important;
+  margin:30px 0 36px!important;
   overflow:hidden;
   border-radius:12px;
-  background:#e3e8e9;
+  background:#e5e9ea;
 }
 
-.page [class*="panelBenefits"] [class*="benefitsBanner"] img{
+.page [class*="benefitsVisual"] img{
   object-fit:cover!important;
   object-position:center!important;
 }
 
-.page [class*="panelBenefits"] [class*="featureGrid"] h3{
-  color:#102633!important;
-}
-
-.page [class*="panelBenefits"] [class*="featureGrid"]{
+.page [class*="benefitRows"]{
   display:grid!important;
   grid-template-columns:repeat(2,minmax(0,1fr))!important;
-  gap:16px!important;
-  margin-top:0!important;
-  border:0!important;
+  border-top:1px solid #d7dedf!important;
+}
+
+.page [class*="benefitRow"]{
+  min-height:150px;
+  display:grid!important;
+  grid-template-columns:38px minmax(0,1fr) 30px!important;
+  gap:14px!important;
+  align-items:start!important;
+  padding:22px 20px 22px 0!important;
+  border-bottom:1px solid #d7dedf!important;
   background:transparent!important;
 }
 
-.page [class*="panelBenefits"] [class*="featureGrid"] article{
-  min-height:210px!important;
-  padding:24px 24px 22px!important;
-  border:1px solid #d7dedf!important;
-  border-radius:14px;
-  background:#fff!important;
-  display:grid!important;
-  grid-template-columns:1fr auto;
-  grid-template-areas:
-    "number icon"
-    "title title"
-    "copy copy";
-  align-content:start;
-  box-shadow:0 8px 24px rgba(7,26,41,.035);
-  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+.page [class*="benefitRow"]:nth-child(odd){
+  border-right:1px solid #d7dedf!important;
+  padding-right:24px!important;
 }
 
-.page [class*="panelBenefits"] [class*="featureGrid"] article:hover{
-  transform:translateY(-2px);
-  border-color:#c8d1d3!important;
-  box-shadow:0 14px 30px rgba(7,26,41,.07);
+.page [class*="benefitRow"]:nth-child(even){
+  padding-left:24px!important;
 }
 
-.page [class*="panelBenefits"] [class*="featureGrid"] article > span{
-  grid-area:number;
-  align-self:center;
+.page [class*="benefitRow"] > span{
   color:#8f5f2f!important;
   font-size:.66rem!important;
-  font-weight:800;
-  letter-spacing:.14em;
+  font-weight:800!important;
+  letter-spacing:.14em!important;
+  line-height:1.35!important;
 }
 
-.page [class*="panelBenefits"] [class*="featureGrid"] article > svg{
-  grid-area:icon;
-  width:34px!important;
-  height:34px!important;
+.page [class*="benefitRow"] h3{
+  margin:0 0 7px!important;
+  color:#102633!important;
+  font-size:.98rem!important;
+  line-height:1.3!important;
+  font-weight:720!important;
+}
+
+.page [class*="benefitRow"] p{
   margin:0!important;
-  padding:8px;
+  color:#5d707b!important;
+  font-size:.86rem!important;
+  line-height:1.58!important;
+}
+
+.page [class*="benefitRow"] > svg{
+  width:28px!important;
+  height:28px!important;
+  padding:6px;
   border-radius:999px;
   background:#f3efe8;
   color:#8f5f2f!important;
 }
 
-.page [class*="panelBenefits"] [class*="featureGrid"] article > h3{
-  grid-area:title;
-  margin:24px 0 9px!important;
-  font-size:1.02rem!important;
-  line-height:1.28!important;
-}
-
-.page [class*="panelBenefits"] [class*="featureGrid"] article > p{
-  grid-area:copy;
-  max-width:470px;
-  margin:0!important;
-  color:#5d707b!important;
-  font-size:.9rem!important;
-  line-height:1.62!important;
-}
-
 @media(max-width:760px){
-  .page [class*="panelBenefits"] [class*="benefitsBanner"]{
+  .page [class*="benefitsVisual"]{
     aspect-ratio:16 / 9;
     min-height:220px;
     margin:24px 0 28px!important;
   }
 
-  .page [class*="panelBenefits"] [class*="featureGrid"]{
+  .page [class*="benefitRows"]{
     grid-template-columns:1fr!important;
+  }
+
+  .page [class*="benefitRow"],
+  .page [class*="benefitRow"]:nth-child(odd),
+  .page [class*="benefitRow"]:nth-child(even){
+    min-height:0;
+    border-right:0!important;
+    padding:18px 0!important;
   }
 }
 
