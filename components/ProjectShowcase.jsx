@@ -132,38 +132,39 @@ export default function ProjectShowcase({
           visibleImages.length===1?styles.gallerySingle:"",
         ].filter(Boolean).join(" ")}>
           {visibleImages.map((image,visibleIndex)=>{
-            const editorialIndex=visibleIndex%6;
-            const editorialClass=[
-              styles.galleryCard,
-              editorialIndex===0?styles.galleryWide:"",
-              editorialIndex===1?styles.galleryTall:"",
-              editorialIndex===2?styles.galleryTall:"",
-              editorialIndex===3?styles.galleryWide:"",
-              editorialIndex===4?styles.gallerySquare:"",
-              editorialIndex===5?styles.galleryPanorama:"",
-            ].filter(Boolean).join(" ");
+            const wallPattern=[
+              styles.wallLarge,
+              styles.wallNarrow,
+              styles.wallNarrow,
+              styles.wallNarrow,
+              styles.wallWide,
+              styles.wallLarge,
+              styles.wallNarrow,
+              styles.wallSlim,
+              styles.wallMedium,
+              styles.wallMedium,
+              styles.wallSlim,
+              styles.wallMedium,
+              styles.wallNarrow,
+              styles.wallWide,
+              styles.wallMedium,
+              styles.wallNarrow,
+            ];
+            const wallClass=wallPattern[visibleIndex%wallPattern.length];
 
             return <button
               type="button"
-              className={editorialClass}
+              className={`${styles.galleryCard} ${wallClass}`}
               key={`${image.src}-${image._index}`}
               onClick={()=>setActiveImage(image._index)}
               aria-label={`Open project image ${image._index+1} of ${images.length}`}
+              title={image.caption || title}
             >
-              <div className={styles.galleryMedia}>
-                <img src={image.src} alt={image.alt || `${title} project photo ${image._index+1}`}/>
-                <div className={styles.galleryOverlay}>
-                  <span className={styles.imageNumber}>{String(image._index+1).padStart(2,"0")}</span>
-                  <span className={styles.expand}><Maximize2 size={15}/> View full screen</span>
-                </div>
-              </div>
-              <div className={styles.caption}>
-                <div>
-                  {image.phase && <small>{image.phase}</small>}
-                  <span>{image.caption || title}</span>
-                </div>
-                <ArrowUpRight size={15}/>
-              </div>
+              <img src={image.src} alt={image.alt || `${title} project photo ${image._index+1}`}/>
+              <span className={styles.galleryHover}>
+                <span>{String(image._index+1).padStart(2,"0")}</span>
+                <span><Maximize2 size={15}/> Full screen</span>
+              </span>
             </button>;
           })}
         </div>
