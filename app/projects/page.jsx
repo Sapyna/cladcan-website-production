@@ -21,15 +21,16 @@ const projects=[
     photoCount:2
   },
   {
-    title:"Gray Lane Exterior Transformation",
+    title:"Gray Lane ACM, Stucco & Dekko Residence",
     location:"Barrie, ON",
     type:"Residential",
-    tags:["Residential","Before & After"],
-    systems:["Exterior Cladding"],
-    image:"/images/before-after/gray-lane-barrie-after.jpg",
+    tags:["Residential","Before & After","Multi-material"],
+    systems:["ACM Panel","Stucco","Dekko"],
+    image:"/images/projects/gray-lane-barrie/gray-lane-barrie-acm-stucco-dekko-residence-front-wide.webp",
     href:"/projects/gray-lane-barrie",
-    summary:"A before-and-after façade transformation in Barrie showing the visual impact of a coordinated exterior renewal.",
-    photoCount:2
+    summary:"A contemporary Barrie residence combining ACM panels, stucco and Dekko cladding with crisp panel geometry and contrasting exterior finishes.",
+    photoCount:12,
+    videoCount:1
   },
   {
     title:"Pharmacy Avenue Exterior Transformation",
