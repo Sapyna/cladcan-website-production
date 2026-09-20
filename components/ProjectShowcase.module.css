@@ -355,7 +355,8 @@
   max-width:1500px;
   max-height:calc(100vh - 68px);
 }
-.lightboxStage img{
+.lightboxStage img,
+.lightboxStage video{
   display:block;
   width:auto;
   max-width:100%;
@@ -363,6 +364,7 @@
   max-height:calc(100vh - 120px);
   margin:auto;
   object-fit:contain;
+  background:#050d12;
 }
 .lightboxCaption{
   display:flex;

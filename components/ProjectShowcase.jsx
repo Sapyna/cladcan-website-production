@@ -9,6 +9,7 @@ import {
   ChevronRight,
   Images,
   Maximize2,
+  Play,
   X,
 } from "lucide-react";
 import styles from "./ProjectShowcase.module.css";
@@ -23,6 +24,16 @@ export default function ProjectShowcase({
 }) {
   const [activeImage,setActiveImage]=useState(null);
   const [galleryFilter,setGalleryFilter]=useState("All");
+
+  const heroAsset=useMemo(
+    ()=>images.find((image)=>image.hero && image.type!=="video")
+      || images.find((image)=>image.phase==="Completed" && image.type!=="video")
+      || images.find((image)=>image.type!=="video"),
+    [images]
+  );
+
+  const photoCount=images.filter((image)=>image.type!=="video").length;
+  const videoCount=images.filter((image)=>image.type==="video").length;
 
   const galleryFilters=useMemo(()=>{
     const values=[...new Set(images.map((image)=>image.phase).filter(Boolean))];
@@ -60,8 +71,8 @@ export default function ProjectShowcase({
 
   return <article className={styles.page}>
     <section className="caseV11Hero">
-      {images[0] && <div className={styles.heroMedia} aria-hidden="true">
-        <img src={images[0].src} alt=""/>
+      {heroAsset && <div className={styles.heroMedia} aria-hidden="true">
+        <img src={heroAsset.src} alt=""/>
       </div>}
       <div className="wrap">
         <div className="caseV11HeroGrid">
@@ -114,7 +125,7 @@ export default function ProjectShowcase({
           </div>
           <div className={styles.galleryMeta}>
             <Images size={16}/>
-            <span>{images.length} verified {images.length===1?"photo":"photos"}</span>
+            <span>{photoCount} verified {photoCount===1?"photo":"photos"}{videoCount>0?` · ${videoCount} ${videoCount===1?"video":"videos"}`:""}</span>
           </div>
         </div>
 
@@ -157,13 +168,15 @@ export default function ProjectShowcase({
               className={`${styles.galleryCard} ${wallClass}`}
               key={`${image.src}-${image._index}`}
               onClick={()=>setActiveImage(image._index)}
-              aria-label={`Open project image ${image._index+1} of ${images.length}`}
+              aria-label={image.type==="video"?`Open project video ${image._index+1} of ${images.length}`:`Open project image ${image._index+1} of ${images.length}`}
               title={image.caption || title}
             >
-              <img src={image.src} alt={image.alt || `${title} project photo ${image._index+1}`}/>
+              {image.type==="video"
+                ? <img src={image.poster} alt={image.alt || `${title} project installation video`}/>
+                : <img src={image.src} alt={image.alt || `${title} project photo ${image._index+1}`}/>}
               <span className={styles.galleryHover}>
                 <span>{String(image._index+1).padStart(2,"0")}</span>
-                <span><Maximize2 size={15}/> Full screen</span>
+                <span>{image.type==="video"?<><Play size={15}/> Play video</>:<><Maximize2 size={15}/> Full screen</>}</span>
               </span>
             </button>;
           })}
@@ -225,7 +238,9 @@ export default function ProjectShowcase({
       </button>}
 
       <div className={styles.lightboxStage} onClick={(event)=>event.stopPropagation()}>
-        <img src={images[activeImage].src} alt={images[activeImage].alt || title}/>
+        {images[activeImage].type==="video"
+          ? <video key={images[activeImage].src} src={images[activeImage].src} poster={images[activeImage].poster} controls autoPlay playsInline/>
+          : <img src={images[activeImage].src} alt={images[activeImage].alt || title}/>}
         <div className={styles.lightboxCaption}>
           <span>{String(activeImage+1).padStart(2,"0")} / {String(images.length).padStart(2,"0")}</span>
           <strong>{images[activeImage].caption || title}</strong>

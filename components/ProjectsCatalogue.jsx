@@ -26,7 +26,7 @@ export default function ProjectsCatalogue({projects}){
         {shown.map(p=><Link href={p.href} className="projectV11Card" key={p.href}>
           <div className="projectV11Image">
             <Image src={p.image} alt={p.title} fill sizes="(max-width:900px) 100vw, 50vw"/>
-            <span className="projectV11PhotoCount"><Images size={13}/>{p.photoCount} {p.photoCount===1?"photo":"photos"}</span>
+            <span className="projectV11PhotoCount"><Images size={13}/>{p.photoCount} {p.photoCount===1?"photo":"photos"}{p.videoCount?` · ${p.videoCount} ${p.videoCount===1?"video":"videos"}`:""}</span>
             <span className="projectV11Arrow"><ArrowUpRight size={19}/></span>
           </div>
           <div className="projectV11Meta"><span>{p.location}</span><span>{p.type}</span></div>

@@ -70,10 +70,11 @@ const projects=[
     type:"Commercial",
     tags:["Commercial"],
     systems:["ACM Panel","Luxclad"],
-    image:"/images/projects/richmond-hill-medical-mall-acm-cladding-projects-hero.webp",
+    image:"/images/projects/richmond-hill-medical-mall/richmond-hill-medical-mall-acm-facade-completed-wide-view.webp",
     href:"/projects/luxclad-richmond-hill",
     summary:"ACM installation using the Luxclad system with concealed-fastener detailing for a contemporary commercial façade.",
-    photoCount:1
+    photoCount:15,
+    videoCount:1
   }
 ];
 

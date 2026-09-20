@@ -112,7 +112,7 @@ const finishSources = [
   ["ALUBOND Canada","https://alubond.com/canada-colours-and-finishes/"],
 ];
 const projects = [
-  {title:"Luxclad ACM Façade", meta:"Richmond Hill, ON · Commercial", text:"CladCan project record featuring ACM façade work with clean contemporary panel geometry.", href:"/projects/luxclad-richmond-hill", image:"/images/projects/richmond-hill-medical-mall-acm-cladding-projects-hero.webp"},
+  {title:"Luxclad ACM Façade", meta:"Richmond Hill, ON · Commercial", text:"CladCan project record featuring ACM façade work with clean contemporary panel geometry.", href:"/projects/luxclad-richmond-hill", image:"/images/projects/richmond-hill-medical-mall/richmond-hill-medical-mall-acm-facade-completed-wide-view.webp"},
   {title:"ACM Façade", meta:"Toronto, ON · Commercial", text:"A Toronto ACM façade project featuring clean panel geometry and a contemporary exterior expression.", href:"/projects/acm-stucco-toronto", image:"/images/projects/acm-facade-toronto/toronto-acm-facade-completed-wide-view.webp"},
   {title:"ACM + Cedar Soffit & Fascia", meta:"Toronto, ON · Multi-material", text:"A CladCan project combining ACM with cedar soffit and fascia detailing for a layered exterior material palette.", href:"/projects/acm-cedar-soffit-fascia", image:"/images/exterior-systems/natural-wood/cedar/cedar-soffit-acm-fascia-residential-project.webp"},
 ];
