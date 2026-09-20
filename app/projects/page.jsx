@@ -59,10 +59,10 @@ const projects=[
     type:"Commercial",
     tags:["Commercial"],
     systems:["ACM Panel"],
-    image:"/images/projects/toronto-acm-facade-project.webp",
+    image:"/images/projects/acm-facade-toronto/toronto-acm-facade-completed-wide-view.webp",
     href:"/projects/acm-stucco-toronto",
     summary:"A Toronto ACM façade project featuring clean panel geometry and a contemporary exterior expression.",
-    photoCount:1
+    photoCount:16
   },
   {
     title:"Luxclad ACM Façade",
