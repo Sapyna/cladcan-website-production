@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -22,6 +22,19 @@ export default function ProjectShowcase({
   related=[],
 }) {
   const [activeImage,setActiveImage]=useState(null);
+  const [galleryFilter,setGalleryFilter]=useState("All");
+
+  const galleryFilters=useMemo(()=>{
+    const values=[...new Set(images.map((image)=>image.phase).filter(Boolean))];
+    return values.length>1?["All",...values]:[];
+  },[images]);
+
+  const visibleImages=useMemo(
+    ()=>images
+      .map((image,index)=>({...image,_index:index}))
+      .filter((image)=>galleryFilter==="All" || !galleryFilters.length || image.phase===galleryFilter),
+    [images,galleryFilter,galleryFilters.length]
+  );
 
   useEffect(()=>{
     if(activeImage===null) return;
@@ -97,7 +110,7 @@ export default function ProjectShowcase({
           <div className={styles.sectionMarker}><span>02</span><i/></div>
           <div>
             <p>PROJECT PHOTOGRAPHY</p>
-            <h2>View the work in detail.</h2>
+            <h2>From concept to completed façade.</h2>
           </div>
           <div className={styles.galleryMeta}>
             <Images size={16}/>
@@ -105,31 +118,54 @@ export default function ProjectShowcase({
           </div>
         </div>
 
+        {galleryFilters.length>0 && <div className={styles.galleryFilters} role="group" aria-label="Filter project photography">
+          {galleryFilters.map((filter)=><button
+            type="button"
+            key={filter}
+            className={galleryFilter===filter?styles.galleryFilterActive:""}
+            onClick={()=>setGalleryFilter(filter)}
+          >{filter}</button>)}
+        </div>}
+
         <div className={[
           styles.galleryGrid,
-          images.length===1?styles.gallerySingle:"",
-          images.length===2?styles.galleryPair:"",
+          visibleImages.length===1?styles.gallerySingle:"",
         ].filter(Boolean).join(" ")}>
-          {images.map((image,index)=><button
-            type="button"
-            className={[
-              styles.galleryItem,
-              images.length>=3 && index===0?styles.galleryFeature:"",
-            ].filter(Boolean).join(" ")}
-            key={`${image.src}-${index}`}
-            onClick={()=>setActiveImage(index)}
-            aria-label={`Open project image ${index+1} of ${images.length}`}
-          >
-            <div className={styles.galleryMedia}>
-              <img src={image.src} alt={image.alt || `${title} project photo ${index+1}`}/>
-              <span className={styles.imageNumber}>{String(index+1).padStart(2,"0")}</span>
-              <span className={styles.expand}><Maximize2 size={15}/> View full screen</span>
-            </div>
-            <div className={styles.caption}>
-              <span>{image.caption || title}</span>
-              <ArrowUpRight size={15}/>
-            </div>
-          </button>)}
+          {visibleImages.map((image,visibleIndex)=>{
+            const editorialIndex=visibleIndex%6;
+            const editorialClass=[
+              styles.galleryCard,
+              editorialIndex===0?styles.galleryWide:"",
+              editorialIndex===1?styles.galleryTall:"",
+              editorialIndex===2?styles.galleryTall:"",
+              editorialIndex===3?styles.galleryWide:"",
+              editorialIndex===4?styles.gallerySquare:"",
+              editorialIndex===5?styles.galleryPanorama:"",
+            ].filter(Boolean).join(" ");
+
+            return <button
+              type="button"
+              className={editorialClass}
+              key={`${image.src}-${image._index}`}
+              onClick={()=>setActiveImage(image._index)}
+              aria-label={`Open project image ${image._index+1} of ${images.length}`}
+            >
+              <div className={styles.galleryMedia}>
+                <img src={image.src} alt={image.alt || `${title} project photo ${image._index+1}`}/>
+                <div className={styles.galleryOverlay}>
+                  <span className={styles.imageNumber}>{String(image._index+1).padStart(2,"0")}</span>
+                  <span className={styles.expand}><Maximize2 size={15}/> View full screen</span>
+                </div>
+              </div>
+              <div className={styles.caption}>
+                <div>
+                  {image.phase && <small>{image.phase}</small>}
+                  <span>{image.caption || title}</span>
+                </div>
+                <ArrowUpRight size={15}/>
+              </div>
+            </button>;
+          })}
         </div>
       </div>
     </section>
