@@ -1,4 +1,30 @@
-import Link from "next/link";
-import Image from "next/image";
-export const metadata={title:'ACM + Cedar Soffit & Fascia'+" | CladCan Projects",description:'ACM panel installation complemented by cedar soffit and fascia detailing. The multi-material composition combines crisp metal surfaces with warmer cedar accents.'};
-export default function Page(){return <><section className="caseV11Hero"><div className="wrap"><div className="projectsV11Crumb"><Link href="/">Home</Link><span>/</span><Link href="/projects">Projects</Link><span>/</span><span>ACM + Cedar Soffit & Fascia</span></div><div className="caseV11HeroGrid"><div><span className="eyebrow">CASE STUDY · MULTI-MATERIAL</span><h1>ACM + Cedar Soffit & Fascia</h1></div><p>ACM panel installation complemented by cedar soffit and fascia detailing. The multi-material composition combines crisp metal surfaces with warmer cedar accents.</p></div></div></section><div className="caseV11Media"><div className="projectV11Placeholder">Project image</div></div><section className="caseV11Facts"><div className="wrap"><div><span>Location</span><b>Toronto, ON</b></div><div><span>Project type</span><b>Multi-material</b></div><div><span>Systems</span><b>ACM Panel · Cedar Siding · Fascia · Soffit</b></div><div><span>Delivery</span><b>CladCan project</b></div></div></section><section className="caseV11Narrative"><div className="wrap"><div><span className="eyebrow">PROJECT OVERVIEW</span><h2>Show the work, without inventing the story.</h2></div><div><p>ACM panel installation complemented by cedar soffit and fascia detailing. The multi-material composition combines crisp metal surfaces with warmer cedar accents.</p><p>This case-study structure intentionally separates verified project information from details that still need confirmation. Scope, products, quantities, schedule, client information and technical performance claims should only be added when supported by project records.</p></div></div></section><section className="caseV11Gallery"><div className="wrap"><span className="eyebrow">PROJECT GALLERY</span><h2 className="caseV11SectionTitle">Photography reserved for verified project assets.</h2><div className="caseV11GalleryGrid"><div><div className="projectV11Placeholder">PROJECT DETAIL</div></div><div><div className="projectV11Placeholder">PROJECT DETAIL</div></div><div className="wide"><div className="projectV11Placeholder">WIDE ELEVATION</div></div></div></div></section><section className="caseV11Related"><div className="wrap"><span className="eyebrow">CONNECTED TO THE WORK</span><h2>Related systems & services.</h2><div className="caseV11RelatedLinks"><Link href="/exterior-systems/acm-acp">ACM / ACP ↗</Link><Link href="/exterior-systems/natural-wood">Natural Wood ↗</Link><Link href="/services/custom-fabrication">Fabrication ↗</Link><Link href="/services/installation">Installation ↗</Link></div></div></section><section className="projectsV11CTA"><div className="wrap"><span className="eyebrow">START A PROJECT</span><h2>Planning something similar?</h2><p>Send drawings, photos or the tender package and tell us where the project stands.</p><Link href="/contact">Start a project <span>↗</span></Link></div></section></>}
+import ProjectShowcase from "../../../components/ProjectShowcase";
+
+export const metadata={
+  title:"ACM + Cedar Soffit & Fascia | CladCan Projects",
+  description:"ACM panel installation complemented by cedar soffit and fascia detailing. The multi-material composition combines crisp metal surfaces with warmer cedar accents."
+};
+
+export default function Page(){
+  return <ProjectShowcase
+    title="ACM + Cedar Soffit & Fascia"
+    eyebrow="COMPLETED PROJECT · MULTI-MATERIAL"
+    summary="ACM panel installation complemented by cedar soffit and fascia detailing. The multi-material composition combines crisp metal surfaces with warmer cedar accents."
+    facts={[
+      {label:"Location",value:"Toronto, ON"},
+      {label:"Project type",value:"Multi-material"},
+      {label:"Systems",value:"ACM Panel · Cedar Siding · Fascia · Soffit"},
+      {label:"Delivery",value:"CladCan project"},
+    ]}
+    images={[
+      {src:"/images/exterior-systems/natural-wood/cedar/cedar-soffit-acm-fascia-residential-project.webp",alt:"ACM façade with cedar soffit and fascia detailing",caption:"ACM + cedar soffit & fascia · Toronto"},
+    ]}
+    related={[
+      {label:"ACM / ACP",href:"/exterior-systems/acm-acp"},
+      {label:"Natural Wood",href:"/exterior-systems/natural-wood"},
+      {label:"Fabrication",href:"/services/custom-fabrication"},
+      {label:"Installation",href:"/services/installation"},
+    ]}
+    previous={{title:"ACM Façade",href:"/projects/acm-stucco-toronto"}}
+  />;
+}
