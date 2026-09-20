@@ -321,10 +321,10 @@
 
 .page [class*="panelFinishes"] [class*="swatches"] > span > i > img{
   position:absolute;
-  inset:-18%;
+  inset:-35%;
   display:block;
-  width:136%!important;
-  height:136%!important;
+  width:170%!important;
+  height:170%!important;
   max-width:none!important;
   object-fit:cover;
   object-position:center;
