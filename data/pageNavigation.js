@@ -57,6 +57,12 @@ export const ROUTE_LABELS = {
   "design-permit-support":"Design & Permit Support",
   "repair-maintenance":"Repair & Maintenance",
   "commercial-facade":"Commercial Façade",
+  "sideroad-17-schomberg":"Sideroad 17 Exterior Transformation",
+  "gray-lane-barrie":"Gray Lane Exterior Transformation",
+  "pharmacy-scarborough":"Pharmacy Avenue Exterior Transformation",
+  "acm-cedar-soffit-fascia":"ACM + Cedar Soffit & Fascia",
+  "acm-stucco-toronto":"ACM Façade",
+  "luxclad-richmond-hill":"Luxclad ACM Façade",
   "charred-wood":"Charred Wood",
 };
 
