@@ -7009,3 +7009,32 @@ body:not(.home) .siteHeader + main,
   object-fit:cover!important;
   object-position:center center!important;
 }
+
+
+/* ===== PROJECTS V11 PROFESSIONAL POLISH ===== */
+.projectsV11Hero{position:relative;isolation:isolate;overflow:hidden}
+.projectsV11HeroBackdrop{z-index:-2;object-fit:cover;object-position:center;opacity:.22;filter:saturate(.75) contrast(1.08)}
+.projectsV11Hero:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(7,28,41,.98) 0%,rgba(7,28,41,.92) 48%,rgba(7,28,41,.68) 100%)}
+.projectsV11Toolbar{padding-bottom:18px;border-bottom:1px solid #dce1e3}
+.viewSwitcher{display:flex;gap:5px;padding:4px;border:1px solid #d7dde0;border-radius:7px;background:#f7f8f7}
+.viewSwitcher button{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border:0;border-radius:4px;background:transparent;color:#667780;font-size:11px;font-weight:800;cursor:pointer}
+.viewSwitcher button.active{background:#fff;color:#0b2533;box-shadow:0 2px 8px rgba(11,37,51,.08)}
+.projectV11Card{display:flex;flex-direction:column}
+.projectV11Image{background:#dce2e3}
+.projectV11Image img{object-fit:cover;object-position:center}
+.projectV11PhotoCount{position:absolute;left:18px;bottom:18px;z-index:2;display:inline-flex;align-items:center;gap:7px;padding:8px 10px;background:rgba(7,28,41,.86);color:#fff;font-size:10px;font-weight:800;letter-spacing:.05em;backdrop-filter:blur(7px)}
+.projectV11Arrow{transition:transform .22s ease,background-color .22s ease,color .22s ease}
+.projectV11Card:hover .projectV11Arrow{background:#f12b27;color:#fff;transform:translate(2px,-2px)}
+.projectV11Open{display:flex;align-items:center;gap:7px;width:max-content;margin-top:20px;padding-top:12px;border-top:1px solid #dce1e3;color:#0b2533;font-size:11px;font-weight:800;transition:color .2s ease}
+.projectV11Card:hover .projectV11Open{color:#f12b27}
+.projectV11Card h3{transition:color .2s ease}
+.projectV11Card:hover h3{color:#173b4f}
+.projectV11List .projectV11Mini img{object-fit:cover;object-position:center}
+@media(max-width:800px){
+  .viewSwitcher{align-self:flex-end}
+  .projectV11PhotoCount{left:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  .projectV11Image img,.projectV11Arrow{transition:none}
+  .projectV11Card:hover .projectV11Image img,.projectV11Card:hover .projectV11Arrow{transform:none}
+}
