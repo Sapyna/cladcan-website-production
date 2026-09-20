@@ -17,7 +17,7 @@ export default function Page(){
       {label:"Delivery",value:"CladCan project"},
     ]}
     images={[
-      {src:"/images/before-after/gray-lane-barrie-before.jpg",alt:"Gray Lane Barrie residence before exterior transformation",caption:"Before · existing exterior",phase:"Before"},
+      {src:"/images/projects/gray-lane-barrie/gray-lane-barrie-existing-home-before-renovation.jpg",alt:"Gray Lane Barrie residence before exterior transformation",caption:"Before · existing exterior",phase:"Before"},
       {src:"/images/projects/gray-lane-barrie/gray-lane-barrie-front-exterior-installation-progress.webp",alt:"Gray Lane Barrie residence during ACM stucco and Dekko exterior installation",caption:"Installation progress · front elevation",phase:"Installation"},
       {src:"/images/projects/gray-lane-barrie/gray-lane-barrie-acm-stucco-dekko-residence-front-wide.webp",alt:"Completed Gray Lane Barrie residence with ACM stucco and Dekko cladding front wide view",caption:"Completed · front wide view",phase:"Completed",hero:true},
       {src:"/images/projects/gray-lane-barrie/gray-lane-barrie-acm-stucco-dekko-residence-front-perspective.webp",alt:"Completed Gray Lane Barrie ACM stucco and Dekko residence front perspective",caption:"Completed · front perspective",phase:"Completed"},
