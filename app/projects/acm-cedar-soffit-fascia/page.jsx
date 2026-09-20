@@ -26,5 +26,6 @@ export default function Page(){
       {label:"Installation",href:"/services/installation"},
     ]}
     previous={{title:"ACM Façade",href:"/projects/acm-stucco-toronto"}}
+    next={{title:"Sideroad 17 Exterior Transformation",href:"/projects/sideroad-17-schomberg"}}
   />;
 }
