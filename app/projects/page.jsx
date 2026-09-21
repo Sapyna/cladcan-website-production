@@ -15,7 +15,7 @@ const projects=[
     type:"Residential",
     tags:["Residential","Before & After"],
     systems:["ACM Panel","Exterior Cladding"],
-    image:"/images/before-after/sideroad-17-schomberg-after.jpg",
+    image:"/images/before-after/sideroad-17-schomberg-before.jpg",
     href:"/projects/sideroad-17-schomberg",
     summary:"A residential exterior transformation featuring black ACM cladding across fascia, columns, canopies and glazed outdoor living areas.",
     photoCount:11
