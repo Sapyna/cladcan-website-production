@@ -24,8 +24,9 @@ export default function ProjectsCatalogue({projects}){
     {view==="grid"?
       <div className="projectsV11Grid">
         {shown.map(p=><Link href={p.href} className="projectV11Card" key={p.href}>
-          <div className="projectV11Image">
-            <Image src={p.image} alt={p.title} fill sizes="(max-width:900px) 100vw, 50vw" className={p.imageFit==="contain"?"projectV11Contain":""}/>
+          <div className={`projectV11Image ${p.imageFit==="containFill"?"projectV11ImageContainFill":""}`}>
+            {p.imageFit==="containFill"&&<Image src={p.image} alt="" aria-hidden="true" fill sizes="(max-width:900px) 100vw, 50vw" className="projectV11FillBackdrop"/>}
+            <Image src={p.image} alt={p.title} fill sizes="(max-width:900px) 100vw, 50vw" className={p.imageFit==="containFill"?"projectV11ContainFull":p.imageFit==="contain"?"projectV11Contain":""}/>
             <span className="projectV11PhotoCount"><Images size={13}/>{p.photoCount} {p.photoCount===1?"photo":"photos"}{p.videoCount?` · ${p.videoCount} ${p.videoCount===1?"video":"videos"}`:""}</span>
             <span className="projectV11Arrow"><ArrowUpRight size={19}/></span>
           </div>
