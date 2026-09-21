@@ -7038,3 +7038,30 @@ body:not(.home) .siteHeader + main,
   .projectV11Image img,.projectV11Arrow{transition:none}
   .projectV11Card:hover .projectV11Image img,.projectV11Card:hover .projectV11Arrow{transform:none}
 }
+
+
+/* Full-photo project card: fixed frame, no crop, no empty side bars. */
+.projectV11ImageContainFill{
+  isolation:isolate;
+  background:#dce2e3;
+}
+.projectV11ImageContainFill .projectV11FillBackdrop{
+  z-index:0!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  filter:brightness(.72) saturate(.88);
+  transform:scale(1.025);
+}
+.projectV11ImageContainFill .projectV11ContainFull{
+  z-index:1!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  transform:none!important;
+}
+.projectV11Card:hover .projectV11ImageContainFill .projectV11ContainFull{
+  transform:none!important;
+}
+.projectV11ImageContainFill .projectV11PhotoCount,
+.projectV11ImageContainFill .projectV11Arrow{
+  z-index:3;
+}
