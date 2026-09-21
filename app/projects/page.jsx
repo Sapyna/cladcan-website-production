@@ -18,7 +18,7 @@ const projects=[
     image:"/images/before-after/sideroad-17-schomberg-before.jpg",
     href:"/projects/sideroad-17-schomberg",
     summary:"A residential exterior transformation featuring black ACM cladding across fascia, columns, canopies and glazed outdoor living areas.",
-    photoCount:11
+    photoCount:12
   },
   {
     title:"Gray Lane ACM, Stucco & Dekko Residence",
