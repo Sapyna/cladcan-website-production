@@ -28,7 +28,6 @@ export default function Page(){
       {src:"/images/projects/sideroad-17-schomberg/sideroad-17-black-acm-covered-terrace-columns.jpg",alt:"Black ACM clad columns supporting the covered terrace at Sideroad 17",caption:"Installation · covered terrace columns",phase:"Installation"},
       {src:"/images/projects/sideroad-17-schomberg/sideroad-17-black-acm-under-canopy-columns.jpg",alt:"Black ACM clad columns below the canopy at Sideroad 17",caption:"Installation · under-canopy columns",phase:"Installation"},
       {src:"/images/projects/sideroad-17-schomberg/sideroad-17-black-acm-terrace-wide.jpg",alt:"Wide view of the Sideroad 17 terrace with black ACM fascia and columns",caption:"Installation · terrace wide view",phase:"Installation"},
-      {src:"/images/before-after/sideroad-17-schomberg-after.jpg",alt:"Sideroad 17 residential exterior after the cladding transformation",caption:"After · completed exterior",phase:"After"},
     ]}
     related={[
       {label:"ACM / ACP",href:"/exterior-systems/acm-acp"},
