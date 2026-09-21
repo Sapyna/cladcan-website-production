@@ -105,14 +105,6 @@ export default function Projects(){
       </div>
     </section>
 
-    <section className="projectsV11Statement">
-      <div className="wrap">
-        <span>01</span>
-        <h2>A project library that connects <em>materials, services and execution.</em></h2>
-        <p>Filter by project context, then open a project to see its photography, verified information and related exterior systems.</p>
-      </div>
-    </section>
-
     <div id="project-index"><ProjectsCatalogue projects={projects}/></div>
 
     <section className="projectsV11CTA">
