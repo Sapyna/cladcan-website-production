@@ -66,14 +66,15 @@ const projects=[
     photoCount:16
   },
   {
-    title:"Luxclad ACM Façade",
+    title:"ACM Façade",
     location:"Richmond Hill, ON",
     type:"Commercial",
     tags:["Commercial"],
-    systems:["ACM Panel","Luxclad"],
+    systems:["ACM Panel"],
     image:"/images/projects/richmond-hill-medical-mall/richmond-hill-medical-mall-acm-facade-completed-side-perspective.webp",
+    imageFit:"contain",
     href:"/projects/luxclad-richmond-hill",
-    summary:"ACM installation using the Luxclad system with concealed-fastener detailing for a contemporary commercial façade.",
+    summary:"ACM installation with concealed-fastener detailing for a contemporary commercial façade.",
     photoCount:15,
     videoCount:1
   }
