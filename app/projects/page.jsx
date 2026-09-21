@@ -10,6 +10,17 @@ export const metadata={
 
 const projects=[
   {
+    title:"8 Ravenscroft ACM Residence",
+    location:"North York, ON",
+    type:"Residential",
+    tags:["Residential"],
+    systems:["ACM Panel"],
+    image:"/images/projects/ravenscroft-north-york/ravenscroft-north-york-acm.jpg",
+    href:"/projects/ravenscroft-north-york",
+    summary:"A residential ACM cladding project at 8 Ravenscroft in North York, featuring contemporary panel detailing and clean architectural lines.",
+    photoCount:1
+  },
+  {
     title:"Sideroad 17 Exterior Transformation",
     location:"Schomberg, ON",
     type:"Residential",
