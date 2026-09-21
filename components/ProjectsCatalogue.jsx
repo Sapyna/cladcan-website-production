@@ -25,7 +25,7 @@ export default function ProjectsCatalogue({projects}){
       <div className="projectsV11Grid">
         {shown.map(p=><Link href={p.href} className="projectV11Card" key={p.href}>
           <div className="projectV11Image">
-            <Image src={p.image} alt={p.title} fill sizes="(max-width:900px) 100vw, 50vw"/>
+            <Image src={p.image} alt={p.title} fill sizes="(max-width:900px) 100vw, 50vw" className={p.imageFit==="contain"?"projectV11Contain":""}/>
             <span className="projectV11PhotoCount"><Images size={13}/>{p.photoCount} {p.photoCount===1?"photo":"photos"}{p.videoCount?` · ${p.videoCount} ${p.videoCount===1?"video":"videos"}`:""}</span>
             <span className="projectV11Arrow"><ArrowUpRight size={19}/></span>
           </div>
@@ -39,7 +39,7 @@ export default function ProjectsCatalogue({projects}){
       :
       <div className="projectsV11List">
         {shown.map(p=><Link href={p.href} className="projectV11Row" key={p.href}>
-          <div className="projectV11Mini"><Image src={p.image} alt={`${p.title} project preview`} fill sizes="120px"/></div>
+          <div className="projectV11Mini"><Image src={p.image} alt={`${p.title} project preview`} fill sizes="120px" className={p.imageFit==="contain"?"projectV11Contain":""}/></div>
           <div><span>{p.location} · {p.type}</span><h3>{p.title}</h3></div>
           <p>{p.systems.join(" · ")}</p>
           <ArrowUpRight size={20}/>
