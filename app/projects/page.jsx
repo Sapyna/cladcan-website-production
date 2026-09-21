@@ -33,6 +33,105 @@ const projects=[
     videoCount:1
   },
   {
+    title:"Churchill Street ALPOLIC ACM",
+    location:"North York, ON",
+    type:"Residential",
+    tags:["Residential"],
+    systems:["ACM Panel","ALPOLIC"],
+    image:"/images/projects/churchill-street-north-york/churchill-street-alpolic-acm.jpg",
+    href:"/projects/churchill-street-north-york",
+    summary:"An ACM cladding project on Churchill Street featuring ALPOLIC panels and clean contemporary exterior detailing.",
+    photoCount:1
+  },
+  {
+    title:"Cameron Street ACM & Siding",
+    location:"Thornbury, ON",
+    type:"Residential",
+    tags:["Residential"],
+    systems:["ACM Panel","Siding"],
+    image:"/images/projects/cameron-street-thornbury/cameron-street-acm-siding.jpg",
+    href:"/projects/cameron-street-thornbury",
+    summary:"A Cameron Street exterior project combining ACM and siding for a contemporary residential finish.",
+    photoCount:1
+  },
+  {
+    title:"William Rose ACM Residence",
+    location:"Oakville, ON",
+    type:"Residential",
+    tags:["Residential"],
+    systems:["ACM Panel"],
+    image:"/images/projects/william-rose-oakville/william-rose-oakville-acm.jpg",
+    href:"/projects/william-rose-oakville",
+    summary:"A residential ACM installation in Oakville with precise panel detailing and a clean modern exterior.",
+    photoCount:1
+  },
+  {
+    title:"Broadway Avenue Exterior",
+    location:"North York, ON",
+    type:"Residential",
+    tags:["Residential"],
+    systems:["Exterior Cladding"],
+    image:"/images/projects/broadway-avenue-north-york/broadway-avenue-north-york.jpg",
+    href:"/projects/broadway-avenue-north-york",
+    summary:"Exterior cladding work on Broadway Avenue documented with verified CladCan project photography.",
+    photoCount:1
+  },
+  {
+    title:"Upper Canada Exterior",
+    location:"North York, ON",
+    type:"Residential",
+    tags:["Residential"],
+    systems:["Exterior Cladding"],
+    image:"/images/projects/upper-canada-north-york/upper-canada-north-york.jpg",
+    href:"/projects/upper-canada-north-york",
+    summary:"A North York exterior project documented through verified project photography.",
+    photoCount:1
+  },
+  {
+    title:"Ravenscroft ACM Residence",
+    location:"North York, ON",
+    type:"Residential",
+    tags:["Residential"],
+    systems:["ACM Panel"],
+    image:"/images/projects/ravenscroft-north-york/ravenscroft-north-york-acm.jpg",
+    href:"/projects/ravenscroft-north-york",
+    summary:"A residential ACM cladding project on Ravenscroft with contemporary panel detailing.",
+    photoCount:1
+  },
+  {
+    title:"Green Valley ACM Residence",
+    location:"North York, ON",
+    type:"Residential",
+    tags:["Residential"],
+    systems:["ACM Panel"],
+    image:"/images/projects/green-valley-north-york/green-valley-north-york-acm.jpg",
+    href:"/projects/green-valley-north-york",
+    summary:"A residential ACM exterior project in North York documented through verified site photography.",
+    photoCount:1
+  },
+  {
+    title:"Romney Road ACM Residence",
+    location:"North York, ON",
+    type:"Residential",
+    tags:["Residential"],
+    systems:["ACM Panel"],
+    image:"/images/projects/romney-road-north-york/romney-road-north-york-acm.jpg",
+    href:"/projects/romney-road-north-york",
+    summary:"An ACM residential exterior on Romney Road with clean architectural panel lines.",
+    photoCount:1
+  },
+  {
+    title:"George Henry ACM Residence",
+    location:"North York, ON",
+    type:"Residential",
+    tags:["Residential"],
+    systems:["ACM Panel"],
+    image:"/images/projects/george-henry-north-york/george-henry-north-york-acm.jpg",
+    href:"/projects/george-henry-north-york",
+    summary:"A North York residential ACM project documented with verified CladCan photography.",
+    photoCount:1
+  },
+  {
     title:"Pharmacy Avenue Exterior Transformation",
     location:"Scarborough, ON",
     type:"Commercial",
