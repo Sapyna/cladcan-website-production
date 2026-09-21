@@ -1,19 +1,19 @@
 import ProjectShowcase from "../../../components/ProjectShowcase";
 
 export const metadata={
-  title:"Luxclad ACM Façade | CladCan Projects",
-  description:"ACM panel installation using the Luxclad system with concealed-fastener detailing for a refined contemporary façade."
+  title:"ACM Façade | CladCan Projects",
+  description:"ACM panel installation with concealed-fastener detailing for a refined contemporary commercial façade."
 };
 
 export default function Page(){
   return <ProjectShowcase
-    title="Luxclad ACM Façade"
+    title="ACM Façade"
     eyebrow="COMPLETED PROJECT · COMMERCIAL"
-    summary="ACM panel installation using the Luxclad system with concealed-fastener detailing for a refined contemporary façade."
+    summary="ACM panel installation with concealed-fastener detailing for a refined contemporary commercial façade."
     facts={[
       {label:"Location",value:"Richmond Hill, ON"},
       {label:"Project type",value:"Commercial"},
-      {label:"Systems",value:"ACM Panel · Luxclad"},
+      {label:"Systems",value:"ACM Panel"},
       {label:"Delivery",value:"CladCan project"},
     ]}
     images={[
