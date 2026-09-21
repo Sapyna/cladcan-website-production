@@ -14,11 +14,11 @@ const projects=[
     location:"Schomberg, ON",
     type:"Residential",
     tags:["Residential","Before & After"],
-    systems:["Exterior Cladding"],
+    systems:["ACM Panel","Exterior Cladding"],
     image:"/images/before-after/sideroad-17-schomberg-after.jpg",
     href:"/projects/sideroad-17-schomberg",
-    summary:"A residential exterior transformation documented with verified before-and-after photography.",
-    photoCount:2
+    summary:"A residential exterior transformation featuring black ACM cladding across fascia, columns, canopies and glazed outdoor living areas.",
+    photoCount:12
   },
   {
     title:"Gray Lane ACM, Stucco & Dekko Residence",
@@ -72,7 +72,6 @@ const projects=[
     tags:["Commercial"],
     systems:["ACM Panel"],
     image:"/images/projects/richmond-hill-medical-mall/richmond-hill-medical-mall-acm-facade-completed-side-perspective.webp",
-    imageFit:"contain",
     href:"/projects/luxclad-richmond-hill",
     summary:"ACM installation with concealed-fastener detailing for a contemporary commercial façade.",
     photoCount:15,

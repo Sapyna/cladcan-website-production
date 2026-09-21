@@ -2,25 +2,36 @@ import ProjectShowcase from "../../../components/ProjectShowcase";
 
 export const metadata={
   title:"Sideroad 17 Exterior Transformation | CladCan Projects",
-  description:"A residential exterior transformation documented with verified before-and-after photography."
+  description:"Residential exterior transformation in Schomberg featuring black ACM cladding across fascia, columns, canopies and glazed outdoor living areas."
 };
 
 export default function Page(){
   return <ProjectShowcase
     title="Sideroad 17 Exterior Transformation"
-    eyebrow="COMPLETED PROJECT · RESIDENTIAL"
-    summary="A residential exterior transformation documented with verified before-and-after photography."
+    eyebrow="RESIDENTIAL · SCHOMBERG, ON"
+    summary="A residential exterior transformation featuring black ACM cladding across fascia, columns, canopies and glazed outdoor living areas, documented from existing conditions through installation and completion."
     facts={[
       {label:"Location",value:"Schomberg, ON"},
       {label:"Project type",value:"Residential"},
-      {label:"Systems",value:"Exterior Cladding"},
+      {label:"Systems",value:"ACM Panel · Exterior Cladding"},
       {label:"Delivery",value:"CladCan project"},
     ]}
     images={[
-      {src:"/images/before-after/sideroad-17-schomberg-before.jpg",alt:"Sideroad 17 exterior before transformation",caption:"Before · Sideroad 17"},
-      {src:"/images/before-after/sideroad-17-schomberg-after.jpg",alt:"Sideroad 17 exterior after transformation",caption:"After · Sideroad 17"},
+      {src:"/images/before-after/sideroad-17-schomberg-before.jpg",alt:"Sideroad 17 residential exterior before the cladding transformation",caption:"Before · existing exterior",phase:"Before"},
+      {src:"/images/projects/sideroad-17-schomberg/sideroad-17-black-acm-entry-canopy-installation.webp",alt:"Black ACM cladding installation around the Sideroad 17 entry canopy",caption:"Installation · entry canopy",phase:"Installation"},
+      {src:"/images/projects/sideroad-17-schomberg/sideroad-17-black-acm-rear-terrace-installation.webp",alt:"Black ACM fascia and column cladding at the Sideroad 17 rear terrace",caption:"Installation · rear terrace",phase:"Installation"},
+      {src:"/images/projects/sideroad-17-schomberg/sideroad-17-black-acm-stair-detail.webp",alt:"Black ACM cladding detail beside the exterior concrete stair at Sideroad 17",caption:"Installation · stair detail",phase:"Installation"},
+      {src:"/images/projects/sideroad-17-schomberg/sideroad-17-black-acm-rear-elevation-wide.webp",alt:"Wide view of black ACM cladding across the Sideroad 17 rear elevation",caption:"Installation · rear elevation",phase:"Installation",hero:true},
+      {src:"/images/projects/sideroad-17-schomberg/sideroad-17-black-acm-glazed-extension.webp",alt:"Black ACM cladding around the glazed rear extension at Sideroad 17",caption:"Installation · glazed extension",phase:"Installation"},
+      {src:"/images/projects/sideroad-17-schomberg/sideroad-17-black-acm-rear-perspective.webp",alt:"Black ACM cladding on the Sideroad 17 rear exterior perspective",caption:"Installation · rear perspective",phase:"Installation"},
+      {src:"/images/projects/sideroad-17-schomberg/sideroad-17-black-acm-column-detail.webp",alt:"Close detail of black ACM column cladding at Sideroad 17",caption:"Installation · column detail",phase:"Installation"},
+      {src:"/images/projects/sideroad-17-schomberg/sideroad-17-black-acm-covered-terrace-columns.webp",alt:"Black ACM clad columns supporting the covered terrace at Sideroad 17",caption:"Installation · covered terrace columns",phase:"Installation"},
+      {src:"/images/projects/sideroad-17-schomberg/sideroad-17-black-acm-under-canopy-columns.webp",alt:"Black ACM clad columns below the canopy at Sideroad 17",caption:"Installation · under-canopy columns",phase:"Installation"},
+      {src:"/images/projects/sideroad-17-schomberg/sideroad-17-black-acm-terrace-wide.webp",alt:"Wide view of the Sideroad 17 terrace with black ACM fascia and columns",caption:"Installation · terrace wide view",phase:"Installation"},
+      {src:"/images/before-after/sideroad-17-schomberg-after.jpg",alt:"Sideroad 17 residential exterior after the cladding transformation",caption:"After · completed exterior",phase:"After"},
     ]}
     related={[
+      {label:"ACM / ACP",href:"/exterior-systems/acm-acp"},
       {label:"Exterior Systems",href:"/exterior-systems"},
       {label:"Installation",href:"/services/installation"},
     ]}
