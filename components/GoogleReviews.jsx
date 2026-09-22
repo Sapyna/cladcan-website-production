@@ -26,19 +26,19 @@ export default function GoogleReviews(){
       <div>
         <div className="reviewStars">{[1,2,3,4,5].map(i=><Star key={i} size={20} fill="currentColor"/>)}</div>
         <strong>{data.businessRating ?? "—"}/5</strong>
-        <span>{data.businessReviewCount ?? "—"} Google Reviews</span>
+        <span style={{fontSize:"15px"}}>{data.businessReviewCount ?? "—"} Google Reviews</span>
       </div>
-      <p>A selection of five-star feedback from CladCan customers.</p>
+      <p style={{fontSize:"17px",lineHeight:1.65}}>A selection of five-star feedback from CladCan customers.</p>
       {data.googleUrl&&<a className="googleReviewLink" href={data.googleUrl} target="_blank" rel="noreferrer">View all reviews on Google <ExternalLink size={12}/></a>}
     </div>
     {reviews.length===0?<div className="reviewStatus"><span>No five-star reviews are available to display right now.</span></div>:
     <div className="reviewGrid">
       {reviews.map((r,i)=><article className="reviewCard" key={`${r.id||r.author_name}-${r.create_time||r.time||i}`}>
-        <div className="reviewStars smallStars">{[1,2,3,4,5].map(j=><Star key={j} size={13} fill="currentColor"/>)}</div>
-        <blockquote>“{r.text}”</blockquote>
+        <div className="reviewStars smallStars">{[1,2,3,4,5].map(j=><Star key={j} size={15} fill="currentColor"/>)}</div>
+        <blockquote style={{fontSize:"18px",lineHeight:1.65}}>“{r.text}”</blockquote>
         <div className="reviewPerson">
           {r.profile_photo_url?<img src={r.profile_photo_url} alt={`${r.author_name} Google review profile`} />:<span>{initials(r.author_name)}</span>}
-          <div><b>{r.author_name}</b><small>{r.relative_time_description || "Google review"}</small></div>
+          <div><b style={{fontSize:"16px"}}>{r.author_name}</b><small style={{fontSize:"14px"}}>{r.relative_time_description || "Google review"}</small></div>
         </div>
       </article>)}
     </div>}
