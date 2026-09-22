@@ -17,13 +17,13 @@ export default function Page(){
       {label:"Delivery",value:"CladCan project"},
     ]}
     images={[
-      {src:"/images/projects/broadway-avenue-north-york/optimized-broadway-avenue-north-york.webp",alt:"Broadway Avenue residential exterior cladding project in North York",caption:"Broadway Avenue exterior",phase:"Completed",hero:true},
-      {src:"/images/projects/broadway-avenue-north-york/optimized-367A0433-6523.webp",alt:"Broadway Avenue North York exterior cladding project view",caption:"Exterior cladding · project view",phase:"Completed"},
-      {src:"/images/projects/broadway-avenue-north-york/optimized-367A0470.webp",alt:"Broadway Avenue North York residential facade detail",caption:"Exterior cladding · facade view",phase:"Completed"},
-      {src:"/images/projects/broadway-avenue-north-york/optimized-367A0490-2.webp",alt:"Broadway Avenue North York completed exterior facade",caption:"Exterior cladding · completed facade",phase:"Completed"},
-      {src:"/images/projects/broadway-avenue-north-york/optimized-367A0521.webp",alt:"Broadway Avenue North York residential exterior cladding view",caption:"Exterior cladding · project view",phase:"Completed"},
-      {src:"/images/projects/broadway-avenue-north-york/optimized-367A0563.webp",alt:"Broadway Avenue North York residential exterior detail",caption:"Exterior cladding · detail view",phase:"Completed"},
-      {src:"/images/projects/broadway-avenue-north-york/optimized-367A0575.webp",alt:"Broadway Avenue North York completed residential exterior",caption:"Exterior cladding · completed view",phase:"Completed"}
+      {src:"/images/projects/broadway-avenue-north-york/broadway-avenue-north-york-exterior-cladding-01.webp",alt:"Broadway Avenue residential exterior cladding project in North York",caption:"Broadway Avenue exterior",phase:"Completed",hero:true},
+      {src:"/images/projects/broadway-avenue-north-york/broadway-avenue-north-york-exterior-cladding-02.webp",alt:"Broadway Avenue North York exterior cladding project view",caption:"Exterior cladding · project view",phase:"Completed"},
+      {src:"/images/projects/broadway-avenue-north-york/broadway-avenue-north-york-exterior-cladding-03.webp",alt:"Broadway Avenue North York residential facade detail",caption:"Exterior cladding · facade view",phase:"Completed"},
+      {src:"/images/projects/broadway-avenue-north-york/broadway-avenue-north-york-exterior-cladding-04.webp",alt:"Broadway Avenue North York completed exterior facade",caption:"Exterior cladding · completed facade",phase:"Completed"},
+      {src:"/images/projects/broadway-avenue-north-york/broadway-avenue-north-york-exterior-cladding-05.webp",alt:"Broadway Avenue North York residential exterior cladding view",caption:"Exterior cladding · project view",phase:"Completed"},
+      {src:"/images/projects/broadway-avenue-north-york/broadway-avenue-north-york-exterior-cladding-06.webp",alt:"Broadway Avenue North York residential exterior detail",caption:"Exterior cladding · detail view",phase:"Completed"},
+      {src:"/images/projects/broadway-avenue-north-york/broadway-avenue-north-york-exterior-cladding-07.webp",alt:"Broadway Avenue North York completed residential exterior",caption:"Exterior cladding · completed view",phase:"Completed"}
     ]}
   />;
 }
