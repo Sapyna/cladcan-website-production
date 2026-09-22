@@ -101,6 +101,6 @@ export default function Page(){
         }
       }
     `}</style>
-    <div className={styles.page}><AcmProductCompare variant="left" theme="architectural-stone" /></div>
+    <div className={`${styles.page} acmFinalMainPage`}><AcmProductCompare variant="left" theme="architectural-stone" /></div>
   </>;
 }
