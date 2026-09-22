@@ -26,140 +26,78 @@ strong,b{font-weight:700}
 .referenceHeader .headerPhone{font-size:.875rem!important;font-weight:600!important}
 .referenceHeader .headerQuote,.btn{font-size:.9375rem!important;line-height:1.2!important;font-weight:700!important}
 
-/* Internal breadcrumb / page navigation: readable at desktop distance */
 .pageBreadcrumbOverlay{font-family:var(--type-sans)!important}
-.pageBreadcrumbInner,
-.pageBreadcrumbInner a,
-.pageBreadcrumbInner > span,
-.pageBreadcrumbInner .current,
-.pageStickyTrailCrumbs,
-.pageStickyTrailCrumbs a,
-.pageStickyTrailCrumbs > span,
-.pageStickyTrail button{
-  font-size:clamp(.92rem,.88rem + .12vw,1rem)!important;
-  line-height:1.35!important;
-  font-weight:600!important;
-}
-.pageBreadcrumbType,
-.pageStickyType{
-  font-size:.76rem!important;
-  line-height:1!important;
-  letter-spacing:.16em!important;
-  font-weight:750!important;
-}
-.pageBreadcrumbInner i,
-.pageStickyTrailCrumbs i{
-  margin-inline:.55rem!important;
-  font-size:.9rem!important;
-}
+.pageBreadcrumbInner,.pageBreadcrumbInner a,.pageBreadcrumbInner > span,.pageBreadcrumbInner .current,.pageStickyTrailCrumbs,.pageStickyTrailCrumbs a,.pageStickyTrailCrumbs > span,.pageStickyTrail button{font-size:clamp(.92rem,.88rem + .12vw,1rem)!important;line-height:1.35!important;font-weight:600!important}
+.pageBreadcrumbType,.pageStickyType{font-size:.76rem!important;line-height:1!important;letter-spacing:.16em!important;font-weight:750!important}
+.pageBreadcrumbInner i,.pageStickyTrailCrumbs i{margin-inline:.55rem!important;font-size:.9rem!important}
 
 .eyebrow,.systemsPageEyebrow,.servicesKicker,.contactFinalKicker,.aboutV8Kicker,.projectsV11Hero .eyebrow,.caseV11Hero .eyebrow,.insightsHero .eyebrow{font-family:Arial,Helvetica,sans-serif!important}
-
 .sectionTitle p,.splitFeatureCopy p,.reverse p,.caseNarrative p,.articleWrap p,.contactFinalFormGrid p,.contactFinalVisitCopy p,.systemsPageIntroCopy p,.servicesIntro p{font-size:var(--type-body-size);line-height:var(--type-body-leading)}
 
 .contactFinalForm label,.quoteForm label,.miniQuoteForm label{font-size:.875rem!important;line-height:1.4!important;font-weight:700!important}
 .contactFinalForm input,.contactFinalForm select,.contactFinalForm textarea,.quoteForm input,.quoteForm select,.quoteForm textarea,.miniQuoteForm input,.miniQuoteForm select,.miniQuoteForm textarea{font-size:1rem!important;line-height:1.45!important}
 .contactFinalPrivacy,.contactFinalStatus,.contactFinalUpload small,.footerBottom,.footerGrid small{font-size:var(--type-caption-size)!important;line-height:1.55!important}
 
-/* Readability pass: bring editorial and secondary UI copy into the same scale
-   used throughout Services and Projects. */
-.insightsFeatureCopy p,
-.insightsLibraryHead p,
-.insightsCardBody p,
-.insightsFunnel p,
-.contactFinalSectionHead p,
-.contactFinalAreaSummary p,
-.contactFinalFaq p,
-.showroomBookingDetails p,
-.showroomBookingHero p{
-  font-size:clamp(1rem,.97rem + .14vw,1.125rem)!important;
-  line-height:1.65!important;
-}
-
+.insightsFeatureCopy p,.insightsLibraryHead p,.insightsCardBody p,.insightsFunnel p,.contactFinalSectionHead p,.contactFinalAreaSummary p,.contactFinalFaq p,.showroomBookingDetails p,.showroomBookingHero p{font-size:clamp(1rem,.97rem + .14vw,1.125rem)!important;line-height:1.65!important}
 .insightsFeatureCopy h2{font-size:clamp(2rem,2.6vw,3.25rem)!important;line-height:1.05!important}
 .insightsLibraryHead h2,.insightsFunnel h2{font-size:clamp(2.6rem,4.6vw,5.25rem)!important;line-height:.98!important}
+.insightsMeta,.insightsTopics>div>span,.insightsTopicRail small,.insightsTopicRail b,.insightsFeatureVisual small,.insightsFunnel>div>div>span,.insightsLibraryHead>div>span{font-size:.875rem!important;line-height:1.35!important}
+.insightsTopicRail b,.insightsFunnelLinks a{font-size:1rem!important}.insightsFunnelLinks a{line-height:1.45!important}
 
-.insightsMeta,
-.insightsTopics>div>span,
-.insightsTopicRail small,
-.insightsTopicRail b,
-.insightsFeatureVisual small,
-.insightsFunnel>div>div>span,
-.insightsLibraryHead>div>span{
-  font-size:.875rem!important;
-  line-height:1.35!important;
-}
+.aboutV8HeroFoot p,.aboutV8Manifesto p,.aboutV8Manifesto .lead,.aboutV8SectionHead p,.aboutV8CapabilityRail p,.aboutV8MarketsCopy p,.aboutV8Proof p,.aboutV8Final p{font-size:clamp(1rem,.97rem + .14vw,1.125rem)!important;line-height:1.66!important}
+.aboutV8Manifesto .lead{font-size:clamp(1.35rem,1.15rem + .65vw,1.8rem)!important;line-height:1.42!important}
+.aboutV8Manifesto h2,.aboutV8SectionHead h2,.aboutV8MarketsCopy h2,.aboutV8Proof h2,.aboutV8Final h2{font-size:clamp(2.5rem,4vw,4.75rem)!important;line-height:1.02!important;letter-spacing:-.035em!important}
+.aboutV8CapabilityRail h3{font-size:clamp(1.15rem,1.05rem + .25vw,1.4rem)!important;line-height:1.25!important}
+.aboutV8CapabilityRail b,.aboutV8CapabilityRail strong,.aboutV8MiniProof span,.aboutV8Audience b,.aboutV8ProcessGrid b,.aboutV8ProofCards strong,.aboutV8TextLink{font-size:.98rem!important;line-height:1.4!important}
+.aboutV8Audience small,.aboutV8ProofCards span,.aboutV8ProcessGrid span,.aboutV8SectionHead>span,.aboutV8MarketsVisual span,.aboutV8Final>div>span{font-size:.82rem!important;line-height:1.4!important}
 
-.insightsTopicRail b,.insightsFunnelLinks a{font-size:1rem!important}
-.insightsFunnelLinks a{line-height:1.45!important}
-
-/* ABOUT — align scale with Services / Projects */
-.aboutV8HeroFoot p,
-.aboutV8Manifesto p,
-.aboutV8Manifesto .lead,
-.aboutV8SectionHead p,
-.aboutV8CapabilityRail p,
-.aboutV8MarketsCopy p,
-.aboutV8Proof p,
-.aboutV8Final p{
-  font-size:clamp(1rem,.97rem + .14vw,1.125rem)!important;
-  line-height:1.66!important;
-}
-.aboutV8Manifesto .lead{
-  font-size:clamp(1.35rem,1.15rem + .65vw,1.8rem)!important;
-  line-height:1.42!important;
-}
-.aboutV8Manifesto h2,
-.aboutV8SectionHead h2,
-.aboutV8MarketsCopy h2,
-.aboutV8Proof h2,
-.aboutV8Final h2{
-  font-size:clamp(2.5rem,4vw,4.75rem)!important;
-  line-height:1.02!important;
-  letter-spacing:-.035em!important;
-}
-.aboutV8CapabilityRail h3{
-  font-size:clamp(1.15rem,1.05rem + .25vw,1.4rem)!important;
-  line-height:1.25!important;
-}
-.aboutV8CapabilityRail b,
-.aboutV8CapabilityRail strong,
-.aboutV8MiniProof span,
-.aboutV8Audience b,
-.aboutV8ProcessGrid b,
-.aboutV8ProofCards strong,
-.aboutV8TextLink{
-  font-size:.98rem!important;
-  line-height:1.4!important;
-}
-.aboutV8Audience small,
-.aboutV8ProofCards span,
-.aboutV8ProcessGrid span,
-.aboutV8SectionHead>span,
-.aboutV8MarketsVisual span,
-.aboutV8Final>div>span{
-  font-size:.82rem!important;
-  line-height:1.4!important;
-}
-
-/* Contact attachment state */
-.contactAttachmentFeedback{
-  width:100%;
-  margin-top:.75rem;
-  padding:.7rem .9rem;
-  border-radius:8px;
-  background:#eef2f4;
-  color:#61717c;
-  font-size:.9rem;
-  line-height:1.45;
-  overflow-wrap:anywhere;
-}
+.contactAttachmentFeedback{width:100%;margin-top:.75rem;padding:.7rem .9rem;border-radius:8px;background:#eef2f4;color:#61717c;font-size:.9rem;line-height:1.45;overflow-wrap:anywhere}
 .contactAttachmentFeedback.hasFiles{background:#e9f4ee;color:#245c3d;font-weight:650}
-
-/* Showroom form readability */
 .showroomBookingForm label{font-size:.95rem!important;font-weight:650!important;line-height:1.4!important}
 .showroomBookingForm input,.showroomBookingForm select,.showroomBookingForm textarea{font-size:1rem!important;line-height:1.45!important}
 .showroomBookingStatus{font-size:1rem!important;line-height:1.55!important}
+
+/* ===== HOMEPAGE READABILITY PASS — BELOW HERO =====
+   16px minimum for meaningful body copy; 13–14px only for metadata/kickers.
+   This intentionally overrides legacy 8–12px homepage rules. */
+.homeIntroGrid p{font-size:clamp(1.05rem,1rem + .18vw,1.2rem)!important;line-height:1.7!important;color:#536672!important;max-width:720px}
+.homeIntroLinks a{font-size:1rem!important;line-height:1.4!important;font-weight:700!important}
+.homeIntroGrid .eyebrow,.sectionTitle .eyebrow,.homeProcessSection .eyebrow{font-size:.8125rem!important;line-height:1.3!important;letter-spacing:.14em!important}
+
+.sectionTitle p{font-size:clamp(1rem,.97rem + .14vw,1.125rem)!important;line-height:1.65!important}
+.systemEditorialText h3{font-size:clamp(1.25rem,1.15rem + .25vw,1.5rem)!important;line-height:1.25!important}
+.systemEditorialText p{font-size:1rem!important;line-height:1.65!important}
+.systemEditorialText>span:last-child{font-size:.9375rem!important;line-height:1.4!important}
+.systemEditorialText .eyebrow{font-size:.78rem!important;line-height:1.3!important}
+
+.homeTrustGrid strong{font-size:1rem!important;line-height:1.35!important}
+.homeTrustGrid span{font-size:.9375rem!important;line-height:1.55!important}
+
+.homeProcessSection .sectionTitle p{font-size:1.0625rem!important;line-height:1.68!important}
+.homeProcessSection .processLine span{font-size:.8125rem!important;line-height:1.3!important}
+.homeProcessSection .processLine h3{font-size:1.125rem!important;line-height:1.3!important}
+.homeProcessSection .processLine p{font-size:1rem!important;line-height:1.65!important}
+
+.homeProjectCopy small{font-size:.8125rem!important;line-height:1.35!important}
+.homeProjectCopy h3{font-size:clamp(1.2rem,1.1rem + .3vw,1.5rem)!important;line-height:1.25!important}
+.homeProjectCopy p{font-size:1rem!important;line-height:1.65!important}
+.homeProjectCopy strong{font-size:.9375rem!important;line-height:1.4!important}
+
+.sectionHead p,.progressHead p{font-size:1rem!important;line-height:1.65!important}
+.baTag{font-size:.75rem!important;line-height:1.2!important}
+.baMeta b{font-size:1rem!important;line-height:1.35!important}.baMeta span{font-size:.875rem!important;line-height:1.45!important}
+.progressGrid b{font-size:1rem!important;line-height:1.35!important}.progressGrid span{font-size:.875rem!important;line-height:1.45!important}
+
+.reviewSummary span,.reviewSummary p{font-size:1rem!important;line-height:1.55!important}
+.reviewCard blockquote{font-size:1rem!important;line-height:1.7!important}
+.reviewPerson b{font-size:.9375rem!important;line-height:1.35!important}.reviewPerson small{font-size:.8125rem!important;line-height:1.4!important}
+.reviewStatus{font-size:1rem!important;line-height:1.55!important}.reviewStatus b{font-size:1.0625rem!important}.googleReviewLink{font-size:.9375rem!important}
+
+.proofGrid h3{font-size:1.125rem!important;line-height:1.3!important}.proofGrid p{font-size:1rem!important;line-height:1.65!important}
+.insightGrid h3{font-size:1.25rem!important;line-height:1.3!important}.insightGrid p{font-size:1rem!important;line-height:1.65!important}.insightGrid a{font-size:.9375rem!important;line-height:1.4!important}
+
+/* Footer is part of the homepage reading journey too. */
+.referenceFooter .footerPost small{font-size:.8125rem!important}.referenceFooter .footerPost span{font-size:.9375rem!important;line-height:1.45!important}
 
 @media(max-width:760px){
   :root{--type-body-size:1rem;--type-body-leading:1.65;--type-ui-size:.9375rem;--type-caption-size:.8125rem}
@@ -168,10 +106,8 @@ strong,b{font-weight:700}
   button,input,select,textarea{font-size:1rem!important}
   .pageBreadcrumbInner,.pageBreadcrumbInner a,.pageBreadcrumbInner>span{font-size:.9rem!important}
   .pageBreadcrumbType{font-size:.7rem!important}
+  .homeIntroGrid p,.sectionTitle p,.systemEditorialText p,.homeProcessSection .processLine p,.homeProjectCopy p,.sectionHead p,.progressHead p,.reviewCard blockquote,.proofGrid p,.insightGrid p{font-size:1rem!important}
 }
 
-/* Sitewide native system typography */
 body,body h1,body h2,body h3,body h4,body h5,body h6,body p,body li,body a,body button,body input,body select,body textarea,body label,body legend,body summary,body small,body strong,body b,body figcaption,body dt,body dd{font-family:var(--type-sans)!important}
-
-/* Preserve the approved compact gold label treatment */
 body .eyebrow,body .systemsPageEyebrow,body .servicesKicker,body .contactFinalKicker,body .aboutV8Kicker,body .projectsV11Hero .eyebrow,body .caseV11Hero .eyebrow,body .insightsHero .eyebrow{font-family:Arial,Helvetica,sans-serif!important}
