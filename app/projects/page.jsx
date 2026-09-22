@@ -10,6 +10,17 @@ export const metadata={
 
 const projects=[
   {
+    title:"Stock Yard Condos",
+    location:"North York, ON",
+    type:"Multi-Residential",
+    tags:["Residential"],
+    systems:["Exterior Cladding"],
+    image:"/images/projects/stock-yard-condos-north-york/stock-yard-condos-north-york-exterior-cladding-01.webp",
+    href:"/projects/stock-yard-condos-north-york",
+    summary:"A North York condominium exterior cladding project documented through completed project photography.",
+    photoCount:40
+  },
+  {
     title:"George Henry ACM Residence",
     location:"North York, ON",
     type:"Residential",
