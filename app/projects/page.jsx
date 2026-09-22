@@ -10,6 +10,17 @@ export const metadata={
 
 const projects=[
   {
+    title:"Romney Road ACM Residence",
+    location:"North York, ON",
+    type:"Residential",
+    tags:["Residential"],
+    systems:["ACM Panel"],
+    image:"/images/projects/romney-road-north-york/romney-road-north-york-exterior-cladding-01.webp",
+    href:"/projects/romney-road-north-york",
+    summary:"A North York residential ACM cladding project featuring clean contemporary panel detailing.",
+    photoCount:10
+  },
+  {
     title:"Tavora Exterior Cladding",
     location:"Ontario",
     type:"Exterior Cladding",
