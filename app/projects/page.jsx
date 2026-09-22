@@ -15,7 +15,7 @@ const projects=[
     type:"Residential",
     tags:["Residential"],
     systems:["ACM Panel"],
-    image:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-01.jpg",
+    image:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-01.webp",
     href:"/projects/green-valley-north-york",
     summary:"A residential ACM cladding project in North York featuring contemporary panel installation and clean architectural detailing.",
     photoCount:10
