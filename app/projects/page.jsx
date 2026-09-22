@@ -10,6 +10,17 @@ export const metadata={
 
 const projects=[
   {
+    title:"Green Valley ACM Residence",
+    location:"North York, ON",
+    type:"Residential",
+    tags:["Residential"],
+    systems:["ACM Panel"],
+    image:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-01.jpg",
+    href:"/projects/green-valley-north-york",
+    summary:"A residential ACM cladding project in North York featuring contemporary panel installation and clean architectural detailing.",
+    photoCount:10
+  },
+  {
     title:"8 Ravenscroft ACM Residence",
     location:"North York, ON",
     type:"Residential",
