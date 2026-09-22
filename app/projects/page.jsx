@@ -10,6 +10,17 @@ export const metadata={
 
 const projects=[
   {
+    title:"Upper Canada Exterior",
+    location:"North York, ON",
+    type:"Residential",
+    tags:["Residential"],
+    systems:["Exterior Cladding"],
+    image:"/images/projects/upper-canada-north-york/upper-canada-north-york-exterior-cladding-01.webp",
+    href:"/projects/upper-canada-north-york",
+    summary:"A North York residential exterior cladding project documented through completed project photography.",
+    photoCount:7
+  },
+  {
     title:"Glenpark Exterior Cladding",
     location:"North York, ON",
     type:"Residential",
