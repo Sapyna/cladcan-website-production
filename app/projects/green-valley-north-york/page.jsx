@@ -17,16 +17,16 @@ export default function Page(){
       {label:"Photography",value:"Project photography"},
     ]}
     images={[
-      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-01.jpg",alt:"Green Valley ACM residence exterior in North York Ontario",caption:"Exterior view",phase:"Completed",hero:true},
-      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-02.jpg",alt:"Residential ACM cladding at Green Valley North York",caption:"ACM cladding",phase:"Completed"},
-      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-03.jpg",alt:"Green Valley North York ACM panel installation detail",caption:"Panel detailing",phase:"Completed"},
-      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-04.jpg",alt:"Contemporary ACM exterior at Green Valley North York",caption:"Exterior detail",phase:"Completed"},
-      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-05.jpg",alt:"Green Valley residence ACM facade in North York",caption:"Facade view",phase:"Completed"},
-      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-06.jpg",alt:"ACM panel facade detail Green Valley North York",caption:"Facade detail",phase:"Completed"},
-      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-07.jpg",alt:"Green Valley residential exterior cladding North York",caption:"Residential exterior",phase:"Completed"},
-      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-08.jpg",alt:"Architectural ACM panels Green Valley residence North York",caption:"Architectural detail",phase:"Completed"},
-      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-09.jpg",alt:"Completed Green Valley ACM project in North York",caption:"Completed exterior",phase:"Completed"},
-      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-10.jpg",alt:"Green Valley North York completed residential ACM cladding",caption:"Completed project",phase:"Completed"}
+      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-01.webp",alt:"Green Valley ACM residence exterior in North York Ontario",caption:"Exterior view",phase:"Completed",hero:true},
+      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-02.webp",alt:"Residential ACM cladding at Green Valley North York",caption:"ACM cladding",phase:"Completed"},
+      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-03.webp",alt:"Green Valley North York ACM panel installation detail",caption:"Panel detailing",phase:"Completed"},
+      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-04.webp",alt:"Contemporary ACM exterior at Green Valley North York",caption:"Exterior detail",phase:"Completed"},
+      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-05.webp",alt:"Green Valley residence ACM facade in North York",caption:"Facade view",phase:"Completed"},
+      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-06.webp",alt:"ACM panel facade detail Green Valley North York",caption:"Facade detail",phase:"Completed"},
+      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-07.webp",alt:"Green Valley residential exterior cladding North York",caption:"Residential exterior",phase:"Completed"},
+      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-08.webp",alt:"Architectural ACM panels Green Valley residence North York",caption:"Architectural detail",phase:"Completed"},
+      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-09.webp",alt:"Completed Green Valley ACM project in North York",caption:"Completed exterior",phase:"Completed"},
+      {src:"/images/projects/green-valley-north-york/green-valley-north-york-acm-residence-10.webp",alt:"Green Valley North York completed residential ACM cladding",caption:"Completed project",phase:"Completed"}
     ]}
   />;
 }
