@@ -7065,3 +7065,57 @@ body:not(.home) .siteHeader + main,
 .projectV11ImageContainFill .projectV11Arrow{
   z-index:3;
 }
+
+
+/* ===== PROJECTS CATALOGUE V12 — editorial portfolio ===== */
+.projectsV11Section{padding:72px 0 96px;background:#f7f7f4}
+.projectsV11Toolbar{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:34px;padding:0 0 20px}
+.projectsV11Filters{display:flex;flex-wrap:wrap;gap:8px}
+.projectsV11Filters button{padding:10px 15px;border:1px solid #d3dadd;border-radius:999px;background:transparent;color:#53636c;font-size:12px;font-weight:700;cursor:pointer;transition:.2s ease}
+.projectsV11Filters button:hover{border-color:#82949d;color:#0b2533}
+.projectsV11Filters button.active{border-color:#0b2533;background:#0b2533;color:#fff}
+.projectsV11Grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:42px 24px}
+.projectV11Card{grid-column:span 6;min-width:0;color:#0b2533;text-decoration:none}
+.projectV11Card:nth-child(5n+1){grid-column:span 7}
+.projectV11Card:nth-child(5n+2){grid-column:span 5}
+.projectV11Image{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;border-radius:3px;background:#dce2e3}
+.projectV11Card:nth-child(5n+1) .projectV11Image,.projectV11Card:nth-child(5n+2) .projectV11Image{aspect-ratio:4/3}
+.projectV11Image>img{transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.projectV11Card:hover .projectV11Image>img{transform:scale(1.025)}
+.projectV11Arrow{position:absolute;right:16px;top:16px;z-index:4;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.92);color:#0b2533;box-shadow:0 5px 18px rgba(5,26,38,.12)}
+.projectV11Meta{display:flex;justify-content:space-between;gap:16px;margin-top:17px;color:#75838a;font-size:10px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+.projectV11Card h3{margin:8px 0 8px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(24px,2.1vw,34px);line-height:1.08;letter-spacing:-.035em}
+.projectV11Card>p{max-width:680px;margin:0;color:#66757c;font-size:13px;line-height:1.65}
+.projectV11Tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.projectV11Tags span{padding:6px 9px;border:1px solid #d8dfe1;border-radius:3px;color:#596970;font-size:9px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.projectV11Open{margin-top:16px;padding-top:0;border-top:0}
+.projectsV11List{border-top:1px solid #ccd5d8}
+.projectV11Row{display:grid;grid-template-columns:150px minmax(240px,1.1fr) minmax(180px,.8fr) 28px;align-items:center;gap:24px;padding:18px 0;border-bottom:1px solid #d5dcde;color:#0b2533;text-decoration:none}
+.projectV11Mini{position:relative;width:150px;aspect-ratio:16/10;overflow:hidden;background:#dce2e3}
+.projectV11Row>div:nth-child(2)>span{color:#7b898f;font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.projectV11Row h3{margin:5px 0 0;font-family:Georgia,"Times New Roman",serif;font-size:22px;letter-spacing:-.025em}
+.projectV11Row>p{margin:0;color:#64737a;font-size:11px;line-height:1.5}
+.projectV11Row:hover h3{color:#e92327}
+@media(max-width:900px){
+ .projectsV11Section{padding:52px 0 72px}
+ .projectsV11Toolbar{align-items:flex-start}
+ .projectsV11Grid{gap:34px 16px}
+ .projectV11Card,.projectV11Card:nth-child(5n+1),.projectV11Card:nth-child(5n+2){grid-column:span 6}
+ .projectV11Card .projectV11Image,.projectV11Card:nth-child(5n+1) .projectV11Image,.projectV11Card:nth-child(5n+2) .projectV11Image{aspect-ratio:4/3}
+ .projectV11Row{grid-template-columns:110px 1fr 24px}
+ .projectV11Mini{width:110px}.projectV11Row>p{display:none}
+}
+@media(max-width:650px){
+ .projectsV11Toolbar{display:block;margin-bottom:26px}
+ .projectsV11Filters{gap:6px;margin-bottom:14px}
+ .projectsV11Filters button{padding:8px 11px;font-size:10px}
+ .viewSwitcher{width:max-content}
+ .projectsV11Grid{display:block}
+ .projectV11Card{margin-bottom:38px}
+ .projectV11Card .projectV11Image{aspect-ratio:4/3}
+ .projectV11Meta{margin-top:14px}
+ .projectV11Card h3{font-size:27px}
+ .projectV11Row{grid-template-columns:92px 1fr 20px;gap:14px}
+ .projectV11Mini{width:92px}
+ .projectV11Row h3{font-size:18px}
+}
