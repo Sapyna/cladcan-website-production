@@ -11,8 +11,10 @@ export default function Page(){
       <AcmProductCompare variant="horizontal" />
     </div>
     <style>{`
-      /* Alternative only: keep the current ACM content exactly, but convert its
-         long-form navigation into a left sticky in-page menu. */
+      /* Alternative only.
+         The source content is the SAME Panel() content used by the current ACM page.
+         Only presentation changes: all seven panels are rendered sequentially and
+         the former tab controls become ordinary in-page anchor navigation. */
       .acmContinuousAlternative article{
         display:grid!important;
         grid-template-columns:minmax(210px,250px) minmax(0,1fr)!important;
@@ -24,9 +26,10 @@ export default function Page(){
       }
       .acmContinuousAlternative article > nav[class*="horizontalNav"]{
         grid-column:1!important;
-        position:sticky!important;
-        top:96px!important;
-        z-index:20!important;
+        /* IMPORTANT: menu belongs to document flow and scrolls with the page. */
+        position:relative!important;
+        top:auto!important;
+        z-index:auto!important;
         display:flex!important;
         flex-direction:column!important;
         align-self:start!important;
@@ -86,6 +89,8 @@ export default function Page(){
         margin-bottom:0!important;
         border-bottom:0!important;
       }
+      /* Do not introduce alternative section copy/headings. The only small header
+         here is the section marker derived from the existing ACM tab label. */
       .acmContinuousAlternative [class*="longHead"]{
         margin-bottom:28px!important;
       }
@@ -94,8 +99,8 @@ export default function Page(){
           display:block!important;
         }
         .acmContinuousAlternative article > nav[class*="horizontalNav"]{
-          position:sticky!important;
-          top:72px!important;
+          position:relative!important;
+          top:auto!important;
           display:flex!important;
           flex-direction:row!important;
           overflow-x:auto!important;
