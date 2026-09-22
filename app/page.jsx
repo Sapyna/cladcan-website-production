@@ -117,10 +117,5 @@ export default function Home(){
       <SectionTitle kicker="CLADCAN INSIGHTS" title="Useful information before the next decision." copy="Material guidance, maintenance notes and planning content connected directly to systems, services and project work." link={{label:"View all insights",href:"/blog"}}/>
       <div className="insightGrid">{insights.map(x=><article key={x.title}><span className="eyebrow">{x.kicker}</span><h3>{x.title}</h3><p>{x.copy}</p><Link href={x.href}>Read article <ArrowUpRight size={12}/></Link></article>)}</div>
     </div>
-   </section>
-
-   <section className="section homeProjectStart">
-    <div className="wrap homeProjectStartInner"><div><span className="eyebrow">START A PROJECT</span><h2>Have drawings, photos or simply a project question?</h2><p>Tell us what you are working on and what kind of support you need. The Project Start page is designed to route quote, supply, installation, design-support, sample and repair inquiries.</p></div><div className="homeProjectStartActions"><Link className="btn heroPrimaryCTA" href="/contact">Start your project <ArrowUpRight size={15}/></Link><a href="tel:+18449243030">Or call +1 (844) 924-3030</a></div></div>
-   </section>
- </>;
+   </section> </>;
 }
