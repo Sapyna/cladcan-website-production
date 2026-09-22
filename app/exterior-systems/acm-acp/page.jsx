@@ -9,20 +9,7 @@ export const metadata = {
 export default function Page(){
   return <>
     <style>{`
-      /* Final ACM: give the global breadcrumb its own row instead of overlaying the hero copy. */
-      .pageBreadcrumbOverlay{
-        position:relative!important;
-        top:auto!important;
-        left:auto!important;
-        right:auto!important;
-        z-index:20!important;
-        pointer-events:auto!important;
-        background:#071a29!important;
-        border-bottom:1px solid rgba(255,255,255,.10)!important;
-      }
-      .pageBreadcrumbInner{
-        min-height:52px!important;
-      }
+      /* ACM uses the same sitewide breadcrumb placement as the other exterior-system pages. */
 
       /* Match the established product-page CTA language: lightly rounded outline, red on hover, no text-link underline. */
       [class*="heroCopy"] > a{
