@@ -1,25 +1,123 @@
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight, Check, Layers3, Ruler, ShieldCheck, Sparkles } from "lucide-react";
+import AcmProductCompare from "@/components/AcmProductCompare";
 
-export const metadata={title:"ACM / ACP — Continuous Layout",description:"Continuous ACM / ACP product page concept with sticky in-page navigation."};
-const nav=[['overview','Overview'],['construction','Panel Construction'],['benefits','Benefits'],['applications','Applications'],['finishes','Colours & Finishes'],['specs','Specifications'],['fabrication','Fabrication'],['delivery','Project Delivery'],['system','Complete System'],['faq','FAQ']];
-const benefits=[["Cost-Effective","Durable, low-maintenance panel systems can provide strong long-term value."],["Lightweight","Composite construction simplifies handling, fabrication and installation."],["Durable","Specified coatings and assemblies resist weather, UV exposure and corrosion."],["Design Versatility","Broad colours, textures and forming possibilities support expressive façades."],["Fire-Rated Options","Mineral-filled and code-compliant core options are available where required."],["Low Maintenance","Finished surfaces are straightforward to clean and designed for lasting colour retention."]];
-const apps=[['Commercial Buildings','/images/exterior-systems/acm-acp/commercial-building-acm-panel-cladding.webp'],['Residential Projects','/images/exterior-systems/acm-acp/residential-aluminum-composite-panel-facade.webp'],['Public Infrastructure','/images/exterior-systems/acm-acp/public-infrastructure-acm-panel-application.webp'],['Architectural Signage','/images/exterior-systems/acm-acp/acm-panel-commercial-signage.webp']];
-const process=['Design Consultation','Field Measurement','Shop Drawings & Panel Layout','Precision Fabrication','Coordinated Delivery','Envelope & Subframing Preparation','Panel Installation','Project Management','Final Review & Support'];
-const faqs=[["What is the typical lifespan of ACM?","Service life depends on panel, coating, exposure, assembly design and maintenance. Quality architectural systems are selected for long-term exterior use."],["Are fire-resistant ACM panels available?","Yes. Core composition and fire performance vary, so the selected panel must be verified against project code and assembly requirements."],["Can ACM be recoated?","Compatible coating systems may be available, subject to panel and finish manufacturer requirements."],["What warranty is available?","Coverage varies by manufacturer, finish, product series, exposure and installation."]];
-export default function Page(){return <article className="acmPage acmContinuousPage">
-<section className="internalHero exteriorSystemDetailHero acmStandardHero"><div className="internalHeroImage exteriorSystemHeroMedia acmStandardHeroMedia" style={{backgroundImage:"url('/images/exterior-systems/acm-acp/acm-aluminum-composite-panel-residential-hero.webp')"}}/><div className="wrap internalHeroCopy"><span>ALUMINUM COMPOSITE MATERIAL</span><h1>ACM / ACP Aluminum Composite Panels</h1><p>A continuous product guide for architectural panels, finishes, fabrication, systems and applications.</p><div className="heroActions"><Link href="/contact" className="btn internalRedBtn">Get a Quote →</Link><Link href="/contact" className="btn lineBtn">Request Sample</Link></div></div></section>
-<div className="acmContinuousShell wrap"><aside className="acmContinuousNav"><p>ON THIS PAGE</p>{nav.map(([id,label],i)=><a href={`#${id}`} key={id}><span>{String(i+1).padStart(2,'0')}</span>{label}</a>)}</aside><main className="acmContinuousContent">
-<section id="overview" className="acmContinuousSection"><div className="acmIntroMedia"><Image src="/images/exterior-systems/acm-acp/introduction-acm-panel-building-envelope.webp" alt="ACM building envelope" fill sizes="70vw"/></div><p className="acmEyebrow">WHAT IS ACM / ACP?</p><h2>A lightweight panel engineered for the modern envelope.</h2><p>Aluminum Composite Material combines two aluminum skins with a bonded core. The result is a flat, rigid and highly workable panel that can be cut, routed, folded and formed into precise architectural shapes.</p><p>CladCan coordinates established manufacturers and helps project teams select the appropriate panel, coating, core and assembly.</p><div className="acmBrandLine">ALPOLIC · ALUBOND · ALUCOIL · LARSON · REYNOBOND · ALUCOBOND · ALCOTEX · ALFREX</div></section>
-<section id="construction" className="acmContinuousSection"><p className="acmEyebrow">PANEL CONSTRUCTION</p><h2>Multiple layers. One high-performance panel.</h2><div className="acmDiagram"><Image src="/images/exterior-systems/acm-acp/aluminum-composite-panel-layer-construction.webp" alt="ACM panel layers" width={1069} height={548}/></div><div className="acmLayerList"><div><span>01</span><p><strong>Aluminum skins</strong> provide smooth surfaces and dimensional stability.</p></div><div><span>02</span><p><strong>Bonded core</strong> is selected by product series and project requirements.</p></div><div><span>03</span><p><strong>Architectural coating</strong> creates colour, texture and weathering performance.</p></div></div></section>
-<section id="benefits" className="acmContinuousSection"><p className="acmEyebrow">WHY ACM?</p><h2>Performance that gives designers room to create.</h2><div className="acmBenefitGrid">{benefits.map(([t,p],i)=><div className="acmBenefit" key={t}><span>{String(i+1).padStart(2,'0')}</span><h3>{t}</h3><p>{p}</p></div>)}</div></section>
-<section id="applications" className="acmContinuousSection"><p className="acmEyebrow">APPLICATIONS</p><h2>One material system, many architectural roles.</h2><div className="acmApplicationGrid">{apps.map(([t,img])=><article className="acmApplication" key={t}><div className="acmApplicationMedia"><Image src={img} alt={t} fill sizes="35vw"/></div><div><h3>{t}</h3><p>Precision-fabricated ACM panels for durable, contemporary exterior design.</p></div></article>)}</div></section>
-<section id="finishes" className="acmContinuousSection"><div className="acmFinishMedia"><Image src="/images/exterior-systems/acm-acp/acm-panel-colours-finishes-samples.webp" alt="ACM colours and finishes" fill sizes="70vw"/></div><p className="acmEyebrow">COLOURS & FINISHES</p><h2>A finish palette made for architectural expression.</h2><p>Choose from manufacturer collections or coordinate a project-specific finish. Availability, minimum quantities and warranty terms vary by product.</p><ul className="acmCheckList">{['Standard solid colours','Metallic & brushed finishes','Woodgrain appearances','Stone & textured finishes','Custom colour matching'].map(x=><li key={x}><Check size={18}/>{x}</li>)}</ul></section>
-<section id="specs" className="acmContinuousSection"><p className="acmEyebrow">TYPICAL PARAMETERS</p><h2>Specified around the project—not a one-size-fits-all panel.</h2><div className="acmSpecGrid"><div><Layers3/><strong>Panel thickness</strong><span>Commonly 3–6 mm</span></div><div><Ruler/><strong>Sheet formats</strong><span>Standard and oversized formats</span></div><div><ShieldCheck/><strong>Core options</strong><span>Product- and code-specific</span></div><div><Sparkles/><strong>Finish systems</strong><span>Architectural coatings by series</span></div></div></section>
-<section id="fabrication" className="acmContinuousSection"><p className="acmEyebrow">FABRICATION</p><h2>From digital layout to a precisely formed panel.</h2><p>CladCan translates coordinated shop drawings into fabrication-ready panels using CNC routing, cutting, drilling, folding and finishing workflows.</p><div className="acmFabricationGrid"><figure className="acmFabMain"><Image src="/images/exterior-systems/acm-acp/cnc-fabrication-aluminum-composite-panels.webp" alt="CNC fabrication" fill sizes="45vw"/><figcaption>CNC routing & cutting</figcaption></figure><figure><Image src="/images/exterior-systems/acm-acp/acm-panel-fabrication-cnc-machine.webp" alt="Fabrication equipment" fill sizes="25vw"/><figcaption>Production equipment</figcaption></figure><figure><Image src="/images/exterior-systems/acm-acp/acm-panel-shop-drawing-fabrication-software.webp" alt="Digital panel layout" fill sizes="25vw"/><figcaption>Digital panel layout</figcaption></figure></div></section>
-<section id="delivery" className="acmContinuousSection"><p className="acmEyebrow">PROJECT DELIVERY</p><h2>A coordinated path from early design to final review.</h2><ol className="acmContinuousProcess">{process.map((x,i)=><li key={x}><span>{String(i+1).padStart(2,'0')}</span>{x}</li>)}</ol></section>
-<section id="system" className="acmContinuousSection"><p className="acmEyebrow">COMPLETE SYSTEM</p><h2>The panel is only one part of a reliable façade.</h2><div className="acmSystemGrid"><div><h3>Extrusions & subframing</h3><p>Project-specific profiles create attachment, alignment and drainage geometry.</p></div><div><h3>Fasteners & clips</h3><p>Compatible attachment components support the selected system.</p></div><div><h3>Envelope interfaces</h3><p>WRB, insulation, flashings, openings and transitions are coordinated as part of the wall assembly.</p></div></div></section>
-<section id="faq" className="acmContinuousSection acmFaq"><p className="acmEyebrow">COMMON QUESTIONS</p><h2>ACM / ACP essentials.</h2>{faqs.map(([q,a])=><details key={q}><summary>{q}<span>+</span></summary><p>{a}</p></details>)}</section>
-</main></div><section className="acmCta"><p className="acmEyebrow">READY TO BUILD?</p><h2>Bring your ACM façade concept into focus.</h2><p>Share your drawings, elevations or early design intent.</p><Link href="/contact">Start a conversation <ArrowUpRight size={20}/></Link></section>
-<style>{`.acmContinuousShell{display:grid;grid-template-columns:240px minmax(0,1fr);gap:70px;align-items:start;padding-top:70px;padding-bottom:100px}.acmContinuousNav{position:sticky;top:110px;border-left:1px solid #dce2e5;padding:8px 0 8px 22px}.acmContinuousNav p{font-size:12px;font-weight:900;letter-spacing:.14em;color:#9b6d35;margin:0 0 18px}.acmContinuousNav a{display:flex;gap:12px;padding:10px 0;font-size:14px;font-weight:700;color:#61727d}.acmContinuousNav a:hover{color:#081d2f}.acmContinuousNav a span{font-size:10px;color:#a97a43;padding-top:3px}.acmContinuousSection{scroll-margin-top:105px;padding:0 0 90px;margin:0 0 90px;border-bottom:1px solid #e2e7ea}.acmContinuousSection:last-child{border-bottom:0;margin-bottom:0}.acmContinuousSection>h2{font-size:clamp(36px,4vw,58px);letter-spacing:-.045em;line-height:1.05;margin:8px 0 24px}.acmContinuousSection>p:not(.acmEyebrow){font-size:17px;line-height:1.75;color:#6c7b86;max-width:850px}.acmContinuousSection .acmIntroMedia,.acmContinuousSection .acmFinishMedia{position:relative;min-height:480px;margin-bottom:42px;overflow:hidden}.acmContinuousSection .acmIntroMedia img,.acmContinuousSection .acmFinishMedia img{object-fit:cover}.acmContinuousProcess{display:grid;grid-template-columns:repeat(3,1fr);padding:0;list-style:none;border-top:1px solid #e2e7ea}.acmContinuousProcess li{padding:22px 12px;border-bottom:1px solid #e2e7ea;font-size:15px;font-weight:750}.acmContinuousProcess span{display:block;font-size:10px;color:#9b6d35;margin-bottom:8px}@media(max-width:900px){.acmContinuousShell{grid-template-columns:1fr;gap:30px}.acmContinuousNav{position:sticky;top:76px;z-index:20;background:white;display:flex;overflow:auto;border:1px solid #e2e7ea;padding:10px 14px;gap:20px}.acmContinuousNav p{display:none}.acmContinuousNav a{white-space:nowrap}.acmContinuousProcess{grid-template-columns:1fr 1fr}}`}</style></article>}
+export const metadata = {
+  title: "ACM / ACP Aluminum Composite Panels — Continuous Alternative | CladCan",
+  description: "Alternative continuous-layout version of the CladCan ACM / ACP product page."
+};
+
+export default function Page(){
+  return <>
+    <div className="acmContinuousAlternative">
+      <AcmProductCompare variant="horizontal" />
+    </div>
+    <style>{`
+      /* Alternative only: keep the current ACM content exactly, but convert its
+         long-form navigation into a left sticky in-page menu. */
+      .acmContinuousAlternative article{
+        display:grid!important;
+        grid-template-columns:minmax(210px,250px) minmax(0,1fr)!important;
+        column-gap:56px!important;
+        align-items:start!important;
+      }
+      .acmContinuousAlternative article > section:first-child{
+        grid-column:1 / -1!important;
+      }
+      .acmContinuousAlternative article > nav[class*="horizontalNav"]{
+        grid-column:1!important;
+        position:sticky!important;
+        top:96px!important;
+        z-index:20!important;
+        display:flex!important;
+        flex-direction:column!important;
+        align-self:start!important;
+        width:100%!important;
+        margin:64px 0 96px!important;
+        padding:8px 0 8px 18px!important;
+        border:0!important;
+        border-left:1px solid #d9e0e4!important;
+        background:transparent!important;
+        box-shadow:none!important;
+      }
+      .acmContinuousAlternative article > nav[class*="horizontalNav"] a{
+        display:grid!important;
+        grid-template-columns:28px 1fr!important;
+        gap:0 10px!important;
+        align-items:center!important;
+        min-height:48px!important;
+        padding:8px 10px!important;
+        border:0!important;
+        border-radius:8px!important;
+        color:#647681!important;
+        text-decoration:none!important;
+        background:transparent!important;
+      }
+      .acmContinuousAlternative article > nav[class*="horizontalNav"] a:hover{
+        color:#0a2133!important;
+        background:#f4f1eb!important;
+      }
+      .acmContinuousAlternative article > nav[class*="horizontalNav"] svg{
+        grid-row:1 / span 2!important;
+        width:18px!important;
+        height:18px!important;
+        color:#a9783e!important;
+      }
+      .acmContinuousAlternative article > nav[class*="horizontalNav"] span{
+        display:none!important;
+      }
+      .acmContinuousAlternative article > nav[class*="horizontalNav"] strong{
+        font-size:15px!important;
+        line-height:1.25!important;
+        font-weight:750!important;
+      }
+      .acmContinuousAlternative article > main[class*="longform"]{
+        grid-column:2!important;
+        width:100%!important;
+        min-width:0!important;
+        margin:64px 0 96px!important;
+        padding:0 4vw 0 0!important;
+      }
+      .acmContinuousAlternative article > main[class*="longform"] > section{
+        scroll-margin-top:105px!important;
+        padding:0 0 82px!important;
+        margin:0 0 82px!important;
+        border-bottom:1px solid #e0e5e8!important;
+      }
+      .acmContinuousAlternative article > main[class*="longform"] > section:last-child{
+        margin-bottom:0!important;
+        border-bottom:0!important;
+      }
+      .acmContinuousAlternative [class*="longHead"]{
+        margin-bottom:28px!important;
+      }
+      @media(max-width:900px){
+        .acmContinuousAlternative article{
+          display:block!important;
+        }
+        .acmContinuousAlternative article > nav[class*="horizontalNav"]{
+          position:sticky!important;
+          top:72px!important;
+          display:flex!important;
+          flex-direction:row!important;
+          overflow-x:auto!important;
+          width:100%!important;
+          margin:0!important;
+          padding:10px 16px!important;
+          border-left:0!important;
+          border-top:1px solid #e0e5e8!important;
+          border-bottom:1px solid #e0e5e8!important;
+          background:#fff!important;
+        }
+        .acmContinuousAlternative article > nav[class*="horizontalNav"] a{
+          display:flex!important;
+          flex:0 0 auto!important;
+          min-height:42px!important;
+          white-space:nowrap!important;
+        }
+        .acmContinuousAlternative article > main[class*="longform"]{
+          margin:42px 0 70px!important;
+          padding:0 20px!important;
+        }
+      }
+    `}</style>
+  </>;
+}
