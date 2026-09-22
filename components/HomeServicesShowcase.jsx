@@ -22,13 +22,13 @@ export default function HomeServicesShowcase(){
       {services.map(({number,title,eyebrow,copy,href,image,alt,icon:Icon})=>
         <Link className="homeServicesPanel" href={href} key={title}>
           <img src={image} alt={alt}/><span className="homeServicesPanelShade"></span>
-          <span className="homeServicesPanelTop"><b style={{fontSize:"14px"}}>{number}</b><Icon size={22}/></span>
+          <span className="homeServicesPanelTop"><b style={{fontSize:"15px"}}>{number}</b><Icon size={24}/></span>
           <span className="homeServicesPanelContent">
-            <small style={{fontSize:"13px"}}>{eyebrow}</small>
+            <small style={{fontSize:"14px"}}>{eyebrow}</small>
             <strong>{title}</strong>
             <span className="homeServicesPanelReveal">
-              <span style={{fontSize:"17px",lineHeight:1.6}}>{copy}</span>
-              <b style={{fontSize:"16px"}}>Explore service <ArrowUpRight size={15}/></b>
+              <span style={{fontSize:"19px",lineHeight:1.6}}>{copy}</span>
+              <b style={{fontSize:"18px",lineHeight:1.3}}>Explore service <ArrowUpRight size={18}/></b>
             </span>
           </span>
         </Link>
