@@ -7209,3 +7209,39 @@ body:not(.home) .siteHeader + main,
   font-style:normal;
   letter-spacing:-.055em;
 }
+
+
+/* ===== v53 — Core service hover refinement ===== */
+.homeServiceV51,
+.homeServiceV51:hover,
+.homeServiceV51:focus-visible,
+.homeServiceV51 *,
+.homeServiceV51:hover *,
+.homeServiceV51:focus-visible *{
+  text-decoration:none!important;
+}
+.homeServiceV51{
+  overflow:hidden;
+  transition:background-color .28s ease,color .28s ease,transform .28s ease,box-shadow .28s ease;
+}
+.homeServiceV51:after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:3px;
+  background:#f52225;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .32s cubic-bezier(.2,.75,.2,1);
+}
+.homeServiceV51:hover,.homeServiceV51:focus-visible{
+  background:#102c3c;
+  color:#fff;
+  transform:translateY(-4px);
+  box-shadow:0 16px 32px rgba(10,35,50,.12);
+}
+.homeServiceV51:hover:after,.homeServiceV51:focus-visible:after{transform:scaleX(1)}
+.homeServiceV51:hover h3,.homeServiceV51:focus-visible h3{color:#fff}
+.homeServiceV51:hover strong,.homeServiceV51:focus-visible strong{color:#fff}
+.homeServiceV51 strong svg{transition:transform .24s ease}
+.homeServiceV51:hover strong svg,.homeServiceV51:focus-visible strong svg{transform:translate(4px,-4px)}
