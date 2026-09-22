@@ -10,6 +10,17 @@ export const metadata={
 
 const projects=[
   {
+    title:"Tavora Exterior Cladding",
+    location:"Ontario",
+    type:"Exterior Cladding",
+    tags:["Exterior Cladding"],
+    systems:["Exterior Cladding"],
+    image:"/images/projects/tavora/tavora-exterior-cladding-project-01.webp",
+    href:"/projects/tavora",
+    summary:"A Tavora exterior cladding project documented through a complete gallery of project photography.",
+    photoCount:30
+  },
+  {
     title:"Broadway Avenue Exterior",
     location:"North York, ON",
     type:"Residential",
