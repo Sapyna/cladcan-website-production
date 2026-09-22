@@ -1,0 +1,462 @@
+.page [class*="overviewGrid"]{
+  grid-template-columns:minmax(0,1.08fr) minmax(340px,.82fr);
+  gap:clamp(42px,5vw,72px);
+  align-items:start;
+}
+
+.page [class*="overviewGrid"] > div:first-child{
+  padding-top:2px;
+}
+
+.page [class*="overviewGrid"] h2{
+  max-width:620px!important;
+  margin:0 0 24px!important;
+  font-size:clamp(1.7rem,2.15vw,2.45rem)!important;
+  line-height:1.16!important;
+  letter-spacing:-.025em!important;
+  font-weight:720;
+  text-wrap:balance;
+}
+
+.page [class*="overviewGrid"] > div:first-child > p:not([class*="kicker"]):not([class*="scopeNote"]){
+  max-width:660px!important;
+  margin:0 0 17px;
+  font-size:.98rem;
+  line-height:1.72;
+  color:#5d707b;
+}
+
+.page [class*="scopeNote"]{
+  max-width:660px!important;
+  margin:28px 0 0!important;
+  padding:17px 19px 17px 21px;
+  border-left:3px solid #c79a5d;
+  background:#f5f6f4;
+  color:#4f626d!important;
+  font-size:.93rem;
+  line-height:1.62!important;
+}
+
+.page [class*="scopeNote"] strong{
+  color:#102633;
+  font-weight:800;
+}
+
+.page [class*="overviewGrid"] [class*="brandLine"]{
+  max-width:660px;
+  margin-top:24px;
+  padding-top:17px;
+  font-size:.66rem;
+  line-height:1.75;
+  letter-spacing:.05em;
+}
+
+.page [class*="overviewGrid"] [class*="figure"]{
+  min-height:405px;
+  margin-top:24px;
+  border:1px solid #e1e6e7;
+  background:#f1f4f4;
+}
+
+.page [class*="overviewGrid"] [class*="figure"] img{
+  padding:34px!important;
+}
+
+/* Shared typography rhythm for all non-overview tabs */
+.page [class*="panel"] > div > h2{
+  max-width:620px!important;
+  margin:0 0 22px!important;
+  font-size:clamp(1.7rem,2.15vw,2.45rem)!important;
+  line-height:1.16!important;
+  letter-spacing:-.025em!important;
+  font-weight:720!important;
+  text-wrap:balance;
+}
+
+.page [class*="panel"] > div > [class*="sectionNote"],
+.page [class*="panel"] > div > [class*="projectsIntro"],
+.page [class*="panel"] > div > [class*="referenceNote"]{
+  max-width:660px!important;
+  font-size:.98rem!important;
+  line-height:1.7!important;
+  color:#5d707b!important;
+}
+
+.page [class*="panel"] > div > [class*="sectionNote"]{
+  margin:0 0 30px!important;
+}
+
+.page [class*="panel"] > div > [class*="projectsIntro"]{
+  margin:0 0 30px!important;
+}
+
+.page [class*="panel"] > div > [class*="referenceNote"]{
+  margin:24px 0 0!important;
+  padding-top:18px;
+  border-top:1px solid #d7dedf;
+  font-size:.88rem!important;
+  line-height:1.62!important;
+}
+
+.page [class*="panel"] [class*="featureGrid"] h3,
+.page [class*="panel"] [class*="cardCopy"] h3,
+.page [class*="panel"] [class*="systemGrid"] h3,
+.page [class*="panel"] [class*="finishGrid"] h3,
+.page [class*="panel"] [class*="projectCopy"] h3{
+  letter-spacing:-.015em;
+  line-height:1.25;
+  font-weight:720;
+}
+
+.page [class*="panel"] [class*="featureGrid"] p,
+.page [class*="panel"] [class*="cardCopy"] p,
+.page [class*="panel"] [class*="systemGrid"] p,
+.page [class*="panel"] [class*="projectCopy"] p{
+  font-size:.9rem!important;
+  line-height:1.62!important;
+}
+
+.page [class*="panel"] [class*="componentItem"] strong{
+  font-size:.94rem!important;
+  line-height:1.3;
+  font-weight:720;
+  letter-spacing:-.01em;
+}
+
+.page [class*="panel"] [class*="componentItem"] p{
+  margin:5px 0 0!important;
+  font-size:.86rem!important;
+  line-height:1.55!important;
+}
+
+/* Benefits: same panel shell as every other tab; only the content is redesigned */
+.page [class*="benefitsVisual"]{
+  position:relative;
+  width:100%;
+  aspect-ratio:16 / 6;
+  min-height:280px;
+  margin:30px 0 36px!important;
+  overflow:hidden;
+  border-radius:12px;
+  background:#e5e9ea;
+}
+
+.page [class*="benefitsVisual"] img{
+  object-fit:cover!important;
+  object-position:center!important;
+}
+
+.page [class*="benefitRows"]{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  border-top:1px solid #d7dedf!important;
+}
+
+.page [class*="benefitRows"] > article{
+  min-width:0!important;
+  min-height:150px;
+  display:grid!important;
+  grid-template-columns:38px minmax(0,1fr) 30px!important;
+  gap:14px!important;
+  align-items:start!important;
+  padding:22px 20px 22px 0!important;
+  border-bottom:1px solid #d7dedf!important;
+  background:transparent!important;
+}
+
+.page [class*="benefitRows"] > article:nth-child(odd){
+  border-right:1px solid #d7dedf!important;
+  padding-right:24px!important;
+}
+
+.page [class*="benefitRows"] > article:nth-child(even){
+  padding-left:24px!important;
+}
+
+.page [class*="benefitRows"] > article > span{
+  color:#8f5f2f!important;
+  font-size:.66rem!important;
+  font-weight:800!important;
+  letter-spacing:.14em!important;
+  line-height:1.35!important;
+}
+
+.page [class*="benefitRows"] > article > div{
+  min-width:0!important;
+}
+
+.page [class*="benefitRows"] > article h3{
+  margin:0 0 7px!important;
+  color:#102633!important;
+  font-size:.98rem!important;
+  line-height:1.3!important;
+  font-weight:720!important;
+}
+
+.page [class*="benefitRows"] > article p{
+  margin:0!important;
+  color:#5d707b!important;
+  font-size:.86rem!important;
+  line-height:1.58!important;
+}
+
+.page [class*="benefitRows"] > article > svg{
+  width:28px!important;
+  height:28px!important;
+  padding:6px;
+  border-radius:999px;
+  background:#f3efe8;
+  color:#8f5f2f!important;
+}
+
+@media(max-width:760px){
+  .page [class*="benefitsVisual"]{
+    aspect-ratio:16 / 9;
+    min-height:220px;
+    margin:24px 0 28px!important;
+  }
+
+  .page [class*="benefitRows"]{
+    grid-template-columns:1fr!important;
+  }
+
+  .page [class*="benefitRows"] > article,
+  .page [class*="benefitRows"] > article:nth-child(odd),
+  .page [class*="benefitRows"] > article:nth-child(even){
+    min-height:0;
+    border-right:0!important;
+    padding:18px 0!important;
+  }
+}
+
+/* Systems: valid local SVG schematics */
+.page [class*="systemGrid"] [class*="systemImage"]{
+  min-height:0!important;
+  aspect-ratio:5 / 3;
+  background-color:#f5f6f4!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:contain!important;
+  border-bottom:1px solid #d7dedf;
+}
+
+.page [class*="systemGrid"] [class*="systemImage"] img{
+  display:none!important;
+}
+
+.page [class*="systemGrid"] article:nth-child(1) [class*="systemImage"]{
+  background-image:url('/images/exterior-systems/acm-acp/attachment-systems/dry-reveal-acm-system.svg')!important;
+}
+.page [class*="systemGrid"] article:nth-child(2) [class*="systemImage"]{
+  background-image:url('/images/exterior-systems/acm-acp/attachment-systems/wet-seal-acm-system.svg')!important;
+}
+.page [class*="systemGrid"] article:nth-child(3) [class*="systemImage"]{
+  background-image:url('/images/exterior-systems/acm-acp/attachment-systems/face-fastened-acm-system.svg')!important;
+}
+.page [class*="systemGrid"] article:nth-child(4) [class*="systemImage"]{
+  background-image:url('/images/exterior-systems/acm-acp/attachment-systems/easyfix-acm-system.svg')!important;
+}
+
+/* Finishes: verified direct crops from official ALPOLIC colour chart */
+.page [class*="panelFinishes"]{
+  background:#f3efe8!important;
+}
+
+.page [class*="panelFinishes"] [class*="finishGrid"]{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:14px!important;
+  border:0!important;
+  margin-top:34px!important;
+  overflow:visible!important;
+}
+
+.page [class*="panelFinishes"] [class*="finishGrid"]::before{
+  display:none!important;
+  content:none!important;
+}
+
+.page [class*="panelFinishes"] [class*="finishGrid"] article{
+  padding:23px 24px 25px!important;
+  border:1px solid #d7dedf!important;
+  border-radius:14px;
+  background:rgba(255,255,255,.78)!important;
+  overflow:visible!important;
+}
+
+.page [class*="panelFinishes"] [class*="finishGrid"] h3{
+  margin-bottom:19px!important;
+  color:#102633!important;
+}
+
+.page [class*="panelFinishes"] [class*="swatches"]{
+  display:flex!important;
+  gap:14px!important;
+  flex-wrap:wrap!important;
+  align-items:center;
+  overflow:visible!important;
+  min-height:62px;
+}
+
+.page [class*="panelFinishes"] [class*="swatches"] > span{
+  position:relative;
+  z-index:1;
+  width:54px!important;
+  height:54px!important;
+  flex:0 0 54px;
+  display:block!important;
+  padding:0!important;
+  margin:0!important;
+  overflow:hidden!important;
+  border-radius:50%!important;
+  border:0!important;
+  outline:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  cursor:zoom-in;
+  transform:scale(1);
+  transform-origin:center;
+  transition:transform .2s ease!important;
+}
+
+.page [class*="panelFinishes"] [class*="swatches"] > span > i{
+  position:absolute!important;
+  inset:-4px!important;
+  z-index:1;
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:visible!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  pointer-events:none;
+}
+
+.page [class*="panelFinishes"] [class*="swatches"] > span > i > img{
+  position:absolute!important;
+  inset:0!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  min-width:100%!important;
+  min-height:100%!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  transform:scale(1.08);
+  pointer-events:none;
+}
+
+.page [class*="panelFinishes"] [class*="swatches"] > span:hover{
+  z-index:50!important;
+  transform:scale(2)!important;
+  box-shadow:none!important;
+}
+
+.page .acmFinishSources{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px 10px;
+  margin-top:24px;
+  padding:15px 17px;
+  border:1px solid #d7dedf;
+  border-radius:10px;
+  background:rgba(255,255,255,.62);
+}
+
+.page .acmFinishSources > span{
+  margin-right:2px;
+  color:#102633;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.02em;
+}
+
+.page .acmFinishSources > a{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  padding:6px 9px;
+  border:1px solid #d7dedf;
+  border-radius:999px;
+  background:#fff;
+  color:#596c77;
+  font-size:.68rem;
+  line-height:1;
+  font-weight:700;
+  text-decoration:none;
+  transition:border-color .18s ease,color .18s ease,background .18s ease;
+}
+
+.page .acmFinishSources > a:hover{
+  color:#d61f24;
+  border-color:#d61f24;
+  background:#fff;
+}
+
+@media(max-width:900px){
+  .page [class*="panelFinishes"] [class*="finishGrid"]{
+    grid-template-columns:1fr!important;
+  }
+}
+
+@media(max-width:1120px){
+  .page [class*="overviewGrid"]{
+    grid-template-columns:1fr;
+    gap:36px;
+  }
+  .page [class*="overviewGrid"] [class*="figure"]{
+    margin-top:0;
+    min-height:370px;
+  }
+}
+
+@media(max-width:760px){
+  .page [class*="overviewGrid"] h2,
+  .page [class*="panel"] > div > h2{
+    max-width:540px!important;
+    font-size:clamp(1.65rem,7vw,2.15rem)!important;
+    line-height:1.16!important;
+    margin-bottom:20px!important;
+  }
+  .page [class*="overviewGrid"] > div:first-child > p:not([class*="kicker"]):not([class*="scopeNote"]){
+    font-size:.94rem;
+    line-height:1.68;
+  }
+  .page [class*="panel"] > div > [class*="sectionNote"],
+  .page [class*="panel"] > div > [class*="projectsIntro"]{
+    font-size:.94rem!important;
+    line-height:1.66!important;
+  }
+  .page [class*="scopeNote"]{
+    margin-top:22px!important;
+    padding:15px 16px 15px 18px;
+  }
+  .page [class*="overviewGrid"] [class*="figure"]{
+    min-height:300px;
+  }
+  .page [class*="panelBenefits"] [class*="featureGrid"]{
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+  }
+  .page [class*="panelBenefits"] [class*="featureGrid"] article{
+    min-height:0!important;
+    padding:21px!important;
+  }
+  .page [class*="panelFinishes"] [class*="finishGrid"]{
+    grid-template-columns:1fr!important;
+  }
+  .page [class*="panelFinishes"] [class*="finishGrid"]::before{
+    min-height:210px;
+  }
+  .page [class*="panelFinishes"] [class*="swatches"] > span{
+    width:48px!important;
+    height:48px!important;
+  }
+}
