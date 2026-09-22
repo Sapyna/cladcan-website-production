@@ -10,6 +10,17 @@ export const metadata={
 
 const projects=[
   {
+    title:"Brunett Exterior Cladding",
+    location:"North York, ON",
+    type:"Residential",
+    tags:["Residential"],
+    systems:["Exterior Cladding"],
+    image:"/images/projects/brunett-north-york/brunett-north-york-exterior-cladding-01.webp",
+    href:"/projects/brunett-north-york",
+    summary:"A North York residential exterior cladding project with clean contemporary detailing.",
+    photoCount:7
+  },
+  {
     title:"Romney Road ACM Residence",
     location:"North York, ON",
     type:"Residential",
