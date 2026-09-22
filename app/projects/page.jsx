@@ -10,6 +10,17 @@ export const metadata={
 
 const projects=[
   {
+    title:"Broadway Avenue Exterior",
+    location:"North York, ON",
+    type:"Residential",
+    tags:["Residential"],
+    systems:["Exterior Cladding"],
+    image:"/images/projects/broadway-avenue-north-york/broadway-avenue-north-york-exterior-cladding-01.webp",
+    href:"/projects/broadway-avenue-north-york",
+    summary:"A residential exterior cladding project on Broadway Avenue in North York, featuring clean contemporary façade detailing.",
+    photoCount:7
+  },
+  {
     title:"Green Valley ACM Residence",
     location:"North York, ON",
     type:"Residential",
