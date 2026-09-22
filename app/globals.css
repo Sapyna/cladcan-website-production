@@ -7199,3 +7199,13 @@ body:not(.home) .siteHeader + main,
 .homeServiceV51:hover strong svg{transform:translate(2px,-2px)}
 @media(max-width:1000px){.homeServicesV51Head{grid-template-columns:1fr;gap:25px}.homeServicesV51Grid{grid-template-columns:1fr 1fr}.homeServiceV51:nth-child(3){border-left:1px solid #ccd3d5;border-top:1px solid #ccd3d5}.homeServiceV51:nth-child(4){border-top:1px solid #ccd3d5}}
 @media(max-width:620px){.homeServicesV51{padding:70px 0}.homeServicesV51Head{padding-bottom:34px}.homeServicesV51Head h2{font-size:42px}.homeServicesV51Grid{grid-template-columns:1fr}.homeServiceV51,.homeServiceV51:first-child,.homeServiceV51:nth-child(3){min-height:250px;border-left:1px solid #ccd3d5;border-right:1px solid #ccd3d5;border-top:1px solid #ccd3d5}.homeServiceV51:first-child{border-top:0}.homeServiceV51 h3{margin-top:42px}}
+
+
+/* ===== v52 — Core services typography consistency ===== */
+.homeServicesV51Head h2 span{
+  color:#687b85;
+  font-family:Arial,Helvetica,sans-serif;
+  font-weight:800;
+  font-style:normal;
+  letter-spacing:-.055em;
+}
