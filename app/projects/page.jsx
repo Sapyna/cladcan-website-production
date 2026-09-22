@@ -10,6 +10,17 @@ export const metadata={
 
 const projects=[
   {
+    title:"George Henry ACM Residence",
+    location:"North York, ON",
+    type:"Residential",
+    tags:["Residential"],
+    systems:["ACM Panel"],
+    image:"/images/projects/george-henry-north-york/george-henry-north-york-exterior-cladding-01.webp",
+    href:"/projects/george-henry-north-york",
+    summary:"A North York residential ACM cladding project documented through completed project photography.",
+    photoCount:15
+  },
+  {
     title:"Upper Canada Exterior",
     location:"North York, ON",
     type:"Residential",
