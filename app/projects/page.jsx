@@ -10,6 +10,17 @@ export const metadata={
 
 const projects=[
   {
+    title:"Glenpark Exterior Cladding",
+    location:"North York, ON",
+    type:"Residential",
+    tags:["Residential"],
+    systems:["Exterior Cladding"],
+    image:"/images/projects/glenpark-north-york/glenpark-north-york-exterior-cladding-01.webp",
+    href:"/projects/glenpark-north-york",
+    summary:"A North York residential exterior cladding project with clean contemporary detailing.",
+    photoCount:8
+  },
+  {
     title:"Brunett Exterior Cladding",
     location:"North York, ON",
     type:"Residential",
